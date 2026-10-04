@@ -1,4 +1,5 @@
 """Punto de entrada para consultar el dataset BirdCLEF descargado localmente."""
+#Recuerda descargar el dataset BirdCLEF+ 2025 desde https://www.kaggle.com/competitions/birdclef-2025/data y colocarlo en la carpeta src/data/raw.
 
 import argparse
 

@@ -9,19 +9,18 @@ Este proyecto forma parte de **Proyecto 1 de Innovación Tecnológica** de la Ma
 
 ## Miembros del equipo
 
-**Líder del equipo: [Nombre completo](https://github.com/[usuario])(@slackHandle)**
+| Codigo | Nombre | Correo | Usuario |
+|--------|--------|--------|---------|
+| A00431864 | Juan Fernando Gutierrez | juanfer_99@hotmail.com | https://github.com/DaddyJuanFer |
+| | Miguel Angel Paz | | https://github.com/SirPeace12 | 
+| | Carlos Salamando | karlos75@gmail.com | https://github.com/csalamando |
+| A00160224 | Veronica Serna | veroserna@gmail.com | https://github.com/veroserna/ |
+		
 **Instructor: [Nombre completo](https://github.com/[usuario])(@slackHandle)**
-
-#### Otros integrantes:
-
-| Nombre | Correo |
-|--------|--------|
-| [Nombre completo](https://github.com/[usuario]) | @usuario |
-| [Nombre completo](https://github.com/[usuario]) | @usuario |
 
 ## Contacto
 
-* Si tienes preguntas o deseas contribuir, puedes comunicarte con el líder del equipo o con el instructor.
+* Si tienes preguntas o deseas contribuir, puedes comunicarte con los miembros del equipo o con el instructor.
 
 ## Introducción y objetivo
 
