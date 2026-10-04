@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Entorno y configuración local
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Datos descargados y derivados: conservar solo los marcadores de estructura
+src/data/raw/*
+!src/data/raw/.gitkeep
+src/data/processed/*
+!src/data/processed/.gitkeep
+src/data/features/*
+!src/data/features/.gitkeep
+
+# Artefactos generados
+experiments/logs/*
+!experiments/logs/.gitkeep
+experiments/checkpoints/*
+!experiments/checkpoints/.gitkeep
+experiments/results/*
+!experiments/results/.gitkeep
+*.pkl
+*.joblib
+*.model
