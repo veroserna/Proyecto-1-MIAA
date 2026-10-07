@@ -5,18 +5,18 @@ ________________________________________________________________________________
 
 Este proyecto forma parte de **Proyecto 1 de Innovación Tecnológica** de la Maestría en Inteligencia Artificial Aplicada de la Universidad Icesi, Cali, Colombia.
 
-#### -- Estado del proyecto: Activo
+#### Estado del proyecto: Activo
 
 ## Miembros del equipo
 
 | Codigo | Nombre | Correo | Usuario |
 |--------|--------|--------|---------|
 | A00431864 | Juan Fernando Gutierrez | juanfer_99@hotmail.com | https://github.com/DaddyJuanFer |
-| | Miguel Angel Paz | | https://github.com/SirPeace12 | 
-| | Carlos Salamando | karlos75@gmail.com | https://github.com/csalamando |
+| A00435031 | Miguel Angel Paz | miguelangelpazvelasco@gmail.com| https://github.com/SirPeace12 | 
+| A0368216 | Carlos Salamando | karlos75@gmail.com | https://github.com/csalamando |
 | A00160224 | Veronica Serna | veroserna@gmail.com | https://github.com/veroserna/ |
 		
-**Instructor: [Nombre completo](https://github.com/[usuario])(@slackHandle)**
+**Instructor:  Milton Orlando Sarria Paja | mosarria@icesi.edu.co
 
 ## Contacto
 
@@ -152,7 +152,7 @@ Este flujo permite separar claramente:
 1. Clona este repositorio.
 2. Crea un entorno virtual o conda.
 3. Instala las dependencias con `pip install -r requirements.txt`.
-4. Descarga los datos en tu entorno local.  `kaggle competitions download -c birdclef-2025`
+4. Descarga los datos en tu entorno local.  `kaggle competitions download -c birdclef-2025` en la ruta `src/data/raw`
 5. Explora la estructura del proyecto en `src/` y revisa la documentación en `docs/`.
 6. Usa los notebooks en `notebooks/` para experimentación y análisis exploratorio.
 
@@ -164,3 +164,8 @@ Este flujo permite separar claramente:
 * [Guía de instalación](./docs/instalacion.md)
 
 
+## Glosario
+* **MFCC (Coeficientes Cepstrales en las Frecuencias Mel)** son parámetros que representan el espectro de potencia a corto plazo de un sonido, simulando la forma en que el oído humano percibe el audio. Son fundamentales en el reconocimiento de voz y procesamiento de audio.
+* Un **espectrograma** es una imagen que muestra cómo es un sonido, representando sus frecuencias, volumen y duración en un solo gráfico.
+* **Modelo SVM (Support Vector Machine)** o máquina de vectores de soporte es un algoritmo de aprendizaje automático supervisado que sirve para resolver problemas de clasificación y de regresión.
+* **Modelo de ensamble (ensemble model)** en Machine Learning es una técnica que combina múltiples algoritmos o modelos individuales (aprendices base) para generar una predicción final más precisa, estable y robusta que la de cualquier modelo por separado.
