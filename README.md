@@ -161,6 +161,7 @@ Este flujo permite separar claramente:
 * [Notebook de exploración](./notebooks/experiment_1.ipynb)
 * [Documentación del proyecto](./docs/README.md)
 * [Arquitectura del proyecto](./docs/arquitectura.md)
+* [Plan de trabajo, fechas y responsables](./docs/plan_trabajo.md)
 * [Guía de instalación](./docs/instalacion.md)
 
 
@@ -169,3 +170,4 @@ Este flujo permite separar claramente:
 * Un **espectrograma** es una imagen que muestra cómo es un sonido, representando sus frecuencias, volumen y duración en un solo gráfico.
 * **Modelo SVM (Support Vector Machine)** o máquina de vectores de soporte es un algoritmo de aprendizaje automático supervisado que sirve para resolver problemas de clasificación y de regresión.
 * **Modelo de ensamble (ensemble model)** en Machine Learning es una técnica que combina múltiples algoritmos o modelos individuales (aprendices base) para generar una predicción final más precisa, estable y robusta que la de cualquier modelo por separado.
+* **SNR** Relación Señal-Ruido (SNR, por sus siglas en inglés Signal-to-Noise Ratio) en audio es la medida que compara la potencia de una señal de audio deseada (como música o voz) con la potencia del ruido de fondo no deseado (como zumbidos, estática o interferencias)
