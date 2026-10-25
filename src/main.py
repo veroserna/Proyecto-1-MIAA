@@ -1,5 +1,6 @@
 """Punto de entrada principal del proyecto MIAA (BirdCLEF+ 2025)."""
 
+import argparse
 import os
 import sys
 
@@ -15,10 +16,13 @@ from src.data.preprocess import (
     export_hito1_artifacts,
     load_enriched_metadata,
 )
+from src.training.preprocessing.hito2_audio_conditioning import (
+    run_hito2_conditioning_pipeline,
+)
 from src.utils.helpers import print_header
 
 
-def main():
+def run_hito1() -> None:
     print_header("Proyecto 1 MIAA — BirdCLEF+ 2025 (Hito 1: EDA y Subconjunto Magdalena Medio)")
     df, tax = load_enriched_metadata()
     sp_summary = build_species_summary(df, tax)
@@ -29,6 +33,27 @@ def main():
     print(f"Especies elegibles (E1-E5) : {int(sp_summary['eligible'].sum())}")
     print(f"Subconjunto seleccionado   : {len(sp_sel)} especies | {len(sub_rec):,} grabaciones | {sub_rec['duration_s'].sum()/3600:.1f} h")
     print(f"Particiones (split)        : {sub_rec['split'].value_counts().sort_index().to_dict()}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Pipeline principal BirdCLEF+ 2025 (MIAA Universidad Icesi)")
+    parser.add_argument(
+        "--stage",
+        choices=["hito1", "hito2", "all"],
+        default="all",
+        help="Etapa del pipeline a ejecutar (por defecto: all).",
+    )
+    parser.add_argument(
+        "--no-wav",
+        action="store_true",
+        help="En Hito 2, calcula metadatos y métricas de clips sin reescribir archivos .wav.",
+    )
+    args = parser.parse_args()
+
+    if args.stage in ("hito1", "all"):
+        run_hito1()
+    if args.stage in ("hito2", "all"):
+        run_hito2_conditioning_pipeline(save_wav=not args.no_wav)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,4 @@
+quality_tier,n_clips,pct_clips,median_dbfs,median_snr_db,median_inband_ratio,mean_clipping_ratio
+high,11664,56.22,-27.9815,17.599,0.9945,0.0
+medium,7411,35.72,-41.279,6.962,0.9114,0.0001
+low,1673,8.06,-55.342,5.941,0.7777,0.0

@@ -1,0 +1,4 @@
+partition,n_recordings,n_clips,pct_clips,hours_audio,n_authors,n_species,min_clips_per_species,max_clips_per_species,max_min_ratio,gini_clips,median_snr_db
+train,4633,14296,68.9,19.86,844,16,331,1948,5.89,0.279,13.33
+val,1161,3597,17.34,5.0,205,16,75,478,6.37,0.288,13.95
+test,965,2855,13.76,3.97,177,16,75,346,4.61,0.266,13.08

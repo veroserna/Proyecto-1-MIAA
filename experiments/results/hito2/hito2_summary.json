@@ -1,0 +1,40 @@
+{
+  "elapsed_seconds": 244.74,
+  "audit": {
+    "n_recordings_expected": 6759,
+    "n_species_expected": 16,
+    "n_files_existing": 6759,
+    "n_files_missing": 0,
+    "n_ok_ogg_header": 6759,
+    "n_eos_complete": 6756,
+    "n_sr_32khz": 6759,
+    "n_mono_1ch": 6759,
+    "n_valid_primary_label": 6759,
+    "min_duration_s": 1.0,
+    "median_duration_s": 22.531,
+    "max_duration_s": 1509.989,
+    "total_raw_hours": 71.404,
+    "n_short_lt_5s": 425,
+    "n_ge_5s": 6334,
+    "n_with_secondary_labels": 453
+  },
+  "leakage": {
+    "shared_recs_train_val": 0,
+    "shared_recs_train_test": 0,
+    "shared_recs_val_test": 0,
+    "shared_authors_train_val": 0,
+    "shared_authors_train_test": 0,
+    "shared_authors_val_test": 0,
+    "recordings_split_across_partitions": 0
+  },
+  "n_candidate_windows_total": 36939,
+  "n_selected_clips_total": 20748,
+  "total_conditioned_hours": 28.82,
+  "gini_recordings": 0.284,
+  "gini_clips": 0.279,
+  "max_min_ratio_clips": 5.76,
+  "mean_inband_energy_pct": 78.65,
+  "mean_outofband_removed_pct": 21.35,
+  "median_clip_snr_db": 13.4,
+  "median_clip_dbfs": -33.05
+}

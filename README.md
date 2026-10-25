@@ -158,8 +158,10 @@ Este flujo permite separar claramente:
 
 ## Notebooks y entregables destacados
 
-* [Notebook de exploración](./notebooks/experiment_1.ipynb)
-* [Documentación del proyecto](./docs/README.md)
+* [Notebook Hito 1 — EDA y selección de 16 especies del Magdalena Medio](./notebooks/experiment_1.ipynb)
+* [Notebook Hito 2 — Pipeline de acondicionamiento de audio (32 kHz, filtro pasa-banda, clips 5s y particiones)](./notebooks/experiment_2.ipynb)
+* [Informe técnico Hito 1 (EDA)](./docs/hito1_eda_report.md)
+* [Informe técnico Hito 2 (Acondicionamiento y Clips 5s)](./docs/hito2_acondicionamiento_report.md)
 * [Arquitectura del proyecto](./docs/arquitectura.md)
 * [Plan de trabajo, fechas y responsables](./docs/plan_trabajo.md)
 * [Guía de instalación](./docs/instalacion.md)

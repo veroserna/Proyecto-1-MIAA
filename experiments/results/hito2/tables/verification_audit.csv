@@ -1,0 +1,17 @@
+,value
+n_recordings_expected,6759.0
+n_species_expected,16.0
+n_files_existing,6759.0
+n_files_missing,0.0
+n_ok_ogg_header,6759.0
+n_eos_complete,6756.0
+n_sr_32khz,6759.0
+n_mono_1ch,6759.0
+n_valid_primary_label,6759.0
+min_duration_s,1.0
+median_duration_s,22.531
+max_duration_s,1509.989
+total_raw_hours,71.404
+n_short_lt_5s,425.0
+n_ge_5s,6334.0
+n_with_secondary_labels,453.0
