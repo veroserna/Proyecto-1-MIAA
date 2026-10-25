@@ -269,19 +269,49 @@ print(f"¿Coinciden las 206 especies en los 3?: {sub_labels == tax_labels == tra
 df_raw.head(5)
 """),
     ("md", """
-### 1.2 Cálculo de la duración e integridad física leyendo cabeceras binarias OGG Vorbis (`train_audio`)
-El archivo `train.csv` **no trae la duración de cada audio**. Decodificar las 28 564 grabaciones completas con `librosa.load` tomaría mucho tiempo y memoria, porque descomprimiría 280,5 horas de señal PCM. En cambio, el formato contenedor **OGG Vorbis** (especificación RFC 3533) guarda en sus cabeceras toda la información necesaria:
+### 1.2 Cómo funciona por dentro el formato OGG Vorbis y por qué leemos los primeros 512 bytes y los últimos 64 KB (`65 536` bytes)
 
-1. **Primera página OGG (`Identification Header`):** Dentro de los primeros 512 bytes aparece la firma `"OggS"` seguida del marcador Vorbis `b"\\x01vorbis"`. Exactamente:
-   - En el byte `idx + 11` está el **número de canales** (`1` = mono, `2` = estéreo).
-   - En los 4 bytes `idx + 12 : idx + 16` (entero sin signo de 32 bits *little-endian*, `"<I"`) está la **frecuencia de muestreo** `sample_rate` en Hz (por ejemplo, `32000`).
-2. **Última página OGGal final del archivo:** En los últimos 64 KB del archivo buscamos de atrás hacia adelante (`rfind`) la última cabecera `"OggS"`:
-   - En el byte `pos + 5` verificamos la máscara `0x04`, que corresponde al bit **`EOS` (*End-Of-Stream*)** e indica si el flujo OGG cerró limpiamente.
-   - En los 8 bytes `pos + 6 : pos + 14` (entero con signo de 64 bits *little-endian*, `"<q"`) está el **`granule_position`**, que es el número exacto de muestras PCM acumuladas hasta el final del audio.
-3. **Cálculo de la duración exacta:**
-   $$\\text{duration\\_s} = \\frac{\\text{granule\\_position}}{\\text{sample\\_rate}}$$
+El archivo `train.csv` **no incluye la duración de las grabaciones**. Si intentáramos abrir y decodificar los 28 564 archivos completos con `librosa.load()`, tendríamos que descomprimir **280,5 horas de audio PCM** en memoria RAM (más de $3.2 \\times 10^{10}$ muestras), lo cual tardaría decenas de minutos.
 
-Esta misma función está guardada y documentada en [`src/utils/helpers.py`](../src/utils/helpers.py) (`ogg_header_info` y `batch_ogg_header_info`).
+Sin embargo, todos los archivos de BirdCLEF+ 2025 están almacenados en el contenedor estándar **OGG Vorbis** (definido por la IETF en el **RFC 3533** y la especificación **Xiph.Org Vorbis I**). Entender su estructura binaria nos permite obtener la duración exacta, la frecuencia de muestreo (`sample_rate`), el número de canales (`channels`) y la integridad del archivo leyendo únicamente **dos pequeños bloques de bytes por archivo**:
+
+---
+
+#### A. ¿Qué es una página OGG (`OggS`) y por qué `OGG_TAIL_BYTES = 65536` (64 KB)?
+Un archivo `.ogg` no es un bloque continuo, sino una secuencia de bloques llamados **páginas OGG**. Según el estándar **RFC 3533 (Sección 6, *The Ogg page format*)**, toda página OGG tiene la siguiente estructura exacta de bytes:
+
+| Offset en la página | Tamaño | Tipo (`struct`) | Campo del estándar RFC 3533 | ¿Qué significa y para qué lo usamos? |
+|---|---|---|---|---|
+| `pos + 0 .. pos + 3` | 4 bytes | `b"OggS"` | `capture_pattern` | Firma mágica en ASCII que identifica el inicio de toda página OGG. |
+| `pos + 4` | 1 byte | `uint8` | `stream_structure_version` | Versión del formato OGG (siempre `0x00`). |
+| `pos + 5` | 1 byte | `uint8` | `header_type_flag` | Máscara de bits: `0x02` = primera página (*BOS*), **`0x04` = última página del archivo (*EOS*, End-Of-Stream)**. |
+| `pos + 6 .. pos + 13` | 8 bytes | `int64` LE (`"<q"`) | **`granule_position`** | **Total acumulado de muestras de audio (PCM) codificadas desde el segundo 0 hasta el final de esta página.** (Si es `-1`, la página no termina ningún paquete). |
+| `pos + 14 .. pos + 25` | 12 bytes | `uint32` $\\times 3$ | `serial`, `seq_no`, `crc` | Número de serie del flujo, número de página y suma de verificación CRC32. |
+| `pos + 26` | 1 byte | `uint8` | `page_segments` ($N_{\\text{seg}}$) | Cantidad de segmentos que contiene la página: como es 1 byte sin signo, **su valor máximo posible es `255`**. |
+| `pos + 27 .. pos + 27 + N_seg` | $N_{\\text{seg}}$ bytes | `uint8[]` | `segment_table` | Tabla con el tamaño de cada segmento; cada segmento mide como máximo **`255` bytes**. |
+
+> **¿De dónde sale `OGG_TAIL_BYTES = 65536` (64 KB)?**  
+> De la tabla anterior se deduce el **tamaño máximo matemático que puede tener una página OGG en cualquier archivo del mundo**:
+> $$\\text{Tamaño máx. página OGG} = \\underbrace{27\\text{ B}}_{\\text{cabecera fija}} + \\underbrace{255\\text{ B}}_{\\text{tabla de } 255 \\text{ seg.}} + \\underbrace{255 \\times 255\\text{ B}}_{\\text{datos de los } 255 \\text{ seg.}} = 27 + 255 + 65\\,025 = \\mathbf{65\\,307\\text{ bytes}}$$
+> Como $65\\,307\\text{ bytes} < 65\\,536\\text{ bytes}$ ($64\\text{ KB} = 2^{16}\\text{ B}$), **saltar directamente con `fh.seek(size - 65536)` a los últimos 64 KB del archivo garantiza con certeza matemática del 100 % que la última página `OggS` estará completa dentro de ese bloque `tail`**, sin importar si el audio dura 2 segundos o 30 minutos.
+
+---
+
+#### B. ¿Dónde están los canales y la frecuencia de muestreo (`sample_rate`)? El *Vorbis Identification Header*
+Según la especificación **Vorbis I (Sección 4.2.2)**, el primer paquete dentro de la primera página OGG (en los primeros 512 bytes del archivo) es siempre el **encabezado de identificación Vorbis**, que comienza con el byte `0x01` seguido de la palabra `"vorbis"` (`b"\\x01vorbis"`). Si `idx` es la posición donde empieza `b"\\x01vorbis"`:
+
+| Offset desde `idx` | Tamaño | Tipo (`struct`) | Campo Vorbis I Spec | Valor en BirdCLEF+ 2025 |
+|---|---|---|---|---|
+| `idx + 0 .. idx + 6` | 7 bytes | `b"\\x01vorbis"` | `packet_type` + `"vorbis"` | Firma del encabezado de identificación (`1 + 6 = 7` bytes). |
+| `idx + 7 .. idx + 10` | 4 bytes | `uint32` LE (`"<I"`) | `vorbis_version` | Versión del códec Vorbis (`0`). Por eso saltamos los bytes `7, 8, 9, 10`. |
+| **`idx + 11`** | **1 byte** | `uint8` | **`audio_channels`** | **Número de canales de audio (`1` = mono, `2` = estéreo).** |
+| **`idx + 12 .. idx + 15`** | **4 bytes** | `uint32` LE (`"<I"`) | **`audio_sample_rate`** | **Frecuencia de muestreo $f_s$ en Hz (`32000` muestras/segundo).** |
+
+---
+
+#### C. Fórmula exacta de la duración
+Con el `granule_position` de la última página ($N_{\\text{muestras}}$ totales del archivo) y el `sample_rate` de la primera página ($f_s$ en muestras/segundo), la duración exacta en segundos es simplemente:
+$$\\text{duration\\_s} = \\frac{\\text{granule\\_position}}{\\text{sample\\_rate}} = \\frac{N_{\\text{muestras}}}{f_s}$$
 """),
     ("code", """
 # ==============================================================================
@@ -363,15 +393,27 @@ print(f"Archivos sin bit EOS  : {(~dur_df['eos']).sum()} (recortes de origen en 
 dur_df.head(5)
 """),
     ("md", """
-### 1.3 Limpieza de Columnas de Texto y Cálculo de Distancia Geográfica (Haversine)
-En esta celda enriquecemos la tabla principal `df` realizando tres operaciones fundamentales (también disponibles en [`src/utils/helpers.py`](../src/utils/helpers.py)):
-1. **`parse_list_field(raw_value)`:** En `train.csv`, las columnas `secondary_labels` y `type` vienen guardadas como cadenas que representan listas de Python (ej. `"['grekis', 'roahaw']"`). Cuando no hay etiquetas secundarias, el string es `"['']"` (una lista con un string vacío, cuya longitud sería 1 si no se limpia). Con `ast.literal_eval` convertimos el texto en lista real y filtramos cualquier string vacío `""`.
-2. **`haversine_km(lat, lon)`:** Calcula de forma vectorizada con `numpy` la distancia sobre la esfera terrestre ($R = 6371\\text{ km}$) entre las coordenadas (`latitude`, `longitude`) de cada grabación y la Reserva Natural *El Silencio* ($\\phi_0 = 6.76^\\circ,\\; \\lambda_0 = -74.21^\\circ$):
-   $$d = 2 R \\arcsin\\!\\left(\\sqrt{\\sin^2\\!\\left(\\frac{\\phi - \\phi_0}{2}\\right) + \\cos(\\phi)\\cos(\\phi_0)\\sin^2\\!\\left(\\frac{\\lambda - \\lambda_0}{2}\\right)}\\right)$$
-3. **Banderas geográficas y de calidad:**
-   - `regional`: `True` si la grabación fue tomada a $\\le 300\\text{ km}$ de *El Silencio* (Valle del Magdalena Medio y cordilleras adyacentes).
-   - `colombia`: `True` si cae dentro de la caja delimitadora de Colombia.
-   - `rated`: `True` si `rating > 0` (es decir, si tiene calificación de calidad en Xeno-Canto).
+### 1.3 Fundamento y Lógica de `parse_list_field` y `haversine_km` (Enriquecimiento del Metadata)
+
+Antes de ejecutar la celda de código, documentamos de dónde sale la lógica de las dos funciones que transforman `train.csv`:
+
+#### A. ¿Por qué necesitamos `parse_list_field(raw_value)` con `ast.literal_eval`?
+En `train.csv`, las columnas `secondary_labels` (otras especies que suenan al fondo) y `type` (tipo de vocalización: canto, llamado, vuelo, etc.) vienen guardadas como **texto plano que imita la sintaxis de una lista de Python**. Por ejemplo:
+- Cuando hay especies secundarias: `"['grekis', 'roahaw']"`
+- Cuando **NO** hay especies secundarias: `"['']"` (un string de 4 caracteres que adentro tiene comillas vacías).
+
+> **Trampa común que evita esta función:** Si alguien evalúa `ast.literal_eval("['']")` sin filtrar, obtiene la lista `['']` que tiene **1 elemento** (el string vacío `""`), por lo que `len([''])` da `1` en vez de `0`. Nuestra función usa `ast.literal_eval` (evaluador seguro del árbol sintáctico de Python que solo acepta literales como listas y strings, sin riesgo de ejecutar código arbitrario como `eval()`) y luego filtra `[str(x).strip() for x in ... if x and str(x).strip()]`, devolviendo `[]` (longitud `0`) cuando no hay etiquetas.
+
+#### B. ¿De dónde sale la fórmula de `haversine_km(lat, lon)`?
+Para medir el **cambio de dominio geográfico (*Domain Shift*)** necesitamos la distancia real en kilómetros desde cada grabación $(\\phi, \\lambda)$ hasta la Reserva Natural *El Silencio* en Yondó, Antioquia ($\\phi_0 = 6.76^\\circ\\text{ N},\\; \\lambda_0 = -74.21^\\circ\\text{ W}$).
+- No se puede usar distancia euclidiana $\\sqrt{(\\Delta\\text{lat})^2 + (\\Delta\\text{lon})^2}$ porque los meridianos convergen hacia los polos y las grabaciones abarcan desde Canadá hasta la Patagonia.
+- Aplicamos la **fórmula del semiverseno (Haversine)** de trigonometría esférica (con radio medio terrestre $R = 6371\\text{ km}$):
+  1. Primero convertimos grados decimales a radianes con `np.radians`: $\\Delta\\phi = \\phi - \\phi_0$ y $\\Delta\\lambda = \\lambda - \\lambda_0$.
+  2. Calculamos el cuadrado de la mitad de la cuerda entre ambos puntos en la esfera unitaria:
+     $$a = \\sin^2\\!\\left(\\frac{\\Delta\\phi}{2}\\right) + \\cos(\\phi)\\cos(\\phi_0)\\sin^2\\!\\left(\\frac{\\Delta\\lambda}{2}\\right)$$
+  3. Convertimos la cuerda en longitud de arco sobre la esfera de radio $R = 6371\\text{ km}$:
+     $$d = 2 R \\arcsin\\!\\left(\\sqrt{a}\\right)$$
+- Con esa distancia $d$ definimos `regional = (dist_km <= 300.0)` para identificar grabaciones capturadas en el Valle del Magdalena Medio y vertientes andinas cercanas.
 """),
     ("code", """
 # ==============================================================================
@@ -606,14 +648,17 @@ plt.show()
 """),
     ("md", """
 ---
-## 4. Tabla Maestra de las 206 Especies, Desbalance Global (Gini) y Análisis de `train_soundscapes`
+## 4. Tabla Maestra de las 206 Especies, Desbalance Global (Coeficiente de Gini) y Análisis de `train_soundscapes`
 
-### 4.1 Construcción de `sp_summary` y cuantificación del desbalance y distancia geográfica
-En la celda siguiente:
-1. Implementamos la función `gini_coefficient(values)` (también documentada en [`src/utils/helpers.py`](../src/utils/helpers.py)), que mide la desigualdad en el número de grabaciones entre especies:
-   $$G = \\frac{\\sum_{i=1}^{N} (2i - N - 1)\\, x_{(i)}}{N \\sum_{i=1}^{N} x_{(i)}}$$
-   donde $x_{(1)} \\le x_{(2)} \\le \\dots \\le x_{(N)}$ son los conteos de grabaciones ordenados de menor a mayor.
-2. Construimos el DataFrame `sp_summary` agrupando las 28 564 grabaciones por `primary_label` para obtener las métricas completas de cada una de las **206 especies**.
+### 4.1 ¿De dónde sale la función `gini_coefficient(values)` y qué calcula `sp_summary`?
+
+Para documentar rigurosamente el desbalance entre especies usamos dos indicadores complementarios:
+1. **Razón de desbalance (`máximo / mínimo`):** divide el número de grabaciones de la especie más frecuente (`grekis` = 990) entre la menos frecuente (2 grabaciones), dando **495:1**. Es intuitiva, pero solo usa 2 de las 206 especies.
+2. **Coeficiente de Gini (`gini_coefficient`):** mide la desigualdad acumulada considerando **las 206 especies simultáneamente** (el área entre la recta de equidad perfecta a $45^\\circ$ y la curva de Lorenz de grabaciones acumuladas):
+   - Primero se ordena el vector de conteos de menor a mayor: $x_{(1)} \\le x_{(2)} \\le \\dots \\le x_{(N)}$, donde $i \\in \\{1, 2, \\dots, N\\}$ es la posición (*rank*) de cada especie.
+   - Luego se aplica la fórmula discreta de Gini:
+     $$G = \\frac{\\sum_{i=1}^{N} (2i - N - 1)\\, x_{(i)}}{N \\sum_{i=1}^{N} x_{(i)}}$$
+   - **¿Por qué aparece el peso $(2i - N - 1)$?** Porque a las especies con menos grabaciones ($i$ pequeño) les asigna pesos negativos y a las especies con más grabaciones ($i$ cercano a $N$) pesos positivos; si todas las especies tienen el mismo número de grabaciones $c$, la suma de $(2i - N - 1)$ da exactamente $0$ ($G = 0.0$, igualdad perfecta). Si una sola especie acapara casi todos los audios, $G \\to 1.0$.
 """),
     ("code", """
 # ==============================================================================

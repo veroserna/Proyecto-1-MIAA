@@ -1,8 +1,7 @@
-,n_species
-Total especies,206
-E1 Aves,146
-E2 + >= 120 grabaciones,75
-E3 + >= 60 con rating>=4,73
-E4 + >= 40 autores,73
-E5 + >= 10 regionales,57
-Seleccionadas (R1-R5),16
+Paso_del_embudo,Especies_que_cumplen
+0. Total inicial de especies en BirdCLEF+ 2025,206
+1. E1: Clase Aves,146
+2. E2: + >= 120 grabaciones totales,75
+3. E3: + >= 60 grabaciones con rating >= 4.0,73
+4. E4: + >= 40 autores distintos,73
+5. E5: + >= 10 grabaciones regionales (<= 300 km),57

@@ -1,14 +1,17 @@
-"""Funciones auxiliares, matemáticas, geográficas y de inspección de audio compartidas en el proyecto MIAA.
+"""Funciones auxiliares, matemáticas, geográficas y de inspección binaria de audio (Proyecto 1 MIAA).
 
-Este módulo (`src/utils/helpers.py`) concentra las funciones reutilizables utilizadas en el
-notebook `notebooks/experiment_1.ipynb` y en los pipelines de `src/data/` y `src/evaluation/`:
-- Formateo de encabezados de consola (`print_header`).
-- Lectura binaria rápida de cabeceras OGG Vorbis sin decodificar el flujo PCM (`ogg_header_info`,
-  `batch_ogg_header_info`).
-- Limpieza de listas serializadas en texto dentro de `train.csv` (`parse_list_field`).
-- Cálculo de distancia ortodrómica Haversine hacia la Reserva Natural El Silencio (`haversine_km`).
-- Cálculo del coeficiente de desigualdad de Gini para evaluar desbalance de clases (`gini_coefficient`).
-- Parseo de metadatos implícitos en los nombres de archivo de `train_soundscapes` (`parse_soundscape_filename`).
+Este módulo (`src/utils/helpers.py`) concentra y documenta exhaustivamente las funciones
+utilizadas tanto en el notebook `notebooks/experiment_1.ipynb` como en los módulos
+`src/data/audio_loader.py` y `src/data/preprocess.py`.
+
+Incluye la fundamentación teórica y de formato de bytes para:
+1. Lector binario de contenedores **OGG Vorbis (RFC 3533 + Vorbis I spec)**: por qué se leen
+   los primeros 512 bytes y los últimos 64 KB (`65 536` bytes), y de dónde salen los offsets
+   exactos (`+5`, `+6..+14`, `+11`, `+12..+16`).
+2. Limpieza de listas serializadas como texto en `train.csv` (`parse_list_field`).
+3. Geometría esférica y fórmula de **Haversine** (`haversine_km`) hacia la Reserva *El Silencio*.
+4. Índice de concentración de **Gini** (`gini_coefficient`) para medir desbalance entre clases.
+5. Parseo de nombres de paisajes sonoros pasivos PAM (`parse_soundscape_filename`).
 """
 
 from __future__ import annotations
@@ -24,10 +27,10 @@ import numpy as np
 import pandas as pd
 
 # ==============================================================================
-# CONSTANTES GEOGRÁFICAS Y DE FORMATO DE AUDIO
+# CONSTANTES GEOGRÁFICAS Y DE ESPECIFICACIÓN BINARIA OGG VORBIS (RFC 3533)
 # ==============================================================================
-# Coordenadas oficiales de la Reserva Natural El Silencio (Yondó, Antioquia, Magdalena Medio)
-# según `src/data/raw/recording_location.txt`
+# Coordenadas de la Reserva Natural El Silencio (Yondó, Antioquia, Magdalena Medio)
+# Fuente: `src/data/raw/recording_location.txt`
 EL_SILENCIO_LAT: float = 6.76
 EL_SILENCIO_LON: float = -74.21
 EARTH_RADIUS_KM: float = 6371.0
@@ -35,7 +38,15 @@ REGION_RADIUS_KM: float = 300.0
 COLOMBIA_LAT_BOUNDS: tuple[float, float] = (-4.3, 12.5)
 COLOMBIA_LON_BOUNDS: tuple[float, float] = (-79.1, -66.8)
 
-# Cantidad de bytes al final del archivo OGG donde se busca la última página 'OggS'
+# ¿Por qué OGG_TAIL_BYTES = 65536 (64 KB)?
+# Según el estándar IETF RFC 3533 (Sección 6, "The Ogg page format"), una página OGG tiene:
+#   - 27 bytes de cabecera fija ("OggS" + metadatos de página)
+#   - Hasta 255 segmentos en la tabla de segmentos (1 byte cada uno = máx. 255 bytes)
+#   - Cada segmento contiene como máximo 255 bytes de datos (255 * 255 = 65 025 bytes)
+# Por lo tanto, el tamaño máximo matemático de una página OGG es:
+#   27 + 255 + 65 025 = 65 307 bytes (< 65 536 bytes = 64 KB).
+# Leer los últimos 65 536 bytes garantiza al 100 % encontrar completa la última página 'OggS'
+# del archivo sin necesidad de leer ni descomprimir los megabytes intermedios de audio.
 OGG_TAIL_BYTES: int = 65536
 
 # Expresión regular para nombres de paisajes sonoros: <SITIO>_<AAAAMMDD>_<HHMMSS>.ogg
@@ -54,18 +65,38 @@ def print_header(title: str) -> None:
 
 
 def ogg_header_info(path: str | Path) -> dict[str, float | int | bool]:
-    """Extrae duración, frecuencia de muestreo, canales, tamaño y bit EOS de un archivo OGG Vorbis.
+    """Extrae duración, sample_rate, canales, tamaño y bandera EOS leyendo las cabeceras OGG Vorbis.
 
-    Lee directamente la estructura binaria del contenedor OGG (RFC 3533) y la cabecera
-    de identificación Vorbis sin decodificar el audio completo:
-    1. En los primeros 512 bytes verifica la firma `'OggS'` y localiza la secuencia
-       `b'\\x01vorbis'`. En el offset `+11` se almacena el número de canales (1 byte, uint8)
-       y en `+12..+16` la frecuencia de muestreo `sample_rate` en Hz (4 bytes, uint32 little-endian).
-    2. Se posiciona en los últimos 64 KB del archivo (`OGG_TAIL_BYTES`), busca hacia atrás la
-       última página `'OggS'`, verifica en el offset `+5` el bit `0x04` (bandera `EOS`, End-Of-Stream)
-       y extrae en `+6..+14` el `granule_position` (8 bytes, int64 little-endian), que representa el
-       total de muestras PCM codificadas hasta el final del flujo.
-    3. Calcula la duración exacta en segundos como `granule_position / sample_rate`.
+    Fundamento técnico del formato OGG Vorbis (RFC 3533 y especificación Xiph Vorbis I)
+    -----------------------------------------------------------------------------------
+    Un archivo `.ogg` encapsula paquetes de audio Vorbis dentro de "páginas OGG". Cada página
+    comienza con la secuencia mágica de 4 bytes `b"OggS"`.
+
+    1. **Estructura de la Cabecera de Página OGG (primeros 27 bytes de toda página `OggS`):**
+       - Bytes `0..3`  (4B, char[4]) : Firma mágica `b"OggS"`.
+       - Byte  `4`     (1B, uint8)   : Versión de estructura (`0x00`).
+       - Byte  `5`     (1B, uint8)   : `header_type_flag` (máscara de bits):
+           * `0x01` = página de continuación,
+           * `0x02` = `BOS` (*Beginning of Stream*, primera página),
+           * `0x04` = `EOS` (*End of Stream*, última página del flujo lógico).
+       - Bytes `6..13` (8B, int64 LE): `granule_position` (`"<q"` en `struct.unpack`).
+         En el códec Vorbis almacena el **número total acumulado de muestras PCM** desde el
+         inicio del audio hasta el final de esa página. Si vale `-1`, la página no finaliza
+         ningún paquete de audio.
+
+    2. **Estructura del *Vorbis Identification Header* (ubicado en la 1.ª página del archivo):**
+       Comienza con el byte `0x01` (tipo de paquete = identificación) seguido de `b"vorbis"`,
+       formando la firma de 7 bytes `b"\\x01vorbis"` en el índice `idx`:
+       - Bytes `idx + 0 .. idx + 6`   (7B)          : Firma `b"\\x01vorbis"`.
+       - Bytes `idx + 7 .. idx + 10`  (4B, uint32)  : `vorbis_version` (`0`).
+       - Byte  `idx + 11`             (1B, uint8)   : `audio_channels` (ej. `1` = mono, `2` = estéreo).
+       - Bytes `idx + 12 .. idx + 15` (4B, uint32 LE): `audio_sample_rate` en Hz (`"<I"` en `struct.unpack`,
+         ej. `32000` muestras por segundo).
+
+    3. **Cálculo exacto de la duración en segundos:**
+       Dado que `granule_position` en la última página OGG es el total de muestras PCM $N_{\\text{samples}}$
+       y `sample_rate` es la frecuencia $f_s$ (muestras/segundo):
+       $$\\text{duration\\_s} = \\frac{\\text{granule\\_position}}{\\text{sample\\_rate}} = \\frac{N_{\\text{samples}}}{f_s}$$
 
     Parámetros
     ----------
@@ -75,13 +106,13 @@ def ogg_header_info(path: str | Path) -> dict[str, float | int | bool]:
     Retorna
     -------
     dict
-        Diccionario con las llaves:
-        - `duration_s` (float): Duración en segundos (`NaN` si el archivo no es OGG Vorbis válido).
-        - `sample_rate` (int): Frecuencia de muestreo en Hz (ej. 32000).
-        - `channels` (int): Número de canales de audio (1 = mono, 2 = estéreo).
+        Diccionario con:
+        - `duration_s` (float): Duración exacta en segundos (`NaN` si falla la lectura).
+        - `sample_rate` (int): Frecuencia de muestreo en Hz (32000 en todo BirdCLEF+ 2025).
+        - `channels` (int): Número de canales (1 = mono).
         - `size_bytes` (int): Tamaño del archivo en bytes.
-        - `ok_header` (bool): `True` si la cabecera OGG/Vorbis es válida.
-        - `eos` (bool): `True` si la última página OGG tiene encendido el bit End-Of-Stream (`0x04`).
+        - `ok_header` (bool): `True` si se encontró `OggS` y `\\x01vorbis` en los primeros 512 bytes.
+        - `eos` (bool): `True` si la última página tiene activo el bit `0x04` (End-Of-Stream).
     """
     p = Path(path)
     size = p.stat().st_size
@@ -94,24 +125,29 @@ def ogg_header_info(path: str | Path) -> dict[str, float | int | bool]:
         "eos": False,
     }
     with open(p, "rb") as fh:
-        # 1. Leer los primeros 512 bytes para encontrar el Identification Header de Vorbis
+        # 1. Leer los primeros 512 bytes (más que suficiente para la 1.ª página OggS + cabecera Vorbis)
         head = fh.read(512)
         idx = head.find(b"\x01vorbis")
         if head.startswith(b"OggS") and idx >= 0:
             info["ok_header"] = True
+            # Byte en idx + 11: número de canales (uint8)
             info["channels"] = head[idx + 11]
+            # 4 bytes en idx + 12..idx + 16: frecuencia de muestreo en Hz (uint32 little-endian '<I')
             info["sample_rate"] = struct.unpack("<I", head[idx + 12 : idx + 16])[0]
 
-        # 2. Leer el bloque final del archivo para localizar la última página OggS
+        # 2. Saltar a los últimos 64 KB (65 536 bytes > 65 307 bytes máx. de una página OGG)
         fh.seek(max(0, size - OGG_TAIL_BYTES))
         tail = fh.read()
 
+    # 3. Buscar de atrás hacia adelante la última página 'OggS' con granule_position válido (>= 0)
     pos = tail.rfind(b"OggS")
     while pos >= 0 and info["sample_rate"]:
         if len(tail) >= pos + 14:
+            # 8 bytes en pos + 6..pos + 14: granule_position (int64 little-endian '<q')
             granule = struct.unpack("<q", tail[pos + 6 : pos + 14])[0]
             if granule >= 0:
                 info["duration_s"] = granule / int(info["sample_rate"])
+                # Byte en pos + 5: header_type_flag; el bit 0x04 indica End-Of-Stream (EOS)
                 info["eos"] = bool(tail[pos + 5] & 0x04)
                 break
         pos = tail.rfind(b"OggS", 0, pos)
@@ -119,19 +155,23 @@ def ogg_header_info(path: str | Path) -> dict[str, float | int | bool]:
 
 
 def batch_ogg_header_info(paths: Iterable[str | Path], max_workers: int = 16) -> pd.DataFrame:
-    """Ejecuta `ogg_header_info` en paralelo sobre una colección de rutas de archivos OGG.
+    """Ejecuta `ogg_header_info` en paralelo usando hilos sobre una colección de archivos `.ogg`.
+
+    Como la lectura de los primeros 512 bytes y últimos 64 KB es una operación limitada por
+    entrada/salida de disco (I/O-bound) y libera el GIL de Python, `ThreadPoolExecutor` permite
+    inspeccionar los 28 564 archivos en pocos segundos.
 
     Parámetros
     ----------
     paths : Iterable[str | Path]
-        Secuencia de rutas a archivos `.ogg`.
+        Rutas de los archivos `.ogg` a inspeccionar.
     max_workers : int, por defecto 16
-        Número de hilos en `ThreadPoolExecutor` para lectura concurrente de disco.
+        Número de hilos concurrentes.
 
     Retorna
     -------
     pd.DataFrame
-        DataFrame con columnas `['duration_s', 'sample_rate', 'channels', 'size_bytes', 'ok_header', 'eos']`.
+        Tabla con columnas `['duration_s', 'sample_rate', 'channels', 'size_bytes', 'ok_header', 'eos']`.
     """
     path_list = [Path(p) for p in paths]
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -142,19 +182,23 @@ def batch_ogg_header_info(paths: Iterable[str | Path], max_workers: int = 16) ->
 def parse_list_field(raw_value: str) -> list[str]:
     """Convierte una cadena que representa una lista Python (ej. `"['grekis', '']"`) en una lista limpia.
 
-    En `train.csv`, las columnas `secondary_labels` y `type` vienen serializadas como texto.
-    Cuando una grabación no tiene etiquetas secundarias, el valor es `"['']"`. Esta función
-    evalúa de forma segura el literal con `ast.literal_eval` y descarta cadenas vacías.
+    ¿Por qué es necesaria esta función?
+    -----------------------------------
+    En `train.csv`, las columnas `secondary_labels` y `type` no son listas nativas sino texto
+    serializado. Además, cuando una grabación NO tiene especies secundarias ni tipo, el CSV
+    contiene el string `"['']"` (una lista con una cadena vacía adentro). Si se hiciera solo
+    `ast.literal_eval("['']")`, devolvería `['']`, cuya longitud `len()` es `1` en vez de `0`,
+    haciendo creer erróneamente que todas las grabaciones tienen 1 etiqueta secundaria.
 
     Parámetros
     ----------
     raw_value : str
-        Cadena con representación de lista (ej. `"['roahaw', 'grekis']"` o `"['']"`).
+        Texto con representación de lista Python (ej. `"['roahaw', 'grekis']"` o `"['']"`).
 
     Retorna
     -------
     list[str]
-        Lista de strings sin espacios extremos ni elementos vacíos.
+        Lista de cadenas limpias sin espacios extremos ni strings vacíos `""`.
     """
     if not isinstance(raw_value, str) or not raw_value.strip():
         return []
@@ -168,23 +212,28 @@ def haversine_km(
     lat0: float = EL_SILENCIO_LAT,
     lon0: float = EL_SILENCIO_LON,
 ) -> pd.Series | np.ndarray | float:
-    """Calcula la distancia ortodrómica (fórmula de Haversine) en kilómetros hacia un punto de referencia.
+    """Calcula la distancia ortodrómica (fórmula de Haversine) en km hacia la Reserva El Silencio.
 
-    Por defecto calcula la distancia de cada grabación hacia la Reserva Natural El Silencio
-    (Yondó, Antioquia: latitud `6.76° N`, longitud `-74.21° W`), permitiendo cuantificar el
-    cambio de dominio geográfico (*Domain Shift*).
+    Fundamento matemático
+    ---------------------
+    Dado que la Tierra es aproximadamente esférica ($R \\approx 6371\\text{ km}$), la distancia
+    euclidiana sobre grados de latitud/longitud es incorrecta a escala continental. La ley del
+    semiverseno (Haversine) calcula el arco de círculo máximo entre $(\\phi, \\lambda)$ y
+    $(\\phi_0, \\lambda_0)$ en radianes:
+    $$a = \\sin^2\\!\\left(\\frac{\\phi - \\phi_0}{2}\\right) + \\cos(\\phi)\\cos(\\phi_0)\\sin^2\\!\\left(\\frac{\\lambda - \\lambda_0}{2}\\right)$$
+    $$d = 2 R \\arcsin(\\sqrt{a})$$
 
     Parámetros
     ----------
     lat, lon : pd.Series | np.ndarray | float
-        Latitud y longitud en grados decimales de las grabaciones.
+        Latitud y longitud de las grabaciones en grados decimales.
     lat0, lon0 : float
-        Latitud y longitud del sitio de referencia (por defecto Reserva El Silencio).
+        Coordenadas de referencia en grados decimales (por defecto El Silencio: `6.76, -74.21`).
 
     Retorna
     -------
     pd.Series | np.ndarray | float
-        Distancia sobre la esfera terrestre en kilómetros (`NaN` donde `lat` o `lon` sean nulos).
+        Distancia en kilómetros sobre la superficie terrestre (`NaN` si faltan coordenadas).
     """
     la, lo, la0, lo0 = map(np.radians, (lat, lon, lat0, lon0))
     dlat = la - la0
@@ -194,21 +243,26 @@ def haversine_km(
 
 
 def gini_coefficient(values: pd.Series | np.ndarray | list[float]) -> float:
-    """Calcula el coeficiente de Gini para cuantificar el desbalance de grabaciones entre especies.
+    """Calcula el coeficiente de Gini para cuantificar el desbalance global entre especies.
 
-    Un valor de `0.0` indica equilibrio perfecto (todas las especies tienen exactamente el mismo
-    número de grabaciones) y un valor cercano a `1.0` indica desigualdad extrema (pocas especies
-    concentran casi todos los datos).
+    Fundamento matemático
+    ---------------------
+    Mientras que la razón `máx / mín` solo mira las dos especies extremas, el coeficiente de Gini
+    evalúa la desigualdad a lo largo de todas las $N$ especies ordenadas de menor a mayor conteo
+    ($x_{(1)} \\le x_{(2)} \\le \\dots \\le x_{(N)}$):
+    $$G = \\frac{\\sum_{i=1}^{N} (2i - N - 1)\\, x_{(i)}}{N \\sum_{i=1}^{N} x_{(i)}}$$
+    - $G = 0$: balance perfecto (todas las especies tienen el mismo número de grabaciones).
+    - $G \\to 1$: desbalance extremo (una sola especie concentra casi todas las grabaciones).
 
     Parámetros
     ----------
     values : pd.Series | np.ndarray | list[float]
-        Conteos o duraciones por especie (valores no negativos).
+        Vector de conteos o duraciones por especie.
 
     Retorna
     -------
     float
-        Coeficiente de Gini en el rango `[0.0, 1.0)`.
+        Coeficiente de Gini en `[0.0, 1.0)`.
     """
     x = np.sort(np.asarray(values, dtype=float))
     n = len(x)
@@ -219,20 +273,21 @@ def gini_coefficient(values: pd.Series | np.ndarray | list[float]) -> float:
 
 
 def parse_soundscape_filename(filename: str) -> dict[str, str | None]:
-    """Extrae el código de sitio, fecha y hora local desde el nombre de un archivo de `train_soundscapes`.
+    """Descompone el nombre `<SITIO>_<AAAAMMDD>_<HHMMSS>.ogg` de `train_soundscapes`.
 
-    Los paisajes sonoros pasivos de BirdCLEF+ 2025 siguen la convención:
-    `<SITIO>_<AAAAMMDD>_<HHMMSS>.ogg` (por ejemplo, `H02_20230420_074000.ogg`).
+    Los archivos de paisaje sonoro pasivo no tienen un CSV de metadatos adjunto, pero codifican
+    en su propio nombre el identificador de la grabadora/sitio en la Reserva El Silencio (`site`),
+    la fecha de captura (`date` en formato `AAAAMMDD`) y la hora local (`time` en formato `HHMMSS`).
 
     Parámetros
     ----------
     filename : str
-        Nombre base del archivo `.ogg`.
+        Nombre del archivo `.ogg` (ej. `"H02_20230420_074000.ogg"`).
 
     Retorna
     -------
     dict[str, str | None]
-        Diccionario con llaves `'site'`, `'date'` (`AAAAMMDD`) y `'time'` (`HHMMSS`).
+        Diccionario con `'site'`, `'date'` y `'time'`.
     """
     match = SOUNDSCAPE_NAME_RE.match(Path(filename).name)
     if not match:
