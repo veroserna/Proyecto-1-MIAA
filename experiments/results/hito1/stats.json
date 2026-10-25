@@ -1,0 +1,125 @@
+{
+  "n_recordings": 28564,
+  "n_species": 206,
+  "species_per_class": {
+    "Amphibia": 34,
+    "Aves": 146,
+    "Insecta": 17,
+    "Mammalia": 9
+  },
+  "recordings_per_class": {
+    "Aves": 27648,
+    "Amphibia": 583,
+    "Mammalia": 178,
+    "Insecta": 155
+  },
+  "hours_total": 280.5,
+  "duration_s": {
+    "count": 28564.0,
+    "mean": 35.35,
+    "std": 50.61,
+    "min": 0.54,
+    "5%": 3.94,
+    "25%": 10.58,
+    "50%": 20.98,
+    "75%": 41.3,
+    "95%": 110.94,
+    "max": 1774.39
+  },
+  "n_shorter_5s": 2314,
+  "n_shorter_1s": 24,
+  "n_longer_300s": 139,
+  "collections": {
+    "XC": 21204,
+    "iNat": 7198,
+    "CSA": 162
+  },
+  "rating_unrated_pct": 27.8,
+  "rating_xc_ge4_pct": 72.6,
+  "missing_coords": 809,
+  "pct_with_secondary": 9.3,
+  "pct_with_type": 71.6,
+  "n_authors": 2493,
+  "n_duplicate_url_rows": 22,
+  "pct_within_region": 10.42,
+  "pct_in_colombia": 27.08,
+  "recs_per_species": {
+    "count": 206.0,
+    "mean": 138.7,
+    "std": 169.2,
+    "min": 2.0,
+    "25%": 19.0,
+    "50%": 80.5,
+    "75%": 182.8,
+    "max": 990.0
+  },
+  "imbalance_ratio_all": 495.0,
+  "gini_recs_all": 0.59,
+  "species_lt_20_recs": 53,
+  "species_lt_10_recs": 39,
+  "n_eligible": 57,
+  "licenses": {
+    "cc-by-nc-sa 4.0": 16813,
+    "cc-by-nc 4.0": 5698,
+    "cc-by-nc-sa 3.0": 4289,
+    "cc-by 4.0": 1114,
+    "cc-by-sa 4.0": 475,
+    "cc-0 4.0": 137,
+    "cc-0 1.0": 30,
+    "cc-by-sa 3.0": 8
+  },
+  "secondary_in_taxonomy_pct": 100.0,
+  "n_secondary_labels_total": 3941,
+  "subset": {
+    "n_species": 16,
+    "families": 14,
+    "orders": 11,
+    "recordings_kept": 6759,
+    "hours": 71.4,
+    "exclusions": {
+      "duration_lt_1s": 4,
+      "xc_rating_lt_2": 57,
+      "duplicate_audio_merged": 1,
+      "kept": 6759,
+      "initial": 6821
+    },
+    "duplicate_urls_merged": {
+      "https://static.inaturalist.org/sounds/586116.mp3": [
+        "grekis",
+        "roahaw"
+      ]
+    },
+    "imbalance_ratio": 6.77,
+    "gini": 0.284,
+    "min_test_per_species": 20,
+    "split_counts": {
+      "fold0": 1158,
+      "fold1": 1153,
+      "fold2": 1163,
+      "fold3": 1159,
+      "fold4": 1161,
+      "test": 965
+    },
+    "split_pct": {
+      "fold0": 17.1,
+      "fold1": 17.1,
+      "fold2": 17.2,
+      "fold3": 17.1,
+      "fold4": 17.2,
+      "test": 14.3
+    },
+    "pct_multilabel": 2.23,
+    "pct_regional": 13.1,
+    "author_overlap_test_dev": 0,
+    "open_set_test_negatives": 2899
+  },
+  "funnel": {
+    "Total especies": 206,
+    "E1 Aves": 146,
+    "E2 + >= 120 grabaciones": 75,
+    "E3 + >= 60 con rating>=4": 73,
+    "E4 + >= 40 autores": 73,
+    "E5 + >= 10 regionales": 57,
+    "Seleccionadas (R1-R5)": 16
+  }
+}
