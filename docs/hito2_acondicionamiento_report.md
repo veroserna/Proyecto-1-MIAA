@@ -4,7 +4,7 @@
 **Universidad Icesi · Cali, Colombia**  
 **Responsables del Hito 2:** Carlos Alberto Salamando · Verónica Serna  
 **Equipo:** Juan Fernando Gutiérrez · Miguel Ángel Paz · Carlos Alberto Salamando · Verónica Serna  
-**Notebook ejecutable:** [`notebooks/experiment_2.ipynb`](../notebooks/experiment_2.ipynb)  
+**Notebook ejecutable:** [`notebooks/hito2_acondicionamiento_audio.ipynb`](../notebooks/hito2_acondicionamiento_audio.ipynb)
 **Módulos de producción:** [`src/utils/helpers.py`](../src/utils/helpers.py) · [`src/training/preprocessing/hito2_audio_conditioning.py`](../src/training/preprocessing/hito2_audio_conditioning.py) · [`src/main.py`](../src/main.py)
 
 ---

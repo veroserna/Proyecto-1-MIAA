@@ -77,6 +77,7 @@ Gracias a estas iniciativas, será más fácil para los investigadores y profesi
 - [Competencia y datos en Kaggle](https://www.kaggle.com/c/birdclef-2025)
 - [Descripción de la tarea, BirdCLEF+ 2025](https://www.imageclef.org/BirdCLEF2025)
 - [Resumen de resultados de BirdCLEF+ 2025](https://www.researchgate.net/publication/396180283_Overview_of_BirdCLEF_2025_Multi-Taxonomic_Sound_Identification_in_the_Middle_Magdalena_Colombia)
+- [Evaluación de compatibilidad de BirdCLEF+ 2026 con este proyecto](docs/evaluacion-datos-birdclef-2026.md)
 
 ## Flujo del proyecto para clasificación de audio
 
@@ -120,8 +121,12 @@ Proyecto 1 MIAA/
 │   ├── main.py                       # Punto de entrada principal
 │   └── __init__.py
 ├── notebooks/                         # Experimentos y análisis exploratorio
-│   └── experiment_1.ipynb
-├── experiments/                       # Resultados de experimentos
+│   ├── hito1_eda_seleccion_especies.ipynb
+│   ├── hito2_acondicionamiento_audio.ipynb
+│   ├── experimento_01_especies_amenazadas.ipynb
+│   ├── experimento_02_rechazo_fauna_ambiente.ipynb
+│   └── experimento_03_pipeline_hito2_rechazo_fauna_ambiente.ipynb
+├── experiments/                       # Índice, logs, checkpoints y resultados numerados
 │   ├── logs/
 │   ├── checkpoints/
 │   ├── results/
@@ -158,8 +163,12 @@ Este flujo permite separar claramente:
 
 ## Notebooks y entregables destacados
 
-* [Notebook Hito 1 — EDA y selección de 16 especies del Magdalena Medio](./notebooks/experiment_1.ipynb)
-* [Notebook Hito 2 — Pipeline de acondicionamiento de audio (32 kHz, filtro pasa-banda, clips 5s y particiones)](./notebooks/experiment_2.ipynb)
+* **Primera entrega del proyecto** — [secciones 2 y 3 en Markdown](./docs/entrega_01_proyecto_innovacion.md): objetivos y estado del arte. La [sección 1, planteamiento y árbol de problemas](./docs/arbol-problemas.md), se conserva por separado.
+* [Notebook Hito 1 — EDA y selección de 16 especies del Magdalena Medio](./notebooks/hito1_eda_seleccion_especies.ipynb)
+* [Notebook Hito 2 — Acondicionamiento y segmentación de audio](./notebooks/hito2_acondicionamiento_audio.ipynb)
+* **Experimento 1** — [notebook reproducible](./notebooks/experimento_01_especies_amenazadas.ipynb) y [análisis y conclusiones](./docs/experimento_01_especies_amenazadas.md) sobre el paujil de pico azul y el chavarrí.
+* **Experimento 2** — [notebook reproducible](./notebooks/experimento_02_rechazo_fauna_ambiente.ipynb) y [análisis y recomendaciones](./docs/experimento_02_rechazo_fauna_ambiente.md) sobre fauna no objetivo y sonidos ambientales.
+* **Experimento 3** — [copia experimental del pipeline del Hito 2](./notebooks/experimento_03_pipeline_hito2_rechazo_fauna_ambiente.ipynb) que genera manifiestos de candidatos débiles y soundscapes sin etiqueta. No modifica el notebook original de Hito 2.
 * [Informe técnico Hito 1 (EDA)](./docs/hito1_eda_report.md)
 * [Informe técnico Hito 2 (Acondicionamiento y Clips 5s)](./docs/hito2_acondicionamiento_report.md)
 * [Arquitectura del proyecto](./docs/arquitectura.md)
@@ -173,6 +182,9 @@ Este flujo permite separar claramente:
 * **SNR** Relación Señal-Ruido (SNR, por sus siglas en inglés Signal-to-Noise Ratio) en audio es la medida que compara la potencia de una señal de audio deseada (como música o voz) con la potencia del ruido de fondo no deseado (como zumbidos, estática o interferencias)
 * **PAM** Monitoreo Acústico Pasivo (Passive Acoustic Monitoring), es una  técnica no invasiva que utiliza sensores, grabadoras autónomas o hidrófonos para registrar los sonidos del ambiente, la fauna y las actividades humanas sin alterar ni perturbar el hábitat.
 * **Filtrado pass-band**, es la unión del filtro pasa alto y el filtro pasa bajo cuya función principal es permitir el paso de ciertas frecuencias localizadas dentro de un ancho de banda determinado, y atenuar las que se encuentran fuera de este ancho. Normalmente este tipo de filtros tienen aplicación en la edición y ecualización de audio, donde se busca resaltar y atenuar frecuencias específicas, otra posible aplicación de los filtros pasa banda es la función de eliminar el ruido que contenga una señal, siempre y cuando la frecuencia de esta sea fija. (https://www.vistronica.com/blog/post/103-filtro-pasa-banda)
+* **OGG Vorbis**  es un formato de audio comprimido totalmente abierto, no propietario, libre de patentes y regalías, de uso general para audio y música de calidad media a alta (8kHz-48,0kHz, 16+ bits, polifónico) a velocidades de bits fijas y variables de 16 a 128 kbps/canal. Esto coloca a Vorbis en la misma clase competitiva que las representaciones de audio como MPEG-4 (AAC), y similar, pero con un rendimiento más alto que la capa de audio MPEG-1/2 3, audio MPEG-4 (TwinVQ), WMA y PAC. Permite almacenar metadatos (información adicional) como el artista, el álbum y los datos de la pista
+(https://xiph.org/vorbis/)
+* **Coeficiente de Gini** es una medida de la desigualdad ideada por el estadístico italiano Corrado Gini. Normalmente se utiliza para medir la desigualdad en los ingresos, dentro de un país, pero puede utilizarse para medir cualquier forma de distribución desigual. El coeficiente de Gini es un número entre 0 y 1, donde 0 se corresponde con la perfecta igualdad (todos tienen la misma cantidad de horas de grabación) y 1 corresponde con la perfecta desigualdad (una especie de ave específica posee mayor número de horas de grabación).
 * **Modelo SVM (Support Vector Machine)** o máquina de vectores de soporte es un algoritmo de aprendizaje automático supervisado que sirve para resolver problemas de clasificación y de regresión.
 * **Modelo de ensamble (ensemble model)** en Machine Learning es una técnica que combina múltiples algoritmos o modelos individuales (aprendices base) para generar una predicción final más precisa, estable y robusta que la de cualquier modelo por separado.
 * **SMOTE** (Synthetic Minority Oversampling Technique o Técnica de Sobremuestreo de Minorías Sintéticas) es un algoritmo de aprendizaje automático que sirve para solucionar el problema del desbalanceo de clases en conjuntos de datos

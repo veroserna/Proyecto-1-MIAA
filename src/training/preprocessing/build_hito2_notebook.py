@@ -1,4 +1,4 @@
-"""Generador y ejecutor del notebook oficial del Hito 2 (`notebooks/experiment_2.ipynb`).
+"""Generador y ejecutor del notebook oficial del Hito 2 (`notebooks/hito2_acondicionamiento_audio.ipynb`).
 
 Construye un Jupyter Notebook completamente autocontenido, con fundamentación teórica y
 matemática previa a cada función (Procesamiento Digital de Señales, filtro IIR Butterworth
@@ -24,7 +24,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-NOTEBOOK_PATH = PROJECT_ROOT / "notebooks" / "experiment_2.ipynb"
+NOTEBOOK_PATH = PROJECT_ROOT / "notebooks" / "hito2_acondicionamiento_audio.ipynb"
 FIGURES_DIR = PROJECT_ROOT / "experiments" / "results" / "hito2" / "figures"
 
 
@@ -145,7 +145,7 @@ def build_notebook() -> None:
 
 ## Objetivo y alcance del Hito 2
 
-De acuerdo con el plan de trabajo ([`docs/plan_trabajo.md`](../docs/plan_trabajo.md)), el **Hito 2** toma como entrada el subconjunto curado de **16 especies de aves del Valle del Magdalena Medio (`6 759` grabaciones, `71.4` horas)** definido en el Hito 1 ([`notebooks/experiment_1.ipynb`](./experiment_1.ipynb)) y ejecuta el pipeline completo de acondicionamiento físico y lógico de las señales acústicas:
+De acuerdo con el plan de trabajo ([`docs/plan_trabajo.md`](../docs/plan_trabajo.md)), el **Hito 2** toma como entrada el subconjunto curado de **16 especies de aves del Valle del Magdalena Medio (`6 759` grabaciones, `71.4` horas)** definido en el Hito 1 ([`notebooks/hito1_eda_seleccion_especies.ipynb`](./hito1_eda_seleccion_especies.ipynb)) y ejecuta el pipeline completo de acondicionamiento físico y lógico de las señales acústicas:
 
 1. **Verificación exhaustiva de archivos, cabeceras binarias y etiquetas:** comprobación de existencia en disco, bandera de fin de flujo `EOS` del contenedor OGG Vorbis, frecuencia de muestreo (`32 000 Hz`), número de canales (`1` canal monofónico), duración mínima ($\ge 1.0\text{ s}$) y pertenencia de etiquetas al conjunto cerrado de 16 especies.
 2. **Estandarización de señal a `32 kHz` mono (`float32`) y remoción de componente DC:** decodificación de flujos Vorbis a punto flotante en $[-1, 1]$, conversión a monofónico, remuestreo polifásico racional (`scipy.signal.resample_poly`) en caso de frecuencias distintas y centrado a media cero ($x[n] \leftarrow x[n] - \mu_x$).
@@ -696,9 +696,9 @@ _cell_df = clips_df[preview_cols].head(15).set_index("clip_id")
         "cells": cells,
         "metadata": {
             "kernelspec": {
-                "display_name": "Python 3",
+                "display_name": "Python (Proyecto 1 MIAA)",
                 "language": "python",
-                "name": "python3",
+                "name": "proyecto-1-miaa",
             },
             "language_info": {
                 "codemirror_mode": {"name": "ipython", "version": 3},
@@ -707,7 +707,7 @@ _cell_df = clips_df[preview_cols].head(15).set_index("clip_id")
                 "name": "python",
                 "nbconvert_exporter": "python",
                 "pygments_lexer": "ipython3",
-                "version": "3.14.0",
+                "version": sys.version.split()[0],
             },
         },
         "nbformat": 4,

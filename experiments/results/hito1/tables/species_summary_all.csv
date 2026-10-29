@@ -55,8 +55,8 @@ bkcdon,Donacobius atricapilla,Black-capped Donacobius,Aves,176,2.106,24.542,167,
 strher,Butorides striata,Striated Heron,Aves,169,0.677,7.45,156,13,0,125,4.144,69,0.154,4,12,4676.317,6.509,False,False
 y00678,Caracara plancus,Crested Caracara,Aves,169,1.193,18.207,127,42,0,86,3.898,71,0.095,1,8,3779.876,8.284,False,False
 babwar,Setophaga castanea,Bay-breasted Warbler,Aves,167,1.791,21.827,77,90,0,56,3.922,96,0.09,3,3,4137.624,0.0,False,False
-gybmar,Progne chalybea,Gray-breasted Martin,Aves,164,1.158,17.959,130,34,0,86,4.143,76,0.079,5,20,2630.104,11.585,False,False
 strowl1,Asio clamator,Striped Owl,Aves,164,1.96,27.284,121,43,0,76,3.752,93,0.11,14,29,3835.893,1.829,True,False
+gybmar,Progne chalybea,Gray-breasted Martin,Aves,164,1.158,17.959,130,34,0,86,4.143,76,0.079,5,20,2630.104,11.585,False,False
 cocwoo1,Xiphorhynchus susurrans,Cocoa Woodcreeper,Aves,162,1.807,21.499,129,33,0,88,3.887,75,0.105,37,55,661.601,11.728,True,False
 secfly1,Leptopogon amaurocephalus,Sepia-capped Flycatcher,Aves,158,0.941,6.884,144,14,0,116,4.164,64,0.165,12,22,3751.123,3.797,True,False
 thbeup1,Euphonia laniirostris,Thick-billed Euphonia,Aves,153,1.805,29.664,144,9,0,102,4.198,65,0.131,38,83,909.41,11.765,True,False
@@ -77,27 +77,27 @@ whfant1,Formicivora grisea,White-fringed Antwren,Aves,126,1.457,27.873,111,15,0,
 cattyr,Machetornis rixosa,Cattle Tyrant,Aves,114,1.202,19.128,97,17,0,81,4.273,51,0.14,6,19,3773.116,20.175,False,False
 srwswa1,Stelgidopteryx ruficollis,Southern Rough-winged Swallow,Aves,112,0.786,16.144,109,3,0,87,4.453,45,0.304,9,25,3657.757,6.25,False,False
 blbwre1,Pheugopedius fasciatoventris,Black-bellied Wren,Aves,110,1.526,20.698,96,14,0,66,4.137,49,0.145,34,54,588.628,20.0,False,False
-greibi1,Mesembrinibis cayennensis,Green Ibis,Aves,109,1.034,21.211,92,17,0,65,3.94,57,0.128,5,23,2704.826,22.936,False,False
 mastit1,Tityra semifasciata,Masked Tityra,Aves,109,0.89,14.236,93,16,0,67,4.072,49,0.165,0,18,2077.494,13.761,False,False
+greibi1,Mesembrinibis cayennensis,Green Ibis,Aves,109,1.034,21.211,92,17,0,65,3.94,57,0.128,5,23,2704.826,22.936,False,False
+snoegr,Egretta thula,Snowy Egret,Aves,108,0.636,10.379,82,26,0,66,4.291,43,0.194,1,6,3439.975,8.333,False,False
+41663,Procyon lotor,Common Raccoon,Mammalia,108,1.086,24.747,3,105,0,2,4.333,60,0.259,0,0,4118.926,0.0,False,False
 leagre,Tachybaptus dominicus,Least Grebe,Aves,108,0.805,20.321,90,18,0,67,4.116,47,0.12,3,15,3076.616,14.815,False,False
 blcjay1,Cyanocorax affinis,Black-chested Jay,Aves,108,1.645,30.9,89,19,0,62,3.971,51,0.111,28,79,445.516,15.741,False,False
-41663,Procyon lotor,Common Raccoon,Mammalia,108,1.086,24.747,3,105,0,2,4.333,60,0.259,0,0,4118.926,0.0,False,False
-snoegr,Egretta thula,Snowy Egret,Aves,108,0.636,10.379,82,26,0,66,4.291,43,0.194,1,6,3439.975,8.333,False,False
 grbhaw1,Buteogallus urubitinga,Great Black Hawk,Aves,107,0.902,19.069,95,12,0,77,4.116,60,0.084,5,15,3022.714,3.738,False,False
-blcant4,Sakesphorus canadensis,Black-crested Antshrike,Aves,105,1.106,31.869,96,9,0,57,3.931,49,0.114,11,48,1167.754,17.143,False,False
 eardov1,Zenaida auriculata,Eared Dove,Aves,105,0.768,18.364,79,26,0,38,3.386,46,0.171,7,31,3764.225,4.762,False,False
+blcant4,Sakesphorus canadensis,Black-crested Antshrike,Aves,105,1.106,31.869,96,9,0,57,3.931,49,0.114,11,48,1167.754,17.143,False,False
 whbant1,Myrmeciza longipes,White-bellied Antbird,Aves,104,1.135,23.327,91,13,0,77,4.409,53,0.067,32,64,505.738,11.538,False,False
+yectyr1,Tyrannulus elatus,Yellow-crowned Tyrannulet,Aves,97,0.607,15.88,93,4,0,45,3.312,45,0.113,14,39,1158.041,11.34,False,False
 rufmot1,Baryphthengus martii,Rufous Motmot,Aves,97,1.065,27.611,88,9,0,59,3.929,50,0.103,1,45,912.109,8.247,False,False
 thlsch3,Schiffornis turdina,Brown-winged Schiffornis,Aves,97,1.126,28.604,94,3,0,79,4.426,39,0.124,0,23,2721.862,3.093,False,False
-yectyr1,Tyrannulus elatus,Yellow-crowned Tyrannulet,Aves,97,0.607,15.88,93,4,0,45,3.312,45,0.113,14,39,1158.041,11.34,False,False
 cargra1,Quiscalus lugubris,Carib Grackle,Aves,94,0.983,22.1,63,31,0,30,3.571,50,0.064,27,59,527.612,2.128,False,False
 bicwre1,Campylorhynchus griseus,Bicolored Wren,Aves,93,0.809,15.543,86,7,0,56,3.918,39,0.151,25,72,487.796,8.602,False,False
 anhing,Anhinga anhinga,Anhinga,Aves,91,0.628,14.811,65,26,0,49,4.158,37,0.154,0,8,2484.65,2.198,False,False
-recwoo1,Melanerpes rubricapillus,Red-crowned Woodpecker,Aves,90,0.422,7.031,78,12,0,47,3.938,45,0.133,29,64,500.864,13.333,False,False
-shtfly1,Poecilotriccus sylvia,Slate-headed Tody-Flycatcher,Aves,90,0.677,19.044,87,3,0,62,3.821,39,0.133,45,56,277.063,10.0,False,False
 neocor,Nannopterum brasilianum,Neotropic Cormorant,Aves,90,0.74,15.432,75,15,0,44,3.955,54,0.1,7,11,3657.757,13.333,False,False
-ragmac1,Ara chloropterus,Red-and-green Macaw,Aves,89,0.727,21.681,83,6,0,64,4.269,49,0.079,0,4,2431.783,5.618,False,False
+shtfly1,Poecilotriccus sylvia,Slate-headed Tody-Flycatcher,Aves,90,0.677,19.044,87,3,0,62,3.821,39,0.133,45,56,277.063,10.0,False,False
+recwoo1,Melanerpes rubricapillus,Red-crowned Woodpecker,Aves,90,0.422,7.031,78,12,0,47,3.938,45,0.133,29,64,500.864,13.333,False,False
 amakin1,Chloroceryle amazona,Amazon Kingfisher,Aves,89,0.435,9.796,79,10,0,59,4.044,42,0.18,2,19,3313.441,19.101,False,False
+ragmac1,Ara chloropterus,Red-and-green Macaw,Aves,89,0.727,21.681,83,6,0,64,4.269,49,0.079,0,4,2431.783,5.618,False,False
 grasal4,Saltator olivascens,Olivaceous Saltator,Aves,85,0.858,29.858,69,16,0,46,4.024,39,0.094,38,77,427.301,15.294,False,False
 gretin1,Tinamus major,Great Tinamou,Aves,83,0.771,16.222,83,0,0,54,3.699,47,0.084,3,22,1735.672,2.41,False,False
 65448,Engystomops pustulosus,Túngara Frog,Amphibia,82,0.476,13.708,3,79,0,3,4.5,38,0.305,1,11,674.899,1.22,False,False
@@ -109,19 +109,19 @@ cregua1,Penelope purpurascens,Crested Guan,Aves,77,0.939,28.174,61,16,0,41,3.95,
 21211,Allobates femoralis,Spotted-thighed Poison Frog,Amphibia,76,0.422,7.767,68,8,0,20,3.25,8,0.697,0,4,2401.216,0.0,False,False
 whttro1,Trogon chionurus,White-tailed Trogon,Aves,75,0.835,25.417,72,3,0,41,3.721,36,0.093,12,47,699.622,10.667,False,False
 brtpar1,Eupsittula pertinax,Brown-throated Parakeet,Aves,74,0.764,19.781,63,11,0,45,3.968,43,0.054,8,36,748.045,13.514,False,False
-blkvul,Coragyps atratus,Black Vulture,Aves,70,0.609,15.804,59,11,0,41,3.915,37,0.143,3,8,2528.771,2.857,False,False
 rubsee1,Sporophila minuta,Ruddy-breasted Seedeater,Aves,70,0.739,25.802,63,7,0,47,4.193,36,0.114,13,28,1590.632,8.571,False,False
+blkvul,Coragyps atratus,Black Vulture,Aves,70,0.609,15.804,59,11,0,41,3.915,37,0.143,3,8,2528.771,2.857,False,False
 verfly,Pyrocephalus rubinus,Vermilion Flycatcher,Aves,69,0.511,17.554,35,34,0,21,3.529,42,0.13,4,11,3773.845,10.145,False,False
 cinbec1,Pachyramphus cinnamomeus,Cinnamon Becard,Aves,67,0.537,25.272,67,0,0,42,3.709,32,0.194,19,48,806.207,16.418,False,False
-grepot1,Nyctibius grandis,Great Potoo,Aves,67,0.636,27.876,56,11,0,29,3.589,43,0.134,1,23,1702.447,5.97,False,False
 labter1,Phaetusa simplex,Large-billed Tern,Aves,67,0.426,16.692,57,10,0,46,4.51,39,0.104,1,9,3262.861,14.925,False,False
+grepot1,Nyctibius grandis,Great Potoo,Aves,67,0.636,27.876,56,11,0,29,3.589,43,0.134,1,23,1702.447,5.97,False,False
 palhor2,Furnarius leucopus,Pale-legged Hornero,Aves,66,0.46,14.8,62,4,0,48,4.123,26,0.136,0,16,2157.996,15.152,False,False
 yelori1,Icterus nigrogularis,Yellow Oriole,Aves,60,0.645,22.776,51,9,0,35,3.873,35,0.1,13,47,481.742,15.0,False,False
 517119,Rhinella horribilis,Giant Toad,Amphibia,58,0.342,19.214,2,56,0,2,5.0,28,0.276,5,6,1162.179,0.0,False,False
 colara1,Pteroglossus torquatus,Collared Aracari,Aves,57,0.516,23.487,28,29,0,21,4.019,36,0.228,2,6,1747.927,5.263,False,False
 crbtan1,Ramphocelus dimidiatus,Crimson-backed Tanager,Aves,56,0.482,25.835,45,11,0,28,3.908,31,0.125,25,34,427.012,8.929,False,False
-piepuf1,Notharchus tectus,Pied Puffbird,Aves,55,0.35,13.819,52,3,0,40,4.01,29,0.127,4,13,1879.617,9.091,False,False
 rebbla1,Leistes militaris,Red-breasted Meadowlark,Aves,55,0.722,27.063,52,3,0,38,4.17,33,0.091,3,17,1845.916,14.545,False,False
+piepuf1,Notharchus tectus,Pied Puffbird,Aves,55,0.35,13.819,52,3,0,40,4.01,29,0.127,4,13,1879.617,9.091,False,False
 savhaw1,Buteogallus meridionalis,Savanna Hawk,Aves,54,0.357,17.906,52,2,0,31,3.819,31,0.222,1,4,3774.143,16.667,False,False
 blchaw1,Busarellus nigricollis,Black-collared Hawk,Aves,54,0.409,16.862,50,4,0,35,4.071,31,0.093,0,7,3234.647,12.963,False,False
 22973,Leptodactylus fuscus,Whistling Grass Frog,Amphibia,53,0.509,25.984,13,40,0,12,4.115,24,0.208,4,7,2953.68,1.887,False,False
@@ -131,17 +131,17 @@ spbwoo1,Colaptes punctigula,Spot-breasted Woodpecker,Aves,48,0.346,17.123,47,1,0
 22333,Eleutherodactylus johnstonei,Lesser Antillean whistling frog,Amphibia,47,0.234,13.013,4,43,0,3,4.0,31,0.34,5,23,914.064,0.0,False,False
 bucmot3,Momotus subrufescens,Whooping Motmot,Aves,47,0.577,28.029,44,3,0,27,3.83,26,0.149,11,18,658.53,19.149,False,False
 22976,Leptodactylus fragilis,Mexican White-lipped Frog,Amphibia,44,0.277,14.072,3,41,0,3,4.667,26,0.182,2,2,1132.467,0.0,False,False
+tbsfin1,Sporophila funerea,Thick-billed Seed-Finch,Aves,40,0.402,26.057,37,3,0,24,3.889,23,0.1,5,24,821.462,25.0,False,False
 cocher1,Ardea cocoi,Cocoi Heron,Aves,40,0.228,11.333,38,2,0,30,4.243,25,0.1,2,10,3236.046,20.0,False,False
 royfly1,Onychorhynchus coronatus,Royal Flycatcher,Aves,40,0.269,21.072,40,0,0,26,3.764,26,0.175,0,7,2326.757,2.5,False,False
-tbsfin1,Sporophila funerea,Thick-billed Seed-Finch,Aves,40,0.402,26.057,37,3,0,24,3.889,23,0.1,5,24,821.462,25.0,False,False
 bobher1,Cochlearius cochlearius,Boat-billed Heron,Aves,39,0.43,20.088,34,5,0,24,3.853,22,0.179,0,13,1294.803,5.128,False,False
-plukit1,Ictinia plumbea,Plumbeous Kite,Aves,38,0.354,15.686,35,3,0,17,3.656,22,0.289,0,0,3773.845,15.789,False,False
 olipic1,Picumnus olivaceus,Olivaceous Piculet,Aves,38,0.32,24.377,37,1,0,22,3.941,26,0.132,19,29,348.123,13.158,False,False
-rosspo1,Platalea ajaja,Roseate Spoonbill,Aves,34,0.426,16.464,31,3,0,15,3.317,16,0.412,0,0,2531.69,8.824,False,False
+plukit1,Ictinia plumbea,Plumbeous Kite,Aves,38,0.354,15.686,35,3,0,17,3.656,22,0.289,0,0,3773.845,15.789,False,False
 whmtyr1,Arundinicola leucocephala,White-headed Marsh Tyrant,Aves,34,0.274,18.864,33,1,0,23,4.183,11,0.265,0,0,3773.845,26.471,False,False
+rosspo1,Platalea ajaja,Roseate Spoonbill,Aves,34,0.426,16.464,31,3,0,15,3.317,16,0.412,0,0,2531.69,8.824,False,False
 52884,Gryllidae,True Crickets,Insecta,33,1.676,145.326,0,0,33,0,,14,0.242,25,31,130.26,0.0,False,False
-blctit1,Tityra inquisitor,Black-crowned Tityra,Aves,32,0.199,12.108,32,0,0,7,2.719,16,0.312,0,5,3372.42,6.25,False,False
 65373,Dendropsophus microcephalus,Yellow Tree Frog,Amphibia,32,0.193,17.167,6,26,0,6,4.333,17,0.219,2,3,1218.473,0.0,False,False
+blctit1,Tityra inquisitor,Black-crowned Tityra,Aves,32,0.199,12.108,32,0,0,7,2.719,16,0.312,0,5,3372.42,6.25,False,False
 50186,Cicadidae,Typical Cicadas,Insecta,30,1.183,113.69,0,0,30,0,,9,0.333,24,29,234.412,0.0,False,False
 ampkin1,Chloroceryle aenea,American Pygmy Kingfisher,Aves,28,0.171,13.858,28,0,0,13,3.593,23,0.071,0,9,1956.056,14.286,False,False
 bafibi1,Phimosus infuscatus,Bare-faced Ibis,Aves,27,0.136,5.825,27,0,0,19,3.741,12,0.407,2,9,3657.757,7.407,False,False
@@ -150,58 +150,58 @@ woosto,Mycteria americana,Wood Stork,Aves,27,0.4,23.28,18,9,0,10,3.694,14,0.296,
 grysee1,Sporophila intermedia,Gray Seedeater,Aves,25,0.226,26.984,23,2,0,11,3.763,15,0.2,16,23,272.298,12.0,False,False
 566513,Alouatta seniculus,Colombian Red Howler Monkey,Mammalia,23,0.242,22.88,1,22,0,1,4.0,15,0.174,8,22,482.89,0.0,False,False
 65962,Leptodactylus savagei,Savage's Thin-toed Frog,Amphibia,21,0.094,13.833,1,20,0,1,5.0,14,0.286,0,3,1014.142,0.0,False,False
-bubcur1,Crax alberti,Blue-billed Curassow,Aves,20,0.237,41.587,20,0,0,9,3.825,7,0.6,8,8,79.519,5.0,False,False
 48124,Tettigoniidae,Katydids,Insecta,20,0.713,125.827,0,0,20,0,,5,0.7,18,19,73.931,0.0,False,False
-piwtyr1,Fluvicola pica,Pied Water-Tyrant,Aves,19,0.116,14.785,19,0,0,11,3.474,12,0.211,3,15,459.239,10.526,False,False
+bubcur1,Crax alberti,Blue-billed Curassow,Aves,20,0.237,41.587,20,0,0,9,3.825,7,0.6,8,8,79.519,5.0,False,False
 42007,Puma concolor,Mountain Lion,Mammalia,19,0.13,12.384,0,19,0,0,,11,0.158,0,0,5833.728,0.0,False,False
-715170,Copris susanae,Copris susanae,Insecta,17,0.476,96.101,0,0,17,0,,1,1.0,17,17,145.633,0.0,False,False
+piwtyr1,Fluvicola pica,Pied Water-Tyrant,Aves,19,0.116,14.785,19,0,0,11,3.474,12,0.211,3,15,459.239,10.526,False,False
 rutpuf1,Hypnelus ruficollis,Russet-throated Puffbird,Aves,17,0.15,18.216,16,1,0,6,3.375,12,0.176,4,17,488.838,35.294,False,False
+715170,Copris susanae,Copris susanae,Insecta,17,0.476,96.101,0,0,17,0,,1,1.0,17,17,145.633,0.0,False,False
 65349,Dendropsophus ebraccatus,Harlequin Treefrog,Amphibia,16,0.066,15.621,2,14,0,2,4.75,8,0.562,1,2,685.367,6.25,False,False
 65344,Dendropsophus columbianus,Boettger's Colombian Tree Frog,Amphibia,16,0.138,16.329,2,14,0,2,4.5,10,0.312,12,16,262.421,0.0,False,False
 41970,Panthera onca,Jaguar,Mammalia,15,0.08,14.065,11,4,0,0,1.636,4,0.733,0,12,1031.667,0.0,False,False
 shghum1,Chrysuronia goudoti,Shining-green Hummingbird,Aves,15,0.127,30.192,15,0,0,11,4.167,5,0.667,13,15,272.298,6.667,False,False
-67252,Trachycephalus typhonius,Veined Tree Frog,Amphibia,14,0.329,85.198,12,2,0,12,4.083,5,0.714,0,4,2143.933,0.0,False,False
-sahpar1,Pyrilia pyrilia,Saffron-headed Parrot,Aves,14,0.085,21.793,13,1,0,4,3.167,8,0.357,12,14,106.174,0.0,False,False
 norscr1,Chauna chavaria,Northern Screamer,Aves,14,0.213,33.894,12,2,0,8,4.136,10,0.286,10,14,61.95,21.429,False,False
+sahpar1,Pyrilia pyrilia,Saffron-headed Parrot,Aves,14,0.085,21.793,13,1,0,4,3.167,8,0.357,12,14,106.174,0.0,False,False
+67252,Trachycephalus typhonius,Veined Tree Frog,Amphibia,14,0.329,85.198,12,2,0,12,4.083,5,0.714,0,4,2143.933,0.0,False,False
 24322,Scinax ruber,Red Snouted Tree Frog,Amphibia,13,0.211,33.228,7,6,0,7,4.143,7,0.385,0,2,1992.809,0.0,False,False
 turvul,Cathartes aura,Turkey Vulture,Aves,11,0.108,19.911,6,5,0,5,3.667,10,0.182,0,0,4114.154,0.0,False,False
 135045,Andinobates opisthomelas,Andean Poison Frog,Amphibia,10,0.355,131.994,0,10,0,0,,4,0.7,10,10,147.743,0.0,False,False
-1462737,Docidocercus fasciatus,Docidocercus fasciatus,Insecta,7,0.199,103.986,0,0,7,0,,1,1.0,7,7,80.215,0.0,False,False
-787625,Leucostethus fraterdanieli,Santa Rita Rocket Frog,Amphibia,7,0.032,16.671,0,7,0,0,,4,0.571,6,7,154.75,0.0,False,False
 65547,Hyalinobatrachium tatayoi,Tatayo's Glass Frog,Amphibia,7,0.04,18.621,1,6,0,1,4.0,5,0.429,1,1,685.368,0.0,False,False
-24272,Smilisca phaeota,Masked Tree Frog,Amphibia,6,0.052,14.422,2,4,0,2,4.5,5,0.333,0,1,1037.117,0.0,False,False
-1564122,Daedadelus waehnerorum ,Daedadelus waehnerorum ,Insecta,6,0.003,1.971,0,0,6,0,,1,1.0,0,6,1254.06,0.0,False,False
+787625,Leucostethus fraterdanieli,Santa Rita Rocket Frog,Amphibia,7,0.032,16.671,0,7,0,0,,4,0.571,6,7,154.75,0.0,False,False
+1462737,Docidocercus fasciatus,Docidocercus fasciatus,Insecta,7,0.199,103.986,0,0,7,0,,1,1.0,7,7,80.215,0.0,False,False
+plctan1,Tangara inornata,Plain-colored Tanager,Aves,6,0.053,20.441,6,0,0,1,3.0,3,0.5,0,0,638.069,33.333,False,False
+555142,Boana pugnax,Chirique-Flusse Tree Frog,Amphibia,6,0.029,15.79,0,6,0,0,,6,0.167,2,5,326.451,0.0,False,False
 126247,Leptodactylus insularum,Spotted Foam-nest Frog,Amphibia,6,0.027,15.729,1,5,0,0,3.5,4,0.333,0,0,660.694,16.667,False,False
 65336,Dendropsophus bogerti,Bogert's Aquatic Tree Frog,Amphibia,6,0.049,32.129,0,6,0,0,,4,0.333,6,6,162.095,0.0,False,False
-555142,Boana pugnax,Chirique-Flusse Tree Frog,Amphibia,6,0.029,15.79,0,6,0,0,,6,0.167,2,5,326.451,0.0,False,False
-plctan1,Tangara inornata,Plain-colored Tanager,Aves,6,0.053,20.441,6,0,0,1,3.0,3,0.5,0,0,638.069,33.333,False,False
-1346504,Neoconocephalus brachypterus,Neoconocephalus brachypterus,Insecta,5,0.09,66.994,0,0,5,0,,2,0.6,5,5,130.26,0.0,False,False
-476538,Elachistocleis panamensis,Panama Humming Frog,Amphibia,5,0.04,27.818,1,4,0,1,4.5,2,0.6,0,0,659.505,20.0,False,False
-46010,Sciurus granatensis,Red-tailed Squirrel,Mammalia,5,0.045,19.069,1,4,0,1,5.0,5,0.2,0,3,516.348,0.0,False,False
-714022,Panoploscelis specularis,Panoploscelis specularis,Insecta,5,0.049,37.742,0,0,5,0,,1,1.0,0,5,1254.06,0.0,False,False
-963335,Subria sylvestris,Subria sylvestris,Insecta,5,0.145,106.7,0,0,5,0,,1,1.0,5,5,70.484,0.0,False,False
+1564122,Daedadelus waehnerorum ,Daedadelus waehnerorum ,Insecta,6,0.003,1.971,0,0,6,0,,1,1.0,0,6,1254.06,0.0,False,False
+24272,Smilisca phaeota,Masked Tree Frog,Amphibia,6,0.052,14.422,2,4,0,2,4.5,5,0.333,0,1,1037.117,0.0,False,False
 548639,Copiphora gracilis,Copiphora gracilis,Insecta,5,0.008,2.805,0,0,5,0,,1,1.0,0,5,1254.06,0.0,False,False
+46010,Sciurus granatensis,Red-tailed Squirrel,Mammalia,5,0.045,19.069,1,4,0,1,5.0,5,0.2,0,3,516.348,0.0,False,False
+1346504,Neoconocephalus brachypterus,Neoconocephalus brachypterus,Insecta,5,0.09,66.994,0,0,5,0,,2,0.6,5,5,130.26,0.0,False,False
+963335,Subria sylvestris,Subria sylvestris,Insecta,5,0.145,106.7,0,0,5,0,,1,1.0,5,5,70.484,0.0,False,False
+476538,Elachistocleis panamensis,Panama Humming Frog,Amphibia,5,0.04,27.818,1,4,0,1,4.5,2,0.6,0,0,659.505,20.0,False,False
+714022,Panoploscelis specularis,Panoploscelis specularis,Insecta,5,0.049,37.742,0,0,5,0,,1,1.0,0,5,1254.06,0.0,False,False
 66893,Pristimantis taeniatus,Banded Rain Frog,Amphibia,5,0.024,15.336,2,3,0,1,3.5,2,0.8,1,1,652.075,0.0,False,False
-523060,Eschatoceras bipunctatus,Eschatoceras bipunctatus,Insecta,4,0.007,6.653,0,0,4,0,,1,1.0,0,4,1254.06,0.0,False,False
-868458,Typophyllum inflatum,Typophyllum inflatum,Insecta,4,0.007,6.555,0,0,4,0,,1,1.0,0,4,1254.06,0.0,False,False
 134933,Espadarana prosoblepon,Emerald Glass Frog,Amphibia,4,0.04,38.653,1,3,0,1,4.0,2,0.75,0,0,685.484,0.0,False,False
 1192948,Oxyprora surinamensis,Oxyprora surinamensis,Insecta,4,0.117,104.539,0,0,4,0,,1,1.0,4,4,86.772,0.0,False,False
-1462711,Cocconotus aratifrons,Cocconotus aratifrons,Insecta,3,0.085,99.433,0,0,3,0,,1,1.0,3,3,80.215,0.0,False,False
-1194042,Copiphora colombiae,Copiphora colombiae,Insecta,3,0.026,32.272,0,0,3,0,,2,0.667,3,3,130.26,0.0,False,False
+868458,Typophyllum inflatum,Typophyllum inflatum,Insecta,4,0.007,6.555,0,0,4,0,,1,1.0,0,4,1254.06,0.0,False,False
+523060,Eschatoceras bipunctatus,Eschatoceras bipunctatus,Insecta,4,0.007,6.653,0,0,4,0,,1,1.0,0,4,1254.06,0.0,False,False
 24292,Scinax rostratus,Caracas Snouted Tree Frog,Amphibia,3,0.123,145.488,0,0,3,0,,2,0.667,1,3,328.521,0.0,False,False
 65419,Diasporus gularis,Esmereldas Robber Frog,Amphibia,3,0.013,11.05,0,3,0,0,,3,0.333,0,3,468.619,0.0,False,False
-67082,Rheobates palmatus,Palm Rocket Frog,Amphibia,2,0.012,22.072,0,2,0,0,,2,0.5,2,2,160.268,0.0,False,False
-66016,Lithobates vaillanti,Vaillant's Frog,Amphibia,2,0.007,13.428,1,1,0,1,5.0,1,1.0,0,0,1245.869,0.0,False,False
-66578,Pristimantis bogotensis,Bogota Robber Frog,Amphibia,2,0.021,37.311,0,2,0,0,,2,0.5,2,2,216.713,0.0,False,False
+1194042,Copiphora colombiae,Copiphora colombiae,Insecta,3,0.026,32.272,0,0,3,0,,2,0.667,3,3,130.26,0.0,False,False
+1462711,Cocconotus aratifrons,Cocconotus aratifrons,Insecta,3,0.085,99.433,0,0,3,0,,1,1.0,3,3,80.215,0.0,False,False
 81930,Rhinella humboldti,Rivero's Toad,Amphibia,2,0.012,22.17,0,2,0,0,,2,0.5,0,2,374.281,0.0,False,False
-476537,Elachistocleis pearsei,Colombian Plump Frog,Amphibia,2,0.126,226.956,0,0,2,0,,2,0.5,2,2,52.134,0.0,False,False
-528041,Orophus conspersus,Orophus conspersus,Insecta,2,0.059,106.726,0,0,2,0,,1,1.0,2,2,69.647,0.0,False,False
+67082,Rheobates palmatus,Palm Rocket Frog,Amphibia,2,0.012,22.072,0,2,0,0,,2,0.5,2,2,160.268,0.0,False,False
+66578,Pristimantis bogotensis,Bogota Robber Frog,Amphibia,2,0.021,37.311,0,2,0,0,,2,0.5,2,2,216.713,0.0,False,False
 66531,Pristimantis achatinus,Cachabi Robber Frog,Amphibia,2,0.02,36.287,0,2,0,0,,2,0.5,2,2,200.401,0.0,False,False
-41778,Lontra longicaudis,Neotropical River Otter,Mammalia,2,0.058,104.025,1,1,0,1,4.0,2,0.5,0,0,2774.015,0.0,False,False
-47067,Bradypus variegatus,Brown-throated Three-toed Sloth,Mammalia,2,0.02,36.128,0,2,0,0,,2,0.5,0,1,773.799,0.0,False,False
-42087,Cerdocyon thous,Crab-eating Fox,Mammalia,2,0.006,10.566,0,2,0,0,,2,0.5,0,0,4515.924,0.0,False,False
-42113,Pecari tajacu,Collared Peccary,Mammalia,2,0.006,11.326,0,2,0,0,,2,0.5,0,0,4598.932,0.0,False,False
-21116,Dendrobates truncatus,Yellow-striped Poison Dart Frog,Amphibia,2,0.004,6.528,0,2,0,0,,2,0.5,1,2,244.535,0.0,False,False
-1139490,Ragoniella pulchella,Ragoniella pulchella,Insecta,2,0.054,97.696,0,0,2,0,,1,1.0,2,2,83.044,0.0,False,False
+66016,Lithobates vaillanti,Vaillant's Frog,Amphibia,2,0.007,13.428,1,1,0,1,5.0,1,1.0,0,0,1245.869,0.0,False,False
 21038,Colostethus inguinalis,Common Rocket Frog,Amphibia,2,0.109,196.719,0,2,0,0,,2,0.5,1,2,215.99,0.0,False,False
+41778,Lontra longicaudis,Neotropical River Otter,Mammalia,2,0.058,104.025,1,1,0,1,4.0,2,0.5,0,0,2774.015,0.0,False,False
+21116,Dendrobates truncatus,Yellow-striped Poison Dart Frog,Amphibia,2,0.004,6.528,0,2,0,0,,2,0.5,1,2,244.535,0.0,False,False
 64862,Allobates niputidea,Colombian Niputidea Nurse Frog,Amphibia,2,0.109,196.452,0,0,2,0,,1,1.0,2,2,74.612,0.0,False,False
+528041,Orophus conspersus,Orophus conspersus,Insecta,2,0.059,106.726,0,0,2,0,,1,1.0,2,2,69.647,0.0,False,False
+476537,Elachistocleis pearsei,Colombian Plump Frog,Amphibia,2,0.126,226.956,0,0,2,0,,2,0.5,2,2,52.134,0.0,False,False
+47067,Bradypus variegatus,Brown-throated Three-toed Sloth,Mammalia,2,0.02,36.128,0,2,0,0,,2,0.5,0,1,773.799,0.0,False,False
+42113,Pecari tajacu,Collared Peccary,Mammalia,2,0.006,11.326,0,2,0,0,,2,0.5,0,0,4598.932,0.0,False,False
+42087,Cerdocyon thous,Crab-eating Fox,Mammalia,2,0.006,10.566,0,2,0,0,,2,0.5,0,0,4515.924,0.0,False,False
+1139490,Ragoniella pulchella,Ragoniella pulchella,Insecta,2,0.054,97.696,0,0,2,0,,1,1.0,2,2,83.044,0.0,False,False

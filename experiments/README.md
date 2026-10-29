@@ -2,6 +2,8 @@
 
 Esta carpeta centraliza el registro experimental, las tablas cuantitativas, las figuras diagnósticas, los *checkpoints* y la trazabilidad de cada hito del proyecto **Identificación de especies por su canto (aves y fauna de Colombia — BirdCLEF+ 2025)** de la **Maestría en Inteligencia Artificial Aplicada (MIAA — Universidad Icesi)**.
 
+Los notebooks ejecutables se mantienen en `notebooks/`, que es el directorio del repositorio destinado a entregables Jupyter y análisis interactivos. `experiments/` centraliza este índice, los resultados generados (`results/`), registros y checkpoints. Por eso se numeran y enlazan aquí los experimentos, pero no se duplican ni trasladan los notebooks fuente a esta carpeta.
+
 ---
 
 ## 1. Tablero de Avance por Hitos
@@ -9,19 +11,40 @@ Esta carpeta centraliza el registro experimental, las tablas cuantitativas, las 
 | Hito | Fechas plan | Actividad principal | Responsables | Estado | Notebook / Script ejecutable | Resultados y reporte |
 |---|---|---|---|---|---|---|
 | **Entrega 1** | 13–19 oct. | Árbol de problemas, objetivos SMART, estado del arte y plan de trabajo | Todo el equipo | **Completado** | — | [`docs/arbol-problemas.md`](../docs/arbol-problemas.md) · [`docs/plan_trabajo.md`](../docs/plan_trabajo.md) |
-| **Hito 1 (EDA)** | 20–23 oct. | Inspección de `train.csv` (`28 564` audios, `206` especies), cabeceras OGG Vorbis, selección justificada de **16 especies del Magdalena Medio** (`6 759` grabaciones, `71.4 h`), métricas y protocolo de evaluación | Carlos Alberto Salamando · Verónica Serna | **Completado** | [`notebooks/experiment_1.ipynb`](../notebooks/experiment_1.ipynb) · `python src/main.py --stage hito1` | [`experiments/results/hito1/`](./results/hito1/) · [`docs/hito1_eda_report.md`](../docs/hito1_eda_report.md) |
-| **Hito 2 (Audio DSP)** | 26–30 oct. | Verificación física y binaria (`100 %`), estandarización a `32 kHz` mono sin *DC offset*, filtro pasa-banda Butterworth SOS de fase cero (`150–14 000 Hz`), segmentación en clips de `5.0 s` (`20 748` clips, `28.82 h`) y particiones estratificadas `train / val / test` sin fuga | Carlos Alberto Salamando · Verónica Serna | **Completado** | [`notebooks/experiment_2.ipynb`](../notebooks/experiment_2.ipynb) · `python src/main.py --stage hito2` | [`experiments/results/hito2/`](./results/hito2/) · [`docs/hito2_acondicionamiento_report.md`](../docs/hito2_acondicionamiento_report.md) |
-| **Hito 3 (Features)** | 2–6 nov. | Extracción de descriptores acústicos por clip de 5 s: MFCC (media, desviación estándar, $\Delta$ y $\Delta\Delta$) + estadísticas espectrales (centroide, ancho de banda, *roll-off*, ZCR, asimetría y curtosis). Ajuste de `StandardScaler` y PCA **solo con `train`** | Juan Fernando Gutiérrez · Miguel Ángel Paz | **Pendiente (Siguiente paso)** | `notebooks/experiment_3.ipynb` *(por crear)* | `src/data/features/features.parquet` / `features.csv` |
+| **Hito 1 (EDA)** | 20–23 oct. | Inspección de `train.csv` (`28 564` audios, `206` especies), cabeceras OGG Vorbis, selección justificada de **16 especies del Magdalena Medio** (`6 759` grabaciones, `71.4 h`), métricas y protocolo de evaluación | Carlos Alberto Salamando · Verónica Serna | **Completado** | [`notebooks/hito1_eda_seleccion_especies.ipynb`](../notebooks/hito1_eda_seleccion_especies.ipynb) · `python src/main.py --stage hito1` | [`experiments/results/hito1/`](./results/hito1/) · [`docs/hito1_eda_report.md`](../docs/hito1_eda_report.md) |
+| **Hito 2 (Audio DSP)** | 26–30 oct. | Verificación física y binaria (`100 %`), estandarización a `32 kHz` mono sin *DC offset*, filtro pasa-banda Butterworth SOS de fase cero (`150–14 000 Hz`), segmentación en clips de `5.0 s` (`20 748` clips, `28.82 h`) y particiones estratificadas `train / val / test` sin fuga | Carlos Alberto Salamando · Verónica Serna | **Completado** | [`notebooks/hito2_acondicionamiento_audio.ipynb`](../notebooks/hito2_acondicionamiento_audio.ipynb) · `python src/main.py --stage hito2` | [`experiments/results/hito2/`](./results/hito2/) · [`docs/hito2_acondicionamiento_report.md`](../docs/hito2_acondicionamiento_report.md) |
+| **Hito 3 (Features)** | 2–6 nov. | Extracción de descriptores acústicos por clip de 5 s: MFCC (media, desviación estándar, $\Delta$ y $\Delta\Delta$) + estadísticas espectrales (centroide, ancho de banda, *roll-off*, ZCR, asimetría y curtosis). Ajuste de `StandardScaler` y PCA **solo con `train`** | Juan Fernando Gutiérrez · Miguel Ángel Paz | **Pendiente (Siguiente paso)** | `notebooks/experiment_3.ipynb` *(Hito 3 de features; distinto del Experimento 3 complementario)* | `src/data/features/features.parquet` / `features.csv` |
 | **Hitos 4 y 5 (Clustering + Baseline/SVM)** | 9–13 nov. | Clustering exploratorio K-Means (proyecciones 2D/3D, *Silhouette Score*, ARI y relación con SNR/ruido). Entrenamiento de modelo *baseline* y SVM (lineal, RBF, polinomial) con `class_weight="balanced"` y validación cruzada estratificada de 5 folds (`fold0..fold4`) | Juan Fernando Gutiérrez · Miguel Ángel Paz | **Pendiente** | `notebooks/experiment_4.ipynb` · `src/training/train_baseline.py` · `src/training/train_svm.py` | `experiments/results/hito4_5/` |
 | **Hito 6 (Ensambles)** | 16–20 nov. | Comparación y ajuste de hiperparámetros (Grid/Random Search en CV) para Random Forest y Gradient Boosting (XGBoost); evaluación de SMOTE solo dentro de folds de entrenamiento; importancia de características | Carlos Alberto Salamando · Verónica Serna | **Pendiente** | `notebooks/experiment_5.ipynb` · `src/models/ensemble_model.py` | `experiments/results/hito6/` |
 | **Evaluación Final** | 23–27 nov. | Evaluación **una sola vez** del mejor modelo seleccionado sobre el conjunto retenido `test` (`2 855` clips, `965` grabaciones); matriz de confusión, análisis de errores por especie y brecha frente a *soundscapes* PAM | Juan Fernando Gutiérrez · Miguel Ángel Paz | **Pendiente** | `src/evaluation/evaluate.py` | `experiments/results/final/` · [`report.md`](../report.md) |
 
 ---
 
-## 2. Detalle de Experimentos Ejecutados
+## Experimento 1: especies amenazadas
+
+Se realizó una auditoría de cobertura de entrenamiento para el paujil de pico azul (*Crax alberti*, `bubcur1`) y el chavarrí (taxonomía BirdCLEF: *Chauna chavaria*, `norscr1`), resaltados por la Fundación Biodiversa Colombia. El ejercicio compara sus grabaciones, autores, calidad y presencia regional con las 16 clases seleccionadas en Hito 1; no altera dicho hito ni reporta precisión predictiva.
+
+- **Notebook reproducible:** [`notebooks/experimento_01_especies_amenazadas.ipynb`](../notebooks/experimento_01_especies_amenazadas.ipynb)
+- **Informe y conclusión:** [`docs/experimento_01_especies_amenazadas.md`](../docs/experimento_01_especies_amenazadas.md)
+- **Resultado resumido:** hay 20 grabaciones de *Crax alberti* y 14 de *Chauna chavaria*. Incluirlas elevaría la razón de desbalance estimada de `6.77:1` a `70.14:1`; se recomienda no añadirlas al experimento multiclase de 16 clases y conservarlas como línea complementaria de conservación hasta ampliar los datos.
+
+---
+
+## Experimento 2: fauna no objetivo y rechazo de sonidos
+
+Se auditó si el dataset ofrece negativos suficientes para enseñar al clasificador de las 16 aves a rechazar otros animales y sonidos ambientales. Hay 904 grabaciones de anfibios, insectos y mamíferos tras los filtros; la revisión de `secondary_labels` detectó una coocurrencia conocida con `compau`, pero las otras 903 no quedan certificadas como negativas. Los 9 726 soundscapes tampoco tienen etiquetas por especie o ventana. El informe propone curar `otra_fauna` y anotar por separado lluvia, agua, voces humanas, viento y otros ruidos.
+
+- **Notebook reproducible:** [`notebooks/experimento_02_rechazo_fauna_ambiente.ipynb`](../notebooks/experimento_02_rechazo_fauna_ambiente.ipynb)
+- **Informe y recomendación:** [`docs/experimento_02_rechazo_fauna_ambiente.md`](../docs/experimento_02_rechazo_fauna_ambiente.md)
+- **Decisión provisional:** evaluar una clase agregada `otra_fauna` únicamente tras revisar los audios; no usar soundscapes como negativos hasta anotar ventanas. Separar fauna de fondo ambiental y evaluar rechazo con particiones agrupadas por grabación/sitio/autor.
+- **Experimento 3, copia basada en el Hito 2:** [`notebooks/experimento_03_pipeline_hito2_rechazo_fauna_ambiente.ipynb`](../notebooks/experimento_03_pipeline_hito2_rechazo_fauna_ambiente.ipynb) reutiliza el baseline y genera manifiestos de candidatos separados; el generador es [`build_experimento_03_notebook.py`](../src/training/preprocessing/build_experimento_03_notebook.py). No cambia ni extiende los clips supervisados del Hito 2: los negativos de fauna y las ventanas PAM permanecen como candidatos débiles/sin etiqueta. Resultados: [`experiments/results/experimento_03/`](./results/experimento_03/).
+
+---
+
+## 4. Detalle de Experimentos Ejecutados
 
 ### Experimento 1 — Hito 1: Análisis Exploratorio de Metadatos (EDA) y Selección de Especies del Magdalena Medio
-- **Notebook:** [`notebooks/experiment_1.ipynb`](../notebooks/experiment_1.ipynb)
+- **Notebook:** [`notebooks/hito1_eda_seleccion_especies.ipynb`](../notebooks/hito1_eda_seleccion_especies.ipynb)
 - **Informe detallado:** [`docs/hito1_eda_report.md`](../docs/hito1_eda_report.md)
 - **Configuración y semilla:** `SEED = 42`, radio regional `<= 300 km` desde la Reserva Natural *El Silencio* (Yondó, Antioquia: `6.76° N, -74.21° W`).
 - **Hallazgos y decisiones principales:**
@@ -52,7 +75,7 @@ Esta carpeta centraliza el registro experimental, las tablas cuantitativas, las 
 ---
 
 ### Experimento 2 — Hito 2: Pipeline de Acondicionamiento de Audio (32 kHz, Filtro Pasa-Banda SOS, Clips de 5 s y Particiones `train / val / test`)
-- **Notebook:** [`notebooks/experiment_2.ipynb`](../notebooks/experiment_2.ipynb)
+- **Notebook:** [`notebooks/hito2_acondicionamiento_audio.ipynb`](../notebooks/hito2_acondicionamiento_audio.ipynb)
 - **Informe detallado:** [`docs/hito2_acondicionamiento_report.md`](../docs/hito2_acondicionamiento_report.md)
 - **Parámetros del pipeline DSP (`src/utils/helpers.py` y `src/training/preprocessing/hito2_audio_conditioning.py`):**
   - Frecuencia de muestreo estándar: `TARGET_SR = 32 000 Hz` (`1` canal mono, `float32` centrado en media cero $\mu_x = 0$).
@@ -91,7 +114,7 @@ Esta carpeta centraliza el registro experimental, las tablas cuantitativas, las 
 
 ---
 
-## 3. Próximos Pasos (Hoja de Ruta para Hito 3 y siguientes)
+## 5. Próximos Pasos (Hoja de Ruta para Hito 3 y siguientes)
 
 ### Paso inmediato — Hito 3: Extracción de Características Acústicas, Escalado sin Fuga y PCA (2–6 nov.)
 1. **Entrada oficial:** leer el catálogo [`src/data/processed/clips_metadata.csv`](../src/data/processed/clips_metadata.csv) (`20 748` clips de 5.0 s) y sus archivos `.wav` acondicionados en `src/data/processed/clips_5s/`.

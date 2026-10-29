@@ -1,7 +1,7 @@
 """Funciones auxiliares, matemáticas, geográficas y de inspección binaria de audio (Proyecto 1 MIAA).
 
 Este módulo (`src/utils/helpers.py`) concentra y documenta exhaustivamente las funciones
-utilizadas tanto en el notebook `notebooks/experiment_1.ipynb` como en los módulos
+utilizadas tanto en el notebook `notebooks/hito1_eda_seleccion_especies.ipynb` como en los módulos
 `src/data/audio_loader.py` y `src/data/preprocess.py`.
 
 Incluye la fundamentación teórica y de formato de bytes para:
@@ -864,4 +864,3 @@ def segment_and_condition_recording(
         "mean_snr_db": round(float(np.mean(snrs)), 3) if snrs else 0.0,
     }
     return rec_summary, clip_records
-

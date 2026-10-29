@@ -1,7 +1,7 @@
 # Hito 1 — Análisis exploratorio del metadata y definición del subconjunto Magdalena Medio
 
 **Proyecto:** Clasificación bioacústica de especies de El Silencio (Yondó, Antioquia) — BirdCLEF 2025
-**Fecha:** 2026-10-25 · **Reproducible con:** `python src/main.py` o ejecutando `notebooks/experiment_1.ipynb` (semilla 42)
+**Fecha:** 2026-10-25 · **Reproducible con:** `python src/main.py` o ejecutando [`notebooks/hito1_eda_seleccion_especies.ipynb`](notebooks/hito1_eda_seleccion_especies.ipynb) (semilla 42)
 
 > [!NOTE]
 > En esta versión del dataset el metadata se llama **`train.csv`** (en otras ediciones de BirdCLEF es `train_metadata.csv`); el contenido es equivalente. Todas las cifras de este documento salen de `reports/hito1/stats.json`, `reports/hito1/soundscapes_stats.json` y de las tablas en `reports/hito1/tables/`.
@@ -285,7 +285,7 @@ flowchart LR
 
 | Ruta | Contenido |
 |---|---|
-| [`notebooks/experiment_1.ipynb`](notebooks/experiment_1.ipynb) | **Jupyter Notebook único y 100 % autocontenido del Hito 1** (con todo el código Python explícito y comentado línea por línea de EDA, selección y particionamiento, narrativa Markdown, tablas HTML y gráficas embebidas) |
+| [`notebooks/hito1_eda_seleccion_especies.ipynb`](notebooks/hito1_eda_seleccion_especies.ipynb) | **Jupyter Notebook único y 100 % autocontenido del Hito 1** (con todo el código Python explícito y comentado línea por línea de EDA, selección y particionamiento, narrativa Markdown, tablas HTML y gráficas embebidas) |
 | [`src/utils/helpers.py`](src/utils/helpers.py) | Funciones auxiliares compartidas y documentadas (`ogg_header_info`, `batch_ogg_header_info`, `parse_list_field`, `haversine_km`, `gini_coefficient`, `parse_soundscape_filename`, `print_header`) |
 | [`src/data/audio_loader.py`](src/data/audio_loader.py) | Carga de `train.csv`, `taxonomy.csv`, rutas de audio y extracción de duraciones OGG |
 | [`src/data/preprocess.py`](src/data/preprocess.py) | Criterios E1–E5, curación R1–R5, filtrado I1–I5 y partición estratificada agrupada por autor |

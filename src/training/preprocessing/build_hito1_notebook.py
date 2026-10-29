@@ -1,7 +1,7 @@
-"""Construye y ejecuta el notebook autocontenido `notebooks/experiment_1.ipynb` para el Hito 1.
+"""Construye y ejecuta el notebook autocontenido `notebooks/hito1_eda_seleccion_especies.ipynb` para el Hito 1.
 
 Ubicado en `src/training/preprocessing/build_hito1_notebook.py` (conforme a la
-arquitectura oficial de `veroserna/Proyecto-1-MIAA`). Genera `notebooks/experiment_1.ipynb`
+arquitectura oficial de `veroserna/Proyecto-1-MIAA`). Genera `notebooks/hito1_eda_seleccion_especies.ipynb`
 con documentación exhaustiva paso a paso y comentarios línea por línea en cada bloque de
 código, ejecutando todas las celdas y embebiendo las salidas (tablas HTML, stdout y
 figuras PNG en base64).
@@ -123,7 +123,7 @@ CELLS_SPEC = [
 
 ---
 
-## Estructura del Repositorio y Propósito de este Notebook (`notebooks/experiment_1.ipynb`)
+## Estructura del Repositorio y Propósito de este Notebook (`notebooks/hito1_eda_seleccion_especies.ipynb`)
 
 Este notebook constituye el entregable interactivo del **Hito 1 (parte EDA)** según el cronograma de [`docs/plan_trabajo.md`](../docs/plan_trabajo.md) y la arquitectura de [`docs/arquitectura.md`](../docs/arquitectura.md):
 
@@ -139,7 +139,7 @@ Proyecto-1-MIAA/
 │   │   └── preprocess.py              # Pipeline reproducible de filtrado y particionamiento
 │   ├── evaluation/metrics.py          # Cálculo de Macro ROC-AUC, Macro-F1, precisión, recall y métricas por clase
 │   └── utils/helpers.py               # Funciones auxiliares documentadas (OGG Vorbis, Haversine, Gini, listas, etc.)
-├── notebooks/experiment_1.ipynb       # Este notebook (autocontenido, explicado línea por línea y ejecutado)
+├── notebooks/hito1_eda_seleccion_especies.ipynb # Este notebook (autocontenido, explicado línea por línea y ejecutado)
 └── experiments/results/hito1/         # Figuras (.png) y tablas (.csv) exportadas para el informe
 ```
 
@@ -151,6 +151,8 @@ En la siguiente celda:
 1. Importamos las librerías estándar de Python (`ast`, `struct`, `re`, `json`, `pathlib`, `ThreadPoolExecutor`) y las librerías científicas (`numpy`, `pandas`, `matplotlib`, `scikit-learn`).
 2. Detectamos dinámicamente la carpeta raíz del repositorio (`PROJECT_ROOT`) para que el notebook funcione igual si se ejecuta desde la raíz o desde la carpeta `notebooks/`.
 3. Definimos las rutas oficiales de la arquitectura (`src/data/raw`, `src/data/processed`, `experiments/results/hito1`) y las coordenadas de la **Reserva Natural El Silencio** en Yondó, Antioquia (`lat = 6.76° N`, `lon = -74.21° W`), tomadas de `src/data/raw/recording_location.txt`.
+
+**Kernel requerido:** selecciona **Python (Proyecto 1 MIAA)** y reinicia el kernel antes de ejecutar el notebook. Si aparece `No module named 'sklearn'`, el notebook todavía está conectado a otro entorno; los paquetes del `.venv` de este proyecto ya están instalados.
 """),
     ("code", """
 # ==============================================================================
@@ -1338,9 +1340,9 @@ def build_notebook() -> dict:
         "cells": cells,
         "metadata": {
             "kernelspec": {
-                "display_name": "Python 3",
+                "display_name": "Python (Proyecto 1 MIAA)",
                 "language": "python",
-                "name": "python3",
+                "name": "proyecto-1-miaa",
             },
             "language_info": {
                 "codemirror_mode": {"name": "ipython", "version": 3},
@@ -1361,7 +1363,7 @@ def main() -> None:
     nb = build_notebook()
     nb_dir = ROOT / "notebooks"
     nb_dir.mkdir(parents=True, exist_ok=True)
-    out_path = nb_dir / "experiment_1.ipynb"
+    out_path = nb_dir / "hito1_eda_seleccion_especies.ipynb"
     out_path.write_text(json.dumps(nb, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Notebook guardado en: {out_path} ({out_path.stat().st_size / 1024:.1f} KB)")
 
