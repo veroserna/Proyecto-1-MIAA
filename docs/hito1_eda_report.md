@@ -247,7 +247,7 @@ flowchart LR
 
 | Rol | Métrica | Motivo |
 |---|---|---|
-| **Principal** | **Macro ROC-AUC** (omitiendo clases sin positivos) | Métrica oficial de BirdCLEF 2025; no depende del umbral; macro = todas las especies pesan igual |
+| **Principal** | **Macro ROC-AUC multietiqueta**: AUC one-vs-rest por especie, con promedio aritmético no ponderado entre especies con positivos y negativos en la partición | Métrica oficial de BirdCLEF 2025; no depende del umbral; el promedio macro da el mismo peso a cada especie evaluable. Si falta una de las clases para una especie en un fold, su AUC se reporta como no calculable y se omite de ese fold. |
 | Secundaria | **cmAP** (macro average precision) | Más sensible al desbalance y a los falsos positivos que el AUC |
 | Secundaria | **Macro-F1**, precisión y recall por especie | Necesitan umbral: se calibra un umbral por especie sobre las OOF de la CV y se aplica fijo al test |
 | Secundaria | **Balanced accuracy / top-1** sobre la etiqueta primaria | Vista monoetiqueta interpretable |

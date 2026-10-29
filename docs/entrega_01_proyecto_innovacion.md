@@ -18,15 +18,15 @@ Ver [Árbol de problemas](./arbol-problemas.md).
 
 ## 2.1. Objetivo General
 
-Desarrollar y validar un prototipo de clasificación automática multiclase y exploración acústica para la identificación de un subconjunto de 10 a 20 especies de fauna del Valle del Magdalena Medio (Colombia) a partir de clips cortos de audio del dataset BirdCLEF+ 2025, mediante la extracción de descriptores espectrales y cepstrales (MFCC y estadísticos de espectrogramas) y el entrenamiento de modelos SVM y ensambles, alcanzando un desempeño balanceado medido por Macro F1 score superior a 0.65 y Macro ROC-AUC superior a 0.75 bajo condiciones de desbalance de clases y ruido de campo, durante el período académico comprendido entre el 13 de octubre y el 30 de noviembre de 2026.
+Desarrollar y validar, durante el período académico comprendido entre el 13 de octubre y el 30 de noviembre de 2026, un prototipo reproducible de clasificación automática multietiqueta y exploración acústica para identificar un subconjunto de 10 a 20 especies de fauna del Valle del Magdalena Medio (Colombia) a partir de clips cortos de audio de BirdCLEF+ 2025. El prototipo utilizará descriptores espectrales y cepstrales (MFCC y estadísticas de espectrogramas) y comparará modelos SVM y ensambles. Su desempeño se evaluará con métricas globales y por especie, sin comprometer de antemano un puntaje mínimo.
 
 ### Matriz de Verificación SMART del Objetivo General
 
 | Criterio | Cumplimiento y Justificación Técnica |
 |---|---|
-| **S (Específico)** | Delimita el dominio geográfico y de datos (BirdCLEF+ 2025, Valle del Magdalena Medio), el alcance del subconjunto (10 a 20 especies en clips cortos) y las técnicas exactas requeridas (MFCC, estadísticos de espectrogramas, SVM y ensambles). |
-| **M (Medible)** | Define dos métricas cuantitativas complementarias y sensibles al desbalance: Macro F1 score superior a 0.65 y Macro ROC-AUC superior a 0.75 en validación cruzada estratificada. |
-| **A (Alcanzable)** | Los umbrales (>0.65 y >0.75) son conservadores y técnicamente realistas, compensando la presencia de ruido ambiental y el desbalance de muestras. |
+| **S (Específico)** | Delimita el dominio geográfico y de datos (BirdCLEF+ 2025, Valle del Magdalena Medio), el alcance del subconjunto (10 a 20 especies en clips cortos), la formulación multietiqueta y las técnicas a comparar (MFCC, estadísticas de espectrogramas, SVM y ensambles). |
+| **M (Medible)** | El cierre se verificará mediante un pipeline reproducible, la comparación de modelos y el reporte de Macro-F1, Macro ROC-AUC y métricas por especie, junto con sus particiones y resultados observados. No se fija un umbral de desempeño antes de contar con un baseline comparable. |
+| **A (Alcanzable)** | Se acota el trabajo a un subconjunto de especies y a modelos comparativos definidos. La viabilidad del desempeño se analizará a partir de los resultados de validación, sin calificar de antemano como alcanzables valores numéricos no justificados. |
 | **R (Relevante)** | Ataca directamente los cuellos de botella del monitoreo acústico pasivo (PAM) en Colombia, permitiendo analizar el efecto del ruido de fondo y la brecha entre grabaciones focales (Xeno-Canto) y de campo. |
 | **T (Temporal)** | Acotado con precisión a las 7 semanas del calendario académico del curso (13 de octubre al 30 de noviembre de 2026). |
 
@@ -42,7 +42,27 @@ Extraer y seleccionar un vector de descriptores acústicos por clip de audio —
 
 ### Modelado Supervisado, Comparación y Validación de Desempeño (Ataca Causa 3 y verifica la meta global):
 
-Entrenar, optimizar hiperparámetros y comparar el rendimiento predictivo de clasificadores basados en Máquinas de Soporte Vectorial (SVM) frente a métodos de ensamble (Random Forest, XGBoost), verificando el cumplimiento de un Macro-F1 score superior a 0.65 y Macro ROC-AUC superior a 0.75 en validación cruzada estratificada y documentando el impacto del ruido y la diferencia entre grabaciones focales (Xeno-Canto) y de campo (soundscapes).
+Entrenar, optimizar hiperparámetros y comparar el rendimiento predictivo de modelos basados en Máquinas de Soporte Vectorial (SVM) y métodos de ensamble (Random Forest, XGBoost) con validación cruzada agrupada, reportando Macro-F1, Macro ROC-AUC y métricas por especie, y documentando el impacto del ruido y las diferencias entre grabaciones focales (Xeno-Canto) y de campo (soundscapes).
+
+### Formulación de etiquetas y cálculo de Macro ROC-AUC
+
+La tarea supervisada se tratará como **multietiqueta** para las 16 especies: cada registro se representa mediante un vector binario independiente por especie. De acuerdo con el protocolo de Hito 1, las etiquetas de referencia a nivel de grabación incluyen la etiqueta primaria y las etiquetas secundarias que pertenezcan al subconjunto. Las etiquetas secundarias están incompletas en algunas fuentes; por ello, su ausencia no se interpretará automáticamente como ausencia confirmada de una especie.
+
+Para cada fold de validación:
+
+1. El modelo generará un score continuo o una probabilidad para cada una de las 16 especies; no se calculará ROC-AUC a partir de etiquetas predichas ya umbralizadas.
+2. Para cada especie ($c$), se calculará su ROC-AUC one-vs-rest comparando el vector binario de referencia ($y_c$) con el score continuo ($s_c$).
+3. El Macro ROC-AUC del fold será el promedio aritmético no ponderado de los AUC de las especies para las cuales la etiqueta de referencia en ese fold contiene al menos un positivo y un negativo:
+
+   $$\text{Macro ROC-AUC}_{\text{fold}} = \frac{1}{|C_{\text{valid}}|} \sum_{c \in C_{\text{valid}}} \text{AUC}(y_c, s_c)$$
+
+   donde $(C_{valid})$ es el conjunto de especies con ambas clases presentes en el fold.
+4. Si una especie no tiene positivos o no tiene negativos en un fold, su AUC para ese fold se marcará como no calculable y se excluirá únicamente de ese promedio. Se reportará qué especies y cuántos casos positivos/negativos se excluyeron; no se les asignará AUC igual a 0,5.
+5. Se presentarán los resultados por especie y el Macro ROC-AUC de cada fold, además del promedio y la desviación estándar entre folds. La misma definición one-vs-rest se aplicará en la evaluación final retenida, indicando cualquier especie no evaluable.
+
+Si en un fold ninguna especie es evaluable, el Macro ROC-AUC de ese fold también se marcará como no calculable y no se incluirá en el promedio entre folds; se reportará esta situación.
+
+Las predicciones de ventanas de 5 segundos se agregarán al nivel de grabación usando la regla de máximo por especie definida en el protocolo de Hito 1 antes de calcular las métricas de grabación. La Macro-F1 también se reportará, indicando que sus decisiones requieren umbrales; estos deberán seleccionarse con datos de validación y quedar documentados, nunca ajustarse con el test.
 
 ## 3. Estado del Arte (Revisión Bibliográfica y Análisis de Soluciones)
 
