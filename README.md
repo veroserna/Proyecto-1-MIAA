@@ -157,7 +157,7 @@ Este flujo permite separar claramente:
 1. Clona este repositorio.
 2. Crea un entorno virtual o conda.
 3. Instala las dependencias con `pip install -r requirements.txt`.
-4. Descarga los datos en tu entorno local.  `kaggle competitions download -c birdclef-2025` en la ruta `src/data/raw`
+4. Descarga los datos en tu entorno local.  `kaggle competitions download -c birdclef-2025` en la ruta `src/data/raw`. Ver https://github.com/Kaggle/kaggle-cli/tree/main/docs 
 5. Explora la estructura del proyecto en `src/` y revisa la documentación en `docs/`.
 6. Usa los notebooks en `notebooks/` para experimentación y análisis exploratorio.
 
