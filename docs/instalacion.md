@@ -65,7 +65,45 @@ Después de instalarlo, reinicia la terminal y el kernel de Jupyter. El Hito 1 p
 
 ## 3. Colocar y verificar los datos
 
-Descarga y descomprime el conjunto de datos BirdCLEF+ 2025. La ubicación recomendada es:
+### Descargar BirdCLEF+ 2025 con Kaggle CLI
+
+1. Inicia sesión en [Kaggle](https://www.kaggle.com/competitions/birdclef-2025/data), acepta las reglas de la competencia y confirma que tienes acceso a los datos.
+2. Instala el CLI oficial de Kaggle. Con `uv`:
+
+   ```bash
+   uv tool install kaggle
+   ```
+
+   Comprueba que esté disponible:
+
+   ```bash
+   kaggle --version
+   ```
+
+3. Autentica el CLI mediante el flujo de inicio de sesión en el navegador:
+
+   ```bash
+   kaggle auth login
+   ```
+
+   También puedes crear un token desde [Kaggle Settings → API](https://www.kaggle.com/settings/api) y configurar la autenticación según la [documentación oficial del CLI](https://github.com/Kaggle/kaggle-cli/blob/main/docs/README.md#authentication). No subas tokens ni archivos de credenciales al repositorio.
+4. Desde la raíz del repositorio, descarga y extrae los archivos:
+
+   ```bash
+   mkdir -p src/data/raw
+   kaggle competitions download -c birdclef-2025 -p src/data/raw
+   unzip -o src/data/raw/birdclef-2025.zip -d src/data/raw
+   ```
+
+   En Windows PowerShell, sustituye el último comando por:
+
+   ```powershell
+   Expand-Archive -Path src/data/raw/birdclef-2025.zip -DestinationPath src/data/raw -Force
+   ```
+
+   Si la descarga falla por permisos, revisa que hayas aceptado las reglas de la competencia en Kaggle y que tu cuenta tenga acceso.
+
+La ubicación recomendada después de extraer el conjunto de datos es:
 
 ```text
 src/data/raw/
