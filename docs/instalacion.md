@@ -27,18 +27,42 @@ uv run python -c "import numpy, pandas, scipy, sklearn, matplotlib; print('Depen
 
 ### Instalación alternativa con `pip`
 
+Confirma que `python3` apunta a Python 3.13:
+
 ```bash
-python3.13 -m venv .venv
+python3 --version
+```
+
+Si no muestra Python 3.13, instala esa versión o usa la instalación recomendada con `uv sync --group notebook`.
+
+```bash
+python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-En Windows, activa el entorno con:
+En Windows, crea el entorno desde PowerShell con:
 
 ```powershell
+py -3.13 -m venv .venv
+```
+
+Si PowerShell bloquea `Activate.ps1` con un error de `Execution_Policies`, permite la ejecución solo en la terminal actual y activa el entorno:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\.venv\Scripts\Activate.ps1
 ```
+
+Este ajuste temporal desaparece al cerrar PowerShell; no cambia la política permanente del equipo. Si el equipo administra o bloquea esta política, no intentes cambiarla globalmente. Puedes usar el entorno sin activarlo:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+En ese caso, sustituye `python` por `.\.venv\Scripts\python.exe` en los comandos siguientes. En macOS/Linux, activa `.venv` con `source .venv/bin/activate`; después, usa `python`.
 
 ### Instalar FFmpeg
 
@@ -68,10 +92,22 @@ Después de instalarlo, reinicia la terminal y el kernel de Jupyter. El Hito 1 p
 ### Descargar BirdCLEF+ 2025 con Kaggle CLI
 
 1. Inicia sesión en [Kaggle](https://www.kaggle.com/competitions/birdclef-2025/data), acepta las reglas de la competencia y confirma que tienes acceso a los datos.
-2. Instala el CLI oficial de Kaggle. Con `uv`:
+2. Instala el CLI oficial de Kaggle. Puedes usar `uv`:
 
    ```bash
    uv tool install kaggle
+   ```
+
+   O instalarlo en el entorno virtual ya preparado, sin `uv`:
+
+   ```bash
+   python -m pip install kaggle
+   ```
+
+   En Windows, si no activaste el entorno:
+
+   ```powershell
+   .\.venv\Scripts\python.exe -m pip install kaggle
    ```
 
    Comprueba que esté disponible:
@@ -134,10 +170,38 @@ uv run --group notebook python -m ipykernel install --user \
   --display-name "Python (Proyecto 1 MIAA)"
 ```
 
+Sin `uv`, con el entorno virtual activado, ejecuta:
+
+```bash
+python -m ipykernel install --user \
+  --name proyecto-1-miaa \
+  --display-name "Python (Proyecto 1 MIAA)"
+```
+
+En Windows, si no activaste el entorno, ejecuta:
+
+```powershell
+.\.venv\Scripts\python.exe -m ipykernel install --user `
+  --name proyecto-1-miaa `
+  --display-name "Python (Proyecto 1 MIAA)"
+```
+
 Reinicia VS Code/Jupyter después de registrarlo. Alternativamente, inicia Jupyter desde el entorno:
 
 ```bash
 uv run --group notebook jupyter notebook
+```
+
+Sin `uv`, con `.venv` activado, inicia Jupyter con:
+
+```bash
+python -m jupyter notebook
+```
+
+En Windows, sin activar el entorno:
+
+```powershell
+.\.venv\Scripts\python.exe -m jupyter notebook
 ```
 
 Ejecuta cada notebook de arriba hacia abajo. No ejecutes Hito 2 antes de Hito 1: necesita los manifiestos y catálogos generados por este último.
@@ -157,6 +221,18 @@ No requiere ejecutar código. Revisa la [sección 1: planteamiento y árbol de p
    uv run python src/main.py --stage hito1
    ```
 
+   Sin `uv`, con `.venv` activado:
+
+   ```bash
+   python src/main.py --stage hito1
+   ```
+
+   En Windows, si no activaste el entorno:
+
+   ```powershell
+   .\.venv\Scripts\python.exe src/main.py --stage hito1
+   ```
+
 3. Alternativamente, abre y ejecuta [`hito1_eda_seleccion_especies.ipynb`](../notebooks/hito1_eda_seleccion_especies.ipynb) con el kernel del proyecto.
 4. Comprueba los artefactos generados en `src/data/processed/` y `experiments/results/hito1/`. Hito 2 requiere, como mínimo, `subset_recordings.csv`, `subset_species.csv` y `train_durations.csv`.
 5. Consulta el [informe de Hito 1](./hito1_eda_report.md) para los criterios, las salidas y la interpretación.
@@ -171,11 +247,35 @@ No requiere ejecutar código. Revisa la [sección 1: planteamiento y árbol de p
    uv run python src/main.py --stage hito2
    ```
 
+   Sin `uv`, con `.venv` activado:
+
+   ```bash
+   python src/main.py --stage hito2
+   ```
+
+   En Windows, si no activaste el entorno:
+
+   ```powershell
+   .\.venv\Scripts\python.exe src/main.py --stage hito2
+   ```
+
 4. Alternativamente, ejecuta [`hito2_acondicionamiento_audio.ipynb`](../notebooks/hito2_acondicionamiento_audio.ipynb) de principio a fin.
 5. La opción `--no-wav` solo calcula metadatos/métricas sin escribir los WAV; **no** completa la generación de los clips requeridos para modelar:
 
    ```bash
    uv run python src/main.py --stage hito2 --no-wav
+   ```
+
+   Sin `uv`, con `.venv` activado:
+
+   ```bash
+   python src/main.py --stage hito2 --no-wav
+   ```
+
+   En Windows, si no activaste el entorno:
+
+   ```powershell
+   .\.venv\Scripts\python.exe src/main.py --stage hito2 --no-wav
    ```
 
 6. Verifica tanto `src/data/processed/clips_metadata.csv` como los archivos `.wav` dentro de `src/data/processed/clips_5s/{train,val,test}/`. El CSV es un catálogo y no garantiza que los WAV existan.
@@ -236,4 +336,4 @@ Lee el informe enlazado desde cada notebook antes de interpretar sus salidas. En
 - **No se encuentra `ffmpeg`:** instala FFmpeg, confirma `ffmpeg -version`, reinicia la terminal/kernel y vuelve a ejecutar Hito 2.
 - **Falta un WAV aunque exista en `clips_metadata.csv`:** el CSV registra metadatos, no prueba que el audio haya sido generado. Revisa `clips_5s/`; vuelve a ejecutar Hito 2 después de resolver dependencias y verifica los archivos de salida.
 - **No se encuentran `train.csv` o `taxonomy.csv`:** confirma que el dataset fue descomprimido en `src/data/raw/` y que no quedó un nivel de carpeta adicional.
-- **Hito 2 indica que no hay artefactos de Hito 1:** ejecuta primero `uv run python src/main.py --stage hito1`.
+- **Hito 2 indica que no hay artefactos de Hito 1:** ejecuta primero `uv run python src/main.py --stage hito1` o, sin `uv` y con `.venv` activado, `python src/main.py --stage hito1`.
