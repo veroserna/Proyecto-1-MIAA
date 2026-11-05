@@ -1,6 +1,6 @@
 # Instalación y ejecución por hitos
 
-Esta guía cubre la preparación del entorno y la ejecución de los hitos de análisis bioacústico. Los Hitos 1 y 2 ya tienen pipelines ejecutables; los Hitos 3–6 y la evaluación final siguen siendo actividades planificadas, por lo que sus comandos y notebooks se documentarán cuando se implementen.
+Esta guía cubre la preparación del entorno y la ejecución de los hitos de análisis bioacústico. Los Hitos 1, 2 y 3 tienen pipelines ejecutables; los Hitos 4–6 y la evaluación final siguen siendo actividades planificadas.
 
 ## 1. Requisitos
 
@@ -283,13 +283,80 @@ No requiere ejecutar código. Revisa la [sección 1: planteamiento y árbol de p
 
 ### Hito 3 — Extracción de características
 
-Este hito está planificado, pero todavía no tiene un notebook o comando ejecutable en el repositorio. Antes de iniciarlo:
+El Hito 3 reutiliza **únicamente** los artefactos ya preparados por el Hito 2; no
+vuelve a decodificar grabaciones OGG ni modifica los WAV. Necesita:
 
-1. Completa Hito 2 y verifica los clips WAV en `clips_5s/`.
-2. Implementa el extractor para MFCC y estadísticas espectrales siguiendo el [plan de trabajo](./plan_trabajo.md).
-3. Divide por las particiones versionadas y ajusta `StandardScaler`/PCA solo con `train` (o dentro del fold de entrenamiento en validación cruzada); transforma `val` y `test` con los objetos ya ajustados.
-4. Guarda las características, la configuración, las semillas y las figuras bajo `src/data/features/` y `experiments/results/hito3/`, según el diseño acordado.
-5. Añade el notebook/script y su comando reproducible a esta guía cuando estén implementados.
+- `src/data/processed/clips_metadata.csv` (catálogo original de clips).
+- `src/data/processed/clips_5s/{train,val,test}/` (WAV generados en Hito 2).
+
+Configuración inicial: 13 MFCC (base, delta y delta-delta), con media y desviación
+estándar por coeficiente (78 columnas); centroide, ancho de banda, roll-off al
+85 %, ZCR, asimetría espectral y exceso de curtosis de Fisher, también
+resumidos con media y desviación (12 columnas). **Total: 90 features por clip.**
+
+1. **Preparar las dependencias.** Si usas `uv`, actualiza el lockfile del
+   repositorio después de agregar las librerías y sincroniza el entorno:
+
+       uv lock
+       uv sync --group notebook --group dev
+
+   Alternativa con un entorno virtual activado (PowerShell o Linux/macOS):
+
+       python -m pip install -r requirements.txt
+       python -m pip install pytest
+
+2. **Revisar las pruebas de código, sin utilizar BirdCLEF:**
+
+       python -m pytest tests/test_hito3_features.py -q
+
+3. **Verificar el manifiesto y 60 archivos WAV antes de extraer:**
+
+       python src/main.py --stage hito3 --verify-only --limit 60
+
+   Este comando valida **todo el catálogo** (IDs, folds, autores y particiones)
+   y verifica la existencia de una **muestra de 60** WAV. No guarda features.
+
+4. **Procesar una muestra de 60 clips para probar la extracción:**
+
+       python src/main.py --stage hito3 --limit 60
+
+   Los resultados se guardan en `experiments/results/hito3/preview/`. No crea
+   el entregable oficial. Asegúrate de que existan clips en las tres particiones.
+
+5. **Ejecutar el conjunto completo (después de validar la muestra):**
+
+       python src/main.py --stage hito3
+
+   Este comando genera `src/data/features/features.csv` (entregable oficial
+   escalado) y `src/data/features/features_raw.csv` (características originales).
+   Si prefieres Parquet, utiliza `python src/main.py --stage hito3 --format parquet`.
+   No uses ambas variantes en la misma ejecución sin definir cuál será oficial.
+
+6. **Revisar los productos del Hito 3:**
+
+   - `experiments/results/hito3/hito3_summary.json`: cantidades, configuración,
+     versiones y auditorías de independencia.
+   - `experiments/results/hito3/artifacts/`: escalador y PCA en archivos Joblib.
+   - `experiments/results/hito3/figures/`: PCA 2D y 3D del entrenamiento.
+   - `experiments/results/hito3/pca_scores_train_val.csv`: coordenadas exploratorias.
+   - `notebooks/hito3_analisis_features.ipynb`: gráficos e interpretación.
+
+El escalador y PCA se **ajustan solo con `train`**. Las columnas `author`,
+`primary_label`, `labels`, `split`, `partition`, `clip_id` y demás metadatos
+se conservan para auditoría, pero **no se incluyen como predictores**.
+Para validación cruzada de los hitos siguientes, partir de `features_raw` y
+**reajustar** las transformaciones dentro de cada fold de entrenamiento.
+El test no se utiliza en las visualizaciones PCA.
+
+En caso de que falten WAV o haya un clip inválido, el proceso informa el error
+y no declara exitoso un dataset parcial. `--overwrite` es opcional y solo debe
+utilizarse si se desea sustituir resultados previos **del Hito 3**.
+El comando `--stage all` mantiene el comportamiento anterior (Hitos 1 y 2);
+para evitar reprocesarlos, ejecuta expresamente `--stage hito3`.
+
+**Nota de Git:** `.gitignore` puede excluir archivos generados en
+`src/data/features/` y los modelos `.joblib`. Compártelos por un medio de
+almacenamiento acordado con el equipo; no asumas que `git add .` los publicará.
 
 ### Hitos 4 y 5 — Clustering, baseline y SVM
 
