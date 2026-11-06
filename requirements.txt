@@ -7,3 +7,9 @@ scipy>=1.11.0
 jupyter>=1.0.0
 ipykernel>=6.29.0
 kagglehub>=0.1.0
+
+# Extraccion acustica, Parquet y pruebas (Hito 3)
+librosa>=0.11,<0.12
+joblib>=1.4
+pyarrow>=18.0
+pytest>=8.0

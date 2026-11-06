@@ -39,7 +39,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Pipeline principal BirdCLEF+ 2025 (MIAA Universidad Icesi)")
     parser.add_argument(
         "--stage",
-        choices=["hito1", "hito2", "all"],
+        choices=["hito1", "hito2", "hito3", "all"],
         default="all",
         help="Etapa del pipeline a ejecutar (por defecto: all).",
     )
@@ -48,12 +48,28 @@ def main() -> None:
         action="store_true",
         help="En Hito 2, calcula metadatos y métricas de clips sin reescribir archivos .wav.",
     )
+    # Argumentos opcionales para Hito 3. No alteran el comportamiento de Hitos 1/2.
+    parser.add_argument("--verify-only", action="store_true", help="Hito 3: auditar catálogo y WAV sin extraer características")
+    parser.add_argument("--limit", type=int, default=None, help="Hito 3: muestra de prueba (mínimo 9; recomendado 60)")
+    parser.add_argument("--format", choices=["csv", "parquet"], default="csv", help="Hito 3: formato de features")
+    parser.add_argument("--overwrite", action="store_true", help="Hito 3: reemplazar resultados anteriores del Hito 3")
+
     args = parser.parse_args()
 
     if args.stage in ("hito1", "all"):
         run_hito1()
     if args.stage in ("hito2", "all"):
         run_hito2_conditioning_pipeline(save_wav=not args.no_wav)
+
+    if args.stage == "hito3":
+        # Importación diferida: Hitos 1 y 2 no requieren instalar librosa/pyarrow.
+        from src.training.preprocessing.hito3_feature_pipeline import run_hito3
+        run_hito3(
+            limit=args.limit,
+            fmt=args.format,
+            verify_only=args.verify_only,
+            overwrite=args.overwrite,
+        )
 
 
 if __name__ == "__main__":
