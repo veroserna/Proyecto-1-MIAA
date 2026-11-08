@@ -13,3 +13,7 @@ dependencies:
   - jupyter
   - ipykernel
   - kagglehub
+- librosa
+- joblib
+- pyarrow
+- pytest
