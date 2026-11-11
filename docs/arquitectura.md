@@ -23,6 +23,8 @@ La carpeta `src/models/` alberga los modelos de referencia y comparativos para c
 ### 3. Entrenamiento
 La carpeta `src/training/` agrupa los pipelines de entrenamiento:
 
+- `hito4_clustering.py`: agrupamiento exploratorio K-Means sobre las features acústicas y su comparación con las etiquetas reales (Hito 4)
+- `hito5_baseline_svm.py`: comparación preliminar baseline (regresión logística) vs. SVM (lineal/RBF/polinomial) con validación cruzada agrupada por autor (Hito 5)
 - `train_baseline.py`: entrenamiento del modelo base
 - `train_svm.py`: entrenamiento de un clasificador SVM
 - `preprocessing/`: scripts para preparación de audio y metadatos
@@ -30,7 +32,7 @@ La carpeta `src/training/` agrupa los pipelines de entrenamiento:
 ### 4. Evaluación
 La carpeta `src/evaluation/` incluye:
 
-- métricas de clasificación multiclase
+- métricas de clasificación multietiqueta (Macro-F1, Macro ROC-AUC one-vs-rest, métricas por especie)
 - comparación entre modelos
 - generación de reportes de desempeño
 

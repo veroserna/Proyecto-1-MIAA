@@ -358,15 +358,65 @@ para evitar reprocesarlos, ejecuta expresamente `--stage hito3`.
 `src/data/features/` y los modelos `.joblib`. Compártelos por un medio de
 almacenamiento acordado con el equipo; no asumas que `git add .` los publicará.
 
-### Hitos 4 y 5 — Clustering, baseline y SVM
+### Hito 4 — Clustering exploratorio (K-Means)
 
-Estos hitos están planificados, pero todavía no tienen sus notebooks/scripts implementados. Una vez disponibles:
+Reutiliza exclusivamente `src/data/features/features.csv` (Hito 3) y las particiones ya fijadas (`split`:
+`fold0`–`fold4`, `partition`); no vuelve a tocar audio ni requiere `ffmpeg`/`librosa`. No usa la partición
+`test` en ningún momento.
 
-1. Usa exclusivamente las características y particiones producidas/versionadas en Hito 3.
-2. Ejecuta clustering como análisis exploratorio; guarda las proyecciones y métricas (por ejemplo, Silhouette y ARI) en `experiments/results/hito4_5/`.
-3. Compara el baseline y SVM con los kernels planificados. Mantén juntos los grupos de grabación/autor durante la validación y calcula los ajustes solo dentro de cada fold de entrenamiento.
-4. Guarda scores por fold, métricas por clase, parámetros y semilla; no uses test para seleccionar modelos.
-5. Añade aquí las instrucciones y comandos concretos al incorporar los ejecutables.
+1. Ejecuta el pipeline:
+
+   ```bash
+   uv run python src/main.py --stage hito4
+   ```
+
+   Sin `uv`, con `.venv` activado:
+
+   ```bash
+   python src/main.py --stage hito4
+   ```
+
+   En Windows, si no activaste el entorno:
+
+   ```powershell
+   .\.venv\Scripts\python.exe src/main.py --stage hito4
+   ```
+
+2. Alternativamente, ejecuta [`hito4_clustering.ipynb`](../notebooks/hito4_clustering.ipynb) de principio a fin.
+3. Comprueba los artefactos generados en `experiments/results/hito4_5/clustering/`: `clustering_metrics.json`,
+   `cluster_assignments.csv` y las figuras `clusters_2d.png`, `clusters_3d.png`, `clusters_vs_noise.png`.
+4. Consulta el [informe de Hito 4](./hito4_clustering_report.md) para la interpretación de resultados (ARI,
+   Silhouette, relación con el ruido de fondo).
+
+### Hito 5 — Comparación preliminar: baseline y SVM
+
+Reutiliza exclusivamente `src/data/features/features.csv` (Hito 3) y las particiones ya fijadas (`split`:
+`fold0`–`fold4`, `partition`); no vuelve a tocar audio ni requiere `ffmpeg`/`librosa`. No usa la partición
+`test` en ningún momento. Es independiente de Hito 4 (no depende de que este haya corrido antes).
+
+1. Ejecuta el pipeline:
+
+   ```bash
+   uv run python src/main.py --stage hito5
+   ```
+
+   Sin `uv`, con `.venv` activado:
+
+   ```bash
+   python src/main.py --stage hito5
+   ```
+
+   En Windows, si no activaste el entorno:
+
+   ```powershell
+   .\.venv\Scripts\python.exe src/main.py --stage hito5
+   ```
+
+2. Alternativamente, ejecuta [`hito5_baseline_svm.ipynb`](../notebooks/hito5_baseline_svm.ipynb) de principio a fin.
+3. Comprueba los artefactos generados en `experiments/results/hito4_5/supervised/`: `cv_scores_by_fold.csv`,
+   `cv_summary.json`, `per_class_metrics.csv` y `config.json`.
+4. Consulta el [informe de Hito 5](./hito5_baseline_svm_report.md) para la interpretación de resultados
+   (Macro-F1, Macro ROC-AUC, comparación de kernels y limitaciones del submuestreo usado en SVM).
 
 ### Hito 6 — Ensambles e importancia de características
 

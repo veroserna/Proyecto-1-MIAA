@@ -16,6 +16,8 @@ from src.data.preprocess import (
     export_hito1_artifacts,
     load_enriched_metadata,
 )
+from src.training.hito4_clustering import run_hito4_clustering
+from src.training.hito5_baseline_svm import run_hito5_baseline_svm
 from src.training.preprocessing.hito2_audio_conditioning import (
     run_hito2_conditioning_pipeline,
 )
@@ -39,7 +41,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Pipeline principal BirdCLEF+ 2025 (MIAA Universidad Icesi)")
     parser.add_argument(
         "--stage",
-        choices=["hito1", "hito2", "hito3", "all"],
+        choices=["hito1", "hito2", "hito3", "hito4", "hito5", "all"],
         default="all",
         help="Etapa del pipeline a ejecutar (por defecto: all).",
     )
@@ -70,6 +72,10 @@ def main() -> None:
             verify_only=args.verify_only,
             overwrite=args.overwrite,
         )
+    if args.stage == "hito4":
+        run_hito4_clustering()
+    if args.stage == "hito5":
+        run_hito5_baseline_svm()
 
 
 if __name__ == "__main__":
