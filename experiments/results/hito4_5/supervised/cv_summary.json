@@ -15,8 +15,8 @@
       "svm_poly"
     ],
     "class_weight": "balanced",
-    "svm_max_train_samples_per_fold": 5000,
-    "svm_uses_full_fold": false,
+    "svm_max_train_samples_per_fold": null,
+    "svm_uses_full_fold": true,
     "threshold_baseline": 0.5,
     "threshold_svm_decision_function": 0.0,
     "n_species": 16,
@@ -64,68 +64,68 @@
     },
     "svm_linear": {
       "accuracy": {
-        "mean": 0.0195,
-        "std": 0.0023
+        "mean": 0.0264,
+        "std": 0.0045
       },
       "f1_macro": {
-        "mean": 0.2884,
-        "std": 0.0064
+        "mean": 0.3024,
+        "std": 0.0055
       },
       "precision_macro": {
-        "mean": 0.1785,
-        "std": 0.0053
+        "mean": 0.1888,
+        "std": 0.0041
       },
       "recall_macro": {
-        "mean": 0.8724,
-        "std": 0.0063
+        "mean": 0.8848,
+        "std": 0.0043
       },
       "roc_auc_macro": {
-        "mean": 0.8803,
-        "std": 0.0056
+        "mean": 0.8939,
+        "std": 0.0065
       }
     },
     "svm_poly": {
       "accuracy": {
-        "mean": 0.1791,
-        "std": 0.0115
+        "mean": 0.1855,
+        "std": 0.0129
       },
       "f1_macro": {
-        "mean": 0.387,
+        "mean": 0.4165,
         "std": 0.017
       },
       "precision_macro": {
-        "mean": 0.2957,
-        "std": 0.0124
+        "mean": 0.3037,
+        "std": 0.0123
       },
       "recall_macro": {
-        "mean": 0.5863,
-        "std": 0.0258
+        "mean": 0.6984,
+        "std": 0.0218
       },
       "roc_auc_macro": {
-        "mean": 0.8473,
-        "std": 0.0065
+        "mean": 0.8741,
+        "std": 0.0057
       }
     },
     "svm_rbf": {
       "accuracy": {
-        "mean": 0.1969,
-        "std": 0.0246
+        "mean": 0.2059,
+        "std": 0.0252
       },
       "f1_macro": {
-        "mean": 0.4543,
-        "std": 0.0205
+        "mean": 0.4657,
+        "std": 0.0189
       },
       "precision_macro": {
-        "mean": 0.3439,
-        "std": 0.0208
+        "mean": 0.3428,
+        "std": 0.0193
       },
       "recall_macro": {
-        "mean": 0.7061,
-        "std": 0.0113
+        "mean": 0.7648,
+        "std": 0.0103
       },
       "roc_auc_macro": {
-        "mean": 0.8939,
-        "std": 0.0019
+        "mean": 0.908,
+        "std": 0.0039
       }
     }
   }
