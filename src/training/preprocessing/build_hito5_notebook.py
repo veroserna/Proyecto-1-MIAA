@@ -87,6 +87,11 @@ grabacion (maximo por especie) — ver metodologia completa en
 [`docs/hito5_baseline_svm_report.md`](../docs/hito5_baseline_svm_report.md).
 
 **No se usa la particion `test` en ningun momento de este hito.**
+
+El notebook usa por defecto hasta 5000 clips de entrenamiento por fold para los SVM. Cambia
+`SVM_MAX_TRAIN_SAMPLES` a `None` para entrenarlos con todos los clips del fold; el baseline
+siempre usa el fold completo. El limite de 5000 es un punto de partida ampliado y no un
+optimo validado.
 """)
 
     add_code(r"""
@@ -97,7 +102,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.training.hito5_baseline_svm import run_hito5_baseline_svm
 
-result = run_hito5_baseline_svm()
+# Usa None para entrenar cada SVM con todos los clips del fold de entrenamiento.
+SVM_MAX_TRAIN_SAMPLES = 5000
+result = run_hito5_baseline_svm(svm_max_train_samples=SVM_MAX_TRAIN_SAMPLES)
 """)
 
     add_md("## Resumen por modelo (promedio ± desviacion estandar entre los 5 folds)")
@@ -124,9 +131,10 @@ print(result["cv_scores"].to_string(index=False))
 SVM con kernel RBF obtiene el mejor Macro-F1 de los cuatro modelos comparados, mientras que el baseline
 logistico obtiene el Macro ROC-AUC mas alto (scores bien ordenados, pero umbral de decision no optimizado).
 El kernel lineal es el mas debil — consistente con la baja separabilidad lineal observada en las proyecciones
-PCA de Hitos 3-4. Resultados preliminares: el entrenamiento SVM usa una submuestra de hasta 1500 clips por
-fold por costo computacional (ver limitaciones en el informe). Siguiente paso: Hito 6 (Random Forest,
-Gradient Boosting, busqueda de hiperparametros).
+PCA de Hitos 3-4. El limite de muestras SVM se configura en la primera celda ejecutable: 5000 clips por
+fold por defecto o None para usar el fold completo. Los resultados guardados en el informe corresponden
+a la corrida historica con el limite de 1500 y deben recalcularse tras cambiar esta configuracion.
+Siguiente paso: Hito 6 (Random Forest, Gradient Boosting, busqueda de hiperparametros).
 """)
 
     notebook = {

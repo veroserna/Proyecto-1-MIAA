@@ -1,0 +1,132 @@
+{
+  "config": {
+    "seed": 42,
+    "folds": [
+      "fold0",
+      "fold1",
+      "fold2",
+      "fold3",
+      "fold4"
+    ],
+    "models": [
+      "baseline_logreg",
+      "svm_linear",
+      "svm_rbf",
+      "svm_poly"
+    ],
+    "class_weight": "balanced",
+    "svm_max_train_samples_per_fold": 5000,
+    "svm_uses_full_fold": false,
+    "threshold_baseline": 0.5,
+    "threshold_svm_decision_function": 0.0,
+    "n_species": 16,
+    "species": [
+      "bugtan",
+      "chbant1",
+      "colcha1",
+      "compau",
+      "grekis",
+      "gycwor1",
+      "laufal1",
+      "linwoo1",
+      "littin1",
+      "orcpar",
+      "paltan1",
+      "roahaw",
+      "rumfly1",
+      "soulap1",
+      "trsowl",
+      "wbwwre1"
+    ]
+  },
+  "summary_by_model": {
+    "baseline_logreg": {
+      "accuracy": {
+        "mean": 0.025,
+        "std": 0.0044
+      },
+      "f1_macro": {
+        "mean": 0.2987,
+        "std": 0.0065
+      },
+      "precision_macro": {
+        "mean": 0.1854,
+        "std": 0.0048
+      },
+      "recall_macro": {
+        "mean": 0.8831,
+        "std": 0.0047
+      },
+      "roc_auc_macro": {
+        "mean": 0.8941,
+        "std": 0.0052
+      }
+    },
+    "svm_linear": {
+      "accuracy": {
+        "mean": 0.0195,
+        "std": 0.0023
+      },
+      "f1_macro": {
+        "mean": 0.2884,
+        "std": 0.0064
+      },
+      "precision_macro": {
+        "mean": 0.1785,
+        "std": 0.0053
+      },
+      "recall_macro": {
+        "mean": 0.8724,
+        "std": 0.0063
+      },
+      "roc_auc_macro": {
+        "mean": 0.8803,
+        "std": 0.0056
+      }
+    },
+    "svm_poly": {
+      "accuracy": {
+        "mean": 0.1791,
+        "std": 0.0115
+      },
+      "f1_macro": {
+        "mean": 0.387,
+        "std": 0.017
+      },
+      "precision_macro": {
+        "mean": 0.2957,
+        "std": 0.0124
+      },
+      "recall_macro": {
+        "mean": 0.5863,
+        "std": 0.0258
+      },
+      "roc_auc_macro": {
+        "mean": 0.8473,
+        "std": 0.0065
+      }
+    },
+    "svm_rbf": {
+      "accuracy": {
+        "mean": 0.1969,
+        "std": 0.0246
+      },
+      "f1_macro": {
+        "mean": 0.4543,
+        "std": 0.0205
+      },
+      "precision_macro": {
+        "mean": 0.3439,
+        "std": 0.0208
+      },
+      "recall_macro": {
+        "mean": 0.7061,
+        "std": 0.0113
+      },
+      "roc_auc_macro": {
+        "mean": 0.8939,
+        "std": 0.0019
+      }
+    }
+  }
+}

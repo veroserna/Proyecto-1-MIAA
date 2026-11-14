@@ -7,7 +7,7 @@
 **Notebook ejecutable:** [`notebooks/hito5_baseline_svm.ipynb`](../notebooks/hito5_baseline_svm.ipynb)
 **Módulos de producción:** [`src/training/hito5_baseline_svm.py`](../src/training/hito5_baseline_svm.py) · [`src/evaluation/metrics.py`](../src/evaluation/metrics.py) · [`src/main.py`](../src/main.py)
 
-**Estado:** 🟢 **Ejecutado.** Este documento describe el objetivo, la metodología y el formato de resultados; las cifras reales se completan una vez exista el script/notebook ejecutable y se corra la validación cruzada completa (semilla 42).
+**Estado:** 🟢 **Ejecutado.** La tabla de resultados de este reporte corresponde a la corrida preliminar con límite de 1 500 clips SVM por fold. El código y el notebook ahora permiten usar un límite ampliado de 5 000 clips o todos los clips del fold; esas configuraciones requieren una nueva ejecución y no están representadas por las cifras siguientes.
 
 ---
 
@@ -43,9 +43,9 @@ Siguiendo la definición de [`entrega_01_proyecto_innovacion.md`](./entrega_01_p
 | Modelo | Configuración |
 |---|---|
 | **Baseline** | Modelo de referencia simple (p. ej. regresión logística o `DummyClassifier` por frecuencia), envuelto en estrategia one-vs-rest para la salida multietiqueta. |
-| **SVM — kernel lineal** | `class_weight="balanced"`, salida de probabilidad habilitada, semilla 42. |
-| **SVM — kernel RBF** | `class_weight="balanced"`, salida de probabilidad habilitada, semilla 42. |
-| **SVM — kernel polinomial** | `class_weight="balanced"`, salida de probabilidad habilitada, semilla 42; se documentará el grado usado. |
+| **SVM — kernel lineal** | `class_weight="balanced"`, scores continuos de `decision_function`, semilla 42. |
+| **SVM — kernel RBF** | `class_weight="balanced"`, scores continuos de `decision_function`, semilla 42. |
+| **SVM — kernel polinomial** | `class_weight="balanced"`, scores continuos de `decision_function`, semilla 42, grado 3. |
 
 `class_weight="balanced"` se usa en todos los modelos supervisados por el desbalance de especies ya documentado en Hito 1 (ratio 6,8:1 dentro del subconjunto).
 
@@ -69,7 +69,7 @@ Todo se guardará en `experiments/results/hito4_5/supervised/`:
 
 **Ejecución completa, validación cruzada de 5 folds agrupados por autor (`fold0`–`fold4`), 17 893 clips de `train`+`val` (sin `test`), semilla 42. Métricas agregadas por grabación (máximo por especie) según el protocolo de la sección 3.**
 
-Nota de método: por costo computacional de `SVC` en esta medición preliminar, el entrenamiento de los tres kernels SVM se hizo sobre una submuestra aleatoria de hasta **1 500 clips** del fold de entrenamiento de cada vuelta (el baseline usa el fold de entrenamiento completo, ~14 300 clips). Ver limitaciones (sección 7).
+Nota de método: las cifras de esta tabla se obtuvieron con una submuestra aleatoria de hasta **1 500 clips** por fold para los tres kernels SVM; el baseline usó el fold de entrenamiento completo (~14 300 clips). El código actualizado usa por defecto hasta **5 000 clips** y acepta `None` para entrenar con todos los clips del fold. Las métricas reportadas aquí no deben atribuirse a esos nuevos tamaños hasta que se ejecute nuevamente la validación.
 
 ### 6.1. Promedio ± desviación estándar entre los 5 folds
 
@@ -94,7 +94,7 @@ Nota de método: por costo computacional de `SVC` en esta medición preliminar, 
 ## 7. Limitaciones y advertencias
 
 - Esta es una comparación **preliminar**: no incluye búsqueda de hiperparámetros (eso corresponde a Hito 6 para Random Forest/Gradient Boosting) ni SMOTE (reservado para evaluarse solo si las métricas de este hito lo justifican, y únicamente dentro de los folds de entrenamiento).
-- **Submuestreo de entrenamiento para SVM:** por el costo computacional de `SVC` (especialmente el kernel lineal) sobre ~14 300 clips de entrenamiento × 90 features × 16 clasificadores OvR × 5 folds, los tres kernels SVM se entrenaron sobre una submuestra aleatoria de hasta 1 500 clips por fold (semilla 42), mientras que el baseline usó el fold de entrenamiento completo. Esto no introduce fuga de información (la submuestra se toma dentro del fold ya correctamente asignado por autor), pero sí significa que el desempeño de SVM reportado aquí es una cota conservadora: con más datos de entrenamiento, es razonable esperar que mejore. Una iteración posterior con más cómputo disponible podría repetir esta comparación sin el tope de muestras.
+- **Tamaño de entrenamiento SVM configurable:** el módulo `run_hito5_baseline_svm(svm_max_train_samples=...)` y la primera celda del notebook aceptan un tope positivo por fold o `None` para usar todos los clips de entrenamiento de ese fold. El notebook usa por defecto 5 000 clips como punto de partida ampliado; no es un tamaño óptimo validado y puede aumentar el costo considerablemente. La selección aleatoria se realiza por clip (semilla 42), dentro del fold de entrenamiento; el baseline sigue usando todos los clips. Las cifras de la sección 6 son de una ejecución anterior con tope de 1 500 y no estiman el rendimiento con 5 000 o con el fold completo. Para comparar justamente, se debe volver a ejecutar la validación con la nueva configuración y cotejar métricas y tiempos por fold.
 - El umbral de decisión usado para Macro-F1 fue fijo (0,5 para el baseline con `predict_proba`, 0,0 para SVM con `decision_function`), no optimizado por fold con el conjunto de validación — una mejora pendiente antes de tomar estos números como definitivos.
 - El criterio principal de desempate entre kernels/modelos es Macro-F1 y Macro ROC-AUC, no accuracy, por el desbalance de clases.
 - No se selecciona aquí un modelo "ganador" definitivo para producción — ese paso ocurre después de Hito 6, usando solo validación, y se confirma una única vez contra `test` en la evaluación final.

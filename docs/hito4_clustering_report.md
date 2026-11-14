@@ -136,8 +136,6 @@ Las imágenes de esta sección se basan en las salidas de la ejecución actual d
 
 **Figura 6.7.** ARI frente a especies y Silhouette calculados sobre todos los clips para cada semilla; el mapa de calor muestra ARI entre pares de particiones (la diagonal es 1 por comparar cada solución consigo misma).
 
-No se incluye el dendrograma ilustrativo de versiones anteriores: no forma parte del flujo actual del notebook ni sustenta estos resultados.
-
 Las asignaciones por clip (`cluster_assignments.csv`) y métricas (`clustering_metrics.json`) se guardan en `experiments/results/hito4_5/clustering/`.
 
 ## 7. Limitaciones y advertencias

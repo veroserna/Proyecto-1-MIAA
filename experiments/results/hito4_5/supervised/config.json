@@ -1,0 +1,40 @@
+{
+  "seed": 42,
+  "folds": [
+    "fold0",
+    "fold1",
+    "fold2",
+    "fold3",
+    "fold4"
+  ],
+  "models": [
+    "baseline_logreg",
+    "svm_linear",
+    "svm_rbf",
+    "svm_poly"
+  ],
+  "class_weight": "balanced",
+  "svm_max_train_samples_per_fold": 5000,
+  "svm_uses_full_fold": false,
+  "threshold_baseline": 0.5,
+  "threshold_svm_decision_function": 0.0,
+  "n_species": 16,
+  "species": [
+    "bugtan",
+    "chbant1",
+    "colcha1",
+    "compau",
+    "grekis",
+    "gycwor1",
+    "laufal1",
+    "linwoo1",
+    "littin1",
+    "orcpar",
+    "paltan1",
+    "roahaw",
+    "rumfly1",
+    "soulap1",
+    "trsowl",
+    "wbwwre1"
+  ]
+}

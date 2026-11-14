@@ -35,9 +35,9 @@ HITO3_SUMMARY = PROJECT_ROOT / "experiments" / "results" / "hito3" / "hito3_summ
 OUT_DIR = PROJECT_ROOT / "experiments" / "results" / "hito4_5" / "supervised"
 SEED = 42
 FOLDS = [f"fold{i}" for i in range(5)]
-# Tope de muestras de entrenamiento SOLO para SVM (no para el baseline), por costo
-# computacional de SVC en esta corrida preliminar. Ver seccion de limitaciones del informe.
-SVM_MAX_TRAIN_SAMPLES = 1500
+# Tope inicial ampliado SOLO para SVM (no para el baseline). Usa None para entrenar
+# con todos los clips del fold. El valor 5000 es un punto de partida, no un óptimo validado.
+SVM_MAX_TRAIN_SAMPLES: int | None = 5000
 MODELS = ["baseline_logreg", "svm_linear", "svm_rbf", "svm_poly"]
 
 
@@ -76,16 +76,23 @@ def aggregate_by_recording(
     return agg_scores, agg_true
 
 
-def subsample_train(X, Y, groups, max_samples: int, seed: int):
-    if len(X) <= max_samples:
+def subsample_train(X, Y, groups, max_samples: int | None, seed: int):
+    if max_samples is not None and max_samples < 1:
+        raise ValueError("max_samples debe ser un entero positivo o None.")
+    if max_samples is None or len(X) <= max_samples:
         return X, Y, groups
     rng = np.random.RandomState(seed)
     idx = rng.choice(len(X), size=max_samples, replace=False)
     return X[idx], Y[idx], groups[idx]
 
 
-def run_hito5_baseline_svm(seed: int = SEED) -> dict:
+def run_hito5_baseline_svm(
+    seed: int = SEED,
+    svm_max_train_samples: int | None = SVM_MAX_TRAIN_SAMPLES,
+) -> dict:
     print_header("Hito 5 — Baseline y SVM (lineal, RBF, polinomial) con CV agrupada por autor")
+    if svm_max_train_samples is not None and svm_max_train_samples < 1:
+        raise ValueError("svm_max_train_samples debe ser un entero positivo o None.")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     feature_cols = load_feature_columns()
@@ -125,14 +132,13 @@ def run_hito5_baseline_svm(seed: int = SEED) -> dict:
             else:
                 kernel = model_name.split("_")[1]
                 X_tr_sub, Y_tr_sub, _ = subsample_train(
-                    X_train_s, Y_train, np.arange(len(X_train_s)), SVM_MAX_TRAIN_SAMPLES, seed
+                    X_train_s, Y_train, np.arange(len(X_train_s)), svm_max_train_samples, seed
                 )
                 clf = OneVsRestClassifier(
                     SVC(
                         kernel=kernel,
                         degree=3 if kernel == "poly" else 3,
                         class_weight="balanced",
-                        probability=False,
                         random_state=seed,
                     )
                 )
@@ -154,6 +160,9 @@ def run_hito5_baseline_svm(seed: int = SEED) -> dict:
                     "fold": fold,
                     "model": model_name,
                     "n_train_clips": int(train_mask.sum()),
+                    "n_model_train_clips": int(
+                        len(X_train_s) if model_name == "baseline_logreg" else len(X_tr_sub)
+                    ),
                     "n_val_clips": int(val_mask.sum()),
                     "n_val_recordings": int(agg_true.shape[0]),
                     "accuracy": m["accuracy"],
@@ -202,7 +211,8 @@ def run_hito5_baseline_svm(seed: int = SEED) -> dict:
         "folds": FOLDS,
         "models": MODELS,
         "class_weight": "balanced",
-        "svm_max_train_samples_per_fold": SVM_MAX_TRAIN_SAMPLES,
+        "svm_max_train_samples_per_fold": svm_max_train_samples,
+        "svm_uses_full_fold": svm_max_train_samples is None,
         "threshold_baseline": 0.5,
         "threshold_svm_decision_function": 0.0,
         "n_species": len(species),
