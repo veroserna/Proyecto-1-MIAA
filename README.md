@@ -177,7 +177,8 @@ Este flujo permite separar claramente:
 
 
 ## Glosario
-* **MFCC (Coeficientes Cepstrales en las Frecuencias Mel)** son parámetros que representan el espectro de potencia a corto plazo de un sonido, simulando la forma en que el oído humano percibe el audio. Son fundamentales en el reconocimiento de voz y procesamiento de audio.
+* **MFCC (Coeficientes Cepstrales en las Frecuencias Mel)** son parámetros que representan el espectro de potencia a corto plazo de un sonido, captura la textura timbral del sonido simulando la forma en que el oído humano percibe el audio. Son fundamentales en el reconocimiento de voz y procesamiento de audio, para este taller es útil para diferenciar vocalizaciones de aves.
+* **Delta y Delta-Delta MFCC** son derivadas temporales de MFCC, capturan cómo cambia la envolvente espectral en el tiempo. Son muy relevantes en audio bioacústico porque reflejan la dinámica de la emisión de cada especie.
 * Un **espectrograma** es una imagen que muestra cómo es un sonido, representando sus frecuencias, volumen y duración en un solo gráfico.
 * **SNR** Relación Señal-Ruido (SNR, por sus siglas en inglés Signal-to-Noise Ratio) en audio es la medida que compara la potencia de una señal de audio deseada (como música o voz) con la potencia del ruido de fondo no deseado (como zumbidos, estática o interferencias)
 * **PAM** Monitoreo Acústico Pasivo (Passive Acoustic Monitoring), es una  técnica no invasiva que utiliza sensores, grabadoras autónomas o hidrófonos para registrar los sonidos del ambiente, la fauna y las actividades humanas sin alterar ni perturbar el hábitat.
