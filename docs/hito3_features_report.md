@@ -194,3 +194,9 @@ La ejecución completa ya se efectuó; no es necesario repetirla para elaborar e
 La ejecución documentada del Hito 3 produjo satisfactoriamente una representación numérica de **20.748 clips** mediante **90 características acústicas**, conservando la trazabilidad y las particiones heredadas del Hito 2. Las verificaciones mostraron **cero valores numéricos inválidos**, **identificadores únicos** y un escalado de entrenamiento con media prácticamente cero y desviación prácticamente uno. El ajuste de StandardScaler y PCA se limitó a los **14.296 clips de entrenamiento**, según el resumen de ejecución.
 
 El PCA exploratorio explica **31,89 %** de la varianza en dos dimensiones y **36,67 %** en tres. Los gráficos presentan una notable superposición visual entre especies, sin que ello permita inferir directamente el rendimiento predictivo futuro. Estos resultados constituyen una base reproducible para los análisis y modelos de los siguientes hitos, siempre que las transformaciones se reajusten dentro de los folds correspondientes.
+
+La siguiente proyección respalda visualmente esta conclusión. Cada punto representa un clip del conjunto de entrenamiento; el color indica su especie principal. La nube densa y el solapamiento de colores muestran que PC1 y PC2 no separan claramente las especies. Esto es un resultado exploratorio de PCA, no una evaluación de clasificación.
+
+![Proyección PCA 2D de los clips de entrenamiento, coloreada por especie principal](../experiments/results/hito3/figures/pca_2d_train.png)
+
+**Figura 10.1.** Proyección PCA 2D del conjunto de entrenamiento. PC1 explica el 25,9 % y PC2 el 5,9 % de la varianza (31,89 % acumulado).

@@ -32,7 +32,7 @@ HITO3_SUMMARY = PROJECT_ROOT / "experiments" / "results" / "hito3" / "hito3_summ
 OUT_DIR = PROJECT_ROOT / "experiments" / "results" / "hito4_5" / "clustering"
 SEED = 42
 N_CLUSTERS = 16
-SILHOUETTE_SAMPLE_SIZE = 3000
+SILHOUETTE_SAMPLE_SIZE = 17893
 
 
 def load_feature_columns() -> list[str]:

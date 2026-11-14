@@ -1,6 +1,6 @@
 {
   "status": "FULL_EXECUTION",
-  "generated_at_utc": "2026-11-10T04:21:02.075221+00:00",
+  "generated_at_utc": "2026-11-14T01:25:19.577905+00:00",
   "n_manifest": 20748,
   "n_processed": 20748,
   "n_species_processed": 16,
@@ -122,8 +122,8 @@
   "n_samples_seen_pca": 14296,
   "pca_explained_variance_ratio": [
     0.25944316387176514,
-    0.059431660920381546,
-    0.04778417572379112
+    0.059432294219732285,
+    0.04778444766998291
   ],
   "pca_scoring_partitions": [
     "train",
@@ -133,9 +133,9 @@
   "invalid_feature_values": 0,
   "missing_or_invalid_clips": 0,
   "shared_authors_or_recordings_between_partitions": 0,
-  "manifest_sha256": "8bdc43b10ed4c168736ef2fdf10cc9da5d7693d3997794769c80ecb34882219f",
+  "manifest_sha256": "adb4fec7ac63575fe7a324628c7df81fb2dbdcbc56232bf82d6f6750edd1c103",
   "python_and_library_versions": {
-    "python": "3.13.18",
+    "python": "3.13.9",
     "numpy": "2.5.4",
     "pandas": "3.1.0",
     "scipy": "1.18.1",
@@ -144,8 +144,8 @@
     "matplotlib": "3.11.2",
     "joblib": "1.6.0"
   },
-  "feature_file": "C:\\Users\\Miguel\\Desktop\\Maestria\\Primer Semestre\\Proyecto I\\Proyecto-1-MIAA\\src\\data\\features\\features.csv",
-  "feature_raw_file": "C:\\Users\\Miguel\\Desktop\\Maestria\\Primer Semestre\\Proyecto I\\Proyecto-1-MIAA\\src\\data\\features\\features_raw.csv",
+  "feature_file": "/Users/veroserna1/Github repositories/Proyecto 1 MIAA/src/data/features/features.csv",
+  "feature_raw_file": "/Users/veroserna1/Github repositories/Proyecto 1 MIAA/src/data/features/features_raw.csv",
   "notes": [
     "La extracción acústica no utiliza etiquetas ni autores como features.",
     "Metadatos y etiquetas se conservan solo para trazabilidad/control.",

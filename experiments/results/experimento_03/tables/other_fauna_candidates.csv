@@ -1,0 +1,905 @@
+filename,primary_label,class_name,secondary_labels,secondary_codes,target_overlap,candidate_status,collection,rating,duration_s,author,partition,url,license
+1139490/CSA36385.ogg,1139490,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,98.853375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36385/IAvH-CSA-36385.mp3,cc-by-nc-sa 4.0
+1139490/CSA36389.ogg,1139490,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,96.53771875,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36389/IAvH-CSA-36389.mp3,cc-by-nc-sa 4.0
+1192948/CSA36358.ogg,1192948,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,116.5998125,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36358/IAvH-CSA-36358.mp3,cc-by-nc-sa 4.0
+1192948/CSA36366.ogg,1192948,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,105.4463125,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36366/IAvH-CSA-36366.mp3,cc-by-nc-sa 4.0
+1192948/CSA36373.ogg,1192948,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,103.63146875,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36373/IAvH-CSA-36373.mp3,cc-by-nc-sa 4.0
+1192948/CSA36388.ogg,1192948,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,96.07284375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36388/IAvH-CSA-36388.mp3,cc-by-nc-sa 4.0
+1194042/CSA18783.ogg,1194042,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,32.2718125,Diego A Gómez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18783/IAvH-CSA-18783.mp3,cc-by-nc-sa 4.0
+1194042/CSA18794.ogg,1194042,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,13.493625,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18794/IAvH-CSA-18794.mp3,cc-by-nc-sa 4.0
+1194042/CSA18802.ogg,1194042,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,46.04040625,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18802/IAvH-CSA-18802.mp3,cc-by-nc-sa 4.0
+126247/XC941297.ogg,126247,Amphibia,"['65448', '22976', '476538']","['65448', '22976', '476538']",[],weak_other_fauna_candidate_unverified,XC,3.5,16.15646875,Chris Harrison,train,https://xeno-canto.org/941297,cc-by-nc-sa 4.0
+126247/iNat1109254.ogg,126247,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.15646875,Chris Harrison,train,https://static.inaturalist.org/sounds/1109254.wav,cc-by-nc 4.0
+126247/iNat146584.ogg,126247,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.664,Rafael Tosi,test,https://static.inaturalist.org/sounds/146584.mp3,cc-by 4.0
+126247/iNat320679.ogg,126247,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.6626875,Carolina Soto V,val,https://static.inaturalist.org/sounds/320679.m4a,cc-by-nc 4.0
+126247/iNat888527.ogg,126247,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.30196875,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/888527.m4a,cc-by-nc 4.0
+126247/iNat888729.ogg,126247,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.16571875,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/888729.m4a,cc-by-nc 4.0
+1346504/CSA18784.ogg,1346504,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,44.29396875,Diego A Gómez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18784/IAvH-CSA-18784.mp3,cc-by-nc-sa 4.0
+1346504/CSA18791.ogg,1346504,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,76.6636875,Diego A Gómez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18791/IAvH-CSA-18791.mp3,cc-by-nc-sa 4.0
+1346504/CSA18792.ogg,1346504,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,27.8793125,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18792/IAvH-CSA-18792.mp3,cc-by-nc-sa 4.0
+1346504/CSA18793.ogg,1346504,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,66.99425,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18793/IAvH-CSA-18793.mp3,cc-by-nc-sa 4.0
+1346504/CSA18803.ogg,1346504,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,107.91440625,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18803/IAvH-CSA-18803.mp3,cc-by-nc-sa 4.0
+134933/XC941298.ogg,134933,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,48.27240625,Chris Harrison,train,https://xeno-canto.org/941298,cc-by-nc-sa 4.0
+134933/iNat1108984.ogg,134933,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,29.0343125,Chris Harrison,train,https://static.inaturalist.org/sounds/1108984.wav,cc-by-nc 4.0
+134933/iNat1160199.ogg,134933,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,48.27240625,Chris Harrison,train,https://static.inaturalist.org/sounds/1160199.wav,cc-by-nc 4.0
+134933/iNat859408.ogg,134933,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.6665,Federico A. Chinchilla Romero,train,https://static.inaturalist.org/sounds/859408.m4a,cc-by-nc 4.0
+135045/iNat1122209.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,48.35265625,Ricardo Sánchez,train,https://static.inaturalist.org/sounds/1122209.mp3,cc-by-nc 4.0
+135045/iNat1207345.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,134.9385625,Unknown,train,https://static.inaturalist.org/sounds/1207345.wav,cc-by-nc 4.0
+135045/iNat1207347.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,111.4006875,Unknown,train,https://static.inaturalist.org/sounds/1207347.wav,cc-by-nc 4.0
+135045/iNat1208549.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,176.88,Unknown,train,https://static.inaturalist.org/sounds/1208549.wav,cc-by-nc 4.0
+135045/iNat1208550.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,129.049125,Unknown,train,https://static.inaturalist.org/sounds/1208550.wav,cc-by-nc 4.0
+135045/iNat1208551.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,199.58021875,Unknown,train,https://static.inaturalist.org/sounds/1208551.wav,cc-by-nc 4.0
+135045/iNat1208552.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,204.27553125,Unknown,train,https://static.inaturalist.org/sounds/1208552.wav,cc-by-nc 4.0
+135045/iNat1208572.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,212.24978125,Unknown,train,https://static.inaturalist.org/sounds/1208572.wav,cc-by-nc 4.0
+135045/iNat327127.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.0,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/327127.mp3,cc-by-nc 4.0
+135045/iNat48803.ogg,135045,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,51.3,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/48803.mp3,cc-by-nc 4.0
+1462711/CSA36371.ogg,1462711,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,107.81734375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36371/IAvH-CSA-36371.mp3,cc-by-nc-sa 4.0
+1462711/CSA36379.ogg,1462711,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,99.43290625,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36379/IAvH-CSA-36379.mp3,cc-by-nc-sa 4.0
+1462711/CSA36390.ogg,1462711,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,98.30234375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36390/IAvH-CSA-36390.mp3,cc-by-nc-sa 4.0
+1462737/CSA36341.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,108.29084375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36341/IAvH-CSA-36341.mp3,cc-by-nc-sa 4.0
+1462737/CSA36369.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,106.155875,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36369/IAvH-CSA-36369.mp3,cc-by-nc-sa 4.0
+1462737/CSA36380.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,105.365625,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36380/IAvH-CSA-36380.mp3,cc-by-nc-sa 4.0
+1462737/CSA36381.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,103.98584375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36381/IAvH-CSA-36381.mp3,cc-by-nc-sa 4.0
+1462737/CSA36386.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,99.41890625,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36386/IAvH-CSA-36386.mp3,cc-by-nc-sa 4.0
+1462737/CSA36391.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,100.744375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36391/IAvH-CSA-36391.mp3,cc-by-nc-sa 4.0
+1462737/CSA36395.ogg,1462737,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,94.0858125,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36395/IAvH-CSA-36395.mp3,cc-by-nc-sa 4.0
+1564122/CSA34195.ogg,1564122,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,2.03396875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34195/IAvH-CSA-34195.mp3,cc-by-nc-sa 4.0
+1564122/CSA34196.ogg,1564122,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,1.1806875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34196/IAvH-CSA-34196.mp3,cc-by-nc-sa 4.0
+1564122/CSA34197.ogg,1564122,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,1.9073125,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34197/IAvH-CSA-34197.mp3,cc-by-nc-sa 4.0
+1564122/CSA34199.ogg,1564122,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,2.222625,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34199/IAvH-CSA-34199.mp3,cc-by-nc-sa 4.0
+1564122/CSA34200.ogg,1564122,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,2.99109375,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34200/IAvH-CSA-34200.mp3,cc-by-nc-sa 4.0
+21038/iNat297879.ogg,21038,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.136,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/297879.mp3,cc-by-nc 4.0
+21038/iNat65519.ogg,21038,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,382.302,José Gabriel Julio Guzmán,train,https://static.inaturalist.org/sounds/65519.mp3,cc-by-nc 4.0
+21116/iNat296867.ogg,21116,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.2,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/296867.mp3,cc-by-nc 4.0
+21116/iNat65520.ogg,21116,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.8555,José Gabriel Julio Guzmán,train,https://static.inaturalist.org/sounds/65520.mp3,cc-by-nc 4.0
+21211/XC882646.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,105.5085625,M.S. Hoogmoed,train,https://xeno-canto.org/882646,cc-by 4.0
+21211/XC882647.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,38.321625,M.S. Hoogmoed,train,https://xeno-canto.org/882647,cc-by 4.0
+21211/XC882648.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,52.11428125,M.S. Hoogmoed,train,https://xeno-canto.org/882648,cc-by 4.0
+21211/XC882649.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,34.19428125,M.S. Hoogmoed,train,https://xeno-canto.org/882649,cc-by 4.0
+21211/XC882650.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,12.74775,M.S. Hoogmoed,train,https://xeno-canto.org/882650,cc-by 4.0
+21211/XC882651.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,7.68,M.S. Hoogmoed,train,https://xeno-canto.org/882651,cc-by 4.0
+21211/XC882652.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,101.7208125,M.S. Hoogmoed,train,https://xeno-canto.org/882652,cc-by 4.0
+21211/XC882653.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,76.56490625,M.S. Hoogmoed,train,https://xeno-canto.org/882653,cc-by 4.0
+21211/XC882654.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,37.6424375,M.S. Hoogmoed,train,https://xeno-canto.org/882654,cc-by 4.0
+21211/XC882655.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,142.47184375,M.S. Hoogmoed,train,https://xeno-canto.org/882655,cc-by 4.0
+21211/XC882656.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,34.71675,M.S. Hoogmoed,train,https://xeno-canto.org/882656,cc-by 4.0
+21211/XC882657.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,104.75103125,M.S. Hoogmoed,train,https://xeno-canto.org/882657,cc-by 4.0
+21211/XC882658.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,116.84571875,M.S. Hoogmoed,train,https://xeno-canto.org/882658,cc-by 4.0
+21211/XC882659.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,111.75184375,M.S. Hoogmoed,train,https://xeno-canto.org/882659,cc-by 4.0
+21211/XC896832.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.21621875,Delaitre guillaume,train,https://xeno-canto.org/896832,cc-by-nc-sa 4.0
+21211/XC896838.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,15.99671875,Delaitre guillaume,train,https://xeno-canto.org/896838,cc-by-nc-sa 4.0
+21211/XC896839.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,8.18484375,Delaitre guillaume,train,https://xeno-canto.org/896839,cc-by-nc-sa 4.0
+21211/XC896840.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,8.68815625,Delaitre guillaume,train,https://xeno-canto.org/896840,cc-by-nc-sa 4.0
+21211/XC896855.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,6.13865625,Delaitre guillaume,train,https://xeno-canto.org/896855,cc-by-nc-sa 4.0
+21211/XC896857.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.56603125,Delaitre guillaume,train,https://xeno-canto.org/896857,cc-by-nc-sa 4.0
+21211/XC896863.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,8.490125,Delaitre guillaume,train,https://xeno-canto.org/896863,cc-by-nc-sa 4.0
+21211/XC913785.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.58665625,Delaitre guillaume,train,https://xeno-canto.org/913785,cc-by-nc-sa 4.0
+21211/XC913809.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,5.3218125,Delaitre guillaume,train,https://xeno-canto.org/913809,cc-by-nc-sa 4.0
+21211/XC913811.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,4.740125,Delaitre guillaume,train,https://xeno-canto.org/913811,cc-by-nc-sa 4.0
+21211/XC913839.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,1.16340625,Delaitre guillaume,train,https://xeno-canto.org/913839,cc-by-nc-sa 4.0
+21211/XC913840.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,8.514875,Delaitre guillaume,train,https://xeno-canto.org/913840,cc-by-nc-sa 4.0
+21211/XC913858.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,4.28221875,Delaitre guillaume,train,https://xeno-canto.org/913858,cc-by-nc-sa 4.0
+21211/XC913859.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,3.51490625,Delaitre guillaume,train,https://xeno-canto.org/913859,cc-by-nc-sa 4.0
+21211/XC913880.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,7.45053125,Delaitre guillaume,train,https://xeno-canto.org/913880,cc-by-nc-sa 4.0
+21211/XC913881.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,2.7846875,Delaitre guillaume,train,https://xeno-canto.org/913881,cc-by-nc-sa 4.0
+21211/XC913886.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,5.42084375,Delaitre guillaume,train,https://xeno-canto.org/913886,cc-by-nc-sa 4.0
+21211/XC913893.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,2.61140625,Delaitre guillaume,train,https://xeno-canto.org/913893,cc-by-nc-sa 4.0
+21211/XC913894.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,2.7475625,Delaitre guillaume,train,https://xeno-canto.org/913894,cc-by-nc-sa 4.0
+21211/XC913976.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,4.48021875,Delaitre guillaume,train,https://xeno-canto.org/913976,cc-by-nc-sa 4.0
+21211/XC913977.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,3.66340625,Delaitre guillaume,train,https://xeno-canto.org/913977,cc-by-nc-sa 4.0
+21211/XC913978.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,3.65103125,Delaitre guillaume,train,https://xeno-canto.org/913978,cc-by-nc-sa 4.0
+21211/XC913992.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,4.14609375,Delaitre guillaume,train,https://xeno-canto.org/913992,cc-by-nc-sa 4.0
+21211/XC914005.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,3.82428125,Delaitre guillaume,train,https://xeno-canto.org/914005,cc-by-nc-sa 4.0
+21211/XC914025.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,2.7104375,Delaitre guillaume,train,https://xeno-canto.org/914025,cc-by-nc-sa 4.0
+21211/XC914028.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,3.10646875,Delaitre guillaume,train,https://xeno-canto.org/914028,cc-by-nc-sa 4.0
+21211/XC917437.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,4.24921875,Delaitre guillaume,train,https://xeno-canto.org/917437,cc-by-nc-sa 4.0
+21211/XC917444.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,4.69059375,Delaitre guillaume,train,https://xeno-canto.org/917444,cc-by-nc-sa 4.0
+21211/XC917465.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,8.85315625,Delaitre guillaume,train,https://xeno-canto.org/917465,cc-by-nc-sa 4.0
+21211/XC917470.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.28221875,Delaitre guillaume,train,https://xeno-canto.org/917470,cc-by-nc-sa 4.0
+21211/XC917471.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.26571875,Delaitre guillaume,train,https://xeno-canto.org/917471,cc-by-nc-sa 4.0
+21211/XC920803.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,7.96209375,Delaitre guillaume,train,https://xeno-canto.org/920803,cc-by-nc-sa 4.0
+21211/XC920868.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,5.70134375,Delaitre guillaume,train,https://xeno-canto.org/920868,cc-by-nc-sa 4.0
+21211/XC920870.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.61553125,Delaitre guillaume,train,https://xeno-canto.org/920870,cc-by-nc-sa 4.0
+21211/XC920872.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,6.7079375,Delaitre guillaume,train,https://xeno-canto.org/920872,cc-by-nc-sa 4.0
+21211/XC920873.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.48021875,Delaitre guillaume,train,https://xeno-canto.org/920873,cc-by-nc-sa 4.0
+21211/XC920881.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.74425,Delaitre guillaume,train,https://xeno-canto.org/920881,cc-by-nc-sa 4.0
+21211/XC920888.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.85975,Delaitre guillaume,train,https://xeno-canto.org/920888,cc-by-nc-sa 4.0
+21211/XC920892.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.67821875,Delaitre guillaume,train,https://xeno-canto.org/920892,cc-by-nc-sa 4.0
+21211/XC925906.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,17.91090625,Delaitre guillaume,train,https://xeno-canto.org/925906,cc-by-nc-sa 4.0
+21211/XC925907.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.60728125,Delaitre guillaume,train,https://xeno-canto.org/925907,cc-by-nc-sa 4.0
+21211/XC925908.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.8548125,Delaitre guillaume,train,https://xeno-canto.org/925908,cc-by-nc-sa 4.0
+21211/XC925925.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,9.7195,Delaitre guillaume,train,https://xeno-canto.org/925925,cc-by-nc-sa 4.0
+21211/XC928709.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.038,Delaitre guillaume,train,https://xeno-canto.org/928709,cc-by-nc-sa 4.0
+21211/XC928710.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,8.11884375,Delaitre guillaume,train,https://xeno-canto.org/928710,cc-by-nc-sa 4.0
+21211/XC928714.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,6.60978125,Delaitre guillaume,train,https://xeno-canto.org/928714,cc-by-nc-sa 4.0
+21211/XC934741.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,51.83196875,Yannick Wiegers,train,https://xeno-canto.org/934741,cc-by-nc-sa 4.0
+21211/iNat1005762.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.02084375,Julien Piolain,train,https://static.inaturalist.org/sounds/1005762.wav,cc-by-nc 4.0
+21211/iNat359445.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.889,Unknown,train,https://static.inaturalist.org/sounds/359445.mp3,cc-by-nc 4.0
+21211/iNat361221.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.104,Johana Perez Mira,train,https://static.inaturalist.org/sounds/361221.mp3,cc-by-nc 4.0
+21211/iNat361222.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.0,Johana Perez Mira,train,https://static.inaturalist.org/sounds/361222.mp3,cc-by-nc 4.0
+21211/iNat597267.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,90.1863125,Esteban Diego Koch,train,https://static.inaturalist.org/sounds/597267.wav,cc-by-nc 4.0
+21211/iNat946486.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.54128125,Guillaume Delaitre,train,https://static.inaturalist.org/sounds/946486.wav,cc-by 4.0
+21211/iNat986383.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.04278125,Unknown,train,https://static.inaturalist.org/sounds/986383.m4a,cc-by-nc 4.0
+21211/iNat998468.ogg,21211,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.984,Guillaume Delaitre,train,https://static.inaturalist.org/sounds/998468.m4a,cc-by 4.0
+22333/XC890507.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,17.998375,Chris Harrison,train,https://xeno-canto.org/890507,cc-by-nc-sa 4.0
+22333/XC894982.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,60.69009375,Baudewijn Odé,train,https://xeno-canto.org/894982,cc-by-nc-sa 4.0
+22333/XC913746.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,7.59465625,Delaitre guillaume,train,https://xeno-canto.org/913746,cc-by-nc-sa 4.0
+22333/XC949880.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,15.456,Laura Sanabria,train,https://xeno-canto.org/949880,cc-by-nc-sa 4.0
+22333/iNat1005729.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.04165625,Julien Piolain,train,https://static.inaturalist.org/sounds/1005729.wav,cc-by-nc 4.0
+22333/iNat1008712.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.76,Unknown,train,https://static.inaturalist.org/sounds/1008712.wav,cc-by-nc 4.0
+22333/iNat1155704.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.9149375,Unknown,train,https://static.inaturalist.org/sounds/1155704.m4a,cc-by-nc 4.0
+22333/iNat1208354.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.824,Carlos A. Padrón P.,train,https://static.inaturalist.org/sounds/1208354.mp3,cc-by-sa 4.0
+22333/iNat1236061.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.19315625,Clément Aubert,val,https://static.inaturalist.org/sounds/1236061.m4a,cc-by-nc 4.0
+22333/iNat1237389.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.12084375,Carrie Seltzer,train,https://static.inaturalist.org/sounds/1237389.m4a,cc-by 4.0
+22333/iNat1237907.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.42884375,Zane Libke,train,https://static.inaturalist.org/sounds/1237907.m4a,cc-by-nc 4.0
+22333/iNat1239167.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.45053125,Rebecca Johnson,train,https://static.inaturalist.org/sounds/1239167.m4a,cc-by 4.0
+22333/iNat1241231.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.2091875,Cheng-Tao Lin,test,https://static.inaturalist.org/sounds/1241231.m4a,cc-by 4.0
+22333/iNat1245802.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.06934375,Avery Bartels,test,https://static.inaturalist.org/sounds/1245802.m4a,cc-by-nc 4.0
+22333/iNat1273155.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,52.29134375,Unknown,train,https://static.inaturalist.org/sounds/1273155.m4a,cc-by-nc 4.0
+22333/iNat1274792.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.78178125,Nathan Earley,train,https://static.inaturalist.org/sounds/1274792.m4a,cc-by-nc 4.0
+22333/iNat144601.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.44896875,Michael Friedman,train,https://static.inaturalist.org/sounds/144601.mp3,cc-by-nc 4.0
+22333/iNat150110.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.52646875,Unknown,train,https://static.inaturalist.org/sounds/150110.m4a,cc-by-nc 4.0
+22333/iNat233716.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.9738125,Unknown,train,https://static.inaturalist.org/sounds/233716.m4a,cc-by-nc 4.0
+22333/iNat255294.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.584,Sinead Stewart,test,https://static.inaturalist.org/sounds/255294.m4a,cc-by-nc 4.0
+22333/iNat292304.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,107.36,Rafael Gianni-Zurita,train,https://static.inaturalist.org/sounds/292304.wav,cc-by-nc 4.0
+22333/iNat332150.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.15021875,Michelle Cazabon-Mannette,test,https://static.inaturalist.org/sounds/332150.m4a,cc-by-nc-sa 4.0
+22333/iNat344525.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.1440625,Sofía Pastor Parajeles,val,https://static.inaturalist.org/sounds/344525.m4a,cc-by-nc 4.0
+22333/iNat34849.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.7490625,J. Burke Korol,train,https://static.inaturalist.org/sounds/34849.wav,cc-by-nc 4.0
+22333/iNat503234.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.87021875,Eric Knight,train,https://static.inaturalist.org/sounds/503234.mp3,cc-by 4.0
+22333/iNat516995.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,26.67975,Zulma Correa Bernal,test,https://static.inaturalist.org/sounds/516995.m4a,cc-by-nc 4.0
+22333/iNat52742.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.776,Unknown,train,https://static.inaturalist.org/sounds/52742.mp3,cc-by-nc 4.0
+22333/iNat530453.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.14559375,Unknown,train,https://static.inaturalist.org/sounds/530453.m4a,cc-by-nc 4.0
+22333/iNat532306.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.6735,Unknown,train,https://static.inaturalist.org/sounds/532306.m4a,cc-by-nc 4.0
+22333/iNat53679.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.01334375,Don Loarie,train,https://static.inaturalist.org/sounds/53679.m4a,cc-by 4.0
+22333/iNat54095.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.4520625,Unknown,train,https://static.inaturalist.org/sounds/54095.wav,cc-0 4.0
+22333/iNat554680.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.608,Unknown,train,https://static.inaturalist.org/sounds/554680.m4a,cc-by-nc 4.0
+22333/iNat560488.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.36853125,Unknown,train,https://static.inaturalist.org/sounds/560488.m4a,cc-by-nc 4.0
+22333/iNat575726.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.96290625,Unknown,train,https://static.inaturalist.org/sounds/575726.m4a,cc-by-nc 4.0
+22333/iNat575727.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.17034375,Unknown,train,https://static.inaturalist.org/sounds/575727.m4a,cc-by-nc 4.0
+22333/iNat576377.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.824,Kristof Zyskowski,train,https://static.inaturalist.org/sounds/576377.m4a,cc-by 4.0
+22333/iNat578290.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.346875,Juan Carlos Caicedo Hernández,train,https://static.inaturalist.org/sounds/578290.m4a,cc-by 4.0
+22333/iNat579714.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.888625,Unknown,train,https://static.inaturalist.org/sounds/579714.m4a,cc-by-nc 4.0
+22333/iNat585061.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.792,Zachary Tonzetich,train,https://static.inaturalist.org/sounds/585061.m4a,cc-by-nc 4.0
+22333/iNat758022.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,41.56375,Pedro D. Vernet P.,train,https://static.inaturalist.org/sounds/758022.m4a,cc-by-nc 4.0
+22333/iNat815140.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.3096875,Mark Reed,train,https://static.inaturalist.org/sounds/815140.m4a,cc-by 4.0
+22333/iNat867912.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.3855,Nicolás Baresch Uribe,train,https://static.inaturalist.org/sounds/867912.m4a,cc-by 4.0
+22333/iNat894924.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.87328125,Unknown,train,https://static.inaturalist.org/sounds/894924.wav,cc-by-nc 4.0
+22333/iNat943181.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.97225,Chris Harrison,train,https://static.inaturalist.org/sounds/943181.mp3,cc-by-nc 4.0
+22333/iNat976527.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.6920625,Scott Harris,train,https://static.inaturalist.org/sounds/976527.wav,cc-by 4.0
+22333/iNat983570.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.42934375,Guillaume Delaitre,train,https://static.inaturalist.org/sounds/983570.m4a,cc-by 4.0
+22333/iNat987253.ogg,22333,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.58984375,Unknown,train,https://static.inaturalist.org/sounds/987253.m4a,cc-by-nc 4.0
+22973/XC167037.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,55.5363125,Ottavio Janni,train,https://xeno-canto.org/167037,cc-by-nc-sa 3.0
+22973/XC882793.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,15.69959375,M.S. Hoogmoed,train,https://xeno-canto.org/882793,cc-by 4.0
+22973/XC882794.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,52.79346875,M.S. Hoogmoed,train,https://xeno-canto.org/882794,cc-by 4.0
+22973/XC882795.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,90.54040625,M.S. Hoogmoed,train,https://xeno-canto.org/882795,cc-by 4.0
+22973/XC882796.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,71.23590625,M.S. Hoogmoed,train,https://xeno-canto.org/882796,cc-by 4.0
+22973/XC882797.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,48.32653125,M.S. Hoogmoed,train,https://xeno-canto.org/882797,cc-by 4.0
+22973/XC882798.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,110.6285625,M.S. Hoogmoed,train,https://xeno-canto.org/882798,cc-by 4.0
+22973/XC892927.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,37.248,Chris Harrison,train,https://xeno-canto.org/892927,cc-by-nc-sa 4.0
+22973/XC892932.ogg,22973,Amphibia,['compau'],['compau'],['compau'],known_target_overlap_exclude_pure_negative,XC,4.5,11.02303125,Chris Harrison,train,https://xeno-canto.org/892932,cc-by-nc-sa 4.0
+22973/XC915924.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,16.41765625,Sara L. Castro (Museo de Historia Natural Unillanos),test,https://xeno-canto.org/915924,cc-by-nc-sa 4.0
+22973/XC928991.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,15.568,Augustin Bussac,train,https://xeno-canto.org/928991,cc-by-nc-sa 4.0
+22973/XC929100.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,19.905,Augustin Bussac,train,https://xeno-canto.org/929100,cc-by-nc-sa 4.0
+22973/XC929101.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,26.697,Augustin Bussac,train,https://xeno-canto.org/929101,cc-by-nc-sa 4.0
+22973/iNat1099468.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.15409375,Unknown,train,https://static.inaturalist.org/sounds/1099468.m4a,cc-by-nc 4.0
+22973/iNat1243033.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.58496875,Felipe Andrade,train,https://static.inaturalist.org/sounds/1243033.wav,cc-by-nc 4.0
+22973/iNat1243080.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.243,Felipe Andrade,train,https://static.inaturalist.org/sounds/1243080.wav,cc-by-nc 4.0
+22973/iNat1251026.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,57.40953125,Felipe Barrera Ocampo,train,https://static.inaturalist.org/sounds/1251026.wav,cc-by-nc 4.0
+22973/iNat1257590.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,38.504,HUGO DAVID CAVERZASI,train,https://static.inaturalist.org/sounds/1257590.mp3,cc-by-nc 4.0
+22973/iNat154035.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.10596875,Carlos Otávio Gussoni,train,https://static.inaturalist.org/sounds/154035.wav,cc-by-nc 4.0
+22973/iNat157085.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.50275,Carlos Otávio Gussoni,train,https://static.inaturalist.org/sounds/157085.wav,cc-by-nc 4.0
+22973/iNat218912.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.89334375,Dr M Chin Sue Min,train,https://static.inaturalist.org/sounds/218912.m4a,cc-by-nc 4.0
+22973/iNat28425.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.8555,João Gava Just,val,https://static.inaturalist.org/sounds/28425.mp3,cc-by-nc 4.0
+22973/iNat287261.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,29.4196875,Dr M Chin Sue Min,train,https://static.inaturalist.org/sounds/287261.m4a,cc-by-nc 4.0
+22973/iNat28982.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.02303125,Chris Harrison,train,https://static.inaturalist.org/sounds/28982.mp3,cc-by-nc 4.0
+22973/iNat29017.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,37.248,Chris Harrison,train,https://static.inaturalist.org/sounds/29017.mp3,cc-by-nc 4.0
+22973/iNat318716.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.89953125,Unknown,train,https://static.inaturalist.org/sounds/318716.m4a,cc-by-nc 4.0
+22973/iNat326854.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.868,Guille Ivan Spajic,train,https://static.inaturalist.org/sounds/326854.mp3,cc-by-nc 4.0
+22973/iNat326860.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.516,Guille Ivan Spajic,train,https://static.inaturalist.org/sounds/326860.mp3,cc-by-nc 4.0
+22973/iNat326966.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,26.136,Guille Ivan Spajic,train,https://static.inaturalist.org/sounds/326966.mp3,cc-by-nc 4.0
+22973/iNat327135.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.152,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/327135.mp3,cc-by-nc 4.0
+22973/iNat331404.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.72,Laurent Quéno,train,https://static.inaturalist.org/sounds/331404.m4a,cc-by-nc 4.0
+22973/iNat343840.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.1905,Lucas C. Marinho,test,https://static.inaturalist.org/sounds/343840.m4a,cc-by-nc 4.0
+22973/iNat348132.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,61.13815625,Unknown,train,https://static.inaturalist.org/sounds/348132.m4a,cc-by-nc 4.0
+22973/iNat348440.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,41.7495,Unknown,train,https://static.inaturalist.org/sounds/348440.m4a,cc-by-nc 4.0
+22973/iNat348441.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.20290625,Unknown,train,https://static.inaturalist.org/sounds/348441.m4a,cc-by-nc 4.0
+22973/iNat502463.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.56209375,Grupo Herpetos,train,https://static.inaturalist.org/sounds/502463.m4a,cc-by-nc 4.0
+22973/iNat556448.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,44.08,Jorge L. Peña,test,https://static.inaturalist.org/sounds/556448.wav,cc-by-nc 4.0
+22973/iNat576552.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.27490625,Ademir Carosia,train,https://static.inaturalist.org/sounds/576552.wav,cc-by-nc 4.0
+22973/iNat581610.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.9599375,Unknown,train,https://static.inaturalist.org/sounds/581610.m4a,cc-by-nc 4.0
+22973/iNat583590.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,53.89353125,Unknown,train,https://static.inaturalist.org/sounds/583590.m4a,cc-by-nc 4.0
+22973/iNat583591.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,67.84871875,Unknown,train,https://static.inaturalist.org/sounds/583591.m4a,cc-by-nc 4.0
+22973/iNat58920.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,35.3734375,Arthur Gomes,train,https://static.inaturalist.org/sounds/58920.wav,cc-by-nc-sa 4.0
+22973/iNat599374.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.92,Carlos Otávio Gussoni,train,https://static.inaturalist.org/sounds/599374.wav,cc-by-nc 4.0
+22973/iNat599375.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.3093125,Carlos Otávio Gussoni,train,https://static.inaturalist.org/sounds/599375.wav,cc-by-nc 4.0
+22973/iNat630711.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,131.16953125,Erick Nicolas Patino Acosta,val,https://static.inaturalist.org/sounds/630711.wav,cc-by-nc 4.0
+22973/iNat726873.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.41425,Dr M Chin Sue Min,train,https://static.inaturalist.org/sounds/726873.m4a,cc-by-nc 4.0
+22973/iNat839779.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.984,Rony Ristow,train,https://static.inaturalist.org/sounds/839779.m4a,cc-by-nc 4.0
+22973/iNat859872.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,88.766625,Unknown,train,https://static.inaturalist.org/sounds/859872.wav,cc-by-nc 4.0
+22973/iNat870999.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.05271875,Unknown,train,https://static.inaturalist.org/sounds/870999.m4a,cc-by-nc 4.0
+22973/iNat879832.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.86,Liu Idárraga Orozco,train,https://static.inaturalist.org/sounds/879832.wav,cc-by-nc 4.0
+22973/iNat879833.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.78,Liu Idárraga Orozco,train,https://static.inaturalist.org/sounds/879833.wav,cc-by-nc 4.0
+22973/iNat887102.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.8948125,Leonardo Breder Passalacqua,train,https://static.inaturalist.org/sounds/887102.m4a,cc-by 4.0
+22973/iNat992788.ogg,22973,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,3.5293125,Unknown,train,https://static.inaturalist.org/sounds/992788.m4a,cc-by-nc 4.0
+22976/XC893971.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,10.704,Chris Harrison,train,https://xeno-canto.org/893971,cc-by-nc-sa 4.0
+22976/XC893972.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,7.488,Chris Harrison,train,https://xeno-canto.org/893972,cc-by-nc-sa 4.0
+22976/XC935710.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,33.024,Francis Canto Jr,test,https://xeno-canto.org/935710,cc-by-nc-sa 4.0
+22976/iNat1022191.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,74.4024375,Melvin Bonilla,train,https://static.inaturalist.org/sounds/1022191.wav,cc-by-nc 4.0
+22976/iNat103569.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.031125,Juan Cruzado Cortés,val,https://static.inaturalist.org/sounds/103569.wav,cc-by-nc-sa 4.0
+22976/iNat1109157.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.0503125,Chris Harrison,train,https://static.inaturalist.org/sounds/1109157.wav,cc-by-nc 4.0
+22976/iNat1112338.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.576,Chris Harrison,train,https://static.inaturalist.org/sounds/1112338.wav,cc-by-nc 4.0
+22976/iNat1190292.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.5224375,Mabelin,train,https://static.inaturalist.org/sounds/1190292.m4a,cc-by-nc 4.0
+22976/iNat1192434.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.7306875,Unknown,train,https://static.inaturalist.org/sounds/1192434.m4a,cc-by-nc 4.0
+22976/iNat1199997.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.75778125,Mabelin,train,https://static.inaturalist.org/sounds/1199997.m4a,cc-by-nc 4.0
+22976/iNat1208974.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.775625,aurora,train,https://static.inaturalist.org/sounds/1208974.m4a,cc-by-nc 4.0
+22976/iNat1226844.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,76.2560625,Unknown,train,https://static.inaturalist.org/sounds/1226844.wav,cc-by-nc 4.0
+22976/iNat132256.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,60.52571875,Nestor Herrera,train,https://static.inaturalist.org/sounds/132256.mp3,cc-by-nc 4.0
+22976/iNat132257.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.51590625,Nestor Herrera,train,https://static.inaturalist.org/sounds/132257.mp3,cc-by-nc 4.0
+22976/iNat134883.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.952125,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/134883.m4a,cc-by-nc 4.0
+22976/iNat141097.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.949375,Unknown,train,https://static.inaturalist.org/sounds/141097.mp3,cc-by-nc 4.0
+22976/iNat141098.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.8424375,Unknown,train,https://static.inaturalist.org/sounds/141098.mp3,cc-by-nc 4.0
+22976/iNat141099.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.9575625,Unknown,train,https://static.inaturalist.org/sounds/141099.mp3,cc-by-nc 4.0
+22976/iNat222390.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.4838125,Pedro E. Nahuat-Cervera,train,https://static.inaturalist.org/sounds/222390.wav,cc-by-nc 4.0
+22976/iNat226804.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.1568125,John Abrams,val,https://static.inaturalist.org/sounds/226804.wav,cc-by 4.0
+22976/iNat236359.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.848,ChristianT05,test,https://static.inaturalist.org/sounds/236359.m4a,cc-by-nc 4.0
+22976/iNat258473.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.928875,Pedro E. Nahuat-Cervera,train,https://static.inaturalist.org/sounds/258473.wav,cc-by-nc 4.0
+22976/iNat270309.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.8586875,Romey Swanson,test,https://static.inaturalist.org/sounds/270309.m4a,cc-by 4.0
+22976/iNat27238.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.864,Chris Harrison,train,https://static.inaturalist.org/sounds/27238.mp3,cc-by-nc 4.0
+22976/iNat27239.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.464,Chris Harrison,train,https://static.inaturalist.org/sounds/27239.mp3,cc-by-nc 4.0
+22976/iNat279584.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.343875,Ricardo Rivera,train,https://static.inaturalist.org/sounds/279584.m4a,cc-by-nc 4.0
+22976/iNat311367.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.9045,Flor Peraza,train,https://static.inaturalist.org/sounds/311367.mp3,cc-by-nc 4.0
+22976/iNat32633.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.528,Jonathan Hakim,train,https://static.inaturalist.org/sounds/32633.mp3,cc-by-nc 4.0
+22976/iNat399872.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.09453125,Mauricio L,train,https://static.inaturalist.org/sounds/399872.m4a,cc-by-nc 4.0
+22976/iNat48797.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.12,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/48797.mp3,cc-by-nc 4.0
+22976/iNat502474.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.3251875,Christopher Rustay,train,https://static.inaturalist.org/sounds/502474.m4a,cc-by-nc 4.0
+22976/iNat523344.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.91184375,Diego Almendras G.,val,https://static.inaturalist.org/sounds/523344.m4a,cc-by-nc 4.0
+22976/iNat523345.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.75703125,Diego Almendras G.,val,https://static.inaturalist.org/sounds/523345.m4a,cc-by-nc 4.0
+22976/iNat523346.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.825125,Diego Almendras G.,val,https://static.inaturalist.org/sounds/523346.m4a,cc-by-nc 4.0
+22976/iNat533201.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.897875,Unknown,train,https://static.inaturalist.org/sounds/533201.m4a,cc-by-nc 4.0
+22976/iNat567927.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.82934375,Tomás,test,https://static.inaturalist.org/sounds/567927.m4a,cc-by-nc 4.0
+22976/iNat583735.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.704,Chris Harrison,train,https://static.inaturalist.org/sounds/583735.mp3,cc-by-nc 4.0
+22976/iNat585685.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.52328125,Elan Trybuch,train,https://static.inaturalist.org/sounds/585685.m4a,cc-by-nc 4.0
+22976/iNat599139.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.2826875,Unknown,train,https://static.inaturalist.org/sounds/599139.m4a,cc-by-nc 4.0
+22976/iNat630710.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,131.16953125,Erick Nicolas Patino Acosta,val,https://static.inaturalist.org/sounds/630710.wav,cc-by-nc 4.0
+22976/iNat687624.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.91103125,Rosabel Miro,train,https://static.inaturalist.org/sounds/687624.mp3,cc-by-nc 4.0
+22976/iNat77271.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.60065625,celinalineth,val,https://static.inaturalist.org/sounds/77271.m4a,cc-by-nc 4.0
+22976/iNat843264.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,65.50203125,Richard Littauer,train,https://static.inaturalist.org/sounds/843264.wav,cc-by 4.0
+22976/iNat858189.ogg,22976,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.88,Unknown,train,https://static.inaturalist.org/sounds/858189.m4a,cc-by-nc 4.0
+24272/XC882885.ogg,24272,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,93.3355,M.S. Hoogmoed,train,https://xeno-canto.org/882885,cc-by 4.0
+24272/XC893991.ogg,24272,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,14.26284375,Chris Harrison,train,https://xeno-canto.org/893991,cc-by-nc-sa 4.0
+24272/iNat341657.ogg,24272,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,38.42903125,crzyowl11_ELB,train,https://static.inaturalist.org/sounds/341657.m4a,cc-by-nc 4.0
+24272/iNat715387.ogg,24272,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.4226875,Randall Jiménez,train,https://static.inaturalist.org/sounds/715387.m4a,cc-by-nc 4.0
+24272/iNat901214.ogg,24272,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.5815625,Unknown,train,https://static.inaturalist.org/sounds/901214.m4a,cc-by-nc 4.0
+24272/iNat956047.ogg,24272,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.210625,Chris Harrison,train,https://static.inaturalist.org/sounds/956047.mp3,cc-by-nc 4.0
+24292/CSA34649.ogg,24292,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,195.696,Eliana Barona- Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34649/IAvH-CSA-34649.mp3,cc-by-nc-sa 4.0
+24292/CSA34651.ogg,24292,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,145.488,Eliana Barona- Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34651/IAvH-CSA-34651.mp3,cc-by-nc-sa 4.0
+24292/CSA35021.ogg,24292,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,101.64,Alexandra Butrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35021/IAvH-CSA-35021.mp3,cc-by-nc-sa 4.0
+24322/XC882877.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,75.83346875,M.S. Hoogmoed,train,https://xeno-canto.org/882877,cc-by 4.0
+24322/XC882878.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,151.48409375,M.S. Hoogmoed,train,https://xeno-canto.org/882878,cc-by 4.0
+24322/XC882879.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,209.789375,M.S. Hoogmoed,train,https://xeno-canto.org/882879,cc-by 4.0
+24322/XC882880.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,109.06121875,M.S. Hoogmoed,train,https://xeno-canto.org/882880,cc-by 4.0
+24322/XC882881.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,45.4008125,M.S. Hoogmoed,train,https://xeno-canto.org/882881,cc-by 4.0
+24322/XC915926.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,12.75315625,Sara L. Castro (Museo de Historia Natural Unillanos),test,https://xeno-canto.org/915926,cc-by-nc-sa 4.0
+24322/XC929063.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,33.22775,Augustin Bussac,train,https://xeno-canto.org/929063,cc-by-nc-sa 4.0
+24322/iNat1008711.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.8,Unknown,train,https://static.inaturalist.org/sounds/1008711.wav,cc-by-nc 4.0
+24322/iNat146544.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,50.5730625,Julien Piolain,train,https://static.inaturalist.org/sounds/146544.m4a,cc-by-nc 4.0
+24322/iNat319465.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.3251875,Esteban Diego Koch,train,https://static.inaturalist.org/sounds/319465.m4a,cc-by-nc 4.0
+24322/iNat410786.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.267875,Stephanie Tran,train,https://static.inaturalist.org/sounds/410786.m4a,cc-by 4.0
+24322/iNat440404.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.8809375,Stephanie Tran,train,https://static.inaturalist.org/sounds/440404.m4a,cc-by 4.0
+24322/iNat934849.ogg,24322,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.55275,Unknown,train,https://static.inaturalist.org/sounds/934849.m4a,cc-by-nc 4.0
+41663/XC144437.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,133.40734375,Daniel Parker,test,https://xeno-canto.org/144437,cc-by-nc-sa 3.0
+41663/XC697007.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,7.105,Stanislas Wroza,test,https://xeno-canto.org/697007,cc-by-nc-sa 4.0
+41663/XC961783.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,164.93715625,Paul Driver,train,https://xeno-canto.org/961783,cc-by-nc-sa 4.0
+41663/iNat1001216.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.5125,Unknown,train,https://static.inaturalist.org/sounds/1001216.m4a,cc-by-nc 4.0
+41663/iNat1025799.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.78903125,Peter Blancher,train,https://static.inaturalist.org/sounds/1025799.wav,cc-by-nc 4.0
+41663/iNat1026967.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.37953125,Unknown,train,https://static.inaturalist.org/sounds/1026967.m4a,cc-by-nc 4.0
+41663/iNat1059575.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.88246875,Kyle Aldinger,train,https://static.inaturalist.org/sounds/1059575.m4a,cc-by-nc 4.0
+41663/iNat1064354.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.68746875,Ashley Ann Fishwick,train,https://static.inaturalist.org/sounds/1064354.m4a,cc-by-nc 4.0
+41663/iNat1088350.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.11475,Susan Fawcett,test,https://static.inaturalist.org/sounds/1088350.m4a,cc-by-nc 4.0
+41663/iNat1088351.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.97390625,Susan Fawcett,test,https://static.inaturalist.org/sounds/1088351.m4a,cc-by-nc 4.0
+41663/iNat1102503.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.0590625,Misha Zitser,test,https://static.inaturalist.org/sounds/1102503.wav,cc-by-nc 4.0
+41663/iNat1104877.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,71.76128125,Liam Wolff,train,https://static.inaturalist.org/sounds/1104877.wav,cc-by-nc 4.0
+41663/iNat1105534.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.424,Chalon Boesel,train,https://static.inaturalist.org/sounds/1105534.m4a,cc-by-nc 4.0
+41663/iNat110660.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.19203125,Paul Robinson,test,https://static.inaturalist.org/sounds/110660.m4a,cc-by 4.0
+41663/iNat1123371.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.67040625,Ian Manning,val,https://static.inaturalist.org/sounds/1123371.m4a,cc-by 4.0
+41663/iNat1127617.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,113.27528125,Unknown,train,https://static.inaturalist.org/sounds/1127617.wav,cc-by-nc 4.0
+41663/iNat1138836.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.5311875,Guerric Haché,train,https://static.inaturalist.org/sounds/1138836.wav,cc-0 4.0
+41663/iNat1143361.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,57.6,Philip Kline,train,https://static.inaturalist.org/sounds/1143361.wav,cc-by-nc 4.0
+41663/iNat1148293.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.58678125,Micah Grove,train,https://static.inaturalist.org/sounds/1148293.m4a,cc-by-nc 4.0
+41663/iNat1158378.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,60.488,Sean Sims,train,https://static.inaturalist.org/sounds/1158378.m4a,cc-by-nc 4.0
+41663/iNat115920.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.10140625,PaulS,train,https://static.inaturalist.org/sounds/115920.wav,cc-by-nc 4.0
+41663/iNat1187502.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.25,Joanne Siderius,test,https://static.inaturalist.org/sounds/1187502.wav,cc-by-nc 4.0
+41663/iNat1198033.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.392,Robert Russo,train,https://static.inaturalist.org/sounds/1198033.mp3,cc-by-nc 4.0
+41663/iNat119976.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.8174375,Unknown,train,https://static.inaturalist.org/sounds/119976.m4a,cc-by-nc 4.0
+41663/iNat1215114.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,47.252625,Mary Schanuel,val,https://static.inaturalist.org/sounds/1215114.m4a,cc-by-nc 4.0
+41663/iNat1220687.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.54659375,Unknown,train,https://static.inaturalist.org/sounds/1220687.m4a,cc-by-nc 4.0
+41663/iNat1230702.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.38934375,Unknown,train,https://static.inaturalist.org/sounds/1230702.m4a,cc-by-nc 4.0
+41663/iNat1240391.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,46.98528125,Unknown,train,https://static.inaturalist.org/sounds/1240391.wav,cc-by-nc 4.0
+41663/iNat1240392.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.54253125,Unknown,train,https://static.inaturalist.org/sounds/1240392.wav,cc-by-nc 4.0
+41663/iNat124707.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.0426875,Unknown,train,https://static.inaturalist.org/sounds/124707.m4a,cc-by-nc 4.0
+41663/iNat1247603.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.1915625,Unknown,train,https://static.inaturalist.org/sounds/1247603.m4a,cc-by-nc 4.0
+41663/iNat1258651.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.170375,Guerric Haché,train,https://static.inaturalist.org/sounds/1258651.wav,cc-0 4.0
+41663/iNat126448.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,29.0481875,Chalon Boesel,train,https://static.inaturalist.org/sounds/126448.m4a,cc-by-nc 4.0
+41663/iNat1277094.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,93.57259375,Unknown,train,https://static.inaturalist.org/sounds/1277094.m4a,cc-by-nc 4.0
+41663/iNat135564.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,56.14934375,Elizabeth Ballard,train,https://static.inaturalist.org/sounds/135564.m4a,cc-by-sa 4.0
+41663/iNat140497.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.67734375,Merav Vonshak,train,https://static.inaturalist.org/sounds/140497.m4a,cc-by-nc 4.0
+41663/iNat160963.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.70221875,Unknown,train,https://static.inaturalist.org/sounds/160963.wav,cc-by-nc 4.0
+41663/iNat173251.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.047875,Gates Dupont,train,https://static.inaturalist.org/sounds/173251.wav,cc-by-nc 4.0
+41663/iNat181697.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.88278125,Peter Blancher,train,https://static.inaturalist.org/sounds/181697.wav,cc-by-nc 4.0
+41663/iNat214017.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.86859375,Unknown,train,https://static.inaturalist.org/sounds/214017.m4a,cc-by-nc 4.0
+41663/iNat222399.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.093,Andrew George,train,https://static.inaturalist.org/sounds/222399.m4a,cc-by-nc 4.0
+41663/iNat227396.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.656,Nart Barileva,train,https://static.inaturalist.org/sounds/227396.m4a,cc-0 4.0
+41663/iNat246272.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,136.94234375,Richard Littauer,train,https://static.inaturalist.org/sounds/246272.wav,cc-by 4.0
+41663/iNat262940.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,52.7905625,Lee Thomas,train,https://static.inaturalist.org/sounds/262940.wav,cc-by-nc 4.0
+41663/iNat287461.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,86.204,Unknown,train,https://static.inaturalist.org/sounds/287461.mp3,cc-by-nc 4.0
+41663/iNat290712.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,42.30678125,Alora,train,https://static.inaturalist.org/sounds/290712.m4a,cc-by-nc 4.0
+41663/iNat307417.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.66346875,J. Burke Korol,train,https://static.inaturalist.org/sounds/307417.wav,cc-by-nc 4.0
+41663/iNat313992.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,102.8411875,Unknown,train,https://static.inaturalist.org/sounds/313992.m4a,cc-by-nc 4.0
+41663/iNat31509.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,63.4775625,Ric Brown,train,https://static.inaturalist.org/sounds/31509.mp3,cc-by-nc-sa 4.0
+41663/iNat316038.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.43984375,Unknown,train,https://static.inaturalist.org/sounds/316038.m4a,cc-by-nc 4.0
+41663/iNat329514.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.996125,Mike Farley,train,https://static.inaturalist.org/sounds/329514.wav,cc-by-nc 4.0
+41663/iNat337777.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.55746875,Misha Zitser,test,https://static.inaturalist.org/sounds/337777.m4a,cc-by-nc 4.0
+41663/iNat348730.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.867125,Misha Zitser,test,https://static.inaturalist.org/sounds/348730.m4a,cc-by-nc 4.0
+41663/iNat357966.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.304,Unknown,train,https://static.inaturalist.org/sounds/357966.mp3,cc-by-nc 4.0
+41663/iNat358156.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.08990625,Unknown,train,https://static.inaturalist.org/sounds/358156.m4a,cc-by-nc 4.0
+41663/iNat358212.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.475375,Misha Zitser,test,https://static.inaturalist.org/sounds/358212.m4a,cc-by-nc 4.0
+41663/iNat370369.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,39.125625,Unknown,train,https://static.inaturalist.org/sounds/370369.m4a,cc-by-nc 4.0
+41663/iNat372425.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,45.9523125,Misha Zitser,test,https://static.inaturalist.org/sounds/372425.m4a,cc-by-nc 4.0
+41663/iNat382025.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,90.34884375,Misha Zitser,test,https://static.inaturalist.org/sounds/382025.m4a,cc-by-nc 4.0
+41663/iNat41507.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.62534375,Wayne Fidler,train,https://static.inaturalist.org/sounds/41507.wav,cc-by-nc 4.0
+41663/iNat426532.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,1.018,Unknown,train,https://static.inaturalist.org/sounds/426532.mp3,cc-by 4.0
+41663/iNat44038.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,69.146125,David Andrew Lloyd,train,https://static.inaturalist.org/sounds/44038.mp3,cc-by 4.0
+41663/iNat461258.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.031125,Kathie Lloyd,train,https://static.inaturalist.org/sounds/461258.m4a,cc-by-nc 4.0
+41663/iNat480453.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,45.39503125,Richard Littauer,train,https://static.inaturalist.org/sounds/480453.m4a,cc-by 4.0
+41663/iNat482041.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.328,Adam Kalab,val,https://static.inaturalist.org/sounds/482041.mp3,cc-by-nc 4.0
+41663/iNat488163.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,90.08971875,Alora,train,https://static.inaturalist.org/sounds/488163.m4a,cc-by-nc 4.0
+41663/iNat52174.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.733125,Brian Vigorito,train,https://static.inaturalist.org/sounds/52174.wav,cc-by-nc 4.0
+41663/iNat52175.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.81675,Brian Vigorito,train,https://static.inaturalist.org/sounds/52175.wav,cc-by-nc 4.0
+41663/iNat524625.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.4225,Unknown,train,https://static.inaturalist.org/sounds/524625.wav,cc-by-nc 4.0
+41663/iNat530125.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.5201875,Chris Coletti,train,https://static.inaturalist.org/sounds/530125.m4a,cc-by-nc 4.0
+41663/iNat530126.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.13171875,Chris Coletti,train,https://static.inaturalist.org/sounds/530126.m4a,cc-by-nc 4.0
+41663/iNat550890.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.182,Ted Floyd,val,https://static.inaturalist.org/sounds/550890.wav,cc-by-nc 4.0
+41663/iNat558840.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.55359375,Tom Okey,val,https://static.inaturalist.org/sounds/558840.m4a,cc-by-nc 4.0
+41663/iNat565772.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,46.5328125,Misha Zitser,test,https://static.inaturalist.org/sounds/565772.m4a,cc-by-nc 4.0
+41663/iNat565773.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,165.488625,Misha Zitser,test,https://static.inaturalist.org/sounds/565773.m4a,cc-by-nc 4.0
+41663/iNat590973.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.8399375,Kate McKeown,train,https://static.inaturalist.org/sounds/590973.wav,cc-0 4.0
+41663/iNat605767.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.5306875,Ryan Sealy,test,https://static.inaturalist.org/sounds/605767.m4a,cc-by-nc 4.0
+41663/iNat634671.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.5945625,Caleb Helsel,train,https://static.inaturalist.org/sounds/634671.m4a,cc-by-nc 4.0
+41663/iNat65677.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.725,Mark Apgar,train,https://static.inaturalist.org/sounds/65677.wav,cc-by 4.0
+41663/iNat679506.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.968,Unknown,train,https://static.inaturalist.org/sounds/679506.m4a,cc-by-nc 4.0
+41663/iNat70154.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,41.6101875,Unknown,train,https://static.inaturalist.org/sounds/70154.m4a,cc-by-nc 4.0
+41663/iNat709210.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,46.39159375,AnnaJ1111,test,https://static.inaturalist.org/sounds/709210.m4a,cc-by-nc 4.0
+41663/iNat722167.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.74778125,Fraser Gibson,val,https://static.inaturalist.org/sounds/722167.m4a,cc-by-nc 4.0
+41663/iNat731222.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.88634375,Unknown,train,https://static.inaturalist.org/sounds/731222.wav,cc-by-nc 4.0
+41663/iNat736140.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.63321875,Christina S. Baer,train,https://static.inaturalist.org/sounds/736140.m4a,cc-by-nc 4.0
+41663/iNat738014.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.25334375,Corey Husic,test,https://static.inaturalist.org/sounds/738014.m4a,cc-by-nc 4.0
+41663/iNat74306.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,29.10415625,Thomas Koffel,train,https://static.inaturalist.org/sounds/74306.wav,cc-by 4.0
+41663/iNat74307.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,32.03140625,Thomas Koffel,train,https://static.inaturalist.org/sounds/74307.wav,cc-by 4.0
+41663/iNat74627.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.00534375,Ashley M Bradford,train,https://static.inaturalist.org/sounds/74627.wav,cc-by-nc 4.0
+41663/iNat74628.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.71575,Ashley M Bradford,train,https://static.inaturalist.org/sounds/74628.wav,cc-by-nc 4.0
+41663/iNat74629.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.536,Ashley M Bradford,train,https://static.inaturalist.org/sounds/74629.wav,cc-by-nc 4.0
+41663/iNat76981.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,36.948,Ashley M Bradford,train,https://static.inaturalist.org/sounds/76981.wav,cc-by-nc 4.0
+41663/iNat786010.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.17190625,Firefly,val,https://static.inaturalist.org/sounds/786010.m4a,cc-by-nc 4.0
+41663/iNat808880.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.86134375,Unknown,train,https://static.inaturalist.org/sounds/808880.m4a,cc-by-nc 4.0
+41663/iNat839812.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,37.29125,Wolf Woods,train,https://static.inaturalist.org/sounds/839812.m4a,cc-by-nc 4.0
+41663/iNat839813.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.5095,Wolf Woods,train,https://static.inaturalist.org/sounds/839813.m4a,cc-by-nc 4.0
+41663/iNat840746.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,62.647875,Susan Elliott,train,https://static.inaturalist.org/sounds/840746.wav,cc-by-nc 4.0
+41663/iNat841035.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,65.42175,Marv Elliott,train,https://static.inaturalist.org/sounds/841035.wav,cc-by-nc 4.0
+41663/iNat846727.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.68509375,Unknown,train,https://static.inaturalist.org/sounds/846727.wav,cc-by-nc 4.0
+41663/iNat846728.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,41.528875,Unknown,train,https://static.inaturalist.org/sounds/846728.wav,cc-by-nc 4.0
+41663/iNat853280.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,80.37940625,Andrew Core,test,https://static.inaturalist.org/sounds/853280.wav,cc-by-nc 4.0
+41663/iNat85594.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.5466875,Jim Dugan,train,https://static.inaturalist.org/sounds/85594.m4a,cc-by-nc 4.0
+41663/iNat860055.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.6266875,Paul Prior,train,https://static.inaturalist.org/sounds/860055.m4a,cc-by 4.0
+41663/iNat871030.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.6,Denis Gallant,val,https://static.inaturalist.org/sounds/871030.mp3,cc-by-nc 4.0
+41663/iNat89022.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,58.66159375,Thomas Koffel,train,https://static.inaturalist.org/sounds/89022.wav,cc-by 4.0
+41663/iNat895793.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.19975,Lori B,train,https://static.inaturalist.org/sounds/895793.m4a,cc-0 4.0
+41663/iNat911200.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.69853125,Marley Diehl,test,https://static.inaturalist.org/sounds/911200.wav,cc-by-nc 4.0
+41663/iNat926814.ogg,41663,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,70.35646875,Unknown,train,https://static.inaturalist.org/sounds/926814.m4a,cc-by-nc 4.0
+41778/XC959831.ogg,41778,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,193.99565625,Dante Buzzetti,train,https://xeno-canto.org/959831,cc-by-nc-sa 4.0
+41778/iNat256586.ogg,41778,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.053875,Terry,train,https://static.inaturalist.org/sounds/256586.wav,cc-by-nc 4.0
+41970/XC564865.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,76.0685625,Cedric Mroczko,train,https://xeno-canto.org/564865,cc-by-nc-sa 4.0
+41970/XC564866.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,4.07509375,Cedric Mroczko,train,https://xeno-canto.org/564866,cc-by-nc-sa 4.0
+41970/XC564867.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,3.57878125,Cedric Mroczko,train,https://xeno-canto.org/564867,cc-by-nc-sa 4.0
+41970/XC564868.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,28.081625,Cedric Mroczko,train,https://xeno-canto.org/564868,cc-by-nc-sa 4.0
+41970/XC564869.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,23.066125,Cedric Mroczko,train,https://xeno-canto.org/564869,cc-by-nc-sa 4.0
+41970/XC564871.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,21.0808125,Cedric Mroczko,train,https://xeno-canto.org/564871,cc-by-nc-sa 4.0
+41970/XC564872.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,2.0,4.07509375,Cedric Mroczko,train,https://xeno-canto.org/564872,cc-by-nc-sa 4.0
+41970/iNat1015847.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.824,Juan Cruzado Cortés,val,https://static.inaturalist.org/sounds/1015847.m4a,cc-by 4.0
+41970/iNat1015848.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.088,Juan Cruzado Cortés,val,https://static.inaturalist.org/sounds/1015848.m4a,cc-by 4.0
+41970/iNat1226073.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.06546875,Jordan Wolf,train,https://static.inaturalist.org/sounds/1226073.wav,cc-by-nc 4.0
+41970/iNat327629.ogg,41970,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.4805,Unknown,train,https://static.inaturalist.org/sounds/327629.m4a,cc-by-nc 4.0
+42007/iNat106462.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,1.64571875,Logan J.L. Bradley,test,https://static.inaturalist.org/sounds/106462.mp3,cc-by 4.0
+42007/iNat1167292.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.61065625,Damián Ganime,train,https://static.inaturalist.org/sounds/1167292.wav,cc-by-nc 4.0
+42007/iNat1167295.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.61065625,Damián Ganime,train,https://static.inaturalist.org/sounds/1167295.wav,cc-by-nc 4.0
+42007/iNat1189983.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.15021875,Martin Mortensen,train,https://static.inaturalist.org/sounds/1189983.m4a,cc-by 4.0
+42007/iNat1241987.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.8468125,Unknown,train,https://static.inaturalist.org/sounds/1241987.m4a,cc-by-nc 4.0
+42007/iNat141493.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.62178125,Paul Fenwick,train,https://static.inaturalist.org/sounds/141493.wav,cc-by-nc 4.0
+42007/iNat15105.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,77.58934375,Andrew Dreelin,train,https://static.inaturalist.org/sounds/15105.wav,cc-by-nc 4.0
+42007/iNat177093.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.92240625,Unknown,train,https://static.inaturalist.org/sounds/177093.wav,cc-by-nc 4.0
+42007/iNat464817.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.387,Joanne Siderius,test,https://static.inaturalist.org/sounds/464817.wav,cc-by-nc 4.0
+42007/iNat500217.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,135.63734375,Andrew Dreelin,train,https://static.inaturalist.org/sounds/500217.wav,cc-by-nc 4.0
+42007/iNat606213.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.97334375,Alex Lamoreaux,train,https://static.inaturalist.org/sounds/606213.m4a,cc-by-nc 4.0
+42007/iNat606214.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,1.87734375,Alex Lamoreaux,train,https://static.inaturalist.org/sounds/606214.m4a,cc-by-nc 4.0
+42007/iNat606215.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.848,Alex Lamoreaux,train,https://static.inaturalist.org/sounds/606215.m4a,cc-by-nc 4.0
+42007/iNat841400.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.319,Joanne Siderius,test,https://static.inaturalist.org/sounds/841400.wav,cc-by-nc 4.0
+42007/iNat841408.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.384,Joanne Siderius,test,https://static.inaturalist.org/sounds/841408.mp3,cc-by-nc 4.0
+42007/iNat878627.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.11428125,Pete Siminski,train,https://static.inaturalist.org/sounds/878627.wav,cc-by-nc 4.0
+42007/iNat968957.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.5929375,Matthew Lachiusa,val,https://static.inaturalist.org/sounds/968957.m4a,cc-by-nc 4.0
+42007/iNat987921.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.17815625,Betty Rebellato (CWF),test,https://static.inaturalist.org/sounds/987921.m4a,cc-by-nc 4.0
+42007/iNat987929.ogg,42007,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,44.62878125,Betty Rebellato (CWF),test,https://static.inaturalist.org/sounds/987929.m4a,cc-by-nc 4.0
+42087/iNat155127.ogg,42087,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.96409375,Carlos Otávio Gussoni,train,https://static.inaturalist.org/sounds/155127.mp3,cc-by-nc 4.0
+42087/iNat860016.ogg,42087,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.168,Breno Farias,train,https://static.inaturalist.org/sounds/860016.mp3,cc-by-nc 4.0
+42113/iNat55456.ogg,42113,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.46875,Nick Tepper,train,https://static.inaturalist.org/sounds/55456.wav,cc-by-nc 4.0
+42113/iNat557906.ogg,42113,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.18365625,Matheus M. Santos,train,https://static.inaturalist.org/sounds/557906.m4a,cc-by-nc 4.0
+46010/XC961102.ogg,46010,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,30.97503125,Guilherme Melo,val,https://xeno-canto.org/961102,cc-by-nc-sa 4.0
+46010/iNat167113.ogg,46010,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.144,Henrry,train,https://static.inaturalist.org/sounds/167113.mp3,cc-by 4.0
+46010/iNat247099.ogg,46010,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.069375,Terry,train,https://static.inaturalist.org/sounds/247099.mp3,cc-by-nc 4.0
+46010/iNat579430.ogg,46010,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.56046875,Unknown,train,https://static.inaturalist.org/sounds/579430.m4a,cc-by-nc 4.0
+46010/iNat913511.ogg,46010,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,88.05009375,Juan Fernando Martínez Andrade,train,https://static.inaturalist.org/sounds/913511.m4a,cc-by-nc 4.0
+47067/iNat1255120.ogg,47067,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.885,Unknown,train,https://static.inaturalist.org/sounds/1255120.m4a,cc-by-nc 4.0
+47067/iNat68676.ogg,47067,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,51.3706875,Cameron Eckert,val,https://static.inaturalist.org/sounds/68676.m4a,cc-by-nc 4.0
+476537/CSA35459.ogg,476537,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,157.296,Eliana Barona-Cortés | Daniela García-Cobos,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35459/IAvH-CSA-35459.mp3,cc-by-nc-sa 4.0
+476537/CSA35461.ogg,476537,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,296.616,Eliana Barona-Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35461/IAvH-CSA-35461.mp3,cc-by-nc-sa 4.0
+476538/XC926710.ogg,476538,Amphibia,['65448'],['65448'],[],weak_other_fauna_candidate_unverified,XC,4.5,38.96234375,Chris Harrison,train,https://xeno-canto.org/926710,cc-by-nc-sa 4.0
+476538/iNat1109247.ogg,476538,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,38.96234375,Chris Harrison,train,https://static.inaturalist.org/sounds/1109247.wav,cc-by-nc 4.0
+476538/iNat955995.ogg,476538,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.81753125,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/955995.m4a,cc-by-nc 4.0
+476538/iNat955998.ogg,476538,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.992375,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/955998.wav,cc-by-nc 4.0
+476538/iNat955999.ogg,476538,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.992375,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/955999.wav,cc-by-nc 4.0
+48124/CSA03598.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,54.1908125,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-3598/IAvH-CSA-3598.mp3,cc-by-nc-sa 4.0
+48124/CSA18785.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,66.18065625,Diego A Gómez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18785/IAvH-CSA-18785.mp3,cc-by-nc-sa 4.0
+48124/CSA18795.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,132.13503125,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18795/IAvH-CSA-18795.mp3,cc-by-nc-sa 4.0
+48124/CSA18798.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,199.64753125,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18798/IAvH-CSA-18798.mp3,cc-by-nc-sa 4.0
+48124/CSA34485.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,114.96603125,Eliana Barona-Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34485/IAvH-CSA-34485.mp3,cc-by-nc-sa 4.0
+48124/CSA35111.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,130.85325,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35111/IAvH-CSA-35111.mp3,cc-by-nc-sa 4.0
+48124/CSA35116.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,161.98853125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35116/IAvH-CSA-35116.mp3,cc-by-nc-sa 4.0
+48124/CSA35118.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,118.00428125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35118/IAvH-CSA-35118.mp3,cc-by-nc-sa 4.0
+48124/CSA35157.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,233.06603125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35157/IAvH-CSA-35157.mp3,cc-by-nc-sa 4.0
+48124/CSA35160.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,260.90253125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35160/IAvH-CSA-35160.mp3,cc-by-nc-sa 4.0
+48124/CSA35173.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,299.18165625,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35173/IAvH-CSA-35173.mp3,cc-by-nc-sa 4.0
+48124/CSA35179.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,245.2041875,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35179/IAvH-CSA-35179.mp3,cc-by-nc-sa 4.0
+48124/CSA35181.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,92.19375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35181/IAvH-CSA-35181.mp3,cc-by-nc-sa 4.0
+48124/CSA35183.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,13.22759375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35183/IAvH-CSA-35183.mp3,cc-by-nc-sa 4.0
+48124/CSA35184.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,140.56040625,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35184/IAvH-CSA-35184.mp3,cc-by-nc-sa 4.0
+48124/CSA35185.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,120.80021875,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35185/IAvH-CSA-35185.mp3,cc-by-nc-sa 4.0
+48124/CSA35187.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,10.25034375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35187/IAvH-CSA-35187.mp3,cc-by-nc-sa 4.0
+48124/CSA35188.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,23.7526875,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35188/IAvH-CSA-35188.mp3,cc-by-nc-sa 4.0
+48124/CSA35190.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,12.4740625,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35190/IAvH-CSA-35190.mp3,cc-by-nc-sa 4.0
+48124/CSA36346.ogg,48124,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,137.42125,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36346/IAvH-CSA-36346.mp3,cc-by-nc-sa 4.0
+50186/CSA04279.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,17.4193125,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-4279/IAvH-CSA-4279.mp3,cc-by-nc-sa 4.0
+50186/CSA04299.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,65.6044375,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-4299/IAvH-CSA-4299.mp3,cc-by-nc-sa 4.0
+50186/CSA08353.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,153.74665625,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-8353/IAvH-CSA-8353.mp3,cc-by-nc-sa 4.0
+50186/CSA08495.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,239.86665625,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-8495/IAvH-CSA-8495.mp3,cc-by-nc-sa 4.0
+50186/CSA14874.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,49.7528125,Paula Caycedo-Rosales | Juan-Pablo López,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-14874/IAvH-CSA-14874.mp3,cc-by-nc-sa 4.0
+50186/CSA18166.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,61.431125,Ana María Ospina-Larrea,val,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18166/IAvH-CSA-18166.mp3,cc-by-nc-sa 4.0
+50186/CSA18185.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,113.09028125,Ana María Ospina-Larrea,val,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18185/IAvH-CSA-18185.mp3,cc-by-nc-sa 4.0
+50186/CSA18191.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,114.2906875,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18191/IAvH-CSA-18191.mp3,cc-by-nc-sa 4.0
+50186/CSA18201.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,110.62565625,Ana María Ospina-Larrea,val,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18201/IAvH-CSA-18201.mp3,cc-by-nc-sa 4.0
+50186/CSA18202.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,72.63353125,Ana María Ospina-Larrea,val,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18202/IAvH-CSA-18202.mp3,cc-by-nc-sa 4.0
+50186/CSA18282.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,42.48,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18282/IAvH-CSA-18282.mp3,cc-by-nc-sa 4.0
+50186/CSA18916.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,71.49290625,Alexandra Buitrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18916/IAvH-CSA-18916.mp3,cc-by-nc-sa 4.0
+50186/CSA20027.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,338.6715625,Alexandra Buitrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-20027/IAvH-CSA-20027.mp3,cc-by-nc-sa 4.0
+50186/CSA20037.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,143.4030625,Alexandra Buitrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-20037/IAvH-CSA-20037.mp3,cc-by-nc-sa 4.0
+50186/CSA28885.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,26.06625,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-28885/IAvH-CSA-28885.mp3,cc-by-nc-sa 4.0
+50186/CSA34402.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,114.2888125,Eliana Barona-Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34402/IAvH-CSA-34402.mp3,cc-by-nc-sa 4.0
+50186/CSA34428.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,60.8080625,Eliana Barona-Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34428/IAvH-CSA-34428.mp3,cc-by-nc-sa 4.0
+50186/CSA34456.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,93.05134375,Johann Stephens Cardenas-Bautista,val,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34456/IAvH-CSA-34456.mp3,cc-by-nc-sa 4.0
+50186/CSA34622.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,77.86225,Eliana Barona- Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34622/IAvH-CSA-34622.mp3,cc-by-nc-sa 4.0
+50186/CSA34678.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,90.69953125,Eliana Barona- Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34678/IAvH-CSA-34678.mp3,cc-by-nc-sa 4.0
+50186/CSA35126.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,102.92828125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35126/IAvH-CSA-35126.mp3,cc-by-nc-sa 4.0
+50186/CSA35128.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,230.43021875,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35128/IAvH-CSA-35128.mp3,cc-by-nc-sa 4.0
+50186/CSA35133.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,201.9235,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35133/IAvH-CSA-35133.mp3,cc-by-nc-sa 4.0
+50186/CSA35140.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,208.01334375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35140/IAvH-CSA-35140.mp3,cc-by-nc-sa 4.0
+50186/CSA35146.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,277.55934375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35146/IAvH-CSA-35146.mp3,cc-by-nc-sa 4.0
+50186/CSA35148.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,243.24578125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35148/IAvH-CSA-35148.mp3,cc-by-nc-sa 4.0
+50186/CSA35149.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,214.4844375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35149/IAvH-CSA-35149.mp3,cc-by-nc-sa 4.0
+50186/CSA35159.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,304.70540625,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35159/IAvH-CSA-35159.mp3,cc-by-nc-sa 4.0
+50186/CSA35174.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,273.615875,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35174/IAvH-CSA-35174.mp3,cc-by-nc-sa 4.0
+50186/CSA35175.ogg,50186,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,144.64121875,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35175/IAvH-CSA-35175.mp3,cc-by-nc-sa 4.0
+517119/XC893992.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,6.16490625,Chris Harrison,train,https://xeno-canto.org/893992,cc-by-nc-sa 4.0
+517119/XC893994.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,23.424,Chris Harrison,train,https://xeno-canto.org/893994,cc-by-nc-sa 4.0
+517119/iNat100151.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,89.05334375,Unknown,train,https://static.inaturalist.org/sounds/100151.wav,cc-by-nc 4.0
+517119/iNat1006335.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.55584375,Unknown,train,https://static.inaturalist.org/sounds/1006335.m4a,cc-by 4.0
+517119/iNat101157.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.77096875,Chris Harrison,train,https://static.inaturalist.org/sounds/101157.mp3,cc-by-nc 4.0
+517119/iNat101160.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.944,Chris Harrison,train,https://static.inaturalist.org/sounds/101160.mp3,cc-by-nc 4.0
+517119/iNat106438.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.008,Unknown,train,https://static.inaturalist.org/sounds/106438.m4a,cc-by-nc 4.0
+517119/iNat1110668.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,48.90125,QuinnBurgess,train,https://static.inaturalist.org/sounds/1110668.m4a,cc-by-nc 4.0
+517119/iNat1110670.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.5435,QuinnBurgess,train,https://static.inaturalist.org/sounds/1110670.m4a,cc-by-nc 4.0
+517119/iNat1110671.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,39.5668125,QuinnBurgess,train,https://static.inaturalist.org/sounds/1110671.m4a,cc-by-nc 4.0
+517119/iNat1141475.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.9644375,Pedro E. Nahuat-Cervera,train,https://static.inaturalist.org/sounds/1141475.wav,cc-by-nc 4.0
+517119/iNat1191308.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.42125,Jeff Ward,train,https://static.inaturalist.org/sounds/1191308.m4a,cc-by-nc 4.0
+517119/iNat1206733.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.632,Unknown,train,https://static.inaturalist.org/sounds/1206733.m4a,cc-by-nc 4.0
+517119/iNat1208971.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.78340625,aurora,train,https://static.inaturalist.org/sounds/1208971.m4a,cc-by-nc 4.0
+517119/iNat1209040.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.84375,aurora,train,https://static.inaturalist.org/sounds/1209040.m4a,cc-by-nc 4.0
+517119/iNat1219155.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.78390625,Unknown,train,https://static.inaturalist.org/sounds/1219155.m4a,cc-by-nc 4.0
+517119/iNat1219156.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,3.19996875,Unknown,train,https://static.inaturalist.org/sounds/1219156.m4a,cc-by-nc 4.0
+517119/iNat126773.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.728,Chris Harrison,train,https://static.inaturalist.org/sounds/126773.mp3,cc-by-nc 4.0
+517119/iNat1282698.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.856,Unknown,train,https://static.inaturalist.org/sounds/1282698.m4a,cc-by-nc 4.0
+517119/iNat1289442.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.1961875,Chris Harrison,train,https://static.inaturalist.org/sounds/1289442.wav,cc-by-nc 4.0
+517119/iNat142111.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.23053125,Felipe Rabanal,train,https://static.inaturalist.org/sounds/142111.wav,cc-by-nc 4.0
+517119/iNat173253.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.488,Jon McIntyre,val,https://static.inaturalist.org/sounds/173253.mp3,cc-by-nc 4.0
+517119/iNat189756.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.61715625,David Monroy R,train,https://static.inaturalist.org/sounds/189756.mp3,cc-by-nc 4.0
+517119/iNat19348.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.424,Chris Harrison,train,https://static.inaturalist.org/sounds/19348.mp3,cc-by-nc 4.0
+517119/iNat202748.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.1209375,Unknown,train,https://static.inaturalist.org/sounds/202748.m4a,cc-by-nc 4.0
+517119/iNat292820.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.7845,Jan Ebr &amp; Ivana Ebrová,train,https://static.inaturalist.org/sounds/292820.mp3,cc-by 4.0
+517119/iNat302475.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.31428125,Pedro E. Nahuat-Cervera,train,https://static.inaturalist.org/sounds/302475.wav,cc-by-nc 4.0
+517119/iNat335152.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.03121875,Unknown,train,https://static.inaturalist.org/sounds/335152.m4a,cc-by-nc 4.0
+517119/iNat341728.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,32.78934375,Paul Foster,train,https://static.inaturalist.org/sounds/341728.m4a,cc-by-nc 4.0
+517119/iNat348445.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,26.07603125,Randall Jiménez,train,https://static.inaturalist.org/sounds/348445.m4a,cc-by-nc 4.0
+517119/iNat386122.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.74159375,Unknown,train,https://static.inaturalist.org/sounds/386122.m4a,cc-by-nc 4.0
+517119/iNat402787.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.2826875,Marco Alfonso Alpuche Pech,test,https://static.inaturalist.org/sounds/402787.m4a,cc-by-nc 4.0
+517119/iNat42637.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.105375,Unknown,train,https://static.inaturalist.org/sounds/42637.m4a,cc-by-nc 4.0
+517119/iNat490281.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.56534375,Terry,train,https://static.inaturalist.org/sounds/490281.wav,cc-by-nc 4.0
+517119/iNat521037.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.781875,Juan D. Garcia,val,https://static.inaturalist.org/sounds/521037.m4a,cc-by-nc 4.0
+517119/iNat521786.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.48078125,Mabelin,train,https://static.inaturalist.org/sounds/521786.m4a,cc-by-nc 4.0
+517119/iNat578330.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.90721875,D.J. McNeil,val,https://static.inaturalist.org/sounds/578330.m4a,cc-by-nc 4.0
+517119/iNat578338.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.53415625,Kyle Aldinger,train,https://static.inaturalist.org/sounds/578338.m4a,cc-by-nc 4.0
+517119/iNat578339.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.67965625,Kyle Aldinger,train,https://static.inaturalist.org/sounds/578339.m4a,cc-by-nc 4.0
+517119/iNat586526.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.38475,Jeffry Torres,test,https://static.inaturalist.org/sounds/586526.wav,cc-by-nc 4.0
+517119/iNat593885.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.6781875,Unknown,train,https://static.inaturalist.org/sounds/593885.m4a,cc-by-nc 4.0
+517119/iNat594133.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.688,Unknown,train,https://static.inaturalist.org/sounds/594133.mp3,cc-by-nc 4.0
+517119/iNat627646.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.056,Carlos Funes,train,https://static.inaturalist.org/sounds/627646.mp3,cc-by 4.0
+517119/iNat664719.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.54203125,Christoph Moning,val,https://static.inaturalist.org/sounds/664719.mp3,cc-by 4.0
+517119/iNat700447.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.21834375,Sarah Helfand,train,https://static.inaturalist.org/sounds/700447.m4a,cc-by-nc 4.0
+517119/iNat727974.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.672,Chris Harrison,train,https://static.inaturalist.org/sounds/727974.mp3,cc-by-nc 4.0
+517119/iNat803559.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.9475,Unknown,train,https://static.inaturalist.org/sounds/803559.m4a,cc-by-nc 4.0
+517119/iNat838832.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.17496875,Richard Littauer,train,https://static.inaturalist.org/sounds/838832.m4a,cc-by 4.0
+517119/iNat846254.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.441375,Unknown,train,https://static.inaturalist.org/sounds/846254.m4a,cc-by-nc 4.0
+517119/iNat883106.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,74.81325,Richard Littauer,train,https://static.inaturalist.org/sounds/883106.wav,cc-by 4.0
+517119/iNat889841.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,37.77884375,Unknown,train,https://static.inaturalist.org/sounds/889841.m4a,cc-by-nc 4.0
+517119/iNat922620.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.5314375,Kalvin Chan,train,https://static.inaturalist.org/sounds/922620.wav,cc-0 4.0
+517119/iNat925012.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.28953125,Moses Michelsohn,train,https://static.inaturalist.org/sounds/925012.wav,cc-by-nc 4.0
+517119/iNat928527.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.728,Chris Harrison,train,https://static.inaturalist.org/sounds/928527.mp3,cc-by-nc 4.0
+517119/iNat938559.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.630125,Christopher Rustay,train,https://static.inaturalist.org/sounds/938559.m4a,cc-by-nc 4.0
+517119/iNat949336.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,39.0791875,Bruce Neville,train,https://static.inaturalist.org/sounds/949336.m4a,cc-by-nc 4.0
+517119/iNat956048.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.376,Chris Harrison,train,https://static.inaturalist.org/sounds/956048.mp3,cc-by-nc 4.0
+517119/iNat967725.ogg,517119,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.81434375,Frode Jacobsen,train,https://static.inaturalist.org/sounds/967725.m4a,cc-by-nc 4.0
+523060/CSA34180.ogg,523060,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,5.2710625,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34180/IAvH-CSA-34180.mp3,cc-by-nc-sa 4.0
+523060/CSA34181.ogg,523060,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,9.37609375,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34181/IAvH-CSA-34181.mp3,cc-by-nc-sa 4.0
+523060/CSA34182.ogg,523060,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,1.73096875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34182/IAvH-CSA-34182.mp3,cc-by-nc-sa 4.0
+523060/CSA34183.ogg,523060,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,8.03546875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34183/IAvH-CSA-34183.mp3,cc-by-nc-sa 4.0
+528041/CSA36359.ogg,528041,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,101.03346875,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36359/IAvH-CSA-36359.mp3,cc-by-nc-sa 4.0
+528041/CSA36365.ogg,528041,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,112.4175625,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36365/IAvH-CSA-36365.mp3,cc-by-nc-sa 4.0
+52884/CSA06193.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,9.71925,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-6193/IAvH-CSA-6193.mp3,cc-by-nc-sa 4.0
+52884/CSA06195.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,101.58540625,Mauricio Álvarez-Rebolledo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-6195/IAvH-CSA-6195.mp3,cc-by-nc-sa 4.0
+52884/CSA11079.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,92.14625,Mateo Hernandez,test,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-11079/IAvH-CSA-11079.mp3,cc-by-nc-sa 4.0
+52884/CSA11080.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,190.4129375,Mateo Hernandez,test,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-11080/IAvH-CSA-11080.mp3,cc-by-nc-sa 4.0
+52884/CSA14491.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,115.24471875,Alejandro Mendoza | Mónica Izquierdo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-14491/IAvH-CSA-14491.mp3,cc-by-nc-sa 4.0
+52884/CSA14875.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,21.079875,Paula Caycedo-Rosales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-14875/IAvH-CSA-14875.mp3,cc-by-nc-sa 4.0
+52884/CSA15755.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,50.98290625,Alexandra Buitrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-15755/IAvH-CSA-15755.mp3,cc-by-nc-sa 4.0
+52884/CSA18786.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,71.056375,Diego A Gómez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18786/IAvH-CSA-18786.mp3,cc-by-nc-sa 4.0
+52884/CSA18796.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,28.872,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18796/IAvH-CSA-18796.mp3,cc-by-nc-sa 4.0
+52884/CSA18797.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,655.7190625,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18797/IAvH-CSA-18797.mp3,cc-by-nc-sa 4.0
+52884/CSA18799.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,218.02375,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18799/IAvH-CSA-18799.mp3,cc-by-nc-sa 4.0
+52884/CSA18800.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,271.98346875,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18800/IAvH-CSA-18800.mp3,cc-by-nc-sa 4.0
+52884/CSA18801.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,578.0620625,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18801/IAvH-CSA-18801.mp3,cc-by-nc-sa 4.0
+52884/CSA18804.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,896.57509375,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18804/IAvH-CSA-18804.mp3,cc-by-nc-sa 4.0
+52884/CSA18805.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,160.28021875,Orlando Acevedo-Charry,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18805/IAvH-CSA-18805.mp3,cc-by-nc-sa 4.0
+52884/CSA18980.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,58.55121875,Alexandra Buitrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18980/IAvH-CSA-18980.mp3,cc-by-nc-sa 4.0
+52884/CSA34329.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,61.89265625,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34329/IAvH-CSA-34329.mp3,cc-by-nc-sa 4.0
+52884/CSA34410.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,175.91453125,Eliana Barona-Cortés,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34410/IAvH-CSA-34410.mp3,cc-by-nc-sa 4.0
+52884/CSA34761.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,93.56659375,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34761/IAvH-CSA-34761.mp3,cc-by-nc-sa 4.0
+52884/CSA34947.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,46.414875,Alexandra Butrago-Cardona,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34947/IAvH-CSA-34947.mp3,cc-by-nc-sa 4.0
+52884/CSA35109.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,121.67559375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35109/IAvH-CSA-35109.mp3,cc-by-nc-sa 4.0
+52884/CSA35112.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,157.2048125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35112/IAvH-CSA-35112.mp3,cc-by-nc-sa 4.0
+52884/CSA35124.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,273.94859375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35124/IAvH-CSA-35124.mp3,cc-by-nc-sa 4.0
+52884/CSA35125.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,172.85690625,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35125/IAvH-CSA-35125.mp3,cc-by-nc-sa 4.0
+52884/CSA35130.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,194.98253125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35130/IAvH-CSA-35130.mp3,cc-by-nc-sa 4.0
+52884/CSA35167.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,242.7338125,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35167/IAvH-CSA-35167.mp3,cc-by-nc-sa 4.0
+52884/CSA35176.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,279.73584375,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35176/IAvH-CSA-35176.mp3,cc-by-nc-sa 4.0
+52884/CSA35180.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,145.32565625,Diego A. Gomez-Morales,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35180/IAvH-CSA-35180.mp3,cc-by-nc-sa 4.0
+52884/CSA35533.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,24.6111875,J. Sebastian Giraldo-Bernal,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35533/IAvH-CSA-35533.mp3,cc-by-nc-sa 4.0
+52884/CSA35537.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,43.0691875,J. Sebastian Giraldo-Bernal,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35537/IAvH-CSA-35537.mp3,cc-by-nc-sa 4.0
+52884/CSA35592.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,189.816125,Gustavo Bravo Mora,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35592/IAvH-CSA-35592.mp3,cc-by-nc-sa 4.0
+52884/CSA36342.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,124.09865625,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36342/IAvH-CSA-36342.mp3,cc-by-nc-sa 4.0
+52884/CSA36344.ogg,52884,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,166.2631875,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36344/IAvH-CSA-36344.mp3,cc-by-nc-sa 4.0
+548639/CSA34185.ogg,548639,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,2.24621875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34185/IAvH-CSA-34185.mp3,cc-by-nc-sa 4.0
+548639/CSA34186.ogg,548639,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,2.80515625,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34186/IAvH-CSA-34186.mp3,cc-by-nc-sa 4.0
+548639/CSA34187.ogg,548639,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,12.23734375,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34187/IAvH-CSA-34187.mp3,cc-by-nc-sa 4.0
+548639/CSA34188.ogg,548639,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,10.1335,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34188/IAvH-CSA-34188.mp3,cc-by-nc-sa 4.0
+548639/CSA34189.ogg,548639,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,1.81953125,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34189/IAvH-CSA-34189.mp3,cc-by-nc-sa 4.0
+555086/XC882682.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,51.40896875,M.S. Hoogmoed,train,https://xeno-canto.org/882682,cc-by 4.0
+555086/XC882683.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,121.7045,M.S. Hoogmoed,train,https://xeno-canto.org/882683,cc-by 4.0
+555086/XC882684.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,48.666125,M.S. Hoogmoed,train,https://xeno-canto.org/882684,cc-by 4.0
+555086/XC882685.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,92.8653125,M.S. Hoogmoed,train,https://xeno-canto.org/882685,cc-by 4.0
+555086/XC882686.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,36.02284375,M.S. Hoogmoed,train,https://xeno-canto.org/882686,cc-by 4.0
+555086/XC882687.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,19.0955,M.S. Hoogmoed,train,https://xeno-canto.org/882687,cc-by 4.0
+555086/XC882688.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,46.36734375,M.S. Hoogmoed,train,https://xeno-canto.org/882688,cc-by 4.0
+555086/XC882689.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,43.4155,M.S. Hoogmoed,train,https://xeno-canto.org/882689,cc-by 4.0
+555086/XC882690.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,103.758375,M.S. Hoogmoed,train,https://xeno-canto.org/882690,cc-by 4.0
+555086/XC882691.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,61.413875,M.S. Hoogmoed,train,https://xeno-canto.org/882691,cc-by 4.0
+555086/XC882692.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,389.7730625,M.S. Hoogmoed,train,https://xeno-canto.org/882692,cc-by 4.0
+555086/XC882693.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,78.210625,M.S. Hoogmoed,train,https://xeno-canto.org/882693,cc-by 4.0
+555086/XC892928.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,12.355,Chris Harrison,train,https://xeno-canto.org/892928,cc-by-nc-sa 4.0
+555086/XC919367.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,30.16146875,Catalina Orrego López,train,https://xeno-canto.org/919367,cc-by-nc-sa 4.0
+555086/XC928837.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,30.171,Augustin Bussac,train,https://xeno-canto.org/928837,cc-by-nc-sa 4.0
+555086/iNat1147487.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,44.937875,Felipe Barrera Ocampo,train,https://static.inaturalist.org/sounds/1147487.wav,cc-by-nc 4.0
+555086/iNat1167024.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.024,Unknown,train,https://static.inaturalist.org/sounds/1167024.mp3,cc-by-nc 4.0
+555086/iNat153413.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,32.85625,Damian Zabala,test,https://static.inaturalist.org/sounds/153413.m4a,cc-by-nc 4.0
+555086/iNat28983.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.355,Chris Harrison,train,https://static.inaturalist.org/sounds/28983.mp3,cc-by-nc 4.0
+555086/iNat340439.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,3.408,Guillaume Delaitre,train,https://static.inaturalist.org/sounds/340439.mp3,cc-by 4.0
+555086/iNat500233.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.2276875,Jennifer Rycenga,train,https://static.inaturalist.org/sounds/500233.m4a,cc-by 4.0
+555086/iNat515747.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.91,Jennifer Rycenga,train,https://static.inaturalist.org/sounds/515747.wav,cc-by 4.0
+555086/iNat54046.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.99428125,Sidnei Dantas,train,https://static.inaturalist.org/sounds/54046.mp3,cc-by-nc 4.0
+555086/iNat67119.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.279375,Sebastián Berrío,train,https://static.inaturalist.org/sounds/67119.wav,cc-by-nc 4.0
+555086/iNat895651.ogg,555086,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.4346875,Unknown,train,https://static.inaturalist.org/sounds/895651.m4a,cc-by-nc 4.0
+555142/iNat1258897.ogg,555142,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.1750625,Franceschi,val,https://static.inaturalist.org/sounds/1258897.m4a,cc-by-nc 4.0
+555142/iNat1274037.ogg,555142,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.00421875,Zulma Correa Bernal,test,https://static.inaturalist.org/sounds/1274037.m4a,cc-by-nc 4.0
+555142/iNat31004.ogg,555142,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.4,Steven Bodzin,train,https://static.inaturalist.org/sounds/31004.wav,cc-by 4.0
+555142/iNat337414.ogg,555142,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.952,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/337414.mp3,cc-by-nc 4.0
+555142/iNat34199.ogg,555142,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.33878125,Liu Idárraga Orozco,train,https://static.inaturalist.org/sounds/34199.mp3,cc-by-nc 4.0
+555142/iNat761666.ogg,555142,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.17996875,Felipe Barrera Ocampo,train,https://static.inaturalist.org/sounds/761666.wav,cc-by-nc 4.0
+566513/XC959860.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,112.666125,Dante Buzzetti,train,https://xeno-canto.org/959860,cc-by-nc-sa 4.0
+566513/iNat1259526.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.384,Joshua Doby,train,https://static.inaturalist.org/sounds/1259526.m4a,cc-by-nc 4.0
+566513/iNat208383.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.99403125,Unknown,train,https://static.inaturalist.org/sounds/208383.m4a,cc-by-nc 4.0
+566513/iNat327841.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.952,John Jaime Acevedo Roldán,val,https://static.inaturalist.org/sounds/327841.m4a,cc-by-nc 4.0
+566513/iNat469763.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.1595625,Merav Vonshak,train,https://static.inaturalist.org/sounds/469763.m4a,cc-by-nc 4.0
+566513/iNat475442.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.195125,Unknown,train,https://static.inaturalist.org/sounds/475442.m4a,cc-by-nc 4.0
+566513/iNat561526.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.20909375,Michelle Martin,train,https://static.inaturalist.org/sounds/561526.m4a,cc-by-nc 4.0
+566513/iNat565106.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.8125,Jorge I. Merchán Mayorga,val,https://static.inaturalist.org/sounds/565106.wav,cc-by-sa 4.0
+566513/iNat569946.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,39.216,David Torres,train,https://static.inaturalist.org/sounds/569946.mp3,cc-by-nc 4.0
+566513/iNat60494.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.6209375,María Girleza Ramírez González; Parques Nacionales Naturales de Colombia-SFF Otún Quimbaya,train,https://static.inaturalist.org/sounds/60494.wav,cc-by-nc 4.0
+566513/iNat68561.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,218.784,Unknown,train,https://static.inaturalist.org/sounds/68561.mp3,cc-by-nc 4.0
+566513/iNat72467.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,48.0653125,David Monroy R,train,https://static.inaturalist.org/sounds/72467.mp3,cc-by-nc 4.0
+566513/iNat72468.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.838375,David Monroy R,train,https://static.inaturalist.org/sounds/72468.mp3,cc-by-nc 4.0
+566513/iNat796863.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.792,Manuel A. Pérez R.,train,https://static.inaturalist.org/sounds/796863.wav,cc-by-nc 4.0
+566513/iNat832952.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.8359375,Manuel A. Pérez R.,train,https://static.inaturalist.org/sounds/832952.wav,cc-by-nc 4.0
+566513/iNat860046.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,43.15734375,Paul Prior,train,https://static.inaturalist.org/sounds/860046.m4a,cc-by 4.0
+566513/iNat865113.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.5,Peter Leth,val,https://static.inaturalist.org/sounds/865113.wav,cc-by-nc 4.0
+566513/iNat865114.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.43053125,Peter Leth,val,https://static.inaturalist.org/sounds/865114.wav,cc-by-nc 4.0
+566513/iNat879932.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,72.216,Unknown,train,https://static.inaturalist.org/sounds/879932.mp3,cc-by-nc 4.0
+566513/iNat885527.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.832,David Peterson,train,https://static.inaturalist.org/sounds/885527.m4a,cc-by-nc 4.0
+566513/iNat887872.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.88,David Peterson,train,https://static.inaturalist.org/sounds/887872.m4a,cc-by-nc 4.0
+566513/iNat906866.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.544,Leah Ramsay,train,https://static.inaturalist.org/sounds/906866.m4a,cc-by-nc 4.0
+566513/iNat942150.ogg,566513,Mammalia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.68590625,Michelle Martin,train,https://static.inaturalist.org/sounds/942150.m4a,cc-by-nc 4.0
+64862/CSA18218.ogg,64862,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,292.488,Ana María Ospina-Larrea | Daniela Murillo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18218/IAvH-CSA-18218.mp3,cc-by-nc-sa 4.0
+64862/CSA18222.ogg,64862,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,100.416,Ana María Ospina-Larrea | Daniela Murillo,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-18222/IAvH-CSA-18222.mp3,cc-by-nc-sa 4.0
+65336/iNat1122212.ogg,65336,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,37.45959375,Ricardo Sánchez,train,https://static.inaturalist.org/sounds/1122212.mp3,cc-by-nc 4.0
+65336/iNat1193236.ogg,65336,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.0544375,Luis G Restrepo,train,https://static.inaturalist.org/sounds/1193236.m4a,cc-by-nc 4.0
+65336/iNat1193440.ogg,65336,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.597875,Luis G Restrepo,train,https://static.inaturalist.org/sounds/1193440.m4a,cc-by-nc 4.0
+65336/iNat36346.ogg,65336,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,26.79871875,Sebastian Serna Muñoz,test,https://static.inaturalist.org/sounds/36346.wav,cc-by 4.0
+65336/iNat521536.ogg,65336,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.976,Ricardo Sánchez,train,https://static.inaturalist.org/sounds/521536.mp3,cc-by-nc 4.0
+65336/iNat865751.ogg,65336,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,48.22590625,Isabela Giraldo Villegas,train,https://static.inaturalist.org/sounds/865751.m4a,cc-by-nc 4.0
+65344/XC922585.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,13.4141875,Allen Chartier,train,https://xeno-canto.org/922585,cc-by-nc-sa 4.0
+65344/XC935975.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,195.3436875,Esteban Tamayo-Quintero,train,https://xeno-canto.org/935975,cc-by-nc-sa 4.0
+65344/iNat100153.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,44.945875,Unknown,train,https://static.inaturalist.org/sounds/100153.wav,cc-by-nc 4.0
+65344/iNat105590.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.8130625,Sebas Arango,train,https://static.inaturalist.org/sounds/105590.mp3,cc-by-nc 4.0
+65344/iNat1211725.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.82178125,Allen Chartier,train,https://static.inaturalist.org/sounds/1211725.wav,cc-by-nc 4.0
+65344/iNat1211741.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.4141875,Allen Chartier,train,https://static.inaturalist.org/sounds/1211741.wav,cc-by-nc 4.0
+65344/iNat1248692.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,27.5853125,Unknown,train,https://static.inaturalist.org/sounds/1248692.m4a,cc-by-nc 4.0
+65344/iNat151882.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.16728125,PAOLA CARDONA JIMENEZ,train,https://static.inaturalist.org/sounds/151882.m4a,cc-by-nc 4.0
+65344/iNat525224.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.03103125,Steven Kurniawidjaja,train,https://static.inaturalist.org/sounds/525224.mp3,cc-by-nc 4.0
+65344/iNat573035.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,32.7169375,Najil Cab,train,https://static.inaturalist.org/sounds/573035.m4a,cc-by-nc 4.0
+65344/iNat810178.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.528,Jorge Aguilera,val,https://static.inaturalist.org/sounds/810178.m4a,cc-by-nc 4.0
+65344/iNat885676.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.01496875,Felipe Barrera Ocampo,train,https://static.inaturalist.org/sounds/885676.wav,cc-by-nc 4.0
+65344/iNat923979.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.83603125,Larry Chen,val,https://static.inaturalist.org/sounds/923979.m4a,cc-by-nc 4.0
+65344/iNat924132.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.27875,Unknown,train,https://static.inaturalist.org/sounds/924132.m4a,cc-by 4.0
+65344/iNat924134.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.1255625,Unknown,train,https://static.inaturalist.org/sounds/924134.m4a,cc-by 4.0
+65344/iNat953646.ogg,65344,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.9553125,Unknown,train,https://static.inaturalist.org/sounds/953646.m4a,cc-by-nc 4.0
+65349/XC893967.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,24.72,Chris Harrison,train,https://xeno-canto.org/893967,cc-by-nc-sa 4.0
+65349/XC941283.ogg,65349,Amphibia,['65547'],['65547'],[],weak_other_fauna_candidate_unverified,XC,4.5,17.3271875,Chris Harrison,train,https://xeno-canto.org/941283,cc-by-nc-sa 4.0
+65349/iNat109039.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.37525,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/109039.m4a,cc-by-nc 4.0
+65349/iNat1108702.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.67475,Chris Harrison,train,https://static.inaturalist.org/sounds/1108702.wav,cc-by-nc 4.0
+65349/iNat1108994.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.3271875,Chris Harrison,train,https://static.inaturalist.org/sounds/1108994.wav,cc-by-nc 4.0
+65349/iNat1109014.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.84659375,Chris Harrison,train,https://static.inaturalist.org/sounds/1109014.wav,cc-by-nc 4.0
+65349/iNat1146591.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.70740625,Chris Harrison,train,https://static.inaturalist.org/sounds/1146591.wav,cc-by-nc 4.0
+65349/iNat1284582.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.45134375,Chris Harrison,train,https://static.inaturalist.org/sounds/1284582.wav,cc-by-nc 4.0
+65349/iNat292823.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.98546875,Jan Ebr &amp; Ivana Ebrová,train,https://static.inaturalist.org/sounds/292823.wav,cc-by 4.0
+65349/iNat297888.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.752,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/297888.mp3,cc-by-nc 4.0
+65349/iNat418798.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.3096875,Lizette Pons,train,https://static.inaturalist.org/sounds/418798.m4a,cc-by-nc 4.0
+65349/iNat574970.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.396375,Scott Loarie,train,https://static.inaturalist.org/sounds/574970.m4a,cc-0 4.0
+65349/iNat583656.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.72,Chris Harrison,train,https://static.inaturalist.org/sounds/583656.mp3,cc-by-nc 4.0
+65349/iNat587073.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.736,Chris Harrison,train,https://static.inaturalist.org/sounds/587073.mp3,cc-by-nc 4.0
+65349/iNat594937.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,1.3845,Unknown,train,https://static.inaturalist.org/sounds/594937.mp3,cc-by-nc 4.0
+65349/iNat65524.ogg,65349,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.576,José Gabriel Julio Guzmán,train,https://static.inaturalist.org/sounds/65524.mp3,cc-by-nc 4.0
+65373/XC882751.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,28.133875,M.S. Hoogmoed,train,https://xeno-canto.org/882751,cc-by 4.0
+65373/XC882752.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,27.5330625,M.S. Hoogmoed,train,https://xeno-canto.org/882752,cc-by 4.0
+65373/XC882753.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,82.20734375,M.S. Hoogmoed,train,https://xeno-canto.org/882753,cc-by 4.0
+65373/XC882754.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,21.1330625,M.S. Hoogmoed,train,https://xeno-canto.org/882754,cc-by 4.0
+65373/XC890493.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,12.32978125,Chris Harrison,train,https://xeno-canto.org/890493,cc-by-nc-sa 4.0
+65373/XC941284.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,7.7203125,Chris Harrison,train,https://xeno-canto.org/941284,cc-by-nc-sa 4.0
+65373/iNat1105506.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,23.136,Chris Harrison,train,https://static.inaturalist.org/sounds/1105506.m4a,cc-by-nc 4.0
+65373/iNat1109226.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.7203125,Chris Harrison,train,https://static.inaturalist.org/sounds/1109226.wav,cc-by-nc 4.0
+65373/iNat1109236.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.7203125,Chris Harrison,train,https://static.inaturalist.org/sounds/1109236.wav,cc-by-nc 4.0
+65373/iNat1141476.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.9644375,Pedro E. Nahuat-Cervera,train,https://static.inaturalist.org/sounds/1141476.wav,cc-by-nc 4.0
+65373/iNat1141479.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.26475,Pedro E. Nahuat-Cervera,train,https://static.inaturalist.org/sounds/1141479.wav,cc-by-nc 4.0
+65373/iNat1182883.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.67965625,Daniel Durán Arceo,val,https://static.inaturalist.org/sounds/1182883.m4a,cc-by-nc 4.0
+65373/iNat1255548.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.360625,Francis Canto Jr,test,https://static.inaturalist.org/sounds/1255548.wav,cc-by-nc 4.0
+65373/iNat1255549.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.67175,Francis Canto Jr,test,https://static.inaturalist.org/sounds/1255549.wav,cc-by-nc 4.0
+65373/iNat1256054.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.587875,Unknown,train,https://static.inaturalist.org/sounds/1256054.m4a,cc-by 4.0
+65373/iNat127552.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,32.784,Carlos Funes,train,https://static.inaturalist.org/sounds/127552.mp3,cc-by 4.0
+65373/iNat297886.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.12,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/297886.mp3,cc-by-nc 4.0
+65373/iNat32481.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.736,Jonathan Hakim,train,https://static.inaturalist.org/sounds/32481.mp3,cc-by-nc 4.0
+65373/iNat32482.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.456,Jonathan Hakim,train,https://static.inaturalist.org/sounds/32482.mp3,cc-by-nc 4.0
+65373/iNat32628.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.584,Jonathan Hakim,train,https://static.inaturalist.org/sounds/32628.mp3,cc-by-nc 4.0
+65373/iNat337403.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,1.62,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/337403.mp3,cc-by-nc 4.0
+65373/iNat341638.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.00734375,Luis Trinchan,train,https://static.inaturalist.org/sounds/341638.mp3,cc-by-nc 4.0
+65373/iNat50345.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,21.1985625,Sidnei Dantas,train,https://static.inaturalist.org/sounds/50345.wav,cc-by-nc 4.0
+65373/iNat50974.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.48490625,Sidnei Dantas,train,https://static.inaturalist.org/sounds/50974.mp3,cc-by-nc 4.0
+65373/iNat533915.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.449,Unknown,train,https://static.inaturalist.org/sounds/533915.m4a,cc-by-nc 4.0
+65373/iNat583740.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.904,Chris Harrison,train,https://static.inaturalist.org/sounds/583740.mp3,cc-by-nc 4.0
+65373/iNat583744.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,98.04,Chris Harrison,train,https://static.inaturalist.org/sounds/583744.mp3,cc-by-nc 4.0
+65373/iNat643093.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.59734375,Paul Prior,train,https://static.inaturalist.org/sounds/643093.m4a,cc-by 4.0
+65373/iNat761669.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.11996875,Felipe Barrera Ocampo,train,https://static.inaturalist.org/sounds/761669.wav,cc-by-nc 4.0
+65373/iNat78658.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.3545625,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/78658.m4a,cc-by-nc 4.0
+65373/iNat838978.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.28184375,Richard Littauer,train,https://static.inaturalist.org/sounds/838978.m4a,cc-by 4.0
+65373/iNat846285.ogg,65373,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.39340625,Alex Heffernan,val,https://static.inaturalist.org/sounds/846285.m4a,cc-by-nc 4.0
+65419/iNat296897.ogg,65419,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.04978125,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/296897.mp3,cc-by-nc 4.0
+65419/iNat48180.ogg,65419,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,26.74940625,Unknown,train,https://static.inaturalist.org/sounds/48180.m4a,cc-by-nc 4.0
+65419/iNat48209.ogg,65419,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.288,Lina Pineda,train,https://static.inaturalist.org/sounds/48209.mp3,cc-by-nc 4.0
+65448/XC882770.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,131.970625,M.S. Hoogmoed,train,https://xeno-canto.org/882770,cc-by 4.0
+65448/XC893965.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,46.488,Chris Harrison,train,https://xeno-canto.org/893965,cc-by-nc-sa 4.0
+65448/XC941294.ogg,65448,Amphibia,['22976'],['22976'],[],weak_other_fauna_candidate_unverified,XC,4.5,9.42478125,Chris Harrison,train,https://xeno-canto.org/941294,cc-by-nc-sa 4.0
+65448/iNat1109204.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.42478125,Chris Harrison,train,https://static.inaturalist.org/sounds/1109204.wav,cc-by-nc 4.0
+65448/iNat1128087.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.0279375,Brian Gratwicke,train,https://static.inaturalist.org/sounds/1128087.m4a,cc-by 4.0
+65448/iNat1135443.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.54340625,Brian Gratwicke,train,https://static.inaturalist.org/sounds/1135443.m4a,cc-by 4.0
+65448/iNat1154010.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.34840625,Randall Jiménez,train,https://static.inaturalist.org/sounds/1154010.m4a,cc-by-nc 4.0
+65448/iNat1162768.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.90184375,Mabelin,train,https://static.inaturalist.org/sounds/1162768.m4a,cc-by-nc 4.0
+65448/iNat1200333.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.51771875,Mabelin,train,https://static.inaturalist.org/sounds/1200333.m4a,cc-by-nc 4.0
+65448/iNat1202208.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.42421875,Randall Jiménez,train,https://static.inaturalist.org/sounds/1202208.m4a,cc-by-nc 4.0
+65448/iNat1202224.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.92890625,Randall Jiménez,train,https://static.inaturalist.org/sounds/1202224.m4a,cc-by-nc 4.0
+65448/iNat1203783.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.5555625,Evan Centanni,test,https://static.inaturalist.org/sounds/1203783.wav,cc-by-nc-sa 4.0
+65448/iNat1204642.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.49696875,aurora,train,https://static.inaturalist.org/sounds/1204642.m4a,cc-by-nc 4.0
+65448/iNat1208970.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.6579375,aurora,train,https://static.inaturalist.org/sounds/1208970.m4a,cc-by-nc 4.0
+65448/iNat1209895.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.80653125,aurora,train,https://static.inaturalist.org/sounds/1209895.m4a,cc-by-nc 4.0
+65448/iNat1220530.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.8055625,Evan Centanni,test,https://static.inaturalist.org/sounds/1220530.wav,cc-by-nc-sa 4.0
+65448/iNat1220655.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.10446875,Mabelin,train,https://static.inaturalist.org/sounds/1220655.m4a,cc-by-nc 4.0
+65448/iNat122568.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,29.9,Unknown,train,https://static.inaturalist.org/sounds/122568.wav,cc-by-nc 4.0
+65448/iNat1256024.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.41584375,Unknown,train,https://static.inaturalist.org/sounds/1256024.m4a,cc-by 4.0
+65448/iNat1276383.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.35734375,Jean-Paul Boerekamps,train,https://static.inaturalist.org/sounds/1276383.m4a,cc-by-nc 4.0
+65448/iNat145061.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.6719375,Guillermo J. Fadul R.,test,https://static.inaturalist.org/sounds/145061.m4a,cc-by-nc 4.0
+65448/iNat145062.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.74778125,Guillermo J. Fadul R.,test,https://static.inaturalist.org/sounds/145062.m4a,cc-by-nc 4.0
+65448/iNat200657.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.504,Unknown,train,https://static.inaturalist.org/sounds/200657.m4a,cc-by-nc 4.0
+65448/iNat207088.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.11159375,Unknown,train,https://static.inaturalist.org/sounds/207088.m4a,cc-by 4.0
+65448/iNat209690.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.192,Roderick Flores,train,https://static.inaturalist.org/sounds/209690.m4a,cc-by-nc 4.0
+65448/iNat210995.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.8791875,Karl Kaufmann,train,https://static.inaturalist.org/sounds/210995.mp3,cc-by-nc 4.0
+65448/iNat233790.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,48.71,Carlos Funes,train,https://static.inaturalist.org/sounds/233790.wav,cc-by 4.0
+65448/iNat240118.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.08409375,Unknown,train,https://static.inaturalist.org/sounds/240118.mp3,cc-by-nc 4.0
+65448/iNat272609.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.92471875,William Hull,train,https://static.inaturalist.org/sounds/272609.wav,cc-by-nc 4.0
+65448/iNat273090.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.33715625,Jorge I. Merchán Mayorga,val,https://static.inaturalist.org/sounds/273090.mp3,cc-by-sa 4.0
+65448/iNat277476.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.702875,Unknown,train,https://static.inaturalist.org/sounds/277476.m4a,cc-by 4.0
+65448/iNat292773.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.88896875,Jan Ebr &amp; Ivana Ebrová,train,https://static.inaturalist.org/sounds/292773.mp3,cc-by 4.0
+65448/iNat298977.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.9763125,Oliver Komar,val,https://static.inaturalist.org/sounds/298977.mp3,cc-by-nc 4.0
+65448/iNat304517.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,82.104,Luis Mora,train,https://static.inaturalist.org/sounds/304517.mp3,cc-by 4.0
+65448/iNat304786.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.128,Leticia Andino,train,https://static.inaturalist.org/sounds/304786.m4a,cc-by-nc 4.0
+65448/iNat313351.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.377,Unknown,train,https://static.inaturalist.org/sounds/313351.mp3,cc-by-nc 4.0
+65448/iNat313926.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.216,Unknown,train,https://static.inaturalist.org/sounds/313926.m4a,cc-by-nc 4.0
+65448/iNat313927.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.128,Unknown,train,https://static.inaturalist.org/sounds/313927.m4a,cc-by-nc 4.0
+65448/iNat313963.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.4071875,Victor Reyes,train,https://static.inaturalist.org/sounds/313963.m4a,cc-by-nc 4.0
+65448/iNat31400.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,46.55021875,Liu Idárraga Orozco,train,https://static.inaturalist.org/sounds/31400.mp3,cc-by-nc 4.0
+65448/iNat318715.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.8948125,Unknown,train,https://static.inaturalist.org/sounds/318715.m4a,cc-by-nc 4.0
+65448/iNat322031.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,91.81171875,Unknown,train,https://static.inaturalist.org/sounds/322031.m4a,cc-by-nc 4.0
+65448/iNat332455.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.96446875,Unknown,train,https://static.inaturalist.org/sounds/332455.m4a,cc-by 4.0
+65448/iNat332794.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.37471875,Unknown,train,https://static.inaturalist.org/sounds/332794.m4a,cc-by 4.0
+65448/iNat333037.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,5.1780625,Unknown,train,https://static.inaturalist.org/sounds/333037.m4a,cc-by-nc 4.0
+65448/iNat333081.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.6719375,Unknown,train,https://static.inaturalist.org/sounds/333081.m4a,cc-by 4.0
+65448/iNat340222.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.4908125,Larry Chen,val,https://static.inaturalist.org/sounds/340222.m4a,cc-by-nc 4.0
+65448/iNat341652.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.4428125,crzyowl11_ELB,train,https://static.inaturalist.org/sounds/341652.m4a,cc-by-nc 4.0
+65448/iNat341655.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.201375,crzyowl11_ELB,train,https://static.inaturalist.org/sounds/341655.m4a,cc-by-nc 4.0
+65448/iNat348103.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.1595625,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/348103.m4a,cc-by-nc 4.0
+65448/iNat355556.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,7.04,Emily Hjalmarson,val,https://static.inaturalist.org/sounds/355556.m4a,cc-by-nc 4.0
+65448/iNat38915.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.40265625,Karl Kaufmann,train,https://static.inaturalist.org/sounds/38915.wav,cc-by-nc 4.0
+65448/iNat441283.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.2215,Stephanie Tran,train,https://static.inaturalist.org/sounds/441283.m4a,cc-by 4.0
+65448/iNat451209.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.96909375,Andrea Mena,train,https://static.inaturalist.org/sounds/451209.m4a,cc-by-nc 4.0
+65448/iNat50407.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.294,Rafael Gianni-Zurita,train,https://static.inaturalist.org/sounds/50407.mp3,cc-by-nc 4.0
+65448/iNat50409.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,64.156,Rafael Gianni-Zurita,train,https://static.inaturalist.org/sounds/50409.mp3,cc-by-nc 4.0
+65448/iNat50410.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,61.727,Rafael Gianni-Zurita,train,https://static.inaturalist.org/sounds/50410.mp3,cc-by-nc 4.0
+65448/iNat53421.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,44.33834375,Unknown,train,https://static.inaturalist.org/sounds/53421.wav,cc-by-nc 4.0
+65448/iNat534822.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.57415625,Mabelin,train,https://static.inaturalist.org/sounds/534822.m4a,cc-by-nc 4.0
+65448/iNat562820.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.40253125,Jorge I. Merchán Mayorga,val,https://static.inaturalist.org/sounds/562820.wav,cc-by-sa 4.0
+65448/iNat562821.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.77715625,Jorge I. Merchán Mayorga,val,https://static.inaturalist.org/sounds/562821.wav,cc-by-sa 4.0
+65448/iNat567162.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.47021875,Francis Pérez,train,https://static.inaturalist.org/sounds/567162.m4a,cc-by 4.0
+65448/iNat580843.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.75509375,Wendy Velez,test,https://static.inaturalist.org/sounds/580843.mp3,cc-by-nc 4.0
+65448/iNat583662.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,46.488,Chris Harrison,train,https://static.inaturalist.org/sounds/583662.mp3,cc-by-nc 4.0
+65448/iNat598804.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.192,Unknown,train,https://static.inaturalist.org/sounds/598804.m4a,cc-by-nc 4.0
+65448/iNat623007.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.7278125,Unknown,train,https://static.inaturalist.org/sounds/623007.m4a,cc-by-nc 4.0
+65448/iNat624692.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.83734375,Unknown,train,https://static.inaturalist.org/sounds/624692.wav,cc-by-nc 4.0
+65448/iNat687625.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.21303125,Rosabel Miro,train,https://static.inaturalist.org/sounds/687625.mp3,cc-by-nc 4.0
+65448/iNat74512.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.064,Andrew Quitmeyer,train,https://static.inaturalist.org/sounds/74512.m4a,cc-0 4.0
+65448/iNat76004.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,33.59346875,Unknown,train,https://static.inaturalist.org/sounds/76004.mp3,cc-by-nc 4.0
+65448/iNat778295.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.46759375,Unknown,train,https://static.inaturalist.org/sounds/778295.m4a,cc-by-nc 4.0
+65448/iNat778296.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,25.05434375,Unknown,train,https://static.inaturalist.org/sounds/778296.m4a,cc-by-nc 4.0
+65448/iNat78657.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.67965625,Hubert Szczygieł,test,https://static.inaturalist.org/sounds/78657.m4a,cc-by-nc 4.0
+65448/iNat81316.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.356125,Unknown,train,https://static.inaturalist.org/sounds/81316.m4a,cc-by 4.0
+65448/iNat818793.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.18740625,Chrissy Kondrat,test,https://static.inaturalist.org/sounds/818793.m4a,cc-by 4.0
+65448/iNat841595.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.15803125,Richard Littauer,train,https://static.inaturalist.org/sounds/841595.m4a,cc-by 4.0
+65448/iNat846206.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.541875,Jonathan Gagnon,train,https://static.inaturalist.org/sounds/846206.m4a,cc-by-nc 4.0
+65448/iNat848307.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,1.41621875,David Scott,train,https://static.inaturalist.org/sounds/848307.wav,cc-by-nc 4.0
+65448/iNat857347.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.08021875,Unknown,train,https://static.inaturalist.org/sounds/857347.m4a,cc-by 4.0
+65448/iNat857731.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.79528125,Unknown,train,https://static.inaturalist.org/sounds/857731.m4a,cc-by 4.0
+65448/iNat925724.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.12353125,Dan MacNeal,train,https://static.inaturalist.org/sounds/925724.wav,cc-by 4.0
+65448/iNat953656.ogg,65448,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.18278125,Joshua Wade Covill,train,https://static.inaturalist.org/sounds/953656.m4a,cc-by-nc 4.0
+65547/XC941286.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,16.88221875,Chris Harrison,train,https://xeno-canto.org/941286,cc-by-nc-sa 4.0
+65547/iNat1103224.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.88221875,Chris Harrison,train,https://static.inaturalist.org/sounds/1103224.wav,cc-by-nc 4.0
+65547/iNat1108714.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.62134375,Chris Harrison,train,https://static.inaturalist.org/sounds/1108714.wav,cc-by-nc 4.0
+65547/iNat1135442.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.26165625,Brian Gratwicke,train,https://static.inaturalist.org/sounds/1135442.m4a,cc-by 4.0
+65547/iNat296892.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.664,Marley T. Gómez-Rincón,train,https://static.inaturalist.org/sounds/296892.mp3,cc-by-nc 4.0
+65547/iNat360357.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,19.73334375,Emily Hjalmarson,val,https://static.inaturalist.org/sounds/360357.m4a,cc-by-nc 4.0
+65547/iNat70565.ogg,65547,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,39.31734375,Unknown,train,https://static.inaturalist.org/sounds/70565.m4a,cc-by-nc 4.0
+65962/XC890477.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,15.264,Chris Harrison,train,https://xeno-canto.org/890477,cc-by-nc-sa 4.0
+65962/iNat1046825.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.83334375,Lorenzo D'Alessio,train,https://static.inaturalist.org/sounds/1046825.wav,cc-by-nc 4.0
+65962/iNat1062590.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,12.125,Lorenzo D'Alessio,train,https://static.inaturalist.org/sounds/1062590.wav,cc-by-nc 4.0
+65962/iNat1109807.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.466625,Chris Harrison,train,https://static.inaturalist.org/sounds/1109807.wav,cc-by-nc 4.0
+65962/iNat1200332.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.549875,Mabelin,train,https://static.inaturalist.org/sounds/1200332.m4a,cc-by-nc 4.0
+65962/iNat137087.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,2.39284375,Andrés Camilo Montes-Correa,train,https://static.inaturalist.org/sounds/137087.wav,cc-by-nc 4.0
+65962/iNat137091.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,54.2273125,Andrés Camilo Montes-Correa,train,https://static.inaturalist.org/sounds/137091.wav,cc-by-nc 4.0
+65962/iNat22513.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.60128125,Unknown,train,https://static.inaturalist.org/sounds/22513.wav,cc-by-nc 4.0
+65962/iNat341651.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,10.70440625,crzyowl11_ELB,train,https://static.inaturalist.org/sounds/341651.m4a,cc-by-nc 4.0
+65962/iNat380246.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.11475,LMKamstra,train,https://static.inaturalist.org/sounds/380246.m4a,cc-by-nc 4.0
+65962/iNat382337.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.32925,Pete Siminski,train,https://static.inaturalist.org/sounds/382337.wav,cc-by-nc 4.0
+65962/iNat506744.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.702875,R.E.Llanos,val,https://static.inaturalist.org/sounds/506744.m4a,cc-by-nc 4.0
+65962/iNat509049.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.97878125,Nick Helme,train,https://static.inaturalist.org/sounds/509049.mp3,cc-by-nc 4.0
+65962/iNat53861.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.465125,Pichard,train,https://static.inaturalist.org/sounds/53861.wav,cc-by-nc 4.0
+65962/iNat587305.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,6.84,Chris Harrison,train,https://static.inaturalist.org/sounds/587305.mp3,cc-by-nc 4.0
+65962/iNat587310.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.832,Chris Harrison,train,https://static.inaturalist.org/sounds/587310.mp3,cc-by-nc 4.0
+65962/iNat587312.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,18.0,Chris Harrison,train,https://static.inaturalist.org/sounds/587312.mp3,cc-by-nc 4.0
+65962/iNat615663.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.4273125,Hans Holbrook,train,https://static.inaturalist.org/sounds/615663.m4a,cc-by-nc 4.0
+65962/iNat81325.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.362,Rosabel Miro,train,https://static.inaturalist.org/sounds/81325.mp3,cc-by-nc 4.0
+65962/iNat943127.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.192,Chris Harrison,train,https://static.inaturalist.org/sounds/943127.mp3,cc-by-nc 4.0
+65962/iNat993397.ogg,65962,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,17.4381875,Ryan Shaw,train,https://static.inaturalist.org/sounds/993397.m4a,cc-by-nc 4.0
+66016/XC893981.ogg,66016,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,13.464,Chris Harrison,train,https://xeno-canto.org/893981,cc-by-nc-sa 4.0
+66016/iNat14973.ogg,66016,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.392,Chris Harrison,train,https://static.inaturalist.org/sounds/14973.mp3,cc-by-nc 4.0
+66531/iNat40682.ogg,66531,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,51.99209375,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/40682.m4a,cc-by-nc 4.0
+66531/iNat445441.ogg,66531,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,20.58159375,Bioexploradores Farallones,train,https://static.inaturalist.org/sounds/445441.wav,cc-by-nc 4.0
+66578/iNat223502.ogg,66578,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,40.16425,Unknown,train,https://static.inaturalist.org/sounds/223502.wav,cc-by-nc 4.0
+66578/iNat315496.ogg,66578,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,34.4584375,Fundación Dodo Colombia,test,https://static.inaturalist.org/sounds/315496.m4a,cc-by-nc 4.0
+66893/XC941287.ogg,66893,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,8.00528125,Chris Harrison,train,https://xeno-canto.org/941287,cc-by-nc-sa 4.0
+66893/XC941288.ogg,66893,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,3.0,28.0031875,Chris Harrison,train,https://xeno-canto.org/941288,cc-by-nc-sa 4.0
+66893/iNat1109827.ogg,66893,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,28.0031875,Chris Harrison,train,https://static.inaturalist.org/sounds/1109827.wav,cc-by-nc 4.0
+66893/iNat1110476.ogg,66893,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,8.00528125,Chris Harrison,train,https://static.inaturalist.org/sounds/1110476.wav,cc-by-nc 4.0
+66893/iNat42824.ogg,66893,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,15.336,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/42824.mp3,cc-by-nc 4.0
+67082/iNat221222.ogg,67082,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.3546875,Sandra Rtpo,test,https://static.inaturalist.org/sounds/221222.m4a,cc-by-nc-sa 4.0
+67082/iNat594579.ogg,67082,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,30.7896875,Alejandro Lopez,train,https://static.inaturalist.org/sounds/594579.m4a,cc-by-nc-sa 4.0
+67252/XC882988.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,106.42284375,M.S. Hoogmoed,train,https://xeno-canto.org/882988,cc-by 4.0
+67252/XC882992.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,98.97796875,M.S. Hoogmoed,train,https://xeno-canto.org/882992,cc-by 4.0
+67252/XC882993.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,67.1346875,M.S. Hoogmoed,train,https://xeno-canto.org/882993,cc-by 4.0
+67252/XC882994.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,55.27509375,M.S. Hoogmoed,train,https://xeno-canto.org/882994,cc-by 4.0
+67252/XC882995.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,106.7363125,M.S. Hoogmoed,train,https://xeno-canto.org/882995,cc-by 4.0
+67252/XC882996.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,100.28409375,M.S. Hoogmoed,train,https://xeno-canto.org/882996,cc-by 4.0
+67252/XC882997.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,76.43428125,M.S. Hoogmoed,train,https://xeno-canto.org/882997,cc-by 4.0
+67252/XC882998.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,102.58284375,M.S. Hoogmoed,train,https://xeno-canto.org/882998,cc-by 4.0
+67252/XC882999.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,340.81959375,M.S. Hoogmoed,train,https://xeno-canto.org/882999,cc-by 4.0
+67252/XC883000.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,93.9624375,M.S. Hoogmoed,train,https://xeno-canto.org/883000,cc-by 4.0
+67252/XC929104.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,4.0,7.83675,Augustin Bussac,train,https://xeno-canto.org/929104,cc-by-nc-sa 4.0
+67252/XC952184.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,XC,5.0,11.4155,Guillermo Menéndez (gmmv80),train,https://xeno-canto.org/952184,cc-by-nc-sa 4.0
+67252/iNat1257838.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,11.389375,Guillermo Menéndez,train,https://static.inaturalist.org/sounds/1257838.mp3,cc-by-nc 4.0
+67252/iNat933802.ogg,67252,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.56,Nilo Casco,train,https://static.inaturalist.org/sounds/933802.mp3,cc-by-nc 4.0
+714022/CSA34203.ogg,714022,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,27.169125,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34203/IAvH-CSA-34203.mp3,cc-by-nc-sa 4.0
+714022/CSA34204.ogg,714022,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,37.74234375,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34204/IAvH-CSA-34204.mp3,cc-by-nc-sa 4.0
+714022/CSA34205.ogg,714022,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,40.45890625,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34205/IAvH-CSA-34205.mp3,cc-by-nc-sa 4.0
+714022/CSA34206.ogg,714022,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,28.30765625,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34206/IAvH-CSA-34206.mp3,cc-by-nc-sa 4.0
+714022/CSA34207.ogg,714022,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,42.2261875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34207/IAvH-CSA-34207.mp3,cc-by-nc-sa 4.0
+715170/CSA34510.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,124.41890625,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34510/IAvH-CSA-34510.mp3,cc-by-nc-sa 4.0
+715170/CSA34511.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,90.0505625,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34511/IAvH-CSA-34511.mp3,cc-by-nc-sa 4.0
+715170/CSA34512.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,129.769375,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34512/IAvH-CSA-34512.mp3,cc-by-nc-sa 4.0
+715170/CSA34513.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,66.852875,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34513/IAvH-CSA-34513.mp3,cc-by-nc-sa 4.0
+715170/CSA34514.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,96.10128125,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34514/IAvH-CSA-34514.mp3,cc-by-nc-sa 4.0
+715170/CSA34515.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,104.3761875,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34515/IAvH-CSA-34515.mp3,cc-by-nc-sa 4.0
+715170/CSA35799.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,111.53796875,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35799/IAvH-CSA-35799.mp3,cc-by-nc-sa 4.0
+715170/CSA35800.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,94.26540625,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35800/IAvH-CSA-35800.mp3,cc-by-nc-sa 4.0
+715170/CSA35801.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,104.58478125,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35801/IAvH-CSA-35801.mp3,cc-by-nc-sa 4.0
+715170/CSA35802.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,115.7165,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35802/IAvH-CSA-35802.mp3,cc-by-nc-sa 4.0
+715170/CSA35803.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,107.40159375,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35803/IAvH-CSA-35803.mp3,cc-by-nc-sa 4.0
+715170/CSA35804.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,87.70109375,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35804/IAvH-CSA-35804.mp3,cc-by-nc-sa 4.0
+715170/CSA35805.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,123.3360625,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35805/IAvH-CSA-35805.mp3,cc-by-nc-sa 4.0
+715170/CSA35806.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,88.42890625,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35806/IAvH-CSA-35806.mp3,cc-by-nc-sa 4.0
+715170/CSA35807.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,83.92096875,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35807/IAvH-CSA-35807.mp3,cc-by-nc-sa 4.0
+715170/CSA35808.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,92.546125,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35808/IAvH-CSA-35808.mp3,cc-by-nc-sa 4.0
+715170/CSA35809.ogg,715170,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,93.997375,Angela M. Mendoza-Henao,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-35809/IAvH-CSA-35809.mp3,cc-by-nc-sa 4.0
+787625/iNat117128.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,9.28,Victor Saldarriaga,train,https://static.inaturalist.org/sounds/117128.wav,cc-by-nc 4.0
+787625/iNat211195.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.20696875,Ana Maria Benavides,train,https://static.inaturalist.org/sounds/211195.wav,cc-by-nc 4.0
+787625/iNat400557.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,14.808,Unknown,train,https://static.inaturalist.org/sounds/400557.mp3,cc-by-nc 4.0
+787625/iNat46261.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,4.163,Unknown,train,https://static.inaturalist.org/sounds/46261.wav,cc-by-nc 4.0
+787625/iNat48805.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,22.428,Wilmar Agudelo Sánchez,train,https://static.inaturalist.org/sounds/48805.mp3,cc-by-nc 4.0
+787625/iNat600359.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,16.67125,Unknown,train,https://static.inaturalist.org/sounds/600359.m4a,cc-by-nc 4.0
+787625/iNat673795.ogg,787625,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,24.16325,Unknown,train,https://static.inaturalist.org/sounds/673795.mp3,cc-by-nc 4.0
+81930/iNat737012.ogg,81930,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,31.2,Hector Mora,train,https://static.inaturalist.org/sounds/737012.mp3,cc-by-nc 4.0
+81930/iNat761667.ogg,81930,Amphibia,[''],[],[],weak_other_fauna_candidate_unverified,iNat,0.0,13.13996875,Felipe Barrera Ocampo,train,https://static.inaturalist.org/sounds/761667.wav,cc-by-nc 4.0
+868458/CSA34217.ogg,868458,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,5.83621875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34217/IAvH-CSA-34217.mp3,cc-by-nc-sa 4.0
+868458/CSA34218.ogg,868458,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,7.27384375,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34218/IAvH-CSA-34218.mp3,cc-by-nc-sa 4.0
+868458/CSA34219.ogg,868458,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,7.52528125,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34219/IAvH-CSA-34219.mp3,cc-by-nc-sa 4.0
+868458/CSA34220.ogg,868458,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,2.924875,Fernando Montealegre-Z,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-34220/IAvH-CSA-34220.mp3,cc-by-nc-sa 4.0
+963335/CSA36372.ogg,963335,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,108.2425,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36372/IAvH-CSA-36372.mp3,cc-by-nc-sa 4.0
+963335/CSA36374.ogg,963335,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,103.57134375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36374/IAvH-CSA-36374.mp3,cc-by-nc-sa 4.0
+963335/CSA36375.ogg,963335,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,106.700375,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36375/IAvH-CSA-36375.mp3,cc-by-nc-sa 4.0
+963335/CSA36377.ogg,963335,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,107.48896875,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36377/IAvH-CSA-36377.mp3,cc-by-nc-sa 4.0
+963335/CSA36393.ogg,963335,Insecta,[''],[],[],weak_other_fauna_candidate_unverified,CSA,0.0,97.34328125,Fabio A. Sarria-S,train,http://colecciones.humboldt.org.co/rec/sonidos/IAvH-CSA-36393/IAvH-CSA-36393.mp3,cc-by-nc-sa 4.0
