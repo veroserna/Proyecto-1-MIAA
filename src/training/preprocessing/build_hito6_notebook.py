@@ -184,7 +184,28 @@ print()
 print(thresholds["random_forest"]["note"])
 """)
 
-    add_md("## Paso 6 — Importancia de caracteristicas (top 15 por modelo)")
+    add_md(r"""
+## Paso 6 — Umbrales out-of-fold (OOF)
+
+El ajuste de umbral por especie sobre un solo fold de validacion (fold4) mostro sobreajuste
+(caso extremo: rumfly1 con umbral 0,30 y 111 falsos positivos en la primera evaluacion de test).
+La solucion adoptada — documentada en [`docs/decision_umbrales_oof.md`](../docs/decision_umbrales_oof.md) —
+ajusta los umbrales sobre las predicciones out-of-fold de los 5 folds (17.893 clips, sin test).
+Se reproduce con `uv run python scripts/hito6_oof_thresholds.py`.
+""")
+    add_code(r"""
+oof = json.loads((RESULTS / "oof_thresholds.json").read_text(encoding="utf-8"))
+print(oof["nota"])
+print(f"Macro-F1 val con umbrales fold4: {oof['macro_f1_val_umbrales_fold4']:.3f}")
+print(f"Macro-F1 val con umbrales OOF:   {oof['macro_f1_val_umbrales_oof']:.3f}")
+rows = []
+for sp in cfg["species"]:
+    t4, to = oof["thresholds_fold4"][sp], oof["thresholds_oof"][sp]
+    rows.append({"especie": sp, "umbral_fold4": t4, "umbral_oof": to, "cambio": round(to - t4, 2)})
+print(pd.DataFrame(rows).set_index("especie").to_string())
+""")
+
+    add_md("## Paso 7 — Importancia de caracteristicas (top 15 por modelo)")
     add_code(r"""
 for model in ("random_forest", "xgboost"):
     agg = (
@@ -199,9 +220,8 @@ for model in ("random_forest", "xgboost"):
     print()
 """)
 
+    add_md("## Paso 8 — Figuras de importancia de caracteristicas")
     add_md(r"""
-## Paso 7 — Figuras de importancia de caracteristicas
-
 Generadas por la corrida oficial en `experiments/results/hito6/figures/`.
 """)
     add_code(r"""
@@ -212,16 +232,21 @@ for png in sorted((RESULTS / "figures").glob("feature_importance_*.png")):
 """)
 
     add_md(r"""
-## Paso 8 — Conclusiones
+## Paso 9 — Conclusiones
 
-1. **XGBoost es el mejor modelo del proyecto hasta ahora**: Macro-F1 = 0,536 [IC95 0,506, 0,567]
+1. **XGBoost es el mejor modelo del proyecto**: Macro-F1 = 0,536 [IC95 0,506, 0,567]
    y ROC-AUC = 0,908, superando al SVM RBF del Hito 5 (0,466) en los 5 folds
    (Wilcoxon ΔF1 = +0,071, p = 0,0625 — minimo alcanzable con n = 5).
 2. El F1 bajo de Random Forest con umbral 0,5 es un **artefacto del umbral**, no del ranking:
    su ROC-AUC es 0,888 y con umbral por especie pasa de 0,200 a 0,547. XGBoost sube a 0,610.
-3. Las importancias convergen en MFCC (medias y desviaciones) y ZCR como rasgos dominantes.
-4. Siguiente paso (evaluacion final 23–27 nov): seleccionar XGBoost, reajustar umbrales en
-   validacion, y evaluar **una sola vez** en test con matrices de confusion por especie.
+3. Los umbrales OOF (Paso 6) corrigen el sobreajuste del ajuste sobre un solo fold:
+   Macro-F1 en validacion 0,570 → 0,593, y el umbral extremo de rumfly1 (0,30 → 0,55).
+4. Las importancias convergen en MFCC (medias y desviaciones) y ZCR como rasgos dominantes.
+5. Evaluacion final en test (21-nov, `--stage evaluacion_final`): **Macro-F1 = 0,592,
+   ROC-AUC = 0,915** — coincide con la estimacion de validacion (0,593), sin brecha de
+   generalizacion. Detalle en [`docs/decision_umbrales_oof.md`](../docs/decision_umbrales_oof.md).
+
+Para forzar CPU (sin GPU NVIDIA): `uv run python src/main.py --stage hito6 --device cpu`.
 """)
 
     notebook = {

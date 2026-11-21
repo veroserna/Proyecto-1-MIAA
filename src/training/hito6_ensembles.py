@@ -85,6 +85,15 @@ def _cuda_available() -> bool:
         return False
 
 
+def _resolve_device(device: str = "auto") -> bool:
+    """True si XGBoost debe usar CUDA. `device`: 'auto' (detecta), 'cuda' o 'cpu'."""
+    if device == "cuda":
+        return True
+    if device == "cpu":
+        return False
+    return _cuda_available()
+
+
 def _make_model(name: str, seed: int, use_cuda: bool):
     """Construye (estimador, distribución) para la búsqueda aleatoria."""
     if name == "random_forest":
@@ -134,13 +143,14 @@ def run_hito6_ensembles(
     n_iter: int = N_ITER_SEARCH,
     features_csv: Path = FEATURES_CSV,
     out_dir: Path = OUT_DIR,
+    device: str = "auto",
 ) -> dict:
     print_header("Hito 6 — Random Forest y XGBoost con búsqueda dentro de CV agrupada por autor")
     out_dir = Path(out_dir)
     (out_dir / "artifacts").mkdir(parents=True, exist_ok=True)
     (out_dir / "figures").mkdir(parents=True, exist_ok=True)
 
-    use_cuda = _cuda_available()
+    use_cuda = _resolve_device(device)
     print(f"XGBoost device: {'cuda (GPU)' if use_cuda else 'cpu'}")
 
     feature_cols = load_feature_columns()

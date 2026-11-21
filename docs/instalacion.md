@@ -439,7 +439,7 @@ Random Forest y XGBoost con búsqueda aleatoria de hiperparámetros **dentro** d
    Sin `uv`, con `.venv` activado: `python src/main.py --stage hito6`.
    En Windows sin activar: `.\.venv\Scripts\python.exe src/main.py --stage hito6`.
 
-   Tiempo de referencia: 2–3 h (la búsqueda de Random Forest es la parte más costosa).
+   Tiempo de referencia: 2–3 h (la búsqueda de Random Forest es la parte más costosa). Sin GPU NVIDIA, añade `--device cpu` (más lento pero idéntico en resultados); con GPU se puede forzar `--device cuda`.
 
 3. Alternativamente, ejecuta [`hito6_ensembles.ipynb`](../notebooks/hito6_ensembles.ipynb) de principio a fin. El notebook **lee los artefactos ya generados** en `experiments/results/hito6/` (no repite la corrida completa); para reproducirla desde cero usa el comando del paso 2.
 4. Revisa los productos en `experiments/results/hito6/`: `cv_summary.json` (media ± std e IC 95 %), `cv_scores_by_fold.csv`, `paired_tests_vs_hito5.json` (Wilcoxon contra SVM RBF del Hito 5), `feature_importance.csv`, `config.json` (mejores hiperparámetros por fold), modelos por fold en `artifacts/` y figuras en `figures/`.
@@ -451,11 +451,11 @@ SMOTE no se aplica en esta corrida (ver la sección 2.2 del informe); si las mé
 
 ### Evaluación final
 
-El pipeline está implementado en `src/training/hito7_evaluacion_final.py`. Congela el modelo (XGBoost con la configuración modal de los 5 folds del Hito 6), ajusta un umbral por especie sobre el fold de validación (fold4), reentrena en train+val y evalúa **una sola vez** en `test`.
+El pipeline está implementado en `src/training/hito7_evaluacion_final.py`. Congela el modelo (XGBoost con la configuración modal de los 5 folds del Hito 6), ajusta un umbral por especie sobre las predicciones **out-of-fold** de los 5 folds del Hito 6 (decisión documentada en [decision_umbrales_oof.md](./decision_umbrales_oof.md)), reentrena en train+val y evalúa **una sola vez** en `test`.
 
-**Ejecutar solo cuando el equipo decida la evaluación final (23–27 nov); el resultado no debe usarse para volver a ajustar el modelo.**
+**Ejecutar solo cuando el equipo decida la evaluación final; el resultado no debe usarse para volver a ajustar el modelo.**
 
-1. Asegúrate de haber corrido el Hito 6 (se necesita `experiments/results/hito6/config.json`).
+1. Asegúrate de haber corrido el Hito 6 (se necesita `experiments/results/hito6/config.json` y los modelos por fold en `artifacts/`).
 2. Ejecuta:
 
    ```bash
@@ -463,8 +463,9 @@ El pipeline está implementado en `src/training/hito7_evaluacion_final.py`. Cong
    ```
 
    Sin `uv`, con `.venv` activado: `python src/main.py --stage evaluacion_final`.
+   Sin GPU NVIDIA: añade `--device cpu`. Para reproducir la primera pasada histórica (solo como referencia, no recomendado): `--threshold-source fold4`.
 
-3. Revisa los productos en `experiments/results/evaluacion_final/`: `test_metrics.json` (métricas globales), `per_class_test.csv` (F1, precisión, recall y soporte por especie), `thresholds.json` (umbral por especie), matrices de confusión por especie en `figures/` (individuales y cuadrícula `confusion_matrices_grid.png`), modelo y scaler en `artifacts/`.
+3. Revisa los productos en `experiments/results/evaluacion_final/`: `test_metrics.json` (métricas globales), `per_class_test.csv` (F1, precisión, recall y soporte por especie), `thresholds.json` (umbral por especie), matrices de confusión por especie en `figures/` (individuales y cuadrícula `confusion_matrices_grid.png`), modelo y scaler en `artifacts/`. La primera pasada (umbrales fold4) se conserva en `primera_pasada_fold4/` como referencia.
 
 ## 6. Experimentos complementarios
 

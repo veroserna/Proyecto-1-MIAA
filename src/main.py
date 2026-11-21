@@ -61,6 +61,12 @@ def main() -> None:
         default="oof",
         help="Evaluación final: origen de los umbrales por especie (oof = out-of-fold de los 5 folds del Hito 6; fold4 = solo validación).",
     )
+    parser.add_argument(
+        "--device",
+        choices=["auto", "cuda", "cpu"],
+        default="auto",
+        help="Dispositivo de XGBoost en Hitos 6 y evaluación final (auto = CUDA si está disponible; cpu = forzar CPU).",
+    )
 
     args = parser.parse_args()
 
@@ -85,11 +91,11 @@ def main() -> None:
     if args.stage == "hito6":
         # Importación diferida: Hitos 1-5 no requieren instalar xgboost.
         from src.training.hito6_ensembles import run_hito6_ensembles
-        run_hito6_ensembles()
+        run_hito6_ensembles(device=args.device)
     if args.stage == "evaluacion_final":
         # Importación diferida: requiere xgboost y los resultados del Hito 6.
         from src.training.hito7_evaluacion_final import run_evaluacion_final
-        run_evaluacion_final(threshold_source=args.threshold_source)
+        run_evaluacion_final(threshold_source=args.threshold_source, device=args.device)
 
 
 if __name__ == "__main__":

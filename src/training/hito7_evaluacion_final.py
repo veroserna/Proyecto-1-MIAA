@@ -47,7 +47,7 @@ from src.utils.helpers import print_header  # noqa: E402
 from src.training.hito5_baseline_svm import (  # noqa: E402
     build_multilabel_matrix, aggregate_by_recording, load_feature_columns,
 )
-from src.training.hito6_ensembles import _cuda_available, FEATURES_CSV  # noqa: E402
+from src.training.hito6_ensembles import _resolve_device, FEATURES_CSV  # noqa: E402
 
 HITO6_CONFIG = PROJECT_ROOT / "experiments" / "results" / "hito6" / "config.json"
 OUT_DIR = PROJECT_ROOT / "experiments" / "results" / "evaluacion_final"
@@ -152,6 +152,7 @@ def run_evaluacion_final(
     hito6_config: Path = HITO6_CONFIG,
     out_dir: Path = OUT_DIR,
     threshold_source: str = "oof",
+    device: str = "auto",
 ) -> dict:
     print_header("Evaluación final — XGBoost, umbrales ajustados en val, una sola pasada por test")
     out_dir = Path(out_dir)
@@ -160,7 +161,7 @@ def run_evaluacion_final(
 
     config6 = json.loads(Path(hito6_config).read_text(encoding="utf-8"))
     best_params = _modal_best_params(config6, "xgboost")
-    use_cuda = _cuda_available()
+    use_cuda = _resolve_device(device)
     print(f"Dispositivo XGBoost: {'cuda (GPU)' if use_cuda else 'cpu'}")
     print(f"Hiperparámetros (configuración modal de los 5 folds del Hito 6): {best_params}")
 
