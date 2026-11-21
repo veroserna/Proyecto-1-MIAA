@@ -420,13 +420,31 @@ Reutiliza exclusivamente `src/data/features/features.csv` (Hito 3) y las partici
 
 ### Hito 6 — Ensambles e importancia de características
 
-Este hito está planificado, pero todavía no tiene su notebook/script implementado. Al ejecutarlo:
+Random Forest y XGBoost con búsqueda aleatoria de hiperparámetros **dentro** de la validación cruzada (GroupKFold interno por autor), reutilizando `src/data/features/features.csv` y los folds del Hito 3. No usa la partición `test`. XGBoost usa GPU (`device="cuda"`) si está disponible, con respaldo a CPU.
 
-1. Parte de las mismas características y folds de Hito 3.
-2. Compara los ensambles definidos en el plan con los resultados de Hitos 4–5.
-3. Ajusta hiperparámetros dentro de la validación y aplica cualquier remuestreo (incluido SMOTE) **solo** al fold de entrenamiento.
-4. Registra métricas, parámetros e importancia de características en `experiments/results/hito6/`.
-5. Documenta el comando reproducible aquí cuando se agregue la implementación.
+1. Instala la dependencia adicional y sincroniza el entorno:
+
+   ```bash
+   uv sync --group notebook --group dev
+   ```
+
+   Sin `uv`: `python -m pip install xgboost`.
+
+2. Ejecuta el pipeline:
+
+   ```bash
+   uv run python src/main.py --stage hito6
+   ```
+
+   Sin `uv`, con `.venv` activado: `python src/main.py --stage hito6`.
+   En Windows sin activar: `.\.venv\Scripts\python.exe src/main.py --stage hito6`.
+
+   Tiempo de referencia: 2–3 h (la búsqueda de Random Forest es la parte más costosa).
+
+3. Revisa los productos en `experiments/results/hito6/`: `cv_summary.json` (media ± std e IC 95 %), `cv_scores_by_fold.csv`, `paired_tests_vs_hito5.json` (Wilcoxon contra SVM RBF del Hito 5), `feature_importance.csv`, `config.json` (mejores hiperparámetros por fold), modelos por fold en `artifacts/` y figuras en `figures/`.
+4. Consulta el [informe de Hito 6](./hito6_ensembles_report.md) para la interpretación.
+
+SMOTE no se aplica en esta corrida (ver la sección 2.2 del informe); si las métricas lo justifican, debe implementarse solo dentro de los folds de entrenamiento.
 
 ### Evaluación final
 

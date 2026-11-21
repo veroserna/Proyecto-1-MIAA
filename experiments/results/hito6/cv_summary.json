@@ -1,0 +1,106 @@
+{
+  "config": {
+    "seed": 42,
+    "folds": [
+      "fold0",
+      "fold1",
+      "fold2",
+      "fold3",
+      "fold4"
+    ],
+    "models": [
+      "random_forest",
+      "xgboost"
+    ],
+    "n_iter_search": 12,
+    "inner_cv": "GroupKFold(3) por autor, solo dentro del fold de entrenamiento",
+    "threshold": 0.5,
+    "xgboost_device": "cuda",
+    "smote": "no aplicado: recall macro Hito 5 = 0.60-0.88 (sin colapso); remuestreo multietiqueta queda como trabajo condicional",
+    "n_species": 16,
+    "species": [
+      "bugtan",
+      "chbant1",
+      "colcha1",
+      "compau",
+      "grekis",
+      "gycwor1",
+      "laufal1",
+      "linwoo1",
+      "littin1",
+      "orcpar",
+      "paltan1",
+      "roahaw",
+      "rumfly1",
+      "soulap1",
+      "trsowl",
+      "wbwwre1"
+    ]
+  },
+  "summary_by_model": {
+    "random_forest": {
+      "accuracy": {
+        "mean": 0.1124,
+        "std": 0.0107,
+        "ci95_low": 0.099,
+        "ci95_high": 0.1257
+      },
+      "f1_macro": {
+        "mean": 0.1998,
+        "std": 0.0092,
+        "ci95_low": 0.1884,
+        "ci95_high": 0.2112
+      },
+      "precision_macro": {
+        "mean": 0.8405,
+        "std": 0.0519,
+        "ci95_low": 0.7761,
+        "ci95_high": 0.905
+      },
+      "recall_macro": {
+        "mean": 0.1209,
+        "std": 0.0078,
+        "ci95_low": 0.1112,
+        "ci95_high": 0.1306
+      },
+      "roc_auc_macro": {
+        "mean": 0.8884,
+        "std": 0.004,
+        "ci95_low": 0.8835,
+        "ci95_high": 0.8934
+      }
+    },
+    "xgboost": {
+      "accuracy": {
+        "mean": 0.2761,
+        "std": 0.0725,
+        "ci95_low": 0.1861,
+        "ci95_high": 0.3661
+      },
+      "f1_macro": {
+        "mean": 0.5365,
+        "std": 0.0243,
+        "ci95_low": 0.5064,
+        "ci95_high": 0.5667
+      },
+      "precision_macro": {
+        "mean": 0.4841,
+        "std": 0.0706,
+        "ci95_low": 0.3965,
+        "ci95_high": 0.5717
+      },
+      "recall_macro": {
+        "mean": 0.6515,
+        "std": 0.0491,
+        "ci95_low": 0.5905,
+        "ci95_high": 0.7124
+      },
+      "roc_auc_macro": {
+        "mean": 0.9084,
+        "std": 0.0028,
+        "ci95_low": 0.9049,
+        "ci95_high": 0.9119
+      }
+    }
+  }
+}
