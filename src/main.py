@@ -55,6 +55,12 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=None, help="Hito 3: muestra de prueba (mínimo 9; recomendado 60)")
     parser.add_argument("--format", choices=["csv", "parquet"], default="csv", help="Hito 3: formato de features")
     parser.add_argument("--overwrite", action="store_true", help="Hito 3: reemplazar resultados anteriores del Hito 3")
+    parser.add_argument(
+        "--threshold-source",
+        choices=["oof", "fold4"],
+        default="oof",
+        help="Evaluación final: origen de los umbrales por especie (oof = out-of-fold de los 5 folds del Hito 6; fold4 = solo validación).",
+    )
 
     args = parser.parse_args()
 
@@ -83,7 +89,7 @@ def main() -> None:
     if args.stage == "evaluacion_final":
         # Importación diferida: requiere xgboost y los resultados del Hito 6.
         from src.training.hito7_evaluacion_final import run_evaluacion_final
-        run_evaluacion_final()
+        run_evaluacion_final(threshold_source=args.threshold_source)
 
 
 if __name__ == "__main__":

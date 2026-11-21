@@ -1,0 +1,22 @@
+{
+  "test_metrics": {
+    "accuracy": 0.28704663212435233,
+    "balanced_accuracy": null,
+    "f1_macro": 0.5543436680345538,
+    "precision_macro": 0.488496271485301,
+    "recall_macro": 0.6814294175350739,
+    "roc_auc_macro": 0.9149606698689075,
+    "cmap": 0.637238700969937
+  },
+  "val_metrics_with_tuned_thresholds": {
+    "accuracy": 0.31007751937984496,
+    "balanced_accuracy": null,
+    "f1_macro": 0.5690071835226655,
+    "precision_macro": 0.5316639259522662,
+    "recall_macro": 0.6639013666879712,
+    "roc_auc_macro": 0.9062769665211733,
+    "cmap": 0.6185412079302823
+  },
+  "n_test_recordings": 965,
+  "n_test_clips": 2855
+}

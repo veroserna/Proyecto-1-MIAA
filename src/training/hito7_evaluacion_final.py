@@ -5,8 +5,11 @@ Protocolo (según `docs/plan_trabajo.md` y la retroalimentación del evaluador):
 - Hiperparámetros: configuración modal entre los 5 folds del Hito 6
   (`experiments/results/hito6/config.json` → `best_params_by_fold`); no se vuelve
   a buscar sobre test.
-- Ajuste de umbrales: un umbral por especie se elige maximizando F1 sobre el fold de
-  validación (fold4 = partition `val`), protocolo de la primera entrega.
+- Ajuste de umbrales: un umbral por especie se elige maximizando F1 sobre las
+  predicciones out-of-fold de los 5 folds del Hito 6 (17.893 clips; `threshold_source="oof"`,
+  por defecto desde el 21-nov-2026 tras documentarse el sobreajuste de ajustar solo
+  sobre fold4 — ver `docs/decision_umbrales_oof.md`). La variante `threshold_source="fold4"`
+  conserva el comportamiento original.
 - Entrenamiento final: train (fold0..fold3) + val (fold4) con los hiperparámetros
   fijos; el scaler se ajusta sobre train+val.
 - Evaluación UNA SOLA VEZ sobre `test`, con agregación por grabación (máximo por
@@ -113,11 +116,42 @@ def _plot_confusion_matrices(cm_rows: list[dict], species: list[str], out_png: P
     plt.close(fig)
 
 
+def _oof_thresholds_from_hito6(
+    X: np.ndarray, Y: np.ndarray, rec: np.ndarray, split: np.ndarray,
+) -> tuple[np.ndarray, float]:
+    """Umbrales out-of-fold: scores de validación de los 5 folds del Hito 6.
+
+    Requiere los modelos guardados en `experiments/results/hito6/artifacts/`.
+    El scaler de cada fold se reajusta de forma determinista sobre su propio
+    entrenamiento (StandardScaler es función exacta de esos datos). No usa test.
+    """
+    from src.training.hito6_ensembles import FOLDS, OUT_DIR as HITO6_OUT
+    tv_mask = np.isin(split, FOLDS)
+    oof = np.full((len(X), Y.shape[1]), np.nan)
+    for fold in FOLDS:
+        val_mask = split == fold
+        train_mask = (~val_mask) & tv_mask
+        model_path = HITO6_OUT / "artifacts" / f"xgboost_{fold}.joblib"
+        if not model_path.exists():
+            raise FileNotFoundError(
+                f"Falta {model_path}: ejecuta primero `--stage hito6` para los umbrales OOF."
+            )
+        scaler_f = StandardScaler().fit(X[train_mask])
+        model_f = joblib.load(model_path)
+        oof[val_mask] = model_f.predict_proba(scaler_f.transform(X[val_mask]))
+    oof = oof[tv_mask]
+    agg_s, agg_y = aggregate_by_recording(rec[tv_mask], oof, Y[tv_mask])
+    thresholds = _tune_thresholds(agg_s, agg_y)
+    f1_oof = compute_metrics(agg_y, (agg_s >= thresholds).astype(int), agg_s)["f1_macro"]
+    return thresholds, f1_oof
+
+
 def run_evaluacion_final(
     seed: int = SEED,
     features_csv: Path = FEATURES_CSV,
     hito6_config: Path = HITO6_CONFIG,
     out_dir: Path = OUT_DIR,
+    threshold_source: str = "oof",
 ) -> dict:
     print_header("Evaluación final — XGBoost, umbrales ajustados en val, una sola pasada por test")
     out_dir = Path(out_dir)
@@ -143,18 +177,25 @@ def run_evaluacion_final(
     Y = build_multilabel_matrix(df, species)
     rec = df["recording_id"].to_numpy()
 
-    # 1) Entrenar en train, ajustar umbrales en val
+    # 1) Umbrales por especie: OOF (por defecto) o solo fold4
     t0 = time.time()
-    scaler_tv = StandardScaler().fit(X[train_mask])
-    model_tv = _make_xgb(best_params, seed, use_cuda)
-    model_tv.fit(scaler_tv.transform(X[train_mask]), Y[train_mask])
-    scores_val = model_tv.predict_proba(scaler_tv.transform(X[val_mask]))
-    thresholds = _tune_thresholds(scores_val, Y[val_mask])
-    agg_val_s, agg_val_y = aggregate_by_recording(rec[val_mask], scores_val, Y[val_mask])
-    val_pred = (agg_val_s >= thresholds).astype(int)
-    val_metrics = compute_metrics(agg_val_y, val_pred, agg_val_s)
-    print(f"Val (fold4) con umbrales ajustados: Macro-F1 = {val_metrics['f1_macro']:.3f} "
-          f"({time.time() - t0:.0f} s)")
+    if threshold_source == "oof":
+        # Predicciones out-of-fold de los 5 folds del Hito 6 (~5x más datos de
+        # validación que fold4 solo); el modelo intermedio train→val no se necesita.
+        thresholds, f1_oof = _oof_thresholds_from_hito6(X, Y, rec, df["split"].to_numpy())
+        val_metrics = {"f1_macro": f1_oof, "nota": "Macro-F1 OOF sobre 5 folds de validación"}
+        print(f"Umbrales OOF (5 folds): Macro-F1 val = {f1_oof:.3f} ({time.time() - t0:.0f} s)")
+    else:
+        scaler_tv = StandardScaler().fit(X[train_mask])
+        model_tv = _make_xgb(best_params, seed, use_cuda)
+        model_tv.fit(scaler_tv.transform(X[train_mask]), Y[train_mask])
+        scores_val = model_tv.predict_proba(scaler_tv.transform(X[val_mask]))
+        thresholds = _tune_thresholds(scores_val, Y[val_mask])
+        agg_val_s, agg_val_y = aggregate_by_recording(rec[val_mask], scores_val, Y[val_mask])
+        val_pred = (agg_val_s >= thresholds).astype(int)
+        val_metrics = compute_metrics(agg_val_y, val_pred, agg_val_s)
+        print(f"Val (fold4) con umbrales ajustados: Macro-F1 = {val_metrics['f1_macro']:.3f} "
+              f"({time.time() - t0:.0f} s)")
 
     # 2) Reentrenar en train+val y evaluar UNA SOLA VEZ en test
     t0 = time.time()
@@ -214,10 +255,21 @@ def run_evaluacion_final(
         "best_params_modal_hito6": best_params,
         "train_folds": TRAIN_FOLDS,
         "val_fold_for_thresholds": VAL_FOLD,
-        "threshold_tuning": "F1 por especie sobre fold4 (val), rejilla 0.05-0.95",
+        "threshold_tuning": (
+            "F1 por especie sobre predicciones out-of-fold de los 5 folds (17.893 clips; sin test)"
+            if threshold_source == "oof"
+            else "F1 por especie sobre fold4 (val), rejilla 0.05-0.95"
+        ),
+        "threshold_source": threshold_source,
         "aggregation": "máximo por recording_id",
         "device": "cuda" if use_cuda else "cpu",
         "test_used_once": True,
+        "nota_segunda_pasada": (
+            "2026-11-21: segunda evaluación de test, decidida con evidencia de validación "
+            "(Macro-F1 OOF 0,593 vs 0,570 con umbrales fold4; corrección del umbral extremo "
+            "de rumfly1 0,30→0,55). Documentado como corrección metodológica del ajuste de "
+            "umbrales, no como búsqueda sobre test."
+        ) if threshold_source == "oof" else None,
     }, indent=2), encoding="utf-8")
     joblib.dump(model, out_dir / "artifacts" / "final_model.joblib")
     joblib.dump(scaler, out_dir / "artifacts" / "scaler.joblib")

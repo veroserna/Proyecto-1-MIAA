@@ -92,6 +92,7 @@ def test_run_evaluacion_final_synthetic(tmp_path, monkeypatch):
     )
     result = run_evaluacion_final(
         features_csv=csv_path, hito6_config=cfg_path, out_dir=out_dir,
+        threshold_source="fold4",
     )
     assert 0.0 <= result["test_metrics"]["f1_macro"] <= 1.0
     assert (out_dir / "test_metrics.json").exists()

@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "model": "xgboost",
+  "best_params_modal_hito6": {
+    "estimator__subsample": 0.7,
+    "estimator__scale_pos_weight": 10,
+    "estimator__n_estimators": 300,
+    "estimator__min_child_weight": 1,
+    "estimator__max_depth": 4,
+    "estimator__learning_rate": 0.05,
+    "estimator__colsample_bytree": 0.5
+  },
+  "train_folds": [
+    "fold0",
+    "fold1",
+    "fold2",
+    "fold3"
+  ],
+  "val_fold_for_thresholds": "fold4",
+  "threshold_tuning": "F1 por especie sobre fold4 (val), rejilla 0.05-0.95",
+  "aggregation": "m\u00e1ximo por recording_id",
+  "device": "cuda",
+  "test_used_once": true
+}
