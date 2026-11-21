@@ -441,8 +441,11 @@ Random Forest y XGBoost con búsqueda aleatoria de hiperparámetros **dentro** d
 
    Tiempo de referencia: 2–3 h (la búsqueda de Random Forest es la parte más costosa).
 
-3. Revisa los productos en `experiments/results/hito6/`: `cv_summary.json` (media ± std e IC 95 %), `cv_scores_by_fold.csv`, `paired_tests_vs_hito5.json` (Wilcoxon contra SVM RBF del Hito 5), `feature_importance.csv`, `config.json` (mejores hiperparámetros por fold), modelos por fold en `artifacts/` y figuras en `figures/`.
-4. Consulta el [informe de Hito 6](./hito6_ensembles_report.md) para la interpretación.
+3. Alternativamente, ejecuta [`hito6_ensembles.ipynb`](../notebooks/hito6_ensembles.ipynb) de principio a fin. El notebook **lee los artefactos ya generados** en `experiments/results/hito6/` (no repite la corrida completa); para reproducirla desde cero usa el comando del paso 2.
+4. Revisa los productos en `experiments/results/hito6/`: `cv_summary.json` (media ± std e IC 95 %), `cv_scores_by_fold.csv`, `paired_tests_vs_hito5.json` (Wilcoxon contra SVM RBF del Hito 5), `feature_importance.csv`, `config.json` (mejores hiperparámetros por fold), modelos por fold en `artifacts/` y figuras en `figures/`.
+5. Consulta el [informe de Hito 6](./hito6_ensembles_report.md) para la interpretación.
+
+Si solo quieres regenerar el notebook ejecutado (con las salidas embebidas), corre `uv run python src/training/preprocessing/build_hito6_notebook.py`.
 
 SMOTE no se aplica en esta corrida (ver la sección 2.2 del informe); si las métricas lo justifican, debe implementarse solo dentro de los folds de entrenamiento.
 
