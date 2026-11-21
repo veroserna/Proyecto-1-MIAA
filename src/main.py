@@ -41,7 +41,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Pipeline principal BirdCLEF+ 2025 (MIAA Universidad Icesi)")
     parser.add_argument(
         "--stage",
-        choices=["hito1", "hito2", "hito3", "hito4", "hito5", "hito6", "all"],
+        choices=["hito1", "hito2", "hito3", "hito4", "hito5", "hito6", "evaluacion_final", "all"],
         default="all",
         help="Etapa del pipeline a ejecutar (por defecto: all).",
     )
@@ -80,6 +80,10 @@ def main() -> None:
         # Importación diferida: Hitos 1-5 no requieren instalar xgboost.
         from src.training.hito6_ensembles import run_hito6_ensembles
         run_hito6_ensembles()
+    if args.stage == "evaluacion_final":
+        # Importación diferida: requiere xgboost y los resultados del Hito 6.
+        from src.training.hito7_evaluacion_final import run_evaluacion_final
+        run_evaluacion_final()
 
 
 if __name__ == "__main__":

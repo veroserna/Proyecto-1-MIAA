@@ -451,13 +451,20 @@ SMOTE no se aplica en esta corrida (ver la sección 2.2 del informe); si las mé
 
 ### Evaluación final
 
-Se realizará después de seleccionar la configuración con validación:
+El pipeline está implementado en `src/training/hito7_evaluacion_final.py`. Congela el modelo (XGBoost con la configuración modal de los 5 folds del Hito 6), ajusta un umbral por especie sobre el fold de validación (fold4), reentrena en train+val y evalúa **una sola vez** en `test`.
 
-1. Congela modelo, características, umbrales y protocolo usando solo validación.
-2. Evalúa una sola vez en `test`; no vuelvas a ajustar el modelo con base en ese resultado.
-3. Genera métricas globales y por clase, matriz de confusión y análisis de errores.
-4. Guarda la configuración, las predicciones y el reporte en `experiments/results/final/`.
-5. Los comandos se añadirán cuando el módulo de evaluación final esté implementado.
+**Ejecutar solo cuando el equipo decida la evaluación final (23–27 nov); el resultado no debe usarse para volver a ajustar el modelo.**
+
+1. Asegúrate de haber corrido el Hito 6 (se necesita `experiments/results/hito6/config.json`).
+2. Ejecuta:
+
+   ```bash
+   uv run python src/main.py --stage evaluacion_final
+   ```
+
+   Sin `uv`, con `.venv` activado: `python src/main.py --stage evaluacion_final`.
+
+3. Revisa los productos en `experiments/results/evaluacion_final/`: `test_metrics.json` (métricas globales), `per_class_test.csv` (F1, precisión, recall y soporte por especie), `thresholds.json` (umbral por especie), matrices de confusión por especie en `figures/` (individuales y cuadrícula `confusion_matrices_grid.png`), modelo y scaler en `artifacts/`.
 
 ## 6. Experimentos complementarios
 
