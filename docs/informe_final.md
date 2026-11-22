@@ -57,18 +57,36 @@ El tope competitivo de BirdCLEF+ 2025 reporta ROC-AUC de 0,930 con modelos de es
 
 ### 2.4 Hipótesis y criterios de contraste
 
-Las hipótesis se formularon a posteriori del Hito 5 pero **a priori de la evaluación en test**, con criterios de apoyo fijos:
+Las hipótesis se formularon a posteriori del Hito 5 pero **a priori de la evaluación en test**, con criterios de apoyo fijos. La tabla resume lo propuesto contra lo obtenido (detalle en la sección 4):
 
-- **H1 — Las características acústicas clásicas contienen señal predictiva de especie.** Criterio: Macro ROC-AUC con límite inferior del IC 95 % por encima de 0,5 (azar), y F1 > 0 en al menos 12 de 16 especies.
-- **H2 — Los ensambles de árboles superan a la línea base SVM en este espacio de características.** Criterio: Δ Macro-F1 > 0 entre folds y Wilcoxon pareado p < 0,10 (n = 5, evidencia orientativa), o IC95 sin solapamiento con la línea base.
-- **H3 — El ruido de fondo degrada la estructura del espacio de características.** Criterio: correlación de Spearman positiva y significativa entre distancia al centroide del cluster y SNR del clip (exploratorio), y en el análisis de errores final, los clips mal clasificados deberían tener SNR mediano menor que los bien clasificados.
+| Hipótesis | Criterio de apoyo propuesto | Valor obtenido | Veredicto |
+|---|---|---|---|
+| **H1.** Las características acústicas clásicas contienen señal predictiva de especie | Macro ROC-AUC con IC95 > 0,5; F1 > 0 en ≥ 12 de 16 especies | ROC-AUC test = **0,915** (CV: 0,908 [0,905–0,912]); F1 > 0 en **16/16** especies | ✅ Apoyada |
+| **H2.** Los ensambles de árboles superan a la línea base SVM RBF | Δ Macro-F1 > 0 entre folds y Wilcoxon p < 0,10, o IC95 sin solapamiento | XGBoost − SVM RBF: ΔF1 = **+0,071** (5/5 folds), Wilcoxon **p = 0,0625** | ✅ Apoyada (XGBoost) |
+| **H3.** El ruido de fondo degrada la estructura del espacio de características | (a) Spearman ρ > 0 significativo entre distancia al centroide y SNR; (b) SNR mediano de errores < aciertos en test (IC95 bootstrap excluye 0) | (a) ρ = **0,348, p ≈ 0**; (b) errores **10,73 dB** vs. aciertos **16,50 dB**, diferencia **−5,76 dB** [−6,73, −4,57] | ✅ Apoyada |
 
 ## 3. Resultados
 
 ### 3.1 Exploración y línea base (H1, H4, H5)
 
 - El EDA documentó la distribución y el desbalance de las 16 especies y fijó las particiones agrupadas por autor.
-- El clustering K-Means (H4) mostró separabilidad parcial del espacio de características y **apoyó la primera parte de H3**: correlación de Spearman ρ = 0,348 (p ≈ 0) entre distancia al centroide del cluster y SNR del clip (ρ = 0,271 para energía en banda): los clips ruidosos se alejan de la región típica de su clase.
+
+![Distribución de clips por especie y partición](../experiments/results/hito1/figures/08_split_per_species.png)
+
+*Figura 1. Distribución del subconjunto de 16 especies por partición (train/val/test), Hito 1.*
+
+- La extracción de características produjo 90 features por clip; la proyección PCA (descriptiva) muestra el solapamiento esperado entre especies.
+
+![Proyección PCA 2D del espacio de características](../experiments/results/hito3/figures/pca_2d_train.png)
+
+*Figura 2. Proyección PCA 2D del espacio de 90 características (train), Hito 3.*
+
+- El clustering K-Means (H4) mostró separabilidad parcial del espacio de características (ARI = 0,032; Silhouette = 0,021) y **apoyó la primera parte de H3**: correlación de Spearman ρ = 0,348 (p ≈ 0) entre distancia al centroide del cluster y SNR del clip (ρ = 0,271 para energía en banda): los clips ruidosos se alejan de la región típica de su clase.
+
+![Relación entre SNR y alineación de clusters](../experiments/results/hito4_5/clustering/figures/snr_alignment.png)
+
+*Figura 3. Relación entre SNR del clip y distancia a la estructura de clusters (H3a), Hito 4.*
+
 - Línea base supervisada (H5, CV 5 folds): regresión logística OvR y SVM (lineal, RBF, polinomial). El mejor fue **SVM RBF: Macro-F1 0,466 ± 0,019, Macro ROC-AUC 0,908 ± 0,004**.
 
 ### 3.2 Comparación de modelos — ensambles (H6)
@@ -94,7 +112,13 @@ Ambos ensambles concentran la importancia en los MFCC (medias y desviaciones est
 - Random Forest: mfcc_06/07/02_base_mean (~6,4 % cada una).
 - XGBoost: mfcc_01_base_std y zcr_mean (~2 % cada una, importancia más repartida).
 
-Figuras: `experiments/results/hito6/figures/feature_importance_random_forest.png` y `feature_importance_xgboost.png`.
+![Importancia de características — Random Forest](../experiments/results/hito6/figures/feature_importance_random_forest.png)
+
+*Figura 4. Importancia de características (top) para Random Forest, promedio entre folds.*
+
+![Importancia de características — XGBoost](../experiments/results/hito6/figures/feature_importance_xgboost.png)
+
+*Figura 5. Importancia de características (top) para XGBoost, promedio entre folds.*
 
 ### 3.4 Corrección metodológica: umbrales out-of-fold y segunda pasada por test
 
@@ -108,6 +132,27 @@ Figuras: `experiments/results/hito6/figures/feature_importance_random_forest.png
 | **out-of-fold (5 folds)** | **0,593** |
 
 6 de 16 especies cambiaron su umbral en más de 0,10; rumfly1 pasó de 0,30 a 0,55.
+
+**Umbrales por especie: fold4 vs. out-of-fold:**
+
+| Especie | Umbral fold4 | Umbral OOF | Cambio |
+|---|---:|---:|---:|
+| bugtan | 0,49 | 0,56 | +0,07 |
+| chbant1 | 0,54 | 0,72 | +0,18 |
+| colcha1 | 0,62 | 0,64 | +0,02 |
+| compau | 0,74 | 0,77 | +0,03 |
+| grekis | 0,64 | 0,77 | +0,13 |
+| gycwor1 | 0,61 | 0,64 | +0,03 |
+| laufal1 | 0,56 | 0,64 | +0,08 |
+| linwoo1 | 0,55 | 0,52 | −0,03 |
+| littin1 | 0,69 | 0,72 | +0,03 |
+| orcpar | 0,63 | 0,71 | +0,08 |
+| paltan1 | 0,51 | 0,51 | 0,00 |
+| roahaw | 0,56 | 0,74 | +0,18 |
+| rumfly1 | 0,30 | 0,55 | +0,25 |
+| soulap1 | 0,61 | 0,83 | +0,22 |
+| trsowl | 0,55 | 0,71 | +0,16 |
+| wbwwre1 | 0,70 | 0,73 | +0,03 |
 
 **Decisión.** Repetir la evaluación de test una única vez con umbrales OOF, decidida con evidencia exclusiva de validación, sin búsqueda iterativa sobre test y reportando ambos resultados con transparencia (los artefactos de la primera pasada se conservan en `experiments/results/evaluacion_final/primera_pasada_fold4/`).
 
@@ -147,6 +192,20 @@ La estimación de validación (0,593) y el resultado de test (0,592) coinciden c
 Matrices de confusión por especie (cuadrícula completa):
 
 ![Matrices de confusión por especie — evaluación final en test](../experiments/results/evaluacion_final/figures/confusion_matrices_grid.png)
+
+*Figura 6. Matrices de confusión por especie en test (2.855 clips agregados por grabación, umbrales OOF). Cada celda muestra verdaderos/falsos positivos y negativos por especie.*
+
+### 3.6 Análisis de errores y ruido (H3b)
+
+Sobre las predicciones congeladas de la evaluación final se comparó el SNR de los clips con al menos un error contra los clips perfectos (`scripts/h3b_snr_errores.py`; análisis descriptivo post-hoc que no modifica modelo ni umbrales):
+
+| Grupo de clips de test | n | SNR mediano |
+|---|---:|---:|
+| Con al menos 1 especie mal clasificada | 1.705 | **10,73 dB** |
+| Perfectos (16/16 especies correctas) | 1.150 | **16,50 dB** |
+| **Diferencia de medianas (IC95 bootstrap, 10.000 réplicas)** | | **−5,76 dB [−6,73, −4,57]** |
+
+El intervalo excluye 0: los errores se concentran en clips significativamente más ruidosos, lo que confirma la segunda parte de H3 y cuantifica el efecto del ruido de fondo sobre el error del clasificador.
 
 ## 4. Discusión
 
