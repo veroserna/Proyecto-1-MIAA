@@ -198,4 +198,7 @@ Este flujo permite separar claramente:
 * **Modelo SVM (Support Vector Machine)** o máquina de vectores de soporte es un algoritmo de aprendizaje automático supervisado que sirve para resolver problemas de clasificación y de regresión.
 * **Modelo de ensamble (ensemble model)** en Machine Learning es una técnica que combina múltiples algoritmos o modelos individuales (aprendices base) para generar una predicción final más precisa, estable y robusta que la de cualquier modelo por separado.
 * **SMOTE** (Synthetic Minority Oversampling Technique o Técnica de Sobremuestreo de Minorías Sintéticas) es un algoritmo de aprendizaje automático que sirve para solucionar el problema del desbalanceo de clases en conjuntos de datos
-* 
+* **Out of Fold (OOF)** es una técnica para generar predicciones sobre cada subconjunto de validación durante una validación cruzada (como k-fold), usando un modelo entrenado solo con los demás subconjuntos.
+Se dividen los datos de entrenamiento en k partes o folds, se entrena un modelo con k - 1 partes y predice sobre la parte restante, se repite el proceso hasta que cada dato tenga una predicción hecha por un modelo que no lo vio al entrenar. Para finalizar se unen las predicciones para formar el vector completo de predicciones out of fold.
+Esta técnica es importante para evaluar sin sesgo y detectar sobreajuste. 
+* **CUDA** (Compute Unified Device Architecture) es la plataforma y modelo de programación de computación paralela creada por NVIDIA que permite usar sus GPU para tareas de propósito general y cómputo acelerado, más allá de los gráficos. El código de este proyecto fue adaptado para que detecte si la maquina posee una tarjeta compatible la use para el procesamiento.
