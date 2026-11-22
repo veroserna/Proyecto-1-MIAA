@@ -19,7 +19,7 @@ El monitoreo acústico pasivo (PAM) permite registrar el ambiente sonoro de form
 2. **Ingeniería de características y exploración no supervisada:** vector de descriptores por clip (MFCC, derivadas temporales, estadísticos espectrales) y clustering con reducción de dimensionalidad para caracterizar la separabilidad natural de los sonotipos.
 3. **Modelado supervisado, comparación y validación:** entrenar y optimizar SVM y ensambles (Random Forest, XGBoost) con validación cruzada agrupada, reportando Macro-F1, Macro ROC-AUC y métricas por especie, y documentando el impacto del ruido y la brecha entre grabaciones focales (Xeno-Canto) y de campo (soundscapes).
 
-El trabajo se apoya en los datos de la competencia BirdCLEF+ 2025 (grabaciones de Xeno-Canto y soundscapes de campo) y se desarrolló por hitos: análisis exploratorio y selección de especies (H1), acondicionamiento de audio (H2), extracción de características (H3), clustering exploratorio (H4), línea base supervisada (H5), ensambles optimizados (H6) y evaluación final única en test.
+El trabajo se apoya en los datos de la competencia BirdCLEF+ 2025 (grabaciones de Xeno-Canto y soundscapes de campo) y se desarrolló por hitos: análisis exploratorio y selección de especies (Hito 1), acondicionamiento de audio (Hito 2), extracción de características (Hito 3), clustering exploratorio (Hito 4), línea base supervisada (Hito 5), ensambles optimizados (Hito 6) y evaluación final única en test.
 
 ### 1.1 Estado del arte (síntesis)
 
@@ -37,11 +37,11 @@ El tope competitivo de BirdCLEF+ 2025 reporta ROC-AUC de 0,930 con modelos de es
 
 - **Fuente:** BirdCLEF+ 2025 — grabaciones focales de Xeno-Canto y soundscapes de campo del Magdalena Medio.
 - **Subconjunto:** 16 especies seleccionadas por disponibilidad de datos y relevancia de conservación: bugtan, chbant1, colcha1, compau, grekis, gycwor1, laufal1, linwoo1, littin1, orcpar, paltan1, roahaw, rumfly1, soulap1, trsowl, wbwwre1.
-- **Acondicionamiento (H2):** audio estandarizado a 32 kHz, filtro pasa-banda, segmentación en clips de 5 s.
+- **Acondicionamiento (Hito 2):** audio estandarizado a 32 kHz, filtro pasa-banda, segmentación en clips de 5 s.
 - **Particiones:** 20.748 clips — 14.296 train (folds 0–3), 3.597 validación (fold4), 2.855 test. Las particiones se hicieron **agrupadas por grabación y autor**: todos los clips de una misma grabación quedan en la misma partición, eliminando fuga de información entre entrenamiento y evaluación. La partición `test` permaneció intacta hasta la evaluación final.
 - **Validación out-of-fold (OOF):** además de las particiones, la calibración de umbrales se hizo sobre predicciones out-of-fold de la validación cruzada de 5 folds: cada clip de train+val (17.893 en total) fue validado exactamente una vez por un modelo que no lo vio en entrenamiento, dando ~5× más datos de validación por especie que un solo fold y eliminando el sobreajuste de umbrales observado al ajustar solo sobre fold4 (detalle y decisión en la sección 3.4).
 
-### 2.2 Características acústicas (H3)
+### 2.2 Características acústicas (Hito 3)
 
 90 características por clip: coeficientes MFCC (media, desviación estándar, delta y delta-delta) y estadísticos espectrales (centroide, ancho de banda, roll-off, ZCR, asimetría y curtosis). El `StandardScaler` se ajusta únicamente con datos de entrenamiento dentro de cada fold y luego transforma validación — regla anti-fuga aplicada en todas las etapas.
 
@@ -49,7 +49,7 @@ El tope competitivo de BirdCLEF+ 2025 reporta ROC-AUC de 0,930 con modelos de es
 
 - **Tarea multietiqueta:** una especie vale 1 si aparece en `primary_label` o en `secondary`; el vector de etiquetas tiene 16 posiciones.
 - **Validación cruzada:** 5 folds agrupados por autor; los scores de clips de una misma grabación se agregan tomando el **máximo por especie** antes de evaluar. Semilla 42 en todos los procesos aleatorios.
-- **Búsqueda de hiperparámetros (H6):** `RandomizedSearchCV` con 12 candidatos por modelo, ejecutada **dentro** de cada fold de entrenamiento con validación interna `GroupKFold(3)` por autor — la búsqueda nunca ve el fold de validación externo.
+- **Búsqueda de hiperparámetros (Hito 6):** `RandomizedSearchCV` con 12 candidatos por modelo, ejecutada **dentro** de cada fold de entrenamiento con validación interna `GroupKFold(3)` por autor — la búsqueda nunca ve el fold de validación externo.
 - **Umbrales de decisión:** un umbral por especie, elegido maximizando F1 sobre las predicciones **out-of-fold** de los 5 folds (17.893 clips). La decisión de usar OOF en lugar de un solo fold se documenta en la sección 3.4.
 - **Evaluación final:** el modelo final se reentrena sobre train+val con hiperparámetros congelados (configuración modal de los 5 folds) y se evalúa **una sola vez** en test. Los umbrales son post-procesamiento sobre los scores, no parte del entrenamiento.
 - **Pruebas estadísticas:** intervalos de confianza del 95 % (t de Student sobre 5 folds) y prueba pareada de Wilcoxon para comparar modelos fold a fold.
@@ -61,13 +61,13 @@ Las hipótesis se formularon a posteriori del Hito 5 pero **a priori de la evalu
 
 | Hipótesis | Criterio de apoyo propuesto | Valor obtenido | Veredicto |
 |---|---|---|---|
-| **H1.** Las características acústicas clásicas contienen señal predictiva de especie | Macro ROC-AUC con IC95 > 0,5; F1 > 0 en ≥ 12 de 16 especies | ROC-AUC test = **0,915** (CV: 0,908 [0,905–0,912]); F1 > 0 en **16/16** especies | ✅ Apoyada |
-| **H2.** Los ensambles de árboles superan a la línea base SVM RBF | Δ Macro-F1 > 0 entre folds y Wilcoxon p < 0,10, o IC95 sin solapamiento | XGBoost − SVM RBF: ΔF1 = **+0,071** (5/5 folds), Wilcoxon **p = 0,0625** | ✅ Apoyada (XGBoost) |
-| **H3.** El ruido de fondo degrada la estructura del espacio de características | (a) Spearman ρ > 0 significativo entre distancia al centroide y SNR; (b) SNR mediano de errores < aciertos en test (IC95 bootstrap excluye 0) | (a) ρ = **0,348, p ≈ 0**; (b) errores **10,73 dB** vs. aciertos **16,50 dB**, diferencia **−5,76 dB** [−6,73, −4,57] | ✅ Apoyada |
+| **Hipótesis H1.** Las características acústicas clásicas contienen señal predictiva de especie | Macro ROC-AUC con IC95 > 0,5; F1 > 0 en ≥ 12 de 16 especies | ROC-AUC test = **0,915** (CV: 0,908 [0,905–0,912]); F1 > 0 en **16/16** especies | ✅ Apoyada |
+| **Hipótesis H2.** Los ensambles de árboles superan a la línea base SVM RBF | Δ Macro-F1 > 0 entre folds y Wilcoxon p < 0,10, o IC95 sin solapamiento | XGBoost − SVM RBF: ΔF1 = **+0,071** (5/5 folds), Wilcoxon **p = 0,0625** | ✅ Apoyada (XGBoost) |
+| **Hipótesis H3.** El ruido de fondo degrada la estructura del espacio de características | (a) Spearman ρ > 0 significativo entre distancia al centroide y SNR; (b) SNR mediano de errores < aciertos en test (IC95 bootstrap excluye 0) | (a) ρ = **0,348, p ≈ 0**; (b) errores **10,73 dB** vs. aciertos **16,50 dB**, diferencia **−5,76 dB** [−6,73, −4,57] | ✅ Apoyada |
 
 ## 3. Resultados
 
-### 3.1 Exploración y línea base (H1, H4, H5)
+### 3.1 Exploración y línea base (Hitos 1, 4 y 5)
 
 - El EDA documentó la distribución y el desbalance de las 16 especies y fijó las particiones agrupadas por autor.
 
@@ -81,29 +81,29 @@ Las hipótesis se formularon a posteriori del Hito 5 pero **a priori de la evalu
 
 *Figura 2. Proyección PCA 2D del espacio de 90 características (train), Hito 3.*
 
-- El clustering K-Means (H4) mostró separabilidad parcial del espacio de características (ARI = 0,032; Silhouette = 0,021) y **apoyó la primera parte de H3**: correlación de Spearman ρ = 0,348 (p ≈ 0) entre distancia al centroide del cluster y SNR del clip (ρ = 0,271 para energía en banda): los clips ruidosos se alejan de la región típica de su clase.
+- El clustering K-Means (Hito 4) mostró separabilidad parcial del espacio de características (ARI = 0,032; Silhouette = 0,021) y **apoyó la primera parte de la Hipótesis H3**: correlación de Spearman ρ = 0,348 (p ≈ 0) entre distancia al centroide del cluster y SNR del clip (ρ = 0,271 para energía en banda): los clips ruidosos se alejan de la región típica de su clase.
 
 ![Relación entre SNR y alineación de clusters](../experiments/results/hito4_5/clustering/figures/snr_alignment.png)
 
 *Figura 3. Relación entre SNR del clip y distancia a la estructura de clusters (H3a), Hito 4.*
 
-- Línea base supervisada (H5, CV 5 folds): regresión logística OvR y SVM (lineal, RBF, polinomial). El mejor fue **SVM RBF: Macro-F1 0,466 ± 0,019, Macro ROC-AUC 0,908 ± 0,004**.
+- Línea base supervisada (Hito 5, CV 5 folds): regresión logística OvR y SVM (lineal, RBF, polinomial). El mejor fue **SVM RBF: Macro-F1 0,466 ± 0,019, Macro ROC-AUC 0,908 ± 0,004**.
 
-### 3.2 Comparación de modelos — ensambles (H6)
+### 3.2 Comparación de modelos — ensambles (Hito 6)
 
 | Modelo | Macro-F1 [IC95] | Macro ROC-AUC |
 |---|---|---|
-| SVM RBF (H5, línea base) | 0,466 ± 0,019 | 0,908 ± 0,004 |
+| SVM RBF (Hito 5, línea base) | 0,466 ± 0,019 | 0,908 ± 0,004 |
 | Random Forest (umbral 0,5) | 0,200 [0,188–0,211] | 0,888 |
 | Random Forest (umbral por especie) | 0,547 ± 0,014 | 0,888 |
 | **XGBoost (umbral 0,5)** | **0,536 [0,506–0,567]** | **0,908 [0,905–0,912]** |
 | **XGBoost (umbral por especie)** | **0,610 ± 0,009** | 0,908 |
 
-- **XGBoost supera a SVM RBF en los 5/5 folds** (ΔF1 por fold: +0,068, +0,082, +0,052, +0,097, +0,055; media +0,071). Wilcoxon pareado p = 0,0625 — el mínimo alcanzable con n = 5 folds; cumple el criterio de H2 (p < 0,10).
+- **XGBoost supera a SVM RBF en los 5/5 folds** (ΔF1 por fold: +0,068, +0,082, +0,052, +0,097, +0,055; media +0,071). Wilcoxon pareado p = 0,0625 — el mínimo alcanzable con n = 5 folds; cumple el criterio de la Hipótesis H2 (p < 0,10).
 - El Macro-F1 bajo de Random Forest con umbral 0,5 es un **artefacto del umbral**, no del ranking: su precisión era 0,79–0,91 con recall 0,11–0,13, y su ROC-AUC (0,888) muestra que los scores sí ordenan bien. Con umbral por especie sube de 0,200 a 0,547.
 - Mejores hiperparámetros de XGBoost (configuración modal entre folds): learning rate 0,05, max_depth 4, n_estimators 300, subsample 0,7, colsample_bytree 0,5, scale_pos_weight 10.
 
-**Contraste de hipótesis en validación:** H1 **apoyada** (ROC-AUC 0,908, IC95 [0,905–0,912] muy por encima del azar; F1 > 0 en las 16 especies) y H2 **apoyada** para XGBoost (ΔF1 > 0 en todos los folds, Wilcoxon p = 0,0625; sin solapamiento de IC95 con la línea base).
+**Contraste de hipótesis en validación:** Hipótesis H1 **apoyada** (ROC-AUC 0,908, IC95 [0,905–0,912] muy por encima del azar; F1 > 0 en las 16 especies) y Hipótesis H2 **apoyada** para XGBoost (ΔF1 > 0 en todos los folds, Wilcoxon p = 0,0625; sin solapamiento de IC95 con la línea base).
 
 ### 3.3 Importancia de características
 
@@ -122,7 +122,7 @@ Ambos ensambles concentran la importancia en los MFCC (medias y desviaciones est
 
 ### 3.4 Corrección metodológica: umbrales out-of-fold y segunda pasada por test
 
-**Problema.** La primera evaluación final usó umbrales ajustados solo sobre el fold de validación (fold4, 3.597 clips). Dos señales indicaron sobreajuste: rumfly1 recibió umbral 0,30 (el más bajo) y produjo en test 111 falsos positivos contra 25 verdaderos; y existía una brecha entre el F1 estimado en validación durante H6 (0,610) y el obtenido en test (0,554).
+**Problema.** La primera evaluación final usó umbrales ajustados solo sobre el fold de validación (fold4, 3.597 clips). Dos señales indicaron sobreajuste: rumfly1 recibió umbral 0,30 (el más bajo) y produjo en test 111 falsos positivos contra 25 verdaderos; y existía una brecha entre el F1 estimado en validación durante el Hito 6 (0,610) y el obtenido en test (0,554).
 
 **Evidencia (solo validación, sin test).** Se reconstruyeron las predicciones out-of-fold de los 5 folds del Hito 6 (17.893 clips, 5.794 grabaciones) y se reajustaron los umbrales maximizando F1:
 
@@ -205,14 +205,14 @@ Sobre las predicciones congeladas de la evaluación final se comparó el SNR de 
 | Perfectos (16/16 especies correctas) | 1.150 | **16,50 dB** |
 | **Diferencia de medianas (IC95 bootstrap, 10.000 réplicas)** | | **−5,76 dB [−6,73, −4,57]** |
 
-El intervalo excluye 0: los errores se concentran en clips significativamente más ruidosos, lo que confirma la segunda parte de H3 y cuantifica el efecto del ruido de fondo sobre el error del clasificador.
+El intervalo excluye 0: los errores se concentran en clips significativamente más ruidosos, lo que confirma la segunda parte de la Hipótesis H3 y cuantifica el efecto del ruido de fondo sobre el error del clasificador.
 
 ## 4. Discusión
 
-- **Contraste final de hipótesis.** H1 queda **apoyada** también en test (ROC-AUC 0,915; F1 > 0 en las 16 especies). H2 queda **apoyada**: XGBoost superó a SVM RBF en todos los folds de validación y mantuvo el mejor desempeño en test (Macro-F1 0,592 vs 0,466 de la línea base en validación). H3 queda **apoyada en ambas partes**: la relación ruido–distancia al cluster se confirmó en H4 (ρ = 0,348), y en test los clips con al menos un error tienen SNR mediano de 10,73 dB frente a 16,50 dB en los clips perfectos (diferencia −5,76 dB, IC95 bootstrap [−6,73, −4,57], excluye 0): el ruido de fondo explica una parte medible del error.
+- **Contraste final de hipótesis.** La Hipótesis H1 queda **apoyada** también en test (ROC-AUC 0,915; F1 > 0 en las 16 especies). La Hipótesis H2 queda **apoyada**: XGBoost superó a SVM RBF en todos los folds de validación y mantuvo el mejor desempeño en test (Macro-F1 0,592 vs 0,466 de la línea base en validación). La Hipótesis H3 queda **apoyada en ambas partes**: la relación ruido–distancia al cluster se confirmó en el Hito 4 (ρ = 0,348), y en test los clips con al menos un error tienen SNR mediano de 10,73 dB frente a 16,50 dB en los clips perfectos (diferencia −5,76 dB, IC95 bootstrap [−6,73, −4,57], excluye 0): el ruido de fondo explica una parte medible del error.
 - **El desbalance de soporte explica gran parte del error por especie.** Las especies más difíciles (rumfly1 con 41 grabaciones de soporte en test, linwoo1 con 46, bugtan con 43) concentran los F1 más bajos, mientras especies bien representadas (compau, 117; grekis, 158) alcanzan los mejores F1. rumfly1 sigue siendo el caso límite incluso tras la corrección de umbrales.
 - **El ajuste de umbrales importa tanto como el modelo.** Toda la mejora de 0,554 → 0,592 vino de cambiar cómo se calibran los umbrales (de un fold a out-of-fold), con los mismos scores. Es una lección metodológica central del proyecto: las decisiones de post-procesamiento también pueden sobreajustarse.
-- **Limitaciones.** n = 5 folds limita la potencia de las pruebas pareadas (p mínimo 0,0625); los umbrales OOF provienen de modelos de fold (entrenados en 4/5 de los datos) aplicados al modelo final (train+val completo) — transferencia que empíricamente funcionó (val 0,593 ≈ test 0,592); SMOTE no se aplicó (el recall macro de H5, 0,60–0,88, no mostró colapso; queda como trabajo condicional); los modelos se entrenan sobre clips focales (Xeno-Canto) pero el despliegue real es sobre soundscapes de campo, con ruido y solapamiento de especies.
+- **Limitaciones.** n = 5 folds limita la potencia de las pruebas pareadas (p mínimo 0,0625); los umbrales OOF provienen de modelos de fold (entrenados en 4/5 de los datos) aplicados al modelo final (train+val completo) — transferencia que empíricamente funcionó (val 0,593 ≈ test 0,592); SMOTE no se aplicó (el recall macro del Hito 5, 0,60–0,88, no mostró colapso; queda como trabajo condicional); los modelos se entrenan sobre clips focales (Xeno-Canto) pero el despliegue real es sobre soundscapes de campo, con ruido y solapamiento de especies.
 
 ## 5. Conclusiones
 
