@@ -1,0 +1,53 @@
+clip_id,recording_id,primary_label,author,split,partition,PC1,PC2,PC3
+bugtan_XC259679_c02,XC259679,bugtan,John V. Moore,fold1,train,-0.277085036,3.34079957,-0.0440338291
+bugtan_XC539694_c03,XC539694,bugtan,Yoann Blanchon,fold3,train,7.56372976,3.82278204,-1.01352119
+bugtan_iNat331701_c03,iNat331701,bugtan,Cristopher Rodríguez-Moreira,fold3,train,17.324543,2.72924209,-2.21962142
+bugtan_iNat576815_c01,iNat576815,bugtan,Cristopher Rodríguez-Moreira,fold3,train,1.84487748,0.30318138,-3.99937201
+chbant1_XC818507_c03,XC818507,chbant1,Francesco Barberini,fold2,train,-1.92358947,-0.0177277476,-2.20529628
+colcha1_XC437274_c02,XC437274,colcha1,Andres Angulo ,fold3,train,-1.74302101,-0.0566471517,1.75984168
+colcha1_XC437276_c02,XC437276,colcha1,Andres Angulo ,fold3,train,-1.9668262,-1.75725353,0.774643719
+compau_XC389667_c01,XC389667,compau,Andres Angulo ,fold3,train,-1.63570452,2.55059457,0.701011658
+compau_XC538254_c02,XC538254,compau,Yoann Blanchon,fold3,train,-1.41915774,-0.668915331,0.226875573
+compau_XC70538_c01,XC70538,compau,Bernabe Lopez-Lanus,fold1,train,6.19941235,5.66463566,2.11076641
+compau_iNat270116_c03,iNat270116,compau,Unknown,fold0,train,-3.92651033,-2.46917653,-0.592686355
+compau_iNat316461_c02,iNat316461,compau,Diego Carús,fold3,train,-7.96857786,1.16111302,1.37480497
+grekis_XC168591_c03,XC168591,grekis,Manuel Grosselet,fold2,train,3.63127255,-0.770290434,2.34472847
+grekis_XC712257_c02,XC712257,grekis,Barry Edmonston,fold1,train,2.92279959,1.29585779,0.116966181
+grekis_iNat171117_c03,iNat171117,grekis,William Hull,fold2,train,-6.03811407,0.707658172,-0.0485096164
+grekis_iNat349554_c00,iNat349554,grekis,Malena Lorente,fold2,train,8.57668591,-10.3483076,-2.94829869
+grekis_iNat811025_c03,iNat811025,grekis,Unknown,fold0,train,-5.50275993,0.382242471,0.71441555
+laufal1_XC126969_c03,XC126969,laufal1,Karlla Vanessa Camargo Barbosa,fold1,train,0.219960004,-5.80016756,-1.63649654
+laufal1_XC178005_c01,XC178005,laufal1,André J. PIeri,fold0,train,-6.8833065,2.48985505,0.187589437
+laufal1_XC245533_c00,XC245533,laufal1,Oscar Humberto Marín Gómez,fold0,train,6.93151999,-3.21854687,2.87692642
+laufal1_iNat504880_c01,iNat504880,laufal1,Ze Roberto,fold0,train,1.45539641,0.721238613,0.780025244
+laufal1_iNat732851_c01,iNat732851,laufal1,Mabelin,fold3,train,-0.836959839,3.62359238,0.0796854123
+linwoo1_iNat338223_c01,iNat338223,linwoo1,Unknown,fold0,train,-4.43805885,-0.580608368,1.35028768
+littin1_XC143366_c00,XC143366,littin1,Rodrigo Dela Rosa ,fold0,train,0.823077023,-0.477291256,-3.93349075
+littin1_iNat713762_c00,iNat713762,littin1,Connor Cochrane,fold2,train,-0.861464024,1.06318831,-2.21665454
+orcpar_XC447747_c00,XC447747,orcpar,Manuel Grosselet,fold2,train,8.77375984,-2.48394275,9.52498722
+paltan1_XC450784_c02,XC450784,paltan1,Brice de la Croix,fold3,train,-0.658011436,3.23669767,-0.28724733
+roahaw_XC376367_c02,XC376367,roahaw,Albert Lastukhin,fold3,train,-5.43788481,-1.70711076,-0.931324959
+roahaw_XC491749_c02,XC491749,roahaw,Mario Reyes Jr,fold3,train,-0.237649962,3.40087652,0.299597949
+roahaw_XC789189_c03,XC789189,roahaw,Olivier SWIFT,fold0,train,2.65948129,0.804273546,-5.95569086
+roahaw_iNat418255_c01,iNat418255,roahaw,Ana Maria Benavides,fold0,train,-4.38025045,0.889900327,0.487580806
+roahaw_iNat979732_c02,iNat979732,roahaw,Evandro Mariano,fold3,train,-9.54257107,-1.1993109,1.0251019
+rumfly1_XC304400_c03,XC304400,rumfly1,Fernando Igor de Godoy,fold1,train,-0.76685977,0.765636504,0.0234778188
+rumfly1_iNat73206_c00,iNat73206,rumfly1,Angelica Holguin,fold0,train,-3.9090085,-2.86534739,-2.7281518
+soulap1_XC668987_c00,XC668987,soulap1,Henrique Moutinho,fold3,train,-0.286493093,-3.00473237,3.84567332
+soulap1_XC752860_c01,XC752860,soulap1,Daniel Blamires,fold3,train,0.465316355,1.29293191,1.88150632
+soulap1_iNat1002820_c00,iNat1002820,soulap1,Carlos Justiniano Parada,fold3,train,0.960903525,0.58342582,1.34227288
+trsowl_XC244558_c03,XC244558,trsowl,Álvaro Carrasquel &amp; Isabel Olivares ,fold1,train,-4.64357138,-6.06326914,-0.240827352
+trsowl_XC612637_c00,XC612637,trsowl,Marcelo Javier Wioneczak,fold1,train,2.18886328,-1.43674099,2.77699661
+trsowl_XC73823_c02,XC73823,trsowl,Joseph Tobias and Nathalie Seddon,fold2,train,-3.56143665,2.30244589,-0.33371073
+wbwwre1_XC131585_c02,XC131585,wbwwre1,Thore Noernberg,fold1,train,0.791960716,2.06498814,-1.44839942
+wbwwre1_XC619385_c02,XC619385,wbwwre1,Charlie Vogt,fold0,train,5.51131248,-0.271768093,-3.82243013
+grekis_XC705490_c00,XC705490,grekis,Richard E. Webster,fold4,val,4.86787987,-0.615766048,1.03033829
+laufal1_XC340322_c01,XC340322,laufal1,Brayan Coral Jaramillo,fold4,val,5.42198086,-0.871958852,-1.20433939
+linwoo1_XC180670_c00,XC180670,linwoo1,Mike Nelson,fold4,val,1.04854703,-0.275124371,2.18722773
+roahaw_XC171685_c03,XC171685,roahaw,GABRIEL LEITE,fold4,val,3.30235243,0.770569563,-2.06156778
+roahaw_iNat164421_c01,iNat164421,roahaw,Gustavo Marino,fold4,val,-1.96975482,1.02075732,-0.757612586
+rumfly1_XC303194_c02,XC303194,rumfly1,GABRIEL LEITE,fold4,val,2.26917553,-0.744587719,0.599105
+soulap1_XC420448_c03,XC420448,soulap1,Odirlei Vieira da Fonseca,fold4,val,-1.74629402,0.439026803,-0.167394847
+soulap1_iNat138984_c00,iNat138984,soulap1,Eduardo Luis Beltrocco,fold4,val,-4.78399944,-0.233164549,-0.0368678011
+soulap1_iNat835856_c02,iNat835856,soulap1,Nicolas Olejnik,fold4,val,1.36991668,0.599365473,-0.778131008
+trsowl_iNat338667_c02,iNat338667,trsowl,Christoph Moning,fold4,val,-1.29941225,0.749391019,-1.91882706

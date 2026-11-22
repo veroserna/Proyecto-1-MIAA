@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\kimi-code\home\plugins\managed\kimi-pdf\skills\kimi-pdf\scripts\pdf.py", line 354, in <module>
+    main()
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\kimi-code\home\plugins\managed\kimi-pdf\skills\kimi-pdf\scripts\pdf.py", line 348, in main
+    args.func(args)
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\kimi-code\home\plugins\managed\kimi-pdf\skills\kimi-pdf\scripts\pdf.py", line 97, in cmd_extract_text
+    from cmd_extract import extract_text
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\kimi-code\home\plugins\managed\kimi-pdf\skills\kimi-pdf\scripts\cmd_extract.py", line 5, in <module>
+    import pdfplumber
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfplumber\__init__.py", line 15, in <module>
+    from .pdf import PDF
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfplumber\pdf.py", line 8, in <module>
+    from pdfminer.layout import LAParams
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfminer\layout.py", line 14, in <module>
+    from pdfminer.pdfinterp import Color, PDFGraphicState
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfminer\pdfinterp.py", line 11, in <module>
+    from pdfminer.pdfdevice import PDFDevice, PDFTextSeq
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfminer\pdfdevice.py", line 13, in <module>
+    from pdfminer.pdfpage import PDFPage
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfminer\pdfpage.py", line 7, in <module>
+    from pdfminer.pdfdocument import (
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\pdfminer\pdfdocument.py", line 14, in <module>
+    from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\cryptography\hazmat\primitives\ciphers\__init__.py", line 11, in <module>
+    from cryptography.hazmat.primitives.ciphers.base import (
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\cryptography\hazmat\primitives\ciphers\base.py", line 12, in <module>
+    from cryptography.hazmat.primitives.ciphers import modes
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\cryptography\hazmat\primitives\ciphers\modes.py", line 8, in <module>
+    from cryptography.exceptions import UnsupportedAlgorithm, _Reasons
+  File "C:\Users\karlo\AppData\Roaming\kimi-desktop\daimon-share\daimon\runtime\python\.venv\Lib\site-packages\cryptography\exceptions.py", line 9, in <module>
+    from cryptography.hazmat.bindings._rust import exceptions as rust_exceptions
+ImportError: cannot import name 'exceptions' from 'cryptography.hazmat.bindings._rust' (unknown location)

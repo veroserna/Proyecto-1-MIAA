@@ -1,0 +1,301 @@
+=== PAGINA 1 ===
+Ingenio Providencia — Aprendizaje Automático II 
+1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Modelado Predictivo y Generación de Insights en la 
+Industria Azucarera: Ingenio Providencia 
+Caso de Estudio — Aprendizaje Automático II 
+Universidad Icesi · Cali, Colombia · Noviembre de 2026 
+ 
+Autores 
+A00431864 — Juan Fernando Gutierrez 
+A00435031 — Miguel Angel Paz 
+A0368216 — Carlos Salamando 
+A00160224 — Veronica Serna 
+ 
+Profesor: Uram Anibal Sosa 
+ 
+
+=== PAGINA 2 ===
+Ingenio Providencia — Aprendizaje Automático II 
+2 
+Resumen 
+El Ingenio Providencia requiere estimar, antes de la cosecha, dos indicadores por lote: el rendimiento 
+(TCH, toneladas de caña por hectárea) y la calidad (%Sac.Caña, porcentaje de sacarosa). Este informe presenta 
+el desarrollo y la validación de modelos de regresión y clasificación sobre dos fuentes históricas: 
+HISTORICO_SUERTES (21.027 registros lote-corte, 85 variables) y BD_IPSA_1940 (2 .187 registros, 21 variables). 
+Tras una limpieza basada en reglas de negocio agronómicas y una auditoría de fuga de datos (se excluyeron 21 
+variables medidas al cosechar), se compararon modelos de referencia (regresión lineal múltiple, regresión 
+logística L1/L2, KNN) con modelos avanzados (Random Forest, XGBoost, SVM), usando hold -out 80/20 y 
+validación cruzada estratificada k=5 solo sobre entrenamiento. En regresión, XGBoost afinado superó 
+claramente al benchmark lineal (TCH: R² 0.507 vs 0.296; RMSE 22.64 vs 27.05 t/ha), evidenciando relaciones no 
+lineales entre clima, manejo y rendimiento. En clasificación por niveles (terciles calculados solo con train), 
+Random Forest obtuvo el mejor desempeño (F1 -macro 0.512 en niveles de TCH y 0.560 en sacarosa; kappa 
+0.273 y 0.351). La edad de corte fue el predictor  dominante de TCH y se confirmó el trade -off rendimiento-
+calidad. Los modelos son útiles como apoyo a la planeación de cosecha y se proponen mejoras con datos de 
+sensores e imágenes satelitales. 
+1. Introducción 
+La planeación agrícola y la programación de cosecha en el Ingenio Providencia dependen de estimar con 
+anticipación el TCH y el %Sac.Caña  de cada lote. Hoy estas estimaciones se apoyan en juicio experto y 
+promedios históricos por zona o variedad, lo que limita su precisión y trazabilidad. El objetivo de este estudio 
+es desarrollar y validar modelos predictivos que anticipen ambos indicadores a partir de variables agronómicas, 
+climáticas y de manejo conocidas antes de la cosecha, y traducir sus resultados en insights accionables. 
+Se abordan las siguientes tareas: 
+(i) Regresión de TCH y de %Sac.Caña sobre HISTORICO_SUERTES 
+(ii) Clasificación del nivel de desempeño (bajo/medio/alto) de TCH y %Sac.Caña sobre 
+BD_IPSA_1940.  
+La estrategia de modelado va de lo simple a lo complejo  con énfasis en interpretabilidad para conectar 
+los hallazgos con el contexto del negocio cañero. 
+2. Metodología 
+2.1 Datos y preparación 
+HISTORICO_SUERTES aporta variables de manejo (variedad, suelo, zona, edad de corte, riego, 
+fertilización, madurante), clima (lluvias por ventanas, temperaturas, radiación, evaporación, humedad) y 
+sanidad (% infestación de Diatraea). BD_IPSA_1940 aporta variables continuas equivalentes para la tarea de 
+clasificación. La preparación incluyó: 
+ (a) auditoría de fuga de datos : exclusión de 21 variables medidas al o después de la cosecha (resultados 
+de cosecha, análisis de laboratorio del jugo, materia extraña, vejez, precosecha), dado que no están disponibles 
+al momento de predecir 
+
+=== PAGINA 3 ===
+Ingenio Providencia — Aprendizaje Automático II 
+3 
+ (b) reglas de negocio agronómicas para valores atípicos: TCH ∈ [20, 250] t/ha, %Sac ∈ [7, 18.5], edad de 
+corte ∈ [6, 24] meses y área neta ≥ 0.5 ha (734 registros excluidos, 3.5%). 
+ (c) imputación con mediana (numéricas) y moda (categóricas) dentro del pipeline, con fit en train. 
+ (d) codificación one-hot de categóricas y estandarización para los modelos sensibles a escala (lineales, 
+KNN, SVM). 
+2.2 Estrategia de modelado y validación 
+Benchmarks: regresión lineal múltiple (con análisis de significancia de coeficientes), regresión logística 
+multinomial con regularización L1/L2 y KNN con k ∈ {1,…,31}. Avanzados: Random Forest [1], XGBoost [2] (con 
+estudio dedicado de hiperparámetros mediante curvas de validación) y SVM [3] con comparación de kernels 
+(lineal, polinómico, RBF con gamma=scale). La validación siguió hold-out 80/20 (estratificado en clasificación) y 
+GridSearchCV con validación cruzada k=5 —KFold en regresión y StratifiedKFold en clasificación — 
+exclusivamente sobre entrenamiento; los terciles que definen los niveles se calcularon solo con train. Una 
+comparación adicional k=5 vs k=10 (mismo particionador; cada fold de k=10 entrena con 90% y valida con 10%, 
+frente a 80/20 de k=5) mostró diferencias menores al 1% en las métricas, por lo que se adoptó k=5 por su 
+menor costo computacional. Métricas: R², RMSE y MAE en regresión; accuracy, precision, recall , F1 (macro) y 
+kappa de Cohen [6] en clasificación, más matrices de confusión. 
+3. Resultados y discusión 
+3.1 Regresión: TCH y %Sac.Caña 
+Tabla 1. Desempeño en test de los modelos de regresión. 
+Tarea Modelo R² RMSE MAE 
+TCH Regresión lineal 
+(benchmark) 
+0.296 27.05 20.81 
+TCH Random Forest 0.444 24.03 18.11 
+TCH XGBoost afinado 0.507 22.64 17.04 
+%Sac.Caña Regresión lineal 
+(benchmark) 
+0.272 0.951 0.738 
+%Sac.Caña XGBoost afinado 0.429 0.842 0.644 
+%Sac.Caña Random Forest 0.409 0.856 0.656 
+ 
+Los modelos de ensamble superan claramente al benchmark lineal: XGBoost afinado (n_estimators=800, 
+learning_rate=0.05, max_depth=8, min_child_weight=10, subsample=0.8, colsample_bytree=0.5, seleccionados 
+por curvas de validación) reduce el RMSE de TCH en 16% frente a la regresión lineal y explica el 51% de la 
+varianza. Esta brecha evidencia relaciones no lineales e interacciones entre clima, suelo, variedad y manejo —
+por ejemplo, el efecto de las lluvias depende de la ventana del ciclo —, consistente con la literatura de 
+agricultura de precisión [4], [5]. La Figura 1 muestra el ajuste real vs predicho del mejor modelo. Conviene 
+notar la escala del error: el MAE de 17.04 t/ha equivale a ~13% del TCH medio (129.76 t/ha), por lo que el 
+
+=== PAGINA 4 ===
+Ingenio Providencia — Aprendizaje Automático II 
+4 
+modelo es más útil para priorizar lotes y planeación agregada  que para predicción fina lote a lote; en 
+%Sac.Caña el error típico es de solo ~5% del valor medio. 
+ 
+Figura 1. Valores reales vs predichos (test) del mejor modelo de regresión (XGBoost afinado). 
+3.2 Interpretación del benchmark lineal 
+En la regresión lineal de TCH (variables estandarizadas) todos los coeficientes fueron significativos (p < 
+0.01). La edad de corte domina con coeficiente positivo (+10.90 t/ha por desviación estándar), coherente con 
+la fisiología del cultivo; le siguen las lluvias tardías del ciclo (6 –9 meses: +5.29; 9 meses –corte: +4.19). Las 
+lluvias totales del ciclo  tienen signo negativo (−12.16), señal de exceso hídrico en zonas bajas, y la dosis de 
+madurante es negativa sobre TCH (−1.61), consistente con su rol de elevar sacarosa a costa de biomasa: el 
+trade-off rendimiento -calidad (correlación TCH –%Sac ≈ −0.175) queda confirmado por ambos lados del 
+modelo. 
+3.3 Clasificación por niveles de desempeño 
+Tabla 2. Desempeño en test de los modelos de clasificación. Las clases bajo/medio/alto se definen con terciles calculados solo con train, de 
+modo que la definición de clases nunca ve datos de prueba. 
+Tarea Modelo Acc F1-macro Kappa 
+Niveles TCH Random Forest 0.516 0.512 0.273 
+Niveles TCH XGBoost 0.486 0.482 0.229 
+Niveles TCH KNN (k=1) 0.477 0.476 0.215 
+Niveles TCH Reg. logística L2 0.459 0.443 0.186 
+Niveles sacarosa Random Forest 0.568 0.560 0.351 
+Niveles sacarosa XGBoost 0.523 0.515 0.283 
+Niveles sacarosa SVM (RBF, 
+gamma=scale) 
+0.521 0.510 0.280 
+Niveles sacarosa Reg. logística L2 0.452 0.423 0.176 
+ 
+
+
+=== PAGINA 5 ===
+Ingenio Providencia — Aprendizaje Automático II 
+5 
+Todos los modelos superan el azar (33%) y Random  Forest lidera ambas tareas. Los valores de kappa 
+(0.273–0.351, calculados con la corrección de Cohen) indican acuerdo moderado: la señal predictiva de IPSA es 
+limitada porque las variables más informativas (laboratorio, materia extraña) fueron correctamente excluidas 
+por fuga de datos. Las matrices de confusión (Figura 2) muestran que los errores se concentran entre niveles 
+adyacentes —bajo↔medio y medio ↔alto— y prácticamente no hay confusiones bajo ↔alto, el error más 
+costoso para la planeación. 
+ 
+Figura 2. Matrices de confusión (test) de los mejores modelos de clasificación. 
+ 
+Figura 3. Importancia de características del mejor modelo de regresión (TCH). 
+ 
+
+
+=== PAGINA 6 ===
+Ingenio Providencia — Aprendizaje Automático II 
+6 
+4. Conclusiones 
+(1) Los resultados de esta investigación demuestran que el aprendizaje automático constituye una 
+alternativa prometedora para estimar anticipadamente el rendimiento y la calidad de la caña de azúcar. Los 
+modelos desarrollados lograron identificar patrones en la información histórica que permiten realizar 
+predicciones a partir de las condiciones agronómicas, climáticas y de manejo del cultivo. 
+En particular, XGBoost presentó el mejor desempeño para la predicción de toneladas de caña por hectárea 
+(TCH) y porcentaje de sacarosa, logrando explicar aproximadamente el 51% y el 43% de la variabilidad de estos 
+indicadores respectivamente. Estos resultados representan un avance frente a los modelos tradicionales 
+evaluados y evidencian que el comportamiento del cultivo responde a múltiples factores que interactúan entre 
+sí. Sin embargo, también muestran que una parte importante de la variabilidad todavía no puede explicarse 
+con la información disponible. 
+(2) La edad de corte y las precipitaciones registradas durante diferentes etapas del cultivo tienen una 
+participación importante en la estimación del rendimiento. Esto permite reconocer que las condiciones en las 
+que se desarrolla la caña, así como el momento de la cosecha, están relacionadas con los resultados 
+productivos. 
+(3) Los modelos de clasificación permitieron explorar una segunda alternativa: agrupar los lotes en niveles 
+de rendimiento y calidad bajos, medios y altos. Random Forest  obtuvo los mejores resultados, con una 
+exactitud aproximada del 52% para TCH y del 57% para sacarosa.  Aunque estos resultados superan una 
+clasificación aleatoria equilibrada, todavía existe un margen considerable de mejora. Un aspecto favorable es 
+que los errores observados se concentran principalmente entre categorías cercanas, lo que sugiere que los 
+modelos logran identificar parcialmente las diferencias de desempeño entre los lotes. 
+(4) La metodología de validación utilizada permitió evaluar de manera objetiva el desempeño de los 
+diferentes modelos, asegurando que las comparaciones se realizaran bajo condiciones consistentes y evitando 
+utilizar información de los datos de prueba durante el entrenamiento. Esto permitió obtener una visión más 
+realista de su capacidad predictiva y seleccionar los modelos con mejores resultados para cada indicador. 
+Asimismo, la aplicación de diferentes mecanismos de evaluación fortaleció la confianza en los ha llazgos y 
+permitió identificar tanto las fortalezas como las limitaciones de las predicciones. 
+(5) Limitaciones y trabajo futuro: la señal de clasificación es moderada y la predicción fina lote a lote 
+sigue siendo el mayor reto. Las siguientes líneas de mejora, tomadas de la literatura reciente sobre predicción 
+de rendimiento de caña con machine learning [4], [5], atacan directamente esas limitaciones: 
+(i) Nuevas variables predictoras. Incorporar variables de suelo (textura, pH, materia orgánica; 
+disponibles en IGAC y Cenicaña) como covariables estables del lote, e índices climáticos 
+estacionales (ENSO/SOI): estos últimos fueron determinantes para el pronóstico temprano en [4] 
+y las variables de suelo hacen parte del diseño de 44 predictores de [5]; el Valle del Cauca tiene 
+sensibilidad climática conocida a ENSO. 
+(ii) Pronóstico escalonado por hitos del ciclo. En lugar de un único modelo pre-cosecha, re-entrenar 
+o actualizar el modelo en fechas fijas (p. ej., mes 6, mes 9 y pre-cosecha), replicando el esquema 
+de [4], que cuantifica cómo el error cae de forma medible al acercarse la cosecha; esto convierte 
+el monitoreo intra-ciclo en un protocolo concreto para reprogramar cosechas en tiempo real. 
+(iii) Enfoque híbrido modelo de cultivo + ML. Usar la biomasa o el rendimiento simulado con 
+AquaCrop —ya calibrado para caña en el Valle del Cauca según lineamientos FAO/DNP [5]— 
+
+=== PAGINA 7 ===
+Ingenio Providencia — Aprendizaje Automático II 
+7 
+como variable predictora adicional; en [4] la biomasa simulada de APSIM fue de las variables más 
+influyentes en el pronóstico más temprano. 
+(iv) Menor costo de instrumentación. Priorizar índices satelitales gratuitos (NDVI/EVI de Sentinel-2 o 
+Landsat) sobre sensores de humedad en campo: [5] operó únicamente con datos institucionales 
+(Cenicaña, IGAC), sin instrumentación nueva. Si se invierte en sensores, priorizar riego estacional 
+y humedad relativa mínima —los predictores dominantes en [5]— y no sensores genéricos. 
+(v) Validación más robusta y menos sesgada. Adoptar validación por bloques espaciales o por año 
+(leave-one-year-out) y extender a más años climáticos: [5] advierte que los lotes vecinos se 
+parecen y que el split aleatorio puede inflar las métricas. Persisten como limitaciones prácticas el 
+costo de instrumentación y el sesgo de las prácticas históricas registradas, que los índices 
+satelitales objetivos pueden ayudar a reducir. 
+Referencias 
+[1] Breiman, L. (2001). Random forests. Machine Learning, 45(1), 5–32. 
+[2] Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. Proc. ACM SIGKDD, 785–794. 
+[3] Cortes, C., & Vapnik, V. (1995). Support-vector networks. Machine Learning, 20(3), 273–297. 
+[4] Everingham, Y., Sexton, J., Skocaj, D., & Inman-Bamber, G. (2016). Accurate prediction of sugarcane yield using a random 
+forest algorithm. Agronomy for Sustainable Development, 36(2), 27. 
+[5] Socadagui-Casas, D. A., Rodríguez-Vásquez, A. F., Rubiano-Sanabria, Y., Jiménez-Gutiérrez, D. M., & Socadagui-Casas, S. R. 
+(2026). Spatial modeling of sugarcane yield using machine learning approaches. Sugar Tech, 28(2), 675–685. 
+[6] Cohen, J. (1960). A coefficient of agreement for nominal scales. Educational and Psychological Measurement, 20(1), 37–46. 
+Glosario de términos técnicos 
+Término Definición 
+%Sac.Caña Porcentaje de sacarosa en la caña; indicador de calidad del lote. 
+Accuracy (exactitud) Proporción de predicciones correctas sobre el total de casos. 
+APSIM Agricultural Production Systems sIMulator: modelo de simulación 
+de cultivos usado en [4] para generar biomasa simulada como 
+predictor. 
+AquaCrop Modelo de cultivo de la FAO que simula el rendimiento a partir 
+del uso del agua; calibrado para caña en el Valle del Cauca (ver 
+[5]). 
+Benchmark Modelo de referencia sencillo (p. ej., regresión lineal) contra el 
+que se comparan los modelos avanzados. 
+Curvas de validación Gráficas del desempeño en validación frente al valor de un 
+hiperparámetro; se usan para afinarlo sin tocar el test. 
+ENSO / SOI El Niño–Oscilación del Sur y su índice (Southern Oscillation 
+Index): índices climáticos estacionales del Pacífico usados como 
+predictores en [4]. 
+Estandarización Reescalado de variables numéricas a media 0 y desviación 
+estándar 1; necesario para modelos sensibles a escala (lineales, 
+
+=== PAGINA 8 ===
+Ingenio Providencia — Aprendizaje Automático II 
+8 
+KNN, SVM). 
+F1-macro Promedio del F1 (media armónica de precision y recall) calculado 
+por clase y promediado sin ponderar por frecuencia. 
+Fuga de datos (data leakage) Uso durante el entrenamiento de información que no estaría 
+disponible al momento de predecir; infla artificialmente las 
+métricas. 
+GridSearchCV Búsqueda exhaustiva de hiperparámetros evaluada con 
+validación cruzada, ajustada solo con entrenamiento. 
+Hold-out Separación inicial de los datos en entrenamiento (80%) y prueba 
+(20%); la prueba no se usa para ajustar nada. 
+Importancia de características Medida del aporte de cada variable a las predicciones del modelo 
+(feature importance). 
+Imputación Relleno de valores faltantes: mediana en variables numéricas y 
+moda en categóricas, ajustada solo con train. 
+Kappa de Cohen Acuerdo entre predicción y realidad descontando el acuerdo 
+esperado por azar [6]. 
+KFold / StratifiedKFold Esquemas de validación cruzada en k particiones; la versión 
+estratificada mantiene la proporción de clases en cada fold. 
+KNN k-vecinos más cercanos: predice según los k ejemplos más 
+similares del entrenamiento. 
+Leave-one-year-out Validación que deja fuera un año completo por iteración, para 
+medir generalización temporal. 
+MAE Error absoluto medio, en las mismas unidades de la variable 
+objetivo. 
+Matriz de confusión Tabla que cruza clase real vs. clase predicha y muestra dónde se 
+concentran los errores. 
+NDVI / EVI Índices de vegetación calculados a partir de imágenes satelitales 
+(Sentinel-2, Landsat); proxies del vigor del cultivo. 
+One-hot encoding Codificación de variables categóricas como columnas binarias 
+(0/1), una por categoría. 
+Pipeline Cadena de preprocesamiento y modelo ajustada de forma 
+conjunta y solo con datos de entrenamiento, evitando fuga. 
+Precision / Recall (macro) Precision: pureza de las predicciones positivas; recall: cobertura 
+de los casos reales. Macro = promedio simple por clase. 
+R² Proporción de la varianza del objetivo que el modelo logra 
+explicar. 
+Random Forest Ensamble de muchos árboles de decisión que votan la predicción 
+[1]. 
+Regularización L1/L2 Penalizaciones sobre los coeficientes de modelos 
+lineales/logísticos para reducir sobreajuste. 
+RMSE Raíz del error cuadrático medio; penaliza más los errores 
+grandes. 
+
+=== PAGINA 9 ===
+Ingenio Providencia — Aprendizaje Automático II 
+9 
+SVM / kernel RBF Máquina de vectores de soporte [3]; el kernel RBF permite 
+fronteras no lineales y gamma controla su alcance. 
+TCH Toneladas de caña por hectárea; indicador de rendimiento del 
+lote. 
+Terciles Valores que dividen la distribución en tres grupos de igual 
+tamaño; definen los niveles bajo/medio/alto. 
+Validación por bloques espaciales Evaluación que deja fuera zonas completas, evitando que lotes 
+vecinos (parecidos entre sí) inflen las métricas [5]. 
+XGBoost Ensamble de árboles entrenados por gradient boosting [2]. 
+ 

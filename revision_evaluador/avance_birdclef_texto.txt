@@ -1,0 +1,479 @@
+=== PAGINA 1 ===
+UNIVERSIDAD ICESI · MAESTRÍA EN INTELIGENCIA ARTIFICIAL APLICADA 
+Identificación de especies por su canto 
+Aves y fauna del Magdalena Medio · BirdCLEF+ 2025 
+Reporte de avance — Hitos 1 a 5 y experimentos complementarios 
+Corte de la evidencia: 14 de noviembre de 2026 
+Autores 
+A00431864 — Juan Fernando Gutiérrez 
+A00435031 — Miguel Ángel Paz 
+A00368216 — Carlos Salamando 
+A00160224 — Verónica Serna 
+Profesor: Milton Orlando Sarria Paja 
+Proyecto de Innovación I · Cali, Colombia · Noviembre de 2026 
+ 
+
+=== PAGINA 2 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+2 
+Contenido 
+1. Resumen del avance ................................................................................................................................. 3 
+Las cifras del corte ................................................................................................................................ 3 
+2. El problema y qué queremos lograr.......................................................................................................... 4 
+3. Plan de trabajo: dónde estamos ............................................................................................................... 4 
+4. Lo que hemos construido (Hitos 1 a 5) ..................................................................................................... 5 
+4.1 Hito 1 — Entender los datos y elegir con qué trabajar ....................................................................... 5 
+Qué encontramos en el catálogo .......................................................................................................... 5 
+Cómo elegimos las 16 especies ............................................................................................................. 7 
+4.2 Hito 2 — Limpiar y cortar el audio ...................................................................................................... 9 
+Qué hicimos .......................................................................................................................................... 9 
+Cómo quedó la calidad ........................................................................................................................ 10 
+4.3 Hito 3 — Convertir el audio en números .......................................................................................... 12 
+4.4 Hito 4 — ¿Se agrupan solos? Clustering exploratorio ...................................................................... 14 
+4.5 Hito 5 — Primeros modelos: baseline vs SVM .................................................................................. 17 
+Cómo lo leemos .................................................................................................................................. 18 
+5. Experimentos complementarios ............................................................................................................. 19 
+5.1 Experimento 1 — ¿Caben las especies amenazadas? ....................................................................... 19 
+5.2 Experimento 2 — ¿Podemos enseñar al modelo a decir “eso no es un ave objetivo”? ................... 19 
+5.3 Experimento 3 — Extender el pipeline a los candidatos de rechazo ................................................ 20 
+6. Lo que sigue ............................................................................................................................................ 21 
+7. Repositorio y artefactos .......................................................................................................................... 21 
+ 
+ 
+
+=== PAGINA 3 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+3 
+ 
+ 
+1. Resumen del avance 
+Estamos construyendo un clasificador que identifica aves por su canto en grabaciones de monitoreo 
+acústico pasivo de El Silencio (Yondó, Magdalena Medio), usando los datos de BirdCLEF+ 2025. Al corte 
+de este reporte completamos 5 de las 8 etapas del plan de trabajo : ya tenemos un pipeline 
+reproducible que va desde el audio crudo hasta una primera comparación de modelos 
+supervisados, y tres experimentos complementarios que acotan qué se puede y qué no se puede 
+hacer con los datos disponibles. 
+Las cifras del corte 
+Qué medimos Resultado 
+Corpus completo (BirdCLEF+ 2025) 28.564 grabaciones focales, 206 especies, 280,5 h; desbalance de 
+495:1 
+Subconjunto curado (Hito 1) 16 especies, 6.759 grabaciones, 71,4 h; desbalance reducido a 
+6,77:1 
+Audio acondicionado (Hito 2) 20.748 clips de 5 s; SNR mediana 13,40 dB; cero fuga entre 
+particiones 
+Características (Hito 3) 90 descriptores por clip; 100 % de cobertura; escalado ajustado 
+solo con train 
+Clustering (Hito 4) K-Means: ARI = 0,0320, Silhouette = 0,0206 (las especies no se 
+agrupan solas) 
+Línea base supervisada (Hito 5) SVM RBF: Macro-F1 0,466 ± 0,019 y Macro ROC-AUC 0,908 ± 0,004 
+(CV de 5 folds) 
+Pendiente Hito 6 (ensambles), evaluación final en test, informe final, video y 
+sustentación 
+Tabla 1. Resumen de resultados al corte del 14 de noviembre de 2026. 
+Nota de alcance: este es un reporte de avance, no el informe final. Resume la evidencia disponible en el 
+repositorio al 14 de noviembre de 2026. 
+ 
+ 
+ 
+
+=== PAGINA 4 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+4 
+2. El problema y qué queremos lograr 
+Monitorear biodiversidad con grabadores pasivos es barato y escalable, pero escuchar miles de horas de 
+audio no lo es. En El Silencio (Yondó) hay 9.726 soundscapes (162,1 h) grabados en 56 sitios, y la 
+pregunta práctica es: ¿podemos decir automáticamente qué especies están cantando en cada 
+fragmento? 
+La dificultad técnica está en que las grabaciones de entrenamiento disponibles (focales, mayormente de 
+Xeno-Canto) no se parecen del todo al audio de campo: hay polifonía, ruido, especies con poquísimos 
+ejemplos y una distribución geográfica desigual. El proyecto ataca ese problema con un flujo clásico y 
+reproducible: curación de datos, acondicionamiento de audio, características acústicas, exploración no 
+supervisada y modelos supervisados con validación cuidadosa. El árbol de problemas y los objetivos 
+SMART están en la primera entrega y en el repositorio. 
+3. Plan de trabajo: dónde estamos 
+El plan completo (actividades, responsables, criterios de cierre y riesgos) está en docs/plan_trabajo.md 
+del repositorio. Este es el estado al corte: 
+Periodo Trabajo / hito Estado 
+13–19 oct. Planteamiento del problema, árbol, objetivos SMART, estado del 
+arte 
+✅ Completado 
+20–23 oct. Hito 1: EDA, selección de especies y protocolo de evaluación ✅ Completado 
+26–30 oct. Hito 2: acondicionamiento, clips de 5 s y particiones sin fuga ✅ Completado 
+2–6 nov. Hito 3: características acústicas, escalado y PCA ✅ Completado 
+9–13 nov. Hitos 4 y 5: clustering K-Means y comparación baseline/SVM ✅ Completado 
+16–20 nov. Hito 6: Random Forest y Gradient Boosting con ajuste de 
+hiperparámetros 
+⬜ Pendiente 
+23–27 nov. Evaluación final en test (una sola vez) y análisis de errores ⬜ Pendiente 
+30 nov.–2 dic. Informe final, video de 10 min y sustentación ⬜ Pendiente 
+Tabla 2. Cronograma del plan de trabajo y estado al 14 de noviembre de 2026. 
+Avance visual: 5 de 8 etapas completadas. 
+H1 H2 H3 H4 H5 H6 Eval Cierre 
+Criterios de calidad que venimos aplicando (definidos en el plan): separar particiones por autor y por grabación, reportar 
+métricas macro y por clase, ajustar transformaciones solo con entrenamiento, reservar test para una única evaluación 
+final y guardar semillas y configuración de cada corrida. Detalle menor: en el plan el Hito 3 aún tiene la celda de avance 
+vacía aunque el hito está ejecutado y documentado; conviene actualizarla. 
+ 
+
+=== PAGINA 5 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+5 
+4. Lo que hemos construido (Hitos 1 a 5) 
+El flujo completo del proyecto, con lo ya terminado (verde), lo pendiente (rojo) y los experimentos 
+complementarios (azul), se resume así: 
+ 
+Figura 1. Ruta metodológica del proyecto: hitos completados (verde), etapas pendientes (rojo) y experimentos 
+complementarios (azul). La comparación de modelos del Hito 5 ya está hecha; la evaluación final en test sigue reservada 
+para el cierre. 
+4.1 Hito 1 — Entender los datos y elegir con qué trabajar 
+Objetivo: caracterizar el catálogo de BirdCLEF+ 2025 y definir una tarea de clasificación regional que sea 
+manejable y tenga soporte suficiente por clase. 
+Qué encontramos en el catálogo 
+Indicador Resultado 
+Grabaciones focales 28.564 
+Especies 206: 146 aves, 34 anfibios, 17 insectos y 9 mamíferos 
+Duración total / mediana 280,5 h / 21,0 s 
+Grabaciones por especie de 2 a 990; razón máximo/mínimo 495:1; Gini 0,59 
+Especies con menos de 20 grabaciones 53 
+Grabaciones a ≤300 km de El Silencio 10,4 % 
+Grabaciones dentro de Colombia 27,1 % 
+
+
+=== PAGINA 6 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+6 
+Soundscapes locales (sin etiqueta) 9.726 archivos, 162,1 h, 56 sitios 
+Tabla 3. Radiografía del corpus completo de BirdCLEF+ 2025. 
+ 
+Figura 2. El corpus en una mirada: dominado por aves, con fauna no aviar disponible como material de estudio adicional. 
+ 
+Figura 3. Cola larga por especie: pocas especies concentran la mayoría de grabaciones. Este desbalance extremo (495:1) 
+justificó curar un subconjunto y trabajar con métricas macro. 
+Además del volumen, el EDA revisó duración, calidad (rating), etiquetas secundarias, tipos de 
+vocalización, geografía y duplicados. Los hallazgos que condicionaron el diseño: 2.314 grabaciones duran 
+menos de 5 s (de ahí la decisión de trabajar con clips), solo el 9,3 % tiene etiquetas secundarias (los 
+“negativos” no están certificados), el campo type está incompleto, y las grabaciones de entrenamiento 
+son mayormente focales mientras el audio de El Silencio es pasivo y polifónico. 
+ 
+Figura 4. Distribución de duraciones: la cola de grabaciones cortas apoya la decisión de segmentar en clips de 5 s. 
+
+
+=== PAGINA 7 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+7 
+ 
+Figura 5. Calidad (rating) y tipos de vocalización: los usamos como criterios de selección y diagnóstico, no como 
+predictores. 
+ 
+Figura 6. Distancia de las grabaciones a El Silencio: la cobertura regional es limitada, lo que anticipa el riesgo de cambio 
+de dominio. 
+Cómo elegimos las 16 especies 
+• Filtro cuantitativo: aves con al menos 120 grabaciones, 60 con rating ≥ 4, 40 autores y 10 
+grabaciones a menos de 300 km de El Silencio. De 206 especies, 57 pasaron todos los filtros. 
+• Curaduría cualitativa: máximo dos especies por familia, mezcla de especies diurnas, crepusculares y 
+nocturnas, distintos estratos y hábitats, relevancia regional y algunos pares acústicamente 
+confundibles para hacer la tarea interesante. 
+El subconjunto final cubre 14 familias y 11 órdenes, con 6.759 grabaciones y 71,4 h. El desbalance bajó 
+de 495:1 a 6,77:1 (982 grabaciones de grekis frente a 145 de colcha1; Gini 0,284). No es perfecto: 
+colcha1 tiene 88 % de grabaciones regionales mientras grekis y compau tienen menos de 7 %, así que 
+hay que vigilar que el modelo no aprenda atajos por ambiente o canal. También filtramos audios con 
+rating menor a 2, exigimos duración mínima de 1 s y deduplicamos por URL. 
+
+
+=== PAGINA 8 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+8 
+ 
+Figura 7. Soporte por especie después de la selección: menos desbalance que el corpus completo, pero suficiente para 
+exigir métricas macro y ponderación por clase. 
+ 
+Figura 8. Ejemplos por especie y partición; la garantía de que no se cruzan autores ni grabaciones se verifica en el Hito 2. 
+Finalmente, el EDA documentó el dominio de campo: 9.726 soundscapes de El Silencio con buena 
+cobertura espacial y temporal, pero sin anotaciones de presencia/ausencia. Son el escenario real de uso 
+del clasificador, no un conjunto de evaluación etiquetado. 
+ 
+Figura 9. Cobertura del monitoreo pasivo de El Silencio: el dominio de campo del proyecto. 
+
+
+=== PAGINA 9 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+9 
+ 
+Figura 10. Distribución temporal y por sitio de los soundscapes. 
+Hallazgo del hito: el subconjunto de 16 especies permite una comparación controlada con desbalance 
+moderado, pero no representa toda la fauna del ecosistema y arrastra sesgos de cobertura geográfica 
+que hay que tener presentes al interpretar los resultados. 
+4.2 Hito 2 — Limpiar y cortar el audio 
+Objetivo: estandarizar el audio y producir clips comparables, con control de calidad y particiones sin 
+fuga de información. 
+Qué hicimos 
+• Verificación de integridad: los 6.759 archivos esperados existen, con cabecera OGG válida, 32 kHz, 
+mono y etiqueta primaria dentro de las 16 especies (tres archivos sin la bandera EOS, pero 
+decodificados sin problema). 
+• Procesamiento: filtro Butterworth pasa -banda de orden 4 en SOS, fase cero, de 150 a 14.000 Hz, 
+remoción de DC, normalización a 32 kHz/mono y segmentación en clips de 5 s. 
+• Segmentación: de 36.939 ventanas candidatas seleccionamos 20.748 clips (28,82 h), máximo cuatro 
+por grabación; las grabaciones de 1 a 5 s se acondicionaron con repetición cíclica suavizada. 
+• Particiones: 14.296 clips de train, 3.597 de validation y 2.855 de test, agrupados por grabación y por 
+autor. 
+
+
+=== PAGINA 10 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+10 
+ 
+Figura 11. Respuesta del filtro pasa-banda 150–14.000 Hz: la banda pensada para vocalizaciones de aves. 
+ 
+Figura 12. Ejemplo de señal antes y después del acondicionamiento (forma de onda y espectrograma). 
+Cómo quedó la calidad 
+• Energía: energía media conservada en banda: 78,65 %; energía fuera de banda removida: 21,35 %. 
+• Calidad acústica: mediana de SNR de 13,40 dB; mediana de nivel de −33,05 dBFS; el 91,94 % de los 
+clips quedó en niveles de calidad high o medium. 
+• Auditoría de fuga: cero grabaciones compartidas, cero autores compartidos y ningún audio fuente 
+dividido entre train, validation y test. 
+
+
+=== PAGINA 11 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+11 
+ 
+Figura 13. Distribución de energía conservada y removida por el filtro. 
+ 
+Figura 14. Clips producidos por partición. 
+
+
+=== PAGINA 12 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+12 
+ 
+Figura 15. Calidad acústica de los clips (SNR y nivel). Estas medidas describen los datos; la relación con el desempeño del 
+clasificador aún no se ha medido. 
+ 
+Figura 16. Auditoría de fuga entre particiones: cero intersecciones de grabaciones y autores. 
+Hallazgo del hito: el pipeline cubrió el 100 % del subconjunto y dejó controles de fuga documentados. 
+Lo que aún no hemos medido es el efecto de cada decisión (filtro, criterio de selección de clips) sobre la 
+clasificación — una ablación pendiente que anotamos para el informe final. 
+4.3 Hito 3 — Convertir el audio en números 
+Objetivo: representar cada clip con características tabulares reproducibles y explorar su estructura, sin 
+tocar test para ajustar transformaciones. 
+Cada clip quedó descrito por 90 variables: timbre y envolvente espectral más su variación temporal. 
+Elegimos este vector por ser compacto, reproducible y compatible con modelos clásicos: 
+Familia Construcción Cantidad 
+MFCC base 13 coeficientes, media y desviación estándar 26 
+Delta-MFCC 13 coeficientes de primer orden, media y desviación estándar 26 
+Delta-delta MFCC 13 coeficientes de segundo orden, media y desviación estándar 26 
+
+
+=== PAGINA 13 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+13 
+Estadísticos espectrales Centroide, ancho de banda, roll -off, ZCR, asimetría y curtosis 
+(media y desviación estándar) 
+12 
+Total  90 
+Tabla 4. Las 90 características por clip. 
+Dejamos fuera de los predictores la etiqueta, el autor, la grabación, el archivo, la partición, las 
+coordenadas, la colección y el rating: pueden revelar identidad o dominio y crear atajos. Autor y 
+recording_id se conservan solo para agrupar particiones y auditar resultados, y el SNR quedó como 
+variable de diagnóstico. 
+Resultados: los 20.748 clips quedaron procesados al 100 %, sin valores inválidos ni identificadores 
+duplicados. StandardScaler y PCA se ajustaron solo con los 14.296 clips de train, y una validación 
+numérica independiente confirmó media ≈ 0 y desviación ≈ 1 en el escalado. 
+En la exploración con PCA, PC1 explica 25,94 % de la varianza, PC2 5,94 % y PC3 4,78 % (31,89 % 
+acumulado en 2D; 36,67 % en 3D). Las nubes muestran harto solapamiento entre especies en las 
+primeras componentes — esperable, porque esas componentes solo retienen un tercio de la varianza. 
+Lo tomamos como una descripción del espacio, no como un pronóstico del desempeño supervisado. 
+ 
+Figura 17. Proyección PC1–PC2 coloreada por especie: las dos primeras componentes no separan visualmente las clases. 
+
+
+=== PAGINA 14 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+14 
+ 
+Figura 18. Proyección PC1–PC3: aún así, solo se ve el 36,67 % de la varianza total. 
+Hallazgo del hito: representación completa, limpia y escalada, con las transformaciones ajustadas 
+únicamente sobre entrenamiento (regla que también se respeta dentro de cada fold de la validación 
+cruzada del Hito 5). 
+4.4 Hito 4 — ¿Se agrupan solos? Clustering exploratorio 
+Objetivo: ver si las características agrupan por especie sin usar las etiquetas, y explorar la relación entre 
+la asignación y la calidad acústica. 
+Diseño: K-Means con k = 16 (uno por especie) sobre las 90 características estandarizadas, n_init = 10, 
+semilla 42, usando los 17.893 clips de train + validation y excluyendo test. Las etiquetas solo se usaron 
+después del ajuste, para medir. 
+Métrica / diagnóstico Resultado 
+Adjusted Rand Index vs. especie 0,0320 
+Silhouette 0,0206 
+Coincidencia con especie mayoritaria del cluster 3.769 / 17.893 clips (21,1 %) 
+SNR medio de clips alineados / no alineados 16,32 / 14,65 dB 
+Spearman (distancia al centroide, SNR) ρ = 0,348 
+Spearman (distancia al centroide, energía en banda) ρ = 0,271 
+ARI vs. especie en 5 semillas 0,0308 – 0,0335 
+ARI entre soluciones de distintas semillas 0,590 – 0,891 
+
+
+=== PAGINA 15 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+15 
+Tabla 5. Métricas del clustering K-Means. 
+ 
+Figura 19. ARI bajo y Silhouette cercano a cero: los clusters de K-Means no corresponden a las especies. 
+ 
+Figura 20. Asignación de K-Means vs. etiquetas reales en PC1–PC2. 
+
+
+=== PAGINA 16 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+16 
+ 
+Figura 21. La misma comparación en PC1–PC3. 
+ 
+Figura 22. Solo el 21,1 % de los clips coincide con la especie mayoritaria de su cluster. 
+ 
+Figura 23. Estabilidad entre cinco semillas: el ARI frente a especie se mantiene bajo en todas. 
+
+
+=== PAGINA 17 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+17 
+ 
+Figura 24. Los clips más cercanos a su centroide tienden a tener mejor SNR (ρ = 0,348): correlación descriptiva, no causal. 
+Hallazgo del hito: las especies no se agrupan solas con K -Means sobre estas características, y hay una 
+relación moderada entre calidad acústica y cohesión de clusters. Es un resultado exploratorio útil: 
+confirma que la tarea requiere aprendizaje supervisado y que el ruido de fondo influye en la geometría 
+del espacio de características. 
+4.5 Hito 5 — Primeros modelos: baseline vs SVM 
+Objetivo: obtener la primera medición supervisada del proyecto y dejar una línea base para los modelos 
+optimizados del Hito 6. 
+Protocolo: tarea multietiqueta sobre las 16 especies; validación cruzada de 5 folds agrupados por autor 
+(sin recombinar); escalador reajustado dentro de cada fold; agregación de scores por grabación (máximo 
+por especie) antes de evaluar; test completamente excluido; semilla 42; class_weight = “balanced” por 
+el desbalance; umbrales fijos (0,5 para el baseline, 0,0 para los SVM). En la corrida final se entrenó con 
+todos los clips de cada fold (entre 14.230 y 14.458 de entrenamiento y entre 3.435 y 3.663 de validación 
+por vuelta). 
+ 
+ 
+Modelo Macro-F1 Precisión 
+macro 
+Recall macro Macro ROC -
+AUC 
+Exact 
+match* 
+Baseline (regresión logística 
+OvR) 
+0,299 ± 0,007 0,185 ± 0,005 0,883 ± 0,005 0,894 ± 0,005 0,025 
+SVM lineal 0,302 ± 0,006 0,189 ± 0,004 0,885 ± 0,004 0,894 ± 0,007 0,026 
+SVM RBF 0,466 ± 0,019 0,343 ± 0,019 0,765 ± 0,010 0,908 ± 0,004 0,206 
+SVM polinomial (grado 3) 0,417 ± 0,017 0,304 ± 0,012 0,698 ± 0,022 0,874 ± 0,006 0,186 
+Tabla 6. Promedio ± desviación entre los 5 folds. 
+
+
+=== PAGINA 18 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+18 
+ 
+Figura 25. Métricas de la validación cruzada del Hito 5. SVM RBF lidera en Macro-F1 y ROC-AUC; el baseline y el SVM 
+lineal muestran recall alto con precisión baja bajo los umbrales fijos. 
+Cómo lo leemos 
+• SVM RBF es la línea base a superar: Macro -F1 0,466 ± 0,019 y Macro ROC -AUC 0,908 ± 0,004, por 
+encima del baseline (+0,167 en F1) y del polinomial (+0,049). 
+• el contraste recall alto / precisión baja del baseline y del lineal sugiere que el umbral fijo está 
+dejando pasar muchas falsas alarmas: la optimización de umbrales es un pendiente natural. 
+• estas cifras son de validación cruzada, no de la evaluación final en test ni sobre soundscapes de 
+campo. 
+ 
+
+
+=== PAGINA 19 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+19 
+5. Experimentos complementarios 
+Además de los hitos del plan, corrimos tres experimentos para responder preguntas que el plan no 
+cubría directamente: ¿podemos incluir especies amenazadas?, ¿podemos enseñar al modelo a rechazar 
+fauna que no es objetivo? y ¿cómo quedaría el pipeline extendido a esos candidatos? 
+5.1 Experimento 1 — ¿Caben las especies amenazadas? 
+Pregunta: ¿hay cobertura supervisada suficiente para incluir el paujil de pico azul (Crax alberti) y el 
+chavarrí (Chauna chavaria) en el clasificador de 16 especies? 
+Especie Grabaciones Horas Autores Rating ≥ 4 ≤ 300 km Regionales 
+rating ≥ 4 
+Crax alberti (bubcur1) 20 0,24 7 9 8 5 
+Chauna chavaria (norscr1) 14 0,21 10 8 10 6 
+Tabla 7. Cobertura de las dos especies amenazadas frente a los umbrales del Hito 1 (120 grabaciones, 60 con rating ≥ 4, 
+40 autores, 10 regionales). 
+ 
+Figura 26. Ambas especies quedan por debajo de los umbrales de elegibilidad; solo Chauna chavaria alcanza el mínimo 
+regional. 
+Respuesta: no, por ahora. Incorporarlas subiría el desbalance de 6,77:1 a aproximadamente 70,14:1 y 
+sus 34 grabaciones combinadas no dan soporte para entrenar ni evaluar con equidad. Quedan fuera del 
+benchmark principal por disponibilidad de datos, no por su importancia de conservación. Este 
+experimento auditó cobertura; no midió reconocibilidad. 
+5.2 Experimento 2 — ¿Podemos enseñar al modelo a decir “eso no es un ave 
+objetivo”? 
+Pregunta: ¿hay ejemplos suficientes para que el clasificador aprenda a rechazar fauna distinta y sonidos 
+ambientales? 
+• hay 904 grabaciones no aviares que pasan los filtros de calidad: 576 anfibios, 154 insectos y 174 
+mamíferos (60 especies, 11,47 h). El problema: 46 de esas 60 especies tienen menos de 20 
+grabaciones. 
+
+
+=== PAGINA 20 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+20 
+• solo 5 de las 904 tienen etiqueta secundaria, y una incluye compau (un ave objetivo). Que las demás 
+no tengan etiqueta secundaria significa “desconocido”, no “ausente”. 
+• los 9.726 soundscapes tampoco tienen anotaciones de presencia/ausencia, así que no pueden 
+tratarse automáticamente como negativos. 
+ 
+Figura 27. Pool de fauna no objetivo y cobertura de etiquetas: hay material, pero sin negativos verificados. 
+Estado: hay un pool de candidatos, pero sin negativos verificados no entrenamos ni evaluamos un 
+clasificador de rechazo; las tasas de falsas alarmas siguen sin medir. 
+5.3 Experimento 3 — Extender el pipeline a los candidatos de rechazo 
+Dejamos preparada la extensión del pipeline del Hito 2 con manifiestos separados para fauna no aviar y 
+soundscapes, sin tocar el pipeline de las 16 aves. Los 903 candidatos sin coincidencia conocida quedaron 
+asignados por grupos (786 train, 51 validation, 66 test) y los soundscapes se dividieron por sitio para 
+evitar cruces (6.610 train, 1.216 validation, 1.900 test). 
+ 
+Figura 28. Asignación por partición de los manifiestos de candidatos débiles y soundscapes. 
+Estado: verificamos inventario y asignación de grupos, que es lo que este experimento buscaba. Los 
+manifiestos no convierten ausencia de metadatos en ausencia de aves; un experimento de rechazo real 
+requeriría anotación experta de una muestra. 
+
+
+=== PAGINA 21 ===
+Reporte de avance · Identificación de especies por su canto · BirdCLEF+ 2025 
+21 
+6. Lo que sigue 
+Fechas Actividad Entregable 
+16–20 nov. Hito 6: Random Forest y Gradient Boosting (XGBoost), 
+búsqueda de hiperparámetros dentro de CV, SMOTE solo 
+dentro de folds de entrenamiento si se justifica, 
+importancia de características 
+Tabla comparativa de modelos 
+optimizados e importancia de 
+variables 
+23–27 nov. Evaluación única en test de la configuración seleccionada; 
+matrices de confusión y errores por especie; discusión de 
+desbalance, ruido y cambio de dominio 
+Resultados finales con Macro -F1, 
+Macro ROC-AUC y análisis por clase 
+30 nov.–2 dic. Informe final según plantilla, video de 10 minutos y 
+sustentación oral 
+Entregables cargados en la 
+plataforma del curso 
+Tabla 8. Etapas pendientes del plan de trabajo. 
+ 
+7. Repositorio y artefactos 
+Todo el código, los notebooks ejecutados, los informes por hito y los resultados están en el repositorio 
+del proyecto: github.com/veroserna/Proyecto-1-MIAA. 
+• Planeación:docs/plan_trabajo.md,docs/arbol-problemas.md, 
+docs/entrega_01_proyecto_innovacion.md 
+• Hito 1: docs/hito1_eda_report.md y notebooks/experiment_1.ipynb 
+• Hito 2: docs/hito2_acondicionamiento_report.md y notebooks/experiment_2.ipynb 
+• Hito 3: docs/hito3_features_report.md y su notebook 
+• Hitos 4 y 5: docs/hito4_clustering_report.md, docs/hito5_baseline_svm_report.md, notebooks 
+ejecutados y resultados en experiments/results/hito4_5/ 
+• Experimentos:docs/experimento_01_especies_amenazadas.md, 
+docs/experimento_02_rechazo_fauna_ambiente.md y notebooks asociados 
+• Código: src/ (pipeline por etapas, ejecutable con --stage hito1 … hito5) y pruebas en tests/ 
+ 
+ 
