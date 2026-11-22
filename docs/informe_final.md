@@ -39,6 +39,7 @@ El tope competitivo de BirdCLEF+ 2025 reporta ROC-AUC de 0,930 con modelos de es
 - **Subconjunto:** 16 especies seleccionadas por disponibilidad de datos y relevancia de conservación: bugtan, chbant1, colcha1, compau, grekis, gycwor1, laufal1, linwoo1, littin1, orcpar, paltan1, roahaw, rumfly1, soulap1, trsowl, wbwwre1.
 - **Acondicionamiento (H2):** audio estandarizado a 32 kHz, filtro pasa-banda, segmentación en clips de 5 s.
 - **Particiones:** 20.748 clips — 14.296 train (folds 0–3), 3.597 validación (fold4), 2.855 test. Las particiones se hicieron **agrupadas por grabación y autor**: todos los clips de una misma grabación quedan en la misma partición, eliminando fuga de información entre entrenamiento y evaluación. La partición `test` permaneció intacta hasta la evaluación final.
+- **Validación out-of-fold (OOF):** además de las particiones, la calibración de umbrales se hizo sobre predicciones out-of-fold de la validación cruzada de 5 folds: cada clip de train+val (17.893 en total) fue validado exactamente una vez por un modelo que no lo vio en entrenamiento, dando ~5× más datos de validación por especie que un solo fold y eliminando el sobreajuste de umbrales observado al ajustar solo sobre fold4 (detalle y decisión en la sección 3.4).
 
 ### 2.2 Características acústicas (H3)
 
