@@ -22,7 +22,7 @@ El monitoreo acústico pasivo (PAM) permite registrar el ambiente sonoro de form
 2. Extraer un vector de descriptores por clip (MFCC, derivadas temporales, estadísticos espectrales) y caracterizar la separabilidad natural de los sonotipos con clustering y reducción de dimensionalidad.
 3. Entrenar y comparar SVM y ensambles (Random Forest, XGBoost) con validación cruzada agrupada, reportando Macro-F1, Macro ROC-AUC y métricas por especie, y documentar el impacto del ruido y la brecha entre grabaciones focales (Xeno-Canto) y de campo (soundscapes).
 
-**Estado del arte.** Las soluciones competitivas en BirdCLEF+ 2025 combinan aumento de datos, modelos sobre espectrogramas Mel y ensambles, con un tope reportado de ROC-AUC 0,930 [1]. El aprendizaje profundo sobre espectrogramas (BirdNET, una ResNet de 157 capas para 984 especies de Norteamérica y Europa [4]) muestra la utilidad de la aumentación específica del dominio frente a ruido y solapamiento, pero no ha sido evaluado en el Magdalena Medio. El aprendizaje clásico sobre descriptores acústicos (SVM con parámetros mel-cepstrales [3]; ensambles de redes y descriptores para audio animal [5]) permite comparaciones controladas y reproducibles en subconjuntos acotados. El clustering no supervisado de sonotipos [8] respalda la exploración sin etiquetas de la separabilidad acústica. La colección de sonidos ambientales del Instituto Humboldt, fuente primaria de BirdCLEF+ 2025, documenta las particularidades bioacústicas colombianas: saturación del espectro por insectos, alta proporción de especies raras y brecha entre grabaciones de museo y muestreo pasivo [7].
+**Estado del arte.** Las soluciones competitivas en BirdCLEF+ 2025 combinan aumento de datos, modelos sobre espectrogramas Mel y ensambles, con un tope reportado de ROC-AUC 0,930 [1]. El aprendizaje profundo sobre espectrogramas (BirdNET, una ResNet de 157 capas para 984 especies de Norteamérica y Europa [2]) muestra la utilidad de la aumentación específica del dominio frente a ruido y solapamiento, pero no ha sido evaluado en el Magdalena Medio. El aprendizaje clásico sobre descriptores acústicos (SVM con parámetros mel-cepstrales [3]; ensambles de redes y descriptores para audio animal [4]) permite comparaciones controladas y reproducibles en subconjuntos acotados. El clustering no supervisado de sonotipos [5] respalda la exploración sin etiquetas de la separabilidad acústica. La colección de sonidos ambientales del Instituto Humboldt, fuente primaria de BirdCLEF+ 2025, documenta las particularidades bioacústicas colombianas: saturación del espectro por insectos, alta proporción de especies raras y brecha entre grabaciones de museo y muestreo pasivo [6].
 
 ## II. MATERIALES Y MÉTODOS
 
@@ -36,7 +36,7 @@ Se extrajeron 90 características por clip: coeficientes MFCC (media, desviació
 
 ### C. Protocolo experimental
 
-La tarea es multietiqueta: una especie vale 1 si aparece como etiqueta primaria o secundaria del clip; los scores de clips de una misma grabación se agregan por máximo por especie antes de evaluar. Se empleó validación cruzada de 5 folds agrupados por autor con semilla 42. La búsqueda de hiperparámetros (búsqueda aleatoria, 12 candidatos) se ejecutó **dentro** de cada fold con validación interna de 3 grupos por autor, de modo que la validación externa nunca participó del ajuste. Los umbrales de decisión por especie se eligieron maximizando F1 sobre las predicciones **out-of-fold** de los 5 folds (17.893 clips validados cada uno exactamente una vez), tras documentarse el sobreajuste de ajustarlos sobre un único fold. El modelo final se reentrenó sobre entrenamiento+validación con hiperparámetros congelados (configuración modal de los 5 folds) y se evaluó **una sola vez** en prueba. Se reportan intervalos de confianza del 95 % (t de Student, 5 folds) y la prueba pareada de Wilcoxon. Entorno: Python 3.13, scikit-learn, XGBoost [2], Librosa; gestor de entorno `uv`; 15 pruebas automatizadas; GPU opcional (resultados idénticos en CPU).
+La tarea es multietiqueta: una especie vale 1 si aparece como etiqueta primaria o secundaria del clip; los scores de clips de una misma grabación se agregan por máximo por especie antes de evaluar. Se empleó validación cruzada de 5 folds agrupados por autor con semilla 42. La búsqueda de hiperparámetros (búsqueda aleatoria, 12 candidatos) se ejecutó **dentro** de cada fold con validación interna de 3 grupos por autor, de modo que la validación externa nunca participó del ajuste. Los umbrales de decisión por especie se eligieron maximizando F1 sobre las predicciones **out-of-fold** de los 5 folds (17.893 clips validados cada uno exactamente una vez), tras documentarse el sobreajuste de ajustarlos sobre un único fold. El modelo final se reentrenó sobre entrenamiento+validación con hiperparámetros congelados (configuración modal de los 5 folds) y se evaluó **una sola vez** en prueba. Se reportan intervalos de confianza del 95 % (t de Student, 5 folds) y la prueba pareada de Wilcoxon. Entorno: Python 3.13, scikit-learn [7], XGBoost [8], Librosa; gestor de entorno `uv`; 15 pruebas automatizadas; GPU opcional (resultados idénticos en CPU).
 
 ### D. Hipótesis y criterios de contraste
 
@@ -157,7 +157,7 @@ El desbalance de soporte explica gran parte del error por especie: las especies 
 
 Una lección metodológica central: las decisiones de post-procesamiento también se sobreajustan. Toda la mejora de 0,554 a 0,592 provino de cambiar la calibración de umbrales (de un fold a out-of-fold) con los mismos scores. La segunda evaluación de prueba se decidió con evidencia exclusiva de validación, sin búsqueda iterativa sobre prueba, y ambos resultados se reportan con transparencia.
 
-**Limitaciones.** n = 5 folds limita la potencia de las pruebas pareadas (p mínimo 0,0625); los umbrales OOF provienen de modelos de fold aplicados al modelo final (transferencia que empíricamente funcionó: validación 0,593 ≈ prueba 0,592); no se aplicó SMOTE (el recall de la línea base, 0,60–0,88, no mostró colapso); los modelos se entrenaron sobre clips focales (Xeno-Canto) y el despliegue real es sobre soundscapes de campo, con ruido y solapamiento de especies [7].
+**Limitaciones.** n = 5 folds limita la potencia de las pruebas pareadas (p mínimo 0,0625); los umbrales OOF provienen de modelos de fold aplicados al modelo final (transferencia que empíricamente funcionó: validación 0,593 ≈ prueba 0,592); no se aplicó SMOTE (el recall de la línea base, 0,60–0,88, no mostró colapso); los modelos se entrenaron sobre clips focales (Xeno-Canto) y el despliegue real es sobre soundscapes de campo, con ruido y solapamiento de especies [6].
 
 ## V. CONCLUSIONES
 
@@ -165,7 +165,7 @@ Una lección metodológica central: las decisiones de post-procesamiento tambié
 2. XGBoost con búsqueda de hiperparámetros dentro de validación cruzada agrupada por autor es el mejor modelo del proyecto: Macro-F1 0,592, ROC-AUC 0,915 y CMAP 0,637 en prueba, sin brecha de generalización (validación 0,593).
 3. El protocolo anti-fuga (particiones por grabación y autor, escalado dentro del fold, búsqueda anidada, umbrales out-of-fold, prueba de uso único) produjo estimaciones honestas: la validación predijo el resultado de prueba con error menor a 0,001 de Macro-F1.
 4. La calibración de umbrales por especie con criterio explícito (maximizar F1 en validación out-of-fold) aportó una mejora de +0,038 de Macro-F1 sobre el umbral por defecto, sin costo de entrenamiento.
-5. Trabajo futuro: remuestreo multietiqueta dentro de folds de entrenamiento, anotación experta de soundscapes y exploración de representaciones de modelos preentrenados de bioacústica [4].
+5. Trabajo futuro: remuestreo multietiqueta dentro de folds de entrenamiento, anotación experta de soundscapes y exploración de representaciones de modelos preentrenados de bioacústica [2].
 
 ## APÉNDICE
 
@@ -178,17 +178,10 @@ Los autores agradecen al instructor Milton Orlando Sarria Paja y a la Maestría 
 ## REFERENCIAS
 
 [1] J. S. Cañas, S. Kahl, T. Denton, M. P. Toro-Gómez, S. Rodriguez-Buritica, J. L. Benavides-Lopez, J. S. Ulloa, P. Caycedo-Rosales, H. Klinck, H. Goëau, W.-P. Vellinga, R. Planqué y A. Joly, “Overview of BirdCLEF+ 2025: Multi-Taxonomic Sound Identification in the Middle Magdalena, Colombia,” *Working Notes of CLEF 2025*, CEUR-WS Vol. 4038, 2025.
-
-[2] T. Chen y C. Guestrin, “XGBoost: A scalable tree boosting system,” en *Proc. 22nd ACM SIGKDD Int. Conf. Knowledge Discovery and Data Mining*, 2016, pp. 785–794. doi: 10.1145/2939672.2939785.
-
+[2] S. Kahl, C. M. Wood, M. Eibl y H. Klinck, “BirdNET: A deep learning solution for avian diversity monitoring,” *Ecological Informatics*, vol. 61, 101236, 2021. doi: 10.1016/j.ecoinf.2021.101236.
 [3] S. Fagerlund, “Bird Species Recognition Using Support Vector Machines,” *EURASIP Journal on Advances in Signal Processing*, vol. 2007, no. 1, 2007. doi: 10.1155/2007/38637.
-
-[4] S. Kahl, C. M. Wood, M. Eibl y H. Klinck, “BirdNET: A deep learning solution for avian diversity monitoring,” *Ecological Informatics*, vol. 61, 101236, 2021. doi: 10.1016/j.ecoinf.2021.101236.
-
-[5] L. Nanni, Y. M. G. Costa, R. L. Aguiar, R. B. Mangolin, S. Brahnam y C. N. Silla, “Ensemble of convolutional neural networks to improve animal audio classification,” *EURASIP Journal on Audio, Speech, and Music Processing*, vol. 2020, no. 1, 2020. doi: 10.1186/s13636-020-00175-3.
-
-[6] F. Pedregosa et al., “Scikit-learn: Machine learning in Python,” *Journal of Machine Learning Research*, vol. 12, pp. 2825–2830, 2011.
-
-[7] M. P. Toro-Gómez, J. S. Ulloa et al., “Past, present, and future of a tropical sounds collection from Colombia,” *Bioacoustics*, vol. 32, no. 4, pp. 474–490, 2023.
-
-[8] J. S. Ulloa, T. Aubin, D. Llusia, C. Bouveyron y J. Sueur, “Estimating animal acoustic diversity in tropical environments using unsupervised multiresolution analysis,” *Ecological Indicators*, vol. 90, pp. 346–355, 2018.
+[4] L. Nanni, Y. M. G. Costa, R. L. Aguiar, R. B. Mangolin, S. Brahnam y C. N. Silla, “Ensemble of convolutional neural networks to improve animal audio classification,” *EURASIP Journal on Audio, Speech, and Music Processing*, vol. 2020, no. 1, 2020. doi: 10.1186/s13636-020-00175-3.
+[5] J. S. Ulloa, T. Aubin, D. Llusia, C. Bouveyron y J. Sueur, “Estimating animal acoustic diversity in tropical environments using unsupervised multiresolution analysis,” *Ecological Indicators*, vol. 90, pp. 346–355, 2018.
+[6] M. P. Toro-Gómez, J. S. Ulloa et al., “Past, present, and future of a tropical sounds collection from Colombia,” *Bioacoustics*, vol. 32, no. 4, pp. 474–490, 2023.
+[7] F. Pedregosa et al., “Scikit-learn: Machine learning in Python,” *Journal of Machine Learning Research*, vol. 12, pp. 2825–2830, 2011.
+[8] T. Chen y C. Guestrin, “XGBoost: A scalable tree boosting system,” en *Proc. 22nd ACM SIGKDD Int. Conf. Knowledge Discovery and Data Mining*, 2016, pp. 785–794. doi: 10.1145/2939672.2939785.
