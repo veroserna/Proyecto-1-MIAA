@@ -11,9 +11,25 @@
 
 El monitoreo acústico pasivo (PAM) permite registrar el ambiente sonoro de forma continua y no invasiva, y se ha convertido en una herramienta clave para la conservación: las vocalizaciones de las aves sirven como indicador de presencia, actividad y salud de los ecosistemas. En el Magdalena Medio colombiano —una de las regiones con mayor riqueza de aves del país y bajo fuerte presión ambiental— identificar automáticamente especies por su canto habilita monitoreo a escala que el trabajo de campo manual no puede cubrir.
 
-**Objetivo del proyecto:** construir un pipeline reproducible de clasificación multietiqueta que identifique 16 especies de aves del Magdalena Medio a partir de clips de audio de 5 segundos, usando características acústicas clásicas (MFCC y estadísticos espectrales) y modelos de aprendizaje automático, con un protocolo de validación riguroso que garantice estimaciones honestas de desempeño.
+**Objetivo general (formulado en la primera entrega):** desarrollar y validar, entre el 13 de octubre y el 30 de noviembre de 2026, un prototipo reproducible de clasificación automática multietiqueta y exploración acústica para identificar un subconjunto de 10 a 20 especies de fauna del Valle del Magdalena Medio a partir de clips cortos de audio de BirdCLEF+ 2025, usando descriptores espectrales y cepstrales (MFCC y estadísticas de espectrogramas) y comparando modelos SVM y ensambles. El desempeño se evalúa con métricas globales y por especie, sin comprometer de antemano un puntaje mínimo.
+
+**Objetivos específicos:**
+
+1. **Preprocesamiento acústico y mitigación del desbalance:** pipeline reproducible de acondicionamiento (32 kHz, clips de 5 s, filtrado pasa-banda) y compensación de desbalance (ponderación de clases o remuestreo), con particionado estratificado.
+2. **Ingeniería de características y exploración no supervisada:** vector de descriptores por clip (MFCC, derivadas temporales, estadísticos espectrales) y clustering con reducción de dimensionalidad para caracterizar la separabilidad natural de los sonotipos.
+3. **Modelado supervisado, comparación y validación:** entrenar y optimizar SVM y ensambles (Random Forest, XGBoost) con validación cruzada agrupada, reportando Macro-F1, Macro ROC-AUC y métricas por especie, y documentando el impacto del ruido y la brecha entre grabaciones focales (Xeno-Canto) y de campo (soundscapes).
 
 El trabajo se apoya en los datos de la competencia BirdCLEF+ 2025 (grabaciones de Xeno-Canto y soundscapes de campo) y se desarrolló por hitos: análisis exploratorio y selección de especies (H1), acondicionamiento de audio (H2), extracción de características (H3), clustering exploratorio (H4), línea base supervisada (H5), ensambles optimizados (H6) y evaluación final única en test.
+
+### 1.1 Estado del arte (síntesis)
+
+| Enfoque | Representación | Modelos | Ventajas | Limitación frente a este proyecto |
+|---|---|---|---|---|
+| Aprendizaje profundo sobre espectrogramas (BirdNET) | Espectrogramas de alta resolución temporal | ResNet de 157 capas, 984 especies de Norteamérica/Europa | Aumentación específica del dominio frente a ruido y solapamiento | No evaluado en el Magdalena Medio; su desempeño aquí no es inferible |
+| ML clásico sobre descriptores acústicos (**este proyecto**) | Vectores MFCC + estadísticas espectrales | SVM (RBF/polinomial) y ensambles (Random Forest, XGBoost) | Comparable y reproducible en el subconjunto acotado; respaldado por Fagerlund (2007) | La agregación temporal por ventana puede diluir sílabas muy cortas |
+| Clustering no supervisado de sonotipos | PCA / UMAP sobre características tiempo-frecuencia | K-Means, DBSCAN | Sin etiquetas; revela separabilidad y clústeres de ruido | No asigna identidades taxonómicas; herramienta diagnóstica |
+
+El tope competitivo de BirdCLEF+ 2025 reporta ROC-AUC de 0,930 con modelos de espectrogramas y ensambles (Cañas et al., 2025) — referencia contextual para el ROC-AUC 0,915 obtenido aquí con características tabulares.
 
 ## 2. Metodología
 
@@ -148,7 +164,21 @@ Matrices de confusión por especie (cuadrícula completa):
 
 ## 6. Referencias
 
-`[POR COMPLETAR por el equipo: BirdCLEF+ 2025 / LifeCLEF, Xeno-Canto, Chen & Guestrin (2016) XGBoost, Pedregosa et al. (2011) scikit-learn, y las referencias del estado del arte de la primera entrega.]`
+Cañas, J. S., Kahl, S., Denton, T., Toro-Gómez, M. P., Rodriguez-Buritica, S., Benavides-Lopez, J. L., Ulloa, J. S., Caycedo-Rosales, P., Klinck, H., Goëau, H., Vellinga, W.-P., Planqué, R., & Joly, A. (2025). *Overview of BirdCLEF+ 2025: Multi-Taxonomic Sound Identification in the Middle Magdalena, Colombia*. Working Notes of CLEF 2025 (CEUR-WS Vol. 4038).
+
+Fagerlund, S. (2007). *Bird Species Recognition Using Support Vector Machines*. EURASIP Journal on Advances in Signal Processing, 2007(1). https://doi.org/10.1155/2007/38637
+
+Kahl, S., Wood, C. M., Eibl, M., & Klinck, H. (2021). *BirdNET: A deep learning solution for avian diversity monitoring*. Ecological Informatics, 61, 101236. https://doi.org/10.1016/j.ecoinf.2021.101236
+
+Nanni, L., Costa, Y. M. G., Aguiar, R. L., Mangolin, R. B., Brahnam, S., & Silla, C. N. (2020). *Ensemble of convolutional neural networks to improve animal audio classification*. EURASIP Journal on Audio, Speech, and Music Processing, 2020(1). https://doi.org/10.1186/s13636-020-00175-3
+
+Toro-Gómez, M. P., Ulloa, J. S., et al. / Instituto de Investigación de Recursos Biológicos Alexander von Humboldt (2023). *Past, present, and future of a tropical sounds collection from Colombia*. Bioacoustics, 32(4), 474–490.
+
+Ulloa, J. S., Aubin, T., Llusia, D., Bouveyron, C., & Sueur, J. (2018). *Estimating animal acoustic diversity in tropical environments using unsupervised multiresolution analysis*. Ecological Indicators, 90, 346–355.
+
+Chen, T., & Guestrin, C. (2016). *XGBoost: A scalable tree boosting system*. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785–794. https://doi.org/10.1145/2939672.2939785
+
+Pedregosa, F., et al. (2011). *Scikit-learn: Machine learning in Python*. Journal of Machine Learning Research, 12, 2825–2830.
 
 ---
 
