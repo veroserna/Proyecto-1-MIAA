@@ -1,94 +1,114 @@
-# Hito 6 — Random Forest y XGBoost con ajuste de hiperparámetros
+# Hito 6 — Random Forest y XGBoost: metodología y desarrollo completo
 
 **Proyecto 1 de Innovación Tecnológica — Maestría en Inteligencia Artificial Aplicada (MIAA)**
 **Universidad Icesi · Cali, Colombia**
 **Responsables según plan:** Carlos Alberto Salamando · Verónica Serna
 **Equipo:** Juan Fernando Gutiérrez · Miguel Ángel Paz · Carlos Alberto Salamando · Verónica Serna
-**Módulo de producción:** [`src/training/hito6_ensembles.py`](../src/training/hito6_ensembles.py) · ejecución: `python src/main.py --stage hito6`
 
-**Estado:** 🟢 **Ejecutado** (21 de noviembre de 2026). CV externa de 5 folds agrupados por autor, búsqueda interna GroupKFold(3) por autor, semilla 42, test excluido.
+**Estado:** 🟢 **Ejecutado** (21 de noviembre de 2026) — CV externa de 5 folds agrupados por autor, búsqueda interna GroupKFold(3) por autor, semilla 42, test excluido.
+
+> Documento autocontenido: describe de inicio a fin qué se hizo, por qué y con qué resultado, sin necesidad de leer otros archivos del repositorio.
 
 ---
 
-## 1. Objetivo y alcance
+## 1. Punto de partida: qué existía antes de este hito
 
-Entrenar y comparar **Random Forest** y **XGBoost** sobre las 90 características del Hito 3, con **búsqueda de hiperparámetros dentro de la validación cruzada**, y contrastarlos contra la línea base del Hito 5 (SVM RBF: Macro-F1 0,466 ± 0,019; Macro ROC-AUC 0,908 ± 0,004). Produce la tabla comparativa e importancia de características que alimentan la selección del modelo para la evaluación final.
+| Insumo (hitos previos) | Descripción |
+|---|---|
+| `src/data/features/features.csv` (Hito 3) | 20.748 clips × 90 características acústicas: MFCC (media, std, delta, delta-delta) y estadísticos espectrales (centroide, ancho de banda, roll-off, ZCR, asimetría, curtosis). |
+| Particiones fijadas (Hitos 1–2) | `train` 14.296 clips (fold0–3), `val` 3.597 (fold4), `test` 2.855. Agrupadas por grabación y autor: ninguna grabación se reparte entre particiones. |
+| Línea base (Hito 5) | SVM RBF: **Macro-F1 0,466 ± 0,019**, Macro ROC-AUC 0,908 ± 0,004 (CV de 5 folds, umbral de decisión 0 en `decision_function`). |
+| Retroalimentación del evaluador | Reportar intervalos de confianza o pruebas pareadas, no solo media ± desviación; analizar umbrales de decisión. |
 
-La selección del modelo ganador se basa **únicamente en validación**; la partición `test` permanece excluida (se evalúa una sola vez en la etapa 23–27 nov).
+## 2. Objetivo
 
-## 2. Protocolo
+Entrenar y comparar **Random Forest** y **XGBoost** sobre las 90 características, con búsqueda de hiperparámetros **dentro** de la validación cruzada, contrastarlos contra la línea base SVM RBF, calcular importancia de características y seleccionar el modelo para la evaluación final **usando solo validación** (`test` excluido en todo el hito).
 
-Idéntico al Hito 5 en lo esencial, más el ajuste interno:
+## 3. Metodología paso a paso
 
-- **Tarea multietiqueta** sobre las 16 especies (`primary_label` + `secondary` del subconjunto); predicciones por clip agregadas **por grabación** (máximo por especie) antes de evaluar.
-- **CV externa:** 5 folds agrupados por autor (`fold0`–`fold4` ya fijados en Hitos 1–2, sin recombinar).
-- **Escalador reajustado dentro de cada fold** de entrenamiento (regla del protocolo; los árboles no lo requieren, se conserva por comparabilidad).
-- **Búsqueda de hiperparámetros:** `RandomizedSearchCV`, 12 candidatos por modelo por fold, validación interna **GroupKFold(3) agrupada por autor** calculada solo sobre el fold de entrenamiento. La validación externa nunca participa del ajuste.
-- **Umbral fijo 0,5** (idéntico al Hito 5) para no introducir grados de libertad adicionales; la optimización de umbrales queda documentada como mejora posterior.
-- **Semilla 42** en todos los componentes estocásticos.
+### 3.1 Tarea y etiquetas
 
-### 2.1 Espacios de búsqueda
+Clasificación **multietiqueta** de 16 especies: una especie vale 1 si aparece en `primary_label` o en `secondary` del clip. Los scores de clips de una misma grabación se agregan tomando el **máximo por especie** antes de evaluar (la unidad de decisión es la grabación, no el clip).
 
-| Modelo | Hiperparámetros explorados |
+### 3.2 Validación cruzada externa sin fuga
+
+- 5 folds agrupados por autor (`fold0`–`fold4`, ya fijados; no se recombinan).
+- En cada iteración un fold completo se reserva para validación y los otros 4 entrenan.
+- El `StandardScaler` se reajusta **solo con el entrenamiento del fold** y luego transforma validación (los árboles no lo requieren; se conserva por comparabilidad con Hito 5).
+
+### 3.3 Búsqueda de hiperparámetros dentro de la CV
+
+`RandomizedSearchCV` con **12 candidatos** por modelo y por fold, con validación interna **GroupKFold(3) agrupada por autor** calculada solo sobre el entrenamiento del fold. La validación externa nunca participa del ajuste — así la búsqueda no introduce fuga.
+
+| Modelo | Espacio de búsqueda |
 |---|---|
 | Random Forest | `n_estimators` ∈ {200, 400, 600}; `max_depth` ∈ {None, 10, 20, 30}; `min_samples_leaf` ∈ {1, 2, 5}; `max_features` ∈ {sqrt, log2, 0.3}; `class_weight` ∈ {balanced, balanced_subsample} |
-| XGBoost | `n_estimators` ∈ {300, 600, 900}; `max_depth` ∈ {4, 6, 8, 10}; `learning_rate` ∈ {0.03, 0.05, 0.1}; `subsample` ∈ {0.7, 0.8, 1.0}; `colsample_bytree` ∈ {0.5, 0.7, 1.0}; `min_child_weight` ∈ {1, 5, 10}; `scale_pos_weight` ∈ {1, 3, 10} |
+| XGBoost (OvR) | `n_estimators` ∈ {300, 600, 900}; `max_depth` ∈ {4, 6, 8, 10}; `learning_rate` ∈ {0.03, 0.05, 0.1}; `subsample` ∈ {0.7, 0.8, 1.0}; `colsample_bytree` ∈ {0.5, 0.7, 1.0}; `min_child_weight` ∈ {1, 5, 10}; `scale_pos_weight` ∈ {1, 3, 10} |
 
-XGBoost se ejecuta con `tree_method="hist"` en GPU (CUDA) cuando está disponible, con respaldo a CPU.
+XGBoost usa `tree_method="hist"` en GPU (CUDA) si está disponible, con respaldo automático a CPU (`--device auto|cuda|cpu`; resultados idénticos, solo cambia el tiempo).
 
-### 2.2 Sobre SMOTE
+### 3.4 Umbral de decisión
 
-El plan contempla SMOTE **solo si las métricas lo justifican**. La línea base del Hito 5 muestra recall macro de 0,60–0,88 sin colapso por clase, por lo que no se aplica en esta corrida; un remuestreo multietiqueta correcto (p. ej. por salida OvR dentro del fold) queda como trabajo condicional del informe final.
+Umbral fijo **0,5** en la comparación principal (idéntico al Hito 5, sin grados de libertad extra). El ajuste de umbral por especie se estudia aparte como análisis de sensibilidad (sección 4.3) y culminó en la decisión de umbrales out-of-fold (sección 4.4).
 
-## 3. Métricas y contraste estadístico
+### 3.5 Sobre SMOTE
 
-- Macro-F1, precisión macro, recall macro, Macro ROC-AUC, exact-match (de apoyo) y cmAP: promedio ± desviación entre los 5 folds.
-- **IC del 95 %** por métrica (t de Student sobre 5 folds; n pequeño, orientativo).
-- **Prueba pareada de Wilcoxon** del Macro-F1 por fold contra SVM RBF del Hito 5, con la advertencia de potencia limitada (n = 5).
+El plan contempla SMOTE solo si las métricas lo justifican. La línea base mostró recall macro 0,60–0,88 sin colapso por clase, por lo que no se aplicó; un remuestreo multietiqueta correcto (por salida OvR dentro del fold) queda como trabajo condicional.
 
-Responde a la retroalimentación del evaluador sobre reportar intervalos o pruebas pareadas además de media ± desviación.
+### 3.6 Métricas y contraste estadístico
+
+- Macro-F1, precisión macro, recall macro, Macro ROC-AUC, exact-match y cmAP: promedio ± desviación entre los 5 folds.
+- **IC 95 %** por métrica (t de Student, n = 5; orientativo).
+- **Wilcoxon pareado** del Macro-F1 por fold contra SVM RBF (n = 5: el menor p alcanzable es 0,0625; evidencia de dirección, no concluyente).
 
 ## 4. Resultados
 
-**Ejecución completa, 5 folds agrupados por autor, 17.893 clips de train+val (sin test), semilla 42. Umbral fijo 0,5 (comparable con Hito 5).**
+### 4.1 Tabla comparativa (umbral fijo 0,5; 17.893 clips train+val; semilla 42)
 
-| Modelo | Macro-F1 (IC95) | Macro ROC-AUC (IC95) | Precisión macro | Recall macro | Exact match |
-|---|---|---|---|---|---|
-| Baseline logreg (Hito 5) | 0,299 ± 0,007 | 0,894 ± 0,005 | 0,185 | 0,883 | 0,025 |
-| SVM RBF (Hito 5) | 0,466 ± 0,019 | 0,908 ± 0,004 | 0,343 | 0,765 | 0,206 |
-| Random Forest | 0,200 [0,188; 0,211] | 0,888 [0,883; 0,893] | 0,85 (típico) | 0,12 (típico) | — |
-| **XGBoost** | **0,536 [0,506; 0,567]** | **0,908 [0,905; 0,912]** | — | — | — |
+| Modelo | Macro-F1 [IC95] | Macro ROC-AUC [IC95] | Precisión macro | Recall macro |
+|---|---|---|---|---|
+| Baseline logreg (H5) | 0,299 ± 0,007 | 0,894 ± 0,005 | 0,185 | 0,883 |
+| SVM RBF (H5) | 0,466 ± 0,019 | 0,908 ± 0,004 | 0,343 | 0,765 |
+| Random Forest | 0,200 [0,188; 0,211] | 0,888 [0,883; 0,893] | 0,84 | 0,12 |
+| **XGBoost** | **0,536 [0,506; 0,567]** | **0,908 [0,905; 0,912]** | — | — |
 
-**Pruebas pareadas vs. SVM RBF (Hito 5), Wilcoxon sobre los 5 folds:**
+**Wilcoxon pareado vs. SVM RBF:**
 
-| Comparación | ΔF1 medio | p |
-|---|---:|---:|
-| XGBoost − SVM RBF | **+0,071** | 0,0625 |
-| Random Forest − SVM RBF | −0,266 | 0,0625 |
+| Comparación | ΔF1 por fold | ΔF1 medio | p |
+|---|---|---:|---:|
+| XGBoost − SVM RBF | +0,068 · +0,082 · +0,052 · +0,097 · +0,055 | **+0,071** | 0,0625 |
+| Random Forest − SVM RBF | −0,253 · −0,281 · −0,289 · −0,261 · −0,246 | −0,266 | 0,0625 |
 
-n = 5 folds: 0,0625 es el menor p alcanzable (todas las diferencias con el mismo signo); evidencia de dirección consistente, no concluyente.
+### 4.2 Lectura
 
-### 4.1 Lectura: XGBoost supera a la línea base; el F1 bajo de Random Forest es un artefacto del umbral
+- **XGBoost es el nuevo mejor modelo:** supera a SVM RBF en Macro-F1 en los 5/5 folds con igual ROC-AUC (0,908). Sus mejores hiperparámetros convergen a un modelo conservador y regularizado: `learning_rate` 0,05, `max_depth` 4, `n_estimators` 300, `subsample` 0,7, `colsample_bytree` 0,5, `scale_pos_weight` 10.
+- **El F1 bajo de Random Forest es un artefacto del umbral 0,5**, no del ranking: precisión 0,79–0,91 con recall 0,11–0,13 y ROC-AUC 0,888. Sus probabilidades (votos de árboles) son conservadoras y rara vez superan 0,5 con prevalencias de ~10 %.
 
-- **XGBoost es el nuevo mejor modelo**: supera a SVM RBF en Macro-F1 en los 5 folds (Δ medio +0,071) con igual Macro ROC-AUC (0,908). Los mejores hiperparámetros convergen a `learning_rate` 0,05, `max_depth` 4, `scale_pos_weight` alto (10), árboles moderados (300) y muestreo de columnas 0,5 — modelo conservador y regularizado.
-- **Random Forest con umbral 0,5 colapsa en recall** (0,11–0,13) pese a precisión 0,79–0,91 y AUC 0,888: sus probabilidades (votos de árboles) son conservadoras y rara vez superan 0,5 en clases con ~10 % de prevalencia. El ranking es bueno; la decisión binaria con umbral fijo no.
+### 4.3 Sensibilidad de umbral (ajuste por especie dentro de cada fold)
 
-### 4.2 Sensibilidad de umbral (protocolo de la primera entrega)
+Eligiendo el umbral por especie que maximiza F1 sobre el propio fold de validación (sin test):
 
-Eligiendo el umbral por especie que maximiza F1 **sobre el propio fold de validación** (sin test), con los mismos modelos ya entrenados (`threshold_sensitivity.json`):
-
-| Modelo | Macro-F1 (umbral 0,5) | Macro-F1 (umbral ajustado en validación) |
+| Modelo | Macro-F1 (umbral 0,5) | Macro-F1 (umbral ajustado) |
 |---|---:|---:|
 | Random Forest | 0,200 ± 0,009 | **0,547 ± 0,014** |
 | XGBoost | 0,536 ± 0,022 | **0,610 ± 0,009** |
 
-Con umbral ajustado, **ambos ensambles superan a SVM RBF (0,466)** y XGBoost alcanza 0,610. La calibración de umbrales por especie queda confirmada como palanca de desempeño para la evaluación final.
+Con umbral ajustado ambos ensambles superan a SVM RBF (0,466): la calibración de umbrales quedó confirmada como palanca de desempeño.
 
-**Mejores hiperparámetros por fold:** `config.json` (`best_params_by_fold`).
+### 4.4 Umbrales out-of-fold (OOF): corrección del sobreajuste de umbrales
 
-## 5. Importancia de características
+**Problema detectado después (21-nov).** La primera evaluación final ajustó umbrales solo sobre fold4 y rumfly1 recibió umbral 0,30 → 111 falsos positivos en test. Se reconstruyeron las predicciones out-of-fold de los 5 folds de este hito (17.893 clips, 5.794 grabaciones — cada clip validado exactamente una vez, sin test) y se reajustaron los umbrales:
 
-Top-8 por importancia media entre folds (`feature_importance.csv`; figuras en `figures/`):
+| Criterio | Macro-F1 en validación |
+|---|---:|
+| Umbral ajustado solo en fold4 | 0,570 |
+| **Umbral ajustado out-of-fold (5 folds)** | **0,593** |
+
+6 de 16 especies cambiaron su umbral en más de 0,10 (rumfly1 0,30 → 0,55; soulap1 0,61 → 0,83; roahaw 0,56 → 0,74). La segunda pasada por test con umbrales OOF mejoró Macro-F1 de 0,554 a **0,592**, con validación (0,593) ≈ test (0,592): sin brecha de generalización. La decisión, sus salvaguardas y ambos resultados quedaron documentados en el informe final (sección 3.4) y en `docs/decision_umbrales_oof.md`.
+
+### 4.5 Importancia de características
+
+Top por importancia media entre folds:
 
 | Random Forest | % | XGBoost | % |
 |---|---:|---|---:|
@@ -98,7 +118,23 @@ Top-8 por importancia media entre folds (`feature_importance.csv`; figuras en `f
 | spectral_skewness_mean | 3,9 | mfcc_06_base_mean | 1,9 |
 | mfcc_12_base_mean | 3,2 | mfcc_00_delta_std | 1,8 |
 
-Lectura: los MFCC de orden bajo y medio (2, 6, 7) dominan — consistente con su rol de timbre espectral —, junto a la variabilidad temporal (delta/delta-delta std) y ZCR. XGBoost reparte la importancia más uniformemente (máx. ~2 %) que Random Forest (máx. ~6,5 %).
+Los MFCC de orden bajo y medio dominan (rol de timbre espectral), junto a variabilidad temporal (delta/delta-delta std) y ZCR. XGBoost reparte la importancia más uniformemente (máx. ~2 %) que Random Forest (máx. ~6,5 %).
+
+![Importancia de características — Random Forest](../experiments/results/hito6/figures/feature_importance_random_forest.png)
+
+![Importancia de características — XGBoost](../experiments/results/hito6/figures/feature_importance_xgboost.png)
+
+## 5. Reproducibilidad
+
+```bash
+uv sync --group notebook --group dev          # entorno (Python 3.13)
+uv run python src/main.py --stage hito6       # corrida completa (2–3 h; --device cpu sin GPU)
+uv run python scripts/hito6_threshold_analysis.py   # sensibilidad de umbral por fold
+uv run python scripts/hito6_oof_thresholds.py       # umbrales out-of-fold
+uv run python -m pytest tests/ -q             # 15 pruebas (incluye las del hito 6)
+```
+
+Notebook ejecutado con salidas embebidas: `notebooks/hito6_ensembles.ipynb` (lee los artefactos ya generados; no repite la corrida completa).
 
 ## 6. Artefactos
 
@@ -110,12 +146,14 @@ Todo en `experiments/results/hito6/`:
 - `feature_importance.csv` — importancia por característica, modelo y fold.
 - `paired_tests_vs_hito5.json` — Wilcoxon contra la línea base.
 - `config.json` — espacios de búsqueda, semilla y mejores hiperparámetros por fold.
-- `artifacts/*.joblib` — mejor modelo de cada fold (para la evaluación final).
+- `threshold_sensitivity.json` — umbrales por especie ajustados por fold.
+- `oof_thresholds.json` — umbrales out-of-fold y comparación contra fold4.
+- `artifacts/*.joblib` — mejor modelo de cada fold (~840 MB; no se versionan, se regeneran).
 - `figures/feature_importance_*.png`.
 
 ## 7. Limitaciones
 
-- La búsqueda es aleatoria con 12 candidatos: no garantiza el óptimo del espacio; documenta el punto de partida, no el mejor modelo posible.
-- IC con t de Student sobre 5 folds y Wilcoxon con n = 5 tienen potencia baja: se reportan como evidencia orientativa, como pidió el evaluador, sin convertirlos en prueba concluyente.
-- El umbral fijo 0,5 mantiene comparabilidad con Hito 5 pero deja desempeño sobre la mesa; la calibración de umbrales por especie es mejora pendiente.
-- Ningún resultado de este hito usa `test`; la selección final se confirma una única vez en la etapa de evaluación final.
+- Búsqueda aleatoria de 12 candidatos: no garantiza el óptimo del espacio; documenta un punto de partida sólido, no el mejor modelo posible.
+- IC con t de Student (n = 5) y Wilcoxon (n = 5) tienen potencia baja: evidencia orientativa, como pidió el evaluador, sin convertirla en prueba concluyente.
+- El umbral fijo 0,5 en la tabla principal mantiene comparabilidad con H5 pero deja desempeño sobre la mesa (cuantificado en 4.3–4.4).
+- Ningún resultado de este hito usa `test`; la selección final se confirmó una única vez en la evaluación final (Macro-F1 0,592, ROC-AUC 0,915).

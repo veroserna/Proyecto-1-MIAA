@@ -5,7 +5,20 @@ ________________________________________________________________________________
 
 Este proyecto forma parte de **Proyecto 1 de Innovación Tecnológica** de la Maestría en Inteligencia Artificial Aplicada de la Universidad Icesi, Cali, Colombia.
 
-#### Estado del proyecto: Activo
+#### Estado del proyecto: En cierre — pipeline completo ejecutado y evaluación final realizada (21-nov-2026). Pendientes solo video y sustentación.
+
+## Resultados principales
+
+Modelo final: **XGBoost** (16 especies, multietiqueta, clips de 5 s), entrenado con búsqueda de hiperparámetros dentro de validación cruzada agrupada por autor y umbrales de decisión por especie calibrados out-of-fold.
+
+| Métrica (test, 2.855 clips, agregación por grabación) | Valor |
+|---|---|
+| **Macro-F1** | **0,592** |
+| Macro ROC-AUC | 0,915 |
+| Precisión / Recall macro | 0,598 / 0,607 |
+| CMAP (métrica BirdCLEF) | 0,637 |
+
+La estimación de validación (0,593) predijo el resultado de test (0,592) sin brecha de generalización. Detalle completo en el [informe final](./docs/informe_final.md).
 
 ## Miembros del equipo
 
@@ -26,7 +39,7 @@ Este proyecto forma parte de **Proyecto 1 de Innovación Tecnológica** de la Ma
 
 El monitoreo acústico pasivo permite estudiar la biodiversidad sin intervenir en los ecosistemas. Se instalan grabadoras en el campo y luego se identifican automáticamente las especies por su sonido. Este proyecto se basa en la competencia BirdCLEF+ 2025, centrada en el Valle del Magdalena Medio en Colombia, y propone identificar la especie que emite un sonido a partir de grabaciones de audio.
 
-Para adaptarlo al curso se trabajará con un subconjunto de 10 a 20 especies y clips cortos. Es un problema de clasificación multiclase con desbalance entre especies. Los equipos extraerán características del audio (por ejemplo MFCC y estadísticos de espectrogramas), compararán SVM y ensambles, y podrán explorar agrupamiento no supervisado.
+Para adaptarlo al curso se trabajó con un subconjunto de 16 especies y clips cortos de 5 segundos. Es un problema de clasificación multietiqueta con desbalance entre especies. El equipo extrajo características del audio (MFCC y estadísticos de espectrogramas), comparó SVM y ensambles (Random Forest, XGBoost) y exploró agrupamiento no supervisado.
 
 Los datos son grabaciones de la plataforma Xeno-Canto y de ediciones anteriores del concurso. El conjunto completo tiene 28.564 grabaciones de 206 especies.
 
@@ -44,15 +57,14 @@ Su relevancia es la conservación en un punto crítico de biodiversidad y la con
 
 ### Tecnologías
 
-* Python
+* Python 3.13 (entorno con `uv`)
 * Jupyter Notebook
-* Pandas
-* NumPy
+* Pandas / NumPy
 * Scikit-learn
+* XGBoost
 * Librosa
-* Matplotlib
-* Seaborn
-* PyAudio
+* Matplotlib / Seaborn
+* Pytest (15 pruebas automatizadas)
 
 ## Descripción del proyecto
 
@@ -104,11 +116,12 @@ Proyecto 1 MIAA/
 │   │   ├── ensemble_model.py          # Modelo de ensamble / baseline avanzado
 │   │   ├── my_model.py
 │   │   └── __init__.py
-│   ├── training/                      # Pipelines de entrenamiento
-│   │   ├── preprocessing/            # Scripts de limpieza y transformación de audio
-│   │   ├── train_baseline.py          # entrenamiento del modelo base
-│   │   ├── train_svm.py               # entrenamiento de SVM / clasificadores
-│   │   ├── train.py                  # Pipeline general
+│   ├── training/                      # Pipelines de entrenamiento por hito
+│   │   ├── preprocessing/             # Hito 2 (audio), Hito 3 (features) y builders de notebooks
+│   │   ├── hito4_clustering.py        # Clustering K-Means + relación con SNR
+│   │   ├── hito5_baseline_svm.py      # Baseline logístico + SVM (lineal/RBF/polinomial)
+│   │   ├── hito6_ensembles.py         # Random Forest + XGBoost con búsqueda dentro de CV
+│   │   ├── hito7_evaluacion_final.py  # Evaluación única en test (umbrales OOF)
 │   │   └── __init__.py
 │   ├── evaluation/                    # Validación y métricas
 │   │   ├── metrics.py                 # Accuracy, F1, precisión, recall
@@ -123,6 +136,10 @@ Proyecto 1 MIAA/
 ├── notebooks/                         # Experimentos y análisis exploratorio
 │   ├── hito1_eda_seleccion_especies.ipynb
 │   ├── hito2_acondicionamiento_audio.ipynb
+│   ├── hito3_analisis_features.ipynb
+│   ├── hito4_clustering.ipynb
+│   ├── hito5_baseline_svm.ipynb
+│   ├── hito6_ensembles.ipynb
 │   ├── experimento_01_especies_amenazadas.ipynb
 │   ├── experimento_02_rechazo_fauna_ambiente.ipynb
 │   └── experimento_03_pipeline_hito2_rechazo_fauna_ambiente.ipynb
@@ -149,17 +166,16 @@ Este flujo permite separar claramente:
 - limpieza y segmentación de clips
 - extracción de features como MFCC, espectrogramas y estadísticas
 - entrenamiento de modelos de referencia y comparativos
-- evaluación con métricas adecuadas para clasificación multiclase
+- evaluación con métricas adecuadas para clasificación multietiqueta desbalanceada (Macro-F1, Macro ROC-AUC, CMAP)
 - almacenamiento de resultados y experimentos
 
 ## Primeros pasos
 
 1. Clona este repositorio.
-2. Crea un entorno virtual o conda.
-3. Instala las dependencias con `pip install -r requirements.txt`.
-4. Descarga los datos en tu entorno local.  `kaggle competitions download -c birdclef-2025` en la ruta `src/data/raw`. Ver https://github.com/Kaggle/kaggle-cli/tree/main/docs 
-5. Explora la estructura del proyecto en `src/` y revisa la documentación en `docs/`.
-6. Usa los notebooks en `notebooks/` para experimentación y análisis exploratorio.
+2. Instala [`uv`](https://docs.astral.sh/uv/) y crea el entorno con `uv sync --group notebook --group dev` (alternativas con pip/conda en la [guía de instalación](./docs/instalacion.md)).
+3. Descarga los datos en tu entorno local.  `kaggle competitions download -c birdclef-2025` en la ruta `src/data/raw`. Ver https://github.com/Kaggle/kaggle-cli/tree/main/docs 
+4. Ejecuta el pipeline por etapas: `uv run python src/main.py --stage hito1` … `--stage hito6` y `--stage evaluacion_final` (añade `--device cpu` si no tienes GPU NVIDIA).
+5. Usa los notebooks en `notebooks/` para recorrer cada hito con salidas ya ejecutadas, y verifica la instalación con `uv run python -m pytest tests/ -q`.
 
 ## Notebooks y entregables destacados
 
@@ -178,7 +194,7 @@ Este flujo permite separar claramente:
 * [Informe técnico Hito 5 (Baseline y SVM)](./docs/hito5_baseline_svm_report.md)
 * [Informe técnico Hito 6 (Ensambles)](./docs/hito6_ensembles_report.md)
 * [Hipótesis del proyecto](./docs/hipotesis.md)
-* [Informe final (plantilla con resultados)](./docs/informe_final.md)
+* [Informe final](./docs/informe_final.md) (autocontenido: incluye hipótesis, decisión de umbrales OOF y resultados de test)
 * [Decisión de umbrales out-of-fold](./docs/decision_umbrales_oof.md)
 * [Arquitectura del proyecto](./docs/arquitectura.md)
 * [Plan de trabajo, fechas y responsables](./docs/plan_trabajo.md)

@@ -7,7 +7,7 @@
 **Notebook ejecutable:** [`notebooks/hito5_baseline_svm.ipynb`](../notebooks/hito5_baseline_svm.ipynb)
 **Módulos de producción:** [`src/training/hito5_baseline_svm.py`](../src/training/hito5_baseline_svm.py) · [`src/evaluation/metrics.py`](../src/evaluation/metrics.py) · [`src/main.py`](../src/main.py)
 
-**Estado:** 🟢 **Ejecutado en validación cruzada; evaluación final pendiente.** Los resultados de este reporte corresponden a la corrida más reciente registrada en `cv_summary.json`, con todos los clips disponibles en cada fold de entrenamiento y sin usar la partición `test`.
+**Estado:** 🟢 **Ejecutado en validación cruzada; evaluación final ya realizada** (21-nov-2026, Macro-F1 0,592 y ROC-AUC 0,915 en test con XGBoost — ver [informe final](./informe_final.md)). Los resultados de este reporte corresponden a la corrida más reciente registrada en `cv_summary.json`, con todos los clips disponibles en cada fold de entrenamiento y sin usar la partición `test`.
 
 ---
 
