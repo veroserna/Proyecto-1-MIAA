@@ -1,0 +1,26 @@
+{
+  "seed": 42,
+  "model": "xgboost",
+  "best_params_modal_hito6": {
+    "estimator__subsample": 0.7,
+    "estimator__scale_pos_weight": 10,
+    "estimator__n_estimators": 300,
+    "estimator__min_child_weight": 1,
+    "estimator__max_depth": 4,
+    "estimator__learning_rate": 0.05,
+    "estimator__colsample_bytree": 0.5
+  },
+  "train_folds": [
+    "fold0",
+    "fold1",
+    "fold2",
+    "fold3"
+  ],
+  "val_fold_for_thresholds": "fold4",
+  "threshold_tuning": "F1 por especie sobre predicciones out-of-fold de los 5 folds (17.893 clips; sin test)",
+  "threshold_source": "oof",
+  "aggregation": "m\u00e1ximo por recording_id",
+  "device": "cuda",
+  "test_used_once": true,
+  "nota_segunda_pasada": "2026-11-21: segunda evaluaci\u00f3n de test, decidida con evidencia de validaci\u00f3n (Macro-F1 OOF 0,593 vs 0,570 con umbrales fold4; correcci\u00f3n del umbral extremo de rumfly1 0,30\u21920,55). Documentado como correcci\u00f3n metodol\u00f3gica del ajuste de umbrales, no como b\u00fasqueda sobre test."
+}

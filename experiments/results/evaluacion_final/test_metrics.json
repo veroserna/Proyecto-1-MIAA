@@ -1,0 +1,17 @@
+{
+  "test_metrics": {
+    "accuracy": 0.39689119170984455,
+    "balanced_accuracy": null,
+    "f1_macro": 0.5921983545446092,
+    "precision_macro": 0.5979530759012742,
+    "recall_macro": 0.6069038507067629,
+    "roc_auc_macro": 0.9149606698689075,
+    "cmap": 0.637238700969937
+  },
+  "val_metrics_with_tuned_thresholds": {
+    "f1_macro": 0.5927105097282503,
+    "nota": "Macro-F1 OOF sobre 5 folds de validaci\u00f3n"
+  },
+  "n_test_recordings": 965,
+  "n_test_clips": 2855
+}

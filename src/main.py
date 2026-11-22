@@ -41,7 +41,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Pipeline principal BirdCLEF+ 2025 (MIAA Universidad Icesi)")
     parser.add_argument(
         "--stage",
-        choices=["hito1", "hito2", "hito3", "hito4", "hito5", "all"],
+        choices=["hito1", "hito2", "hito3", "hito4", "hito5", "hito6", "evaluacion_final", "all"],
         default="all",
         help="Etapa del pipeline a ejecutar (por defecto: all).",
     )
@@ -55,6 +55,18 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=None, help="Hito 3: muestra de prueba (mínimo 9; recomendado 60)")
     parser.add_argument("--format", choices=["csv", "parquet"], default="csv", help="Hito 3: formato de features")
     parser.add_argument("--overwrite", action="store_true", help="Hito 3: reemplazar resultados anteriores del Hito 3")
+    parser.add_argument(
+        "--threshold-source",
+        choices=["oof", "fold4"],
+        default="oof",
+        help="Evaluación final: origen de los umbrales por especie (oof = out-of-fold de los 5 folds del Hito 6; fold4 = solo validación).",
+    )
+    parser.add_argument(
+        "--device",
+        choices=["auto", "cuda", "cpu"],
+        default="auto",
+        help="Dispositivo de XGBoost en Hitos 6 y evaluación final (auto = CUDA si está disponible; cpu = forzar CPU).",
+    )
 
     args = parser.parse_args()
 
@@ -76,6 +88,14 @@ def main() -> None:
         run_hito4_clustering()
     if args.stage == "hito5":
         run_hito5_baseline_svm()
+    if args.stage == "hito6":
+        # Importación diferida: Hitos 1-5 no requieren instalar xgboost.
+        from src.training.hito6_ensembles import run_hito6_ensembles
+        run_hito6_ensembles(device=args.device)
+    if args.stage == "evaluacion_final":
+        # Importación diferida: requiere xgboost y los resultados del Hito 6.
+        from src.training.hito7_evaluacion_final import run_evaluacion_final
+        run_evaluacion_final(threshold_source=args.threshold_source, device=args.device)
 
 
 if __name__ == "__main__":

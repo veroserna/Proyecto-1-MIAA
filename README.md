@@ -166,11 +166,20 @@ Este flujo permite separar claramente:
 * **Primera entrega del proyecto** — [secciones 2 y 3 en Markdown](./docs/entrega_01_proyecto_innovacion.md): objetivos y estado del arte. La [sección 1, planteamiento y árbol de problemas](./docs/arbol-problemas.md), se conserva por separado.
 * [Notebook Hito 1 — EDA y selección de 16 especies del Magdalena Medio](./notebooks/hito1_eda_seleccion_especies.ipynb)
 * [Notebook Hito 2 — Acondicionamiento y segmentación de audio](./notebooks/hito2_acondicionamiento_audio.ipynb)
+* [Notebook Hito 3 — Análisis de características acústicas](./notebooks/hito3_analisis_features.ipynb)
+* [Notebook Hito 4 — Clustering K-Means](./notebooks/hito4_clustering.ipynb)
+* [Notebook Hito 5 — Baseline y SVM](./notebooks/hito5_baseline_svm.ipynb)
+* [Notebook Hito 6 — Ensambles Random Forest y XGBoost](./notebooks/hito6_ensembles.ipynb)
 * **Experimento 1** — [notebook reproducible](./notebooks/experimento_01_especies_amenazadas.ipynb) y [análisis y conclusiones](./docs/experimento_01_especies_amenazadas.md) sobre el paujil de pico azul y el chavarrí.
 * **Experimento 2** — [notebook reproducible](./notebooks/experimento_02_rechazo_fauna_ambiente.ipynb) y [análisis y recomendaciones](./docs/experimento_02_rechazo_fauna_ambiente.md) sobre fauna no objetivo y sonidos ambientales.
 * **Experimento 3** — [copia experimental del pipeline del Hito 2](./notebooks/experimento_03_pipeline_hito2_rechazo_fauna_ambiente.ipynb) que genera manifiestos de candidatos débiles y soundscapes sin etiqueta. No modifica el notebook original de Hito 2.
 * [Informe técnico Hito 1 (EDA)](./docs/hito1_eda_report.md)
 * [Informe técnico Hito 2 (Acondicionamiento y Clips 5s)](./docs/hito2_acondicionamiento_report.md)
+* [Informe técnico Hito 5 (Baseline y SVM)](./docs/hito5_baseline_svm_report.md)
+* [Informe técnico Hito 6 (Ensambles)](./docs/hito6_ensembles_report.md)
+* [Hipótesis del proyecto](./docs/hipotesis.md)
+* [Informe final (plantilla con resultados)](./docs/informe_final.md)
+* [Decisión de umbrales out-of-fold](./docs/decision_umbrales_oof.md)
 * [Arquitectura del proyecto](./docs/arquitectura.md)
 * [Plan de trabajo, fechas y responsables](./docs/plan_trabajo.md)
 * [Guía de instalación](./docs/instalacion.md)
