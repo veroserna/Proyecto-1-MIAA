@@ -178,7 +178,7 @@ Este flujo permite separar claramente:
 * [Informe técnico Hito 5 (Baseline y SVM)](./docs/hito5_baseline_svm_report.md)
 * [Informe técnico Hito 6 (Ensambles)](./docs/hito6_ensembles_report.md)
 * [Hipótesis del proyecto](./docs/hipotesis.md)
-* [Informe final (plantilla con resultados)](./docs/informe_final.md)
+* [Informe final](./docs/informe_final.md) (autocontenido: incluye hipótesis, decisión de umbrales OOF y resultados de test)
 * [Decisión de umbrales out-of-fold](./docs/decision_umbrales_oof.md)
 * [Arquitectura del proyecto](./docs/arquitectura.md)
 * [Plan de trabajo, fechas y responsables](./docs/plan_trabajo.md)
