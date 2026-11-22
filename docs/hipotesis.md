@@ -9,7 +9,7 @@
 |---|---|---|---|
 | **H1.** Las características acústicas clásicas contienen señal predictiva de especie | Macro ROC-AUC con límite inferior del IC 95 % > 0,5; y F1 > 0 en ≥ 12 de 16 especies | ROC-AUC test = **0,915** (CV: 0,908 [IC95 0,905–0,912]); F1 > 0 en **16/16** especies | ✅ **Apoyada** |
 | **H2.** Los ensambles de árboles superan a la línea base SVM RBF | Δ Macro-F1 > 0 entre folds y Wilcoxon p < 0,10, o IC95 sin solapamiento con la línea base | XGBoost − SVM RBF: ΔF1 = **+0,071** (positivo en 5/5 folds), Wilcoxon **p = 0,0625**; IC95 XGBoost [0,506–0,567] vs SVM 0,466 ± 0,019 | ✅ **Apoyada** (XGBoost; Random Forest solo con umbral ajustado) |
-| **H3.** El ruido de fondo degrada la estructura del espacio de características | (a) Spearman ρ > 0 significativo entre distancia al centroide del cluster y SNR del clip; (b) en test, SNR mediano de errores < SNR de aciertos (IC95 bootstrap excluye 0) | (a) ρ = **0,348, p ≈ 0** (ρ = 0,271 para energía en banda) en Hito 4; (b) análisis de SNR en errores de test no ejecutado — queda como trabajo futuro | 🟡 **Parcialmente apoyada** (parte a confirmada; parte b pendiente) |
+| **H3.** El ruido de fondo degrada la estructura del espacio de características | (a) Spearman ρ > 0 significativo entre distancia al centroide del cluster y SNR del clip; (b) en test, SNR mediano de errores < SNR de aciertos (IC95 bootstrap excluye 0) | (a) ρ = **0,348, p ≈ 0** (ρ = 0,271 para energía en banda) en Hito 4; (b) SNR mediana errores **10,73 dB** vs. aciertos **16,50 dB**; diferencia **−5,76 dB**, IC95 bootstrap **[−6,73, −4,57]** (excluye 0) | ✅ **Apoyada** |
 
 ---
 
@@ -31,7 +31,7 @@
 
 **Hipótesis.** Los clips con menor relación señal-ruido se ubican más lejos de la región típica de su clase; parte de la dificultad de clasificación proviene del ruido y no de la similitud acústica entre especies.
 
-**Resultado.** Parte (a) **confirmada** en el Hito 4: correlación de Spearman ρ = 0,348 (p ≈ 0) entre distancia al centroide del cluster y SNR del clip, y ρ = 0,271 para energía en banda — los clips ruidosos se alejan de la región típica de su clase. Parte (b) (comparación de SNR entre errores y aciertos de test) no se ejecutó dentro del cronograma y queda como trabajo futuro. **Parcialmente apoyada.**
+**Resultado.** Parte (a) confirmada en el Hito 4: correlación de Spearman ρ = 0,348 (p ≈ 0) entre distancia al centroide del cluster y SNR del clip, y ρ = 0,271 para energía en banda — los clips ruidosos se alejan de la región típica de su clase. Parte (b) confirmada en test (análisis post-hoc sobre las predicciones congeladas del modelo final, `scripts/h3b_snr_errores.py`): de los 2.855 clips de test, 1.705 tienen al menos una especie mal clasificada y su SNR mediano es **10,73 dB**, frente a **16,50 dB** en los 1.150 clips perfectos — diferencia de medianas −5,76 dB con IC95 bootstrap [−6,73, −4,57], que excluye 0. **Apoyada en ambas partes.**
 
 ---
 

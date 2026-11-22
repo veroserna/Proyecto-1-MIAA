@@ -1,0 +1,18 @@
+{
+  "criterio": "clip con >= 1 especie mal clasificada (de 16) vs. clip perfecto",
+  "n_clips_test": 2855,
+  "n_clips_con_error": 1705,
+  "n_clips_perfectos": 1150,
+  "snr_mediana_errores_db": 10.735,
+  "snr_mediana_aciertos_db": 16.4955,
+  "dif_medianas_db": -5.7605,
+  "ic95_bootstrap": [
+    -6.729024999999999,
+    -4.569000000000001
+  ],
+  "n_bootstrap": 10000,
+  "seed": 42,
+  "criterio_apoyo_h3b": "IC95 de la diferencia de medianas (errores - aciertos) excluye 0 y es negativo",
+  "h3b_apoyada": true,
+  "nota": "Análisis descriptivo post-hoc sobre predicciones congeladas; no modifica modelo ni umbrales."
+}
