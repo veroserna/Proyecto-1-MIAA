@@ -16,9 +16,9 @@ Los principales resultados son:
 - Se extrajeron **90 características** por clip y se verificó cobertura completa, sin valores inválidos. Las primeras dos componentes PCA explican **31,89 %** de la varianza; la proyección muestra solapamiento entre especies y es solo descriptiva.
 - K-Means sobre train + validation obtuvo **ARI = 0,0320** y **Silhouette = 0,0206**, señal de baja correspondencia entre clusters y etiquetas de especie y escasa separación interna para este método no supervisado.
 - Los experimentos de cobertura muestran que *Crax alberti* y *Chauna chavaria* tienen pocos ejemplos para incorporarlas con equidad al clasificador de 16 clases. La auditoría de rechazo encontró 904 grabaciones no aviares y 9.726 soundscapes, pero no negativos limpios suficientes para demostrar una mejora de rechazo.
-- El Hito 5 completó la comparación de baseline y SVM mediante validación cruzada agrupada por autor con folds completos: SVM RBF obtuvo Macro-F1 **0,466 ± 0,019** y Macro ROC-AUC **0,908 ± 0,004**. El Hito 6, la evaluación final en test y los entregables de cierre siguen pendientes según el plan.
+- El Hito 5 completó la comparación de baseline y SVM mediante validación cruzada agrupada por autor con folds completos: SVM RBF obtuvo Macro-F1 **0,466 ± 0,019** y Macro ROC-AUC **0,908 ± 0,004**. (A la fecha de corte de este informe de avance, el Hito 6 y la evaluación final seguían pendientes; **ambos ya fueron ejecutados el 21-nov-2026** — ver [informe final](./informe_final.md).)
 
-Este documento presenta el estado y la evidencia disponible a la fecha de corte. No constituye el informe final ni reporta una evaluación definitiva de generalización a soundscapes de El Silencio.
+Este documento presenta el estado y la evidencia disponible a la fecha de corte **del informe de avance** (hasta el Hito 5). No constituye el informe final: el documento vigente con la metodología y resultados completos (Hito 6 y evaluación en test) es [informe_final.md](./informe_final.md).
 
 ## 2. Problema y objetivo del proyecto
 
@@ -47,7 +47,7 @@ Los criterios de calidad definidos por el plan incluyen separar por autor y grab
 
 ### Ruta metodológica seguida
 
-El siguiente flujo resume el proceso y diferencia hitos completados de trabajo planificado aún pendiente. En Hito 5 se completó la comparación por validación cruzada; esto no equivale a la evaluación final en `test`. Las transformaciones aprendidas se ajustaron dentro de entrenamiento y `test` se excluyó del análisis de clustering y de esta comparación supervisada.
+El siguiente flujo resume el proceso con el estado actual de cada etapa. En Hito 5 se completó la comparación por validación cruzada; esto no equivale a la evaluación final en `test`, que se ejecutó después (21-nov) con el protocolo documentado. Las transformaciones aprendidas se ajustaron dentro de entrenamiento y `test` se excluyó del análisis de clustering y de esta comparación supervisada.
 
 ```mermaid
 flowchart LR
@@ -56,9 +56,9 @@ flowchart LR
     C --> D[Hito 3 COMPLETADO<br/>90 características<br/>StandardScaler y PCA]
     D --> E[Hito 4 COMPLETADO<br/>K-Means en train + validation<br/>test excluido]
     D --> F[Hito 5 COMPLETADO<br/>Baseline / SVM<br/>5 folds agrupados; folds completos]
-    F --> G[Hito 6 PENDIENTE<br/>ensambles + ajuste<br/>de hiperparámetros]
-    G --> H[Evaluación final PENDIENTE<br/>selección en validation<br/>y evaluación única en test]
-    H --> I[Cierre PENDIENTE<br/>informe final, video<br/>y sustentación]
+    F --> G[Hito 6 COMPLETADO 21-nov<br/>ensambles + ajuste<br/>de hiperparámetros]
+    G --> H[Evaluación final COMPLETADA 21-nov<br/>XGBoost + umbrales OOF<br/>Macro-F1 0,592 en test]
+    H --> I[Cierre EN CURSO<br/>informe final listo;<br/>video y sustentación pendientes]
     B --> J[Experimentos 1–2 REALIZADOS<br/>cobertura amenazadas<br/>fauna y soundscapes]
     C --> K[Experimento 3 REALIZADO<br/>manifiestos candidatos<br/>sin etiquetas verificadas]
     J --> L[Resultados de avance<br/>sin inferir negativos<br/>ni generalización de campo]
@@ -69,12 +69,12 @@ flowchart LR
     classDef pending fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:2px;
     classDef experiment fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
     class A,B,C,D,E,L done;
-    class F done;
-    class G,H,I pending;
+    class F,G,H done;
+    class I pending;
     class J,K experiment;
 ```
 
-**Leyenda:** verde = hito completado; rojo = hito o etapa del plan pendiente; azul = experimento complementario. El Hito 5 está completado como comparación de validación cruzada; la evaluación final en `test` sigue pendiente.
+**Leyenda:** verde = hito completado; rojo = etapa en curso o pendiente; azul = experimento complementario. *(Actualizado al 22-nov-2026: el Hito 6 y la evaluación final en test ya fueron ejecutados; al corte original de este informe de avance estaban pendientes.)*
 
 ### 4.1 Hito 1 — EDA y selección del subconjunto
 
@@ -315,7 +315,7 @@ El [informe de Hito 5](https://github.com/veroserna/Proyecto-1-MIAA/blob/main/do
 
 **Lectura del avance:** SVM RBF obtiene los mayores Macro-F1 y Macro ROC-AUC entre los modelos de esta corrida. Baseline y SVM lineal presentan recall alto y precisión baja bajo los umbrales fijos usados. La exact match es muy estricta para multilabel. Los resultados son de validación cruzada, no de la evaluación final en `test` ni de soundscapes de campo.
 
-La corrida anterior con límite de 1.500 clips por fold queda reemplazada como resultado actual por la ejecución completa. El Hito 5 queda cerrado como línea base de validación cruzada con umbrales fijos; el Hito 6 y la evaluación final permanecen pendientes.
+La corrida anterior con límite de 1.500 clips por fold queda reemplazada como resultado actual por la ejecución completa. El Hito 5 queda cerrado como línea base de validación cruzada con umbrales fijos. *(Actualización 22-nov-2026: el Hito 6 y la evaluación final ya fueron ejecutados — ver [informe final](./informe_final.md).)*
 
 ## 7. Alcance y límites de la exploración
 
@@ -342,14 +342,14 @@ La corrida anterior con límite de 1.500 clips por fold queda reemplazada como r
 |---|---|---|
 | Hito 1 — EDA y selección de especies | Completado | Informe y artefactos de EDA; 16 especies seleccionadas |
 | Hito 2 — Acondicionamiento y particiones | Completado | 20.748 clips; auditoría de integridad y particiones |
-| Hito 3 — Características y PCA | Completado | 90 características; validación numérica aprobada; la celda de avance del plan está vacía |
+| Hito 3 — Características y PCA | Completado | 90 características; validación numérica aprobada |
 | Hito 4 — Clustering exploratorio | Completado | K-Means y métricas calculadas sobre train + validation |
 | Hito 5 — Baseline y SVM | Completado | Cinco folds agrupados por autor; corrida actual con todos los clips de cada fold; umbrales fijos; linea base CV |
-| Hito 6 — Ensambles y ajuste | Pendiente | Actividad planificada para el 16–20 de noviembre |
-| Evaluación final en test | Pendiente | Actividad planificada para el 23–27 de noviembre; no se reporta como ejecutada |
-| Informe final, video y sustentación | Pendientes | Cierre planificado para el 30 de noviembre–2 de diciembre |
+| Hito 6 — Ensambles y ajuste | Completado (21-nov) | XGBoost Macro-F1 0,536 [IC95 0,506–0,567] en CV; supera a SVM RBF en 5/5 folds |
+| Evaluación final en test | Completada (21-nov) | Macro-F1 0,592, ROC-AUC 0,915, CMAP 0,637; umbrales OOF; matrices de confusión por especie |
+| Informe final, video y sustentación | En curso | Informe final completo y autocontenido; video y sustentación pendientes (30 nov–2 dic) |
 
-Los Experimentos 1–3 son complementarios y no sustituyen los hitos pendientes del plan. La evaluación sobre soundscapes de campo tampoco se considera completada en este corte.
+Los Experimentos 1–3 son complementarios y no sustituyen los hitos del plan. La evaluación sobre soundscapes de campo (brecha Xeno-Canto vs. campo) queda como trabajo futuro documentado en el informe final.
 
 ## 9. Fuentes y artefactos
 
